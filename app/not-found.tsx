@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-async function NotFoundPage() {
+export default function NotFoundPage() {
   return (
     <div className='flex grow flex-col items-center justify-center py-10'>
       <h1>Page not found</h1>
@@ -10,4 +10,3 @@ async function NotFoundPage() {
     </div>
   );
 }
-export default NotFoundPage;

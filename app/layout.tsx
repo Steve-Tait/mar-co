@@ -33,6 +33,7 @@ import TestimonialWysiwyg from '@/components/Wysiwyg/TestimonialWysiwyg';
 import { resolveRelations } from '@/lib/consts';
 import { getConfig } from '@/lib/storyblok';
 import CategoryOverview from '@/components/Content/CategoryOverview';
+import { notFound } from 'next/navigation';
 
 const poppins = Poppins({
   weight: ['400', '600', '700', '900'],
@@ -98,7 +99,11 @@ export default async function RootLayout({
   const bridgeOptions = {
     resolveRelations: resolveRelations,
   };
+
   const config = await getConfig();
+  if (!config?.content) {
+    notFound();
+  }
   return (
     <html lang='en'>
       <body

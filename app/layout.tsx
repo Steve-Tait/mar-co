@@ -33,7 +33,6 @@ import TestimonialWysiwyg from '@/components/Wysiwyg/TestimonialWysiwyg';
 import { resolveRelations } from '@/lib/consts';
 import { getConfig } from '@/lib/storyblok';
 import CategoryOverview from '@/components/Content/CategoryOverview';
-import { notFound } from 'next/navigation';
 
 const poppins = Poppins({
   weight: ['400', '600', '700', '900'],
@@ -100,8 +99,6 @@ export default async function RootLayout({
     resolveRelations: resolveRelations,
   };
 
-  const config = await getConfig();
-
   return (
     <html lang='en'>
       <body
@@ -111,7 +108,7 @@ export default async function RootLayout({
           poppins.variable
         )}
       >
-        <Layout blok={config?.content}>{children}</Layout>
+        <Layout>{children}</Layout>
       </body>
       <StoryblokBridgeLoader options={bridgeOptions} />
     </html>

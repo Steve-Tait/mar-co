@@ -4,7 +4,7 @@ import { render } from 'storyblok-rich-text-react-renderer';
 import MenuSectionFooter from '../Content/MenuSectionFooter';
 import { FooterStoryblok, MenuSectionStoryblok } from '@/component-types-sb';
 
-export default function Footer({ blok }: FooterStoryblok) {
+export default function Footer({ blok }: { blok: FooterStoryblok }) {
   const { menu, body } = blok;
   return (
     <footer

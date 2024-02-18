@@ -10,16 +10,13 @@ import {
 } from '@/components/ui/drawer';
 import Heading from './Heading';
 import { ReactNode } from 'react';
-import { ConfigStoryblok, HeaderStoryblok } from '@/component-types-sb';
+import { FooterStoryblok, HeaderStoryblok } from '@/component-types-sb';
 import ContactForm from './ContactForm';
+import { getConfig } from '@/lib/storyblok';
 
-type Props = {
-  children: ReactNode;
-  blok: ConfigStoryblok;
-};
-
-const Layout = ({ children, blok }: Props) => {
-  const { header, footer } = blok;
+export default async function Layout({ children }: { children: ReactNode }) {
+  const config = await getConfig();
+  const { header, footer } = config?.content || {};
   return (
     <Drawer>
       {header &&
@@ -27,7 +24,6 @@ const Layout = ({ children, blok }: Props) => {
           <Header blok={nestedBlok} key={nestedBlok.uuid} />
         ))}
       {children}
-
       <DrawerContent>
         <div className='mx-auto w-full max-w-lg px-6'>
           <DrawerHeader>
@@ -43,16 +39,9 @@ const Layout = ({ children, blok }: Props) => {
         </div>
       </DrawerContent>
       {footer &&
-        footer.map((nestedBlok) => (
-          <Footer
-            blok={nestedBlok}
-            key={nestedBlok._uid}
-            component={'footer'}
-            _uid={''}
-          />
+        footer.map((nestedBlok: FooterStoryblok) => (
+          <Footer blok={nestedBlok} key={nestedBlok._uid} />
         ))}
     </Drawer>
   );
-};
-
-export default Layout;
+}

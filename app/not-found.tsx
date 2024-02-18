@@ -1,4 +1,3 @@
-import Layout from '@/components/Shared/Layout';
 import Link from 'next/link';
 
 async function NotFoundPage() {

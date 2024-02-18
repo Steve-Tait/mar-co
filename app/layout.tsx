@@ -101,9 +101,7 @@ export default async function RootLayout({
   };
 
   const config = await getConfig();
-  if (!config?.content) {
-    notFound();
-  }
+
   return (
     <html lang='en'>
       <body
@@ -113,7 +111,7 @@ export default async function RootLayout({
           poppins.variable
         )}
       >
-        <Layout blok={config.content}>{children}</Layout>
+        <Layout blok={config?.content}>{children}</Layout>
       </body>
       <StoryblokBridgeLoader options={bridgeOptions} />
     </html>

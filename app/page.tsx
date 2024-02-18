@@ -13,10 +13,14 @@ export async function generateMetadata(
 
 export default async function Home({ params, searchParams }: MetaProps) {
   const story = await fetchData({ slug: ['home'] });
-  if (!story) {
+  if (!story.content) {
     notFound();
   }
   return (
-    <StoryblokComponent blok={story.content} {...{ params, searchParams }} />
+    <StoryblokComponent
+      blok={story?.content}
+      id={story.uuid}
+      {...{ params, searchParams }}
+    />
   );
 }

@@ -17,6 +17,10 @@ export default async function Home({ params, searchParams }: MetaProps) {
     notFound();
   }
   return (
-    <StoryblokComponent blok={story.content} {...{ params, searchParams }} />
+    <StoryblokComponent
+      blok={story?.content}
+      id={story.uuid}
+      {...{ params, searchParams }}
+    />
   );
 }

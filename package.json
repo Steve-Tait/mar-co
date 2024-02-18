@@ -1,0 +1,53 @@
+{
+  "name": "marco",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore .",
+    "generate-sb-types": "storyblok pull-components --space 271647 && storyblok-generate-ts source=./components.271647.json target=./component-types-sb"
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-navigation-menu": "^1.1.4",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@storyblok/react": "^3.0.7",
+    "blobshape": "^1.0.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "embla-carousel-react": "^8.0.0-rc20",
+    "lucide-react": "^0.314.0",
+    "next": "^14.1.1-canary.17",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-text-transition": "^3.1.0",
+    "storyblok-rich-text-react-renderer": "^2.9.1",
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss-animate": "^1.0.7",
+    "vaul": "^0.9.0",
+    "zod": "^3.22.4",
+    "zustand": "^4.5.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/blobshape": "^1.0.2",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "postcss": "^8",
+    "prettier": "^3.2.4",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "storyblok-generate-ts": "^2.0.1",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}

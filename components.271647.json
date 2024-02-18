@@ -1,0 +1,1276 @@
+{
+  "components": [
+    {
+      "name": "animated-word",
+      "display_name": null,
+      "created_at": "2024-01-19T16:34:14.995Z",
+      "updated_at": "2024-01-19T16:34:20.938Z",
+      "id": 5199685,
+      "schema": {
+        "word": {
+          "type": "text",
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "animated-word",
+      "component_group_uuid": "112cba58-bae8-4802-b6f7-1cf1e9e1e95f",
+      "color": null,
+      "icon": null,
+      "component_group_name": "components"
+    },
+    {
+      "name": "animated-words-section",
+      "display_name": null,
+      "created_at": "2024-01-19T16:32:20.214Z",
+      "updated_at": "2024-01-19T16:34:34.234Z",
+      "id": 5199683,
+      "schema": {
+        "eyebrow": {
+          "type": "text",
+          "pos": 0
+        },
+        "heading": {
+          "type": "text",
+          "pos": 1
+        },
+        "background": {
+          "type": "asset"
+        },
+        "animated_words": {
+          "type": "bloks",
+          "required": true,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "animated-word"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "animated-words-section",
+      "component_group_uuid": "b1d05dd6-af9a-4109-91fe-59ef047439ef",
+      "color": null,
+      "icon": null,
+      "component_group_name": "sections"
+    },
+    {
+      "name": "article",
+      "display_name": null,
+      "created_at": "2024-01-18T16:11:48.338Z",
+      "updated_at": "2024-02-04T17:43:25.405Z",
+      "id": 5194323,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "categories": {
+          "type": "options",
+          "source": "internal_stories",
+          "filter_content_type": [
+            "category"
+          ],
+          "folder_slug": "categories/"
+        },
+        "tab-b1da14f4-fa97-41c4-87c0-fc405673c0ba": {
+          "display_name": "Seo",
+          "keys": [
+            "meta_title",
+            "meta_desc"
+          ],
+          "pos": 0,
+          "type": "tab"
+        },
+        "image": {
+          "type": "asset",
+          "pos": 1
+        },
+        "excerpt": {
+          "type": "textarea",
+          "pos": 2,
+          "rtl": false,
+          "max_length": 300
+        },
+        "wysiwyg": {
+          "type": "bloks",
+          "key": "Content",
+          "pos": 3,
+          "required": false,
+          "restrict_type": "groups",
+          "restrict_components": true,
+          "component_whitelist": [],
+          "component_group_whitelist": [
+            "8b6f7710-a564-4e65-92c4-999066389e1a"
+          ]
+        },
+        "meta_title": {
+          "type": "text",
+          "display_name": "Title"
+        },
+        "meta_desc": {
+          "type": "textarea",
+          "display_name": "Description"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "article",
+      "component_group_uuid": "54853a5b-3ce1-4d1a-8b61-e6929cfc6b86",
+      "color": "#1b243f",
+      "icon": "block-text-img-l",
+      "component_group_name": "pages"
+    },
+    {
+      "name": "article-overview",
+      "display_name": null,
+      "created_at": "2024-01-18T22:21:56.019Z",
+      "updated_at": "2024-02-04T17:57:01.979Z",
+      "id": 5195403,
+      "schema": {
+        "heading": {
+          "type": "text"
+        },
+        "tab-fd57239d-91ef-4839-b7b8-511b3672b9d0": {
+          "display_name": "Seo",
+          "keys": [
+            "meta_title",
+            "meta_description"
+          ],
+          "pos": 0,
+          "type": "tab"
+        },
+        "meta_title": {
+          "type": "text"
+        },
+        "meta_description": {
+          "type": "textarea"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "article-overview",
+      "component_group_uuid": "54853a5b-3ce1-4d1a-8b61-e6929cfc6b86",
+      "color": "#1b243f",
+      "icon": "block-1-2block",
+      "component_group_name": "pages"
+    },
+    {
+      "name": "articles-section",
+      "display_name": null,
+      "created_at": "2024-01-30T19:30:53.237Z",
+      "updated_at": "2024-01-31T17:42:50.998Z",
+      "id": 5255414,
+      "schema": {
+        "eyebrow": {
+          "type": "text"
+        },
+        "heading": {
+          "type": "text"
+        },
+        "body": {
+          "type": "textarea"
+        },
+        "articles": {
+          "type": "options",
+          "restrict_type": "",
+          "restrict_components": true,
+          "source": "internal_stories",
+          "folder_slug": "articles/",
+          "filter_content_type": [
+            "article"
+          ],
+          "min_options": "",
+          "description": "Leave empty to get the latest 3 entries"
+        },
+        "filter_by_category": {
+          "type": "options",
+          "source": "internal_stories",
+          "folder_slug": "categories/",
+          "filter_content_type": [
+            "category"
+          ],
+          "default_value": "Only relevant when no articles selected"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "articles-section",
+      "component_group_uuid": "b1d05dd6-af9a-4109-91fe-59ef047439ef",
+      "color": null,
+      "icon": null,
+      "component_group_name": "sections"
+    },
+    {
+      "name": "banner-wysiwyg",
+      "display_name": null,
+      "created_at": "2024-01-31T15:15:58.644Z",
+      "updated_at": "2024-02-08T21:52:42.175Z",
+      "id": 5262063,
+      "schema": {
+        "background": {
+          "type": "option",
+          "use_uuid": true,
+          "pos": 0,
+          "source": "internal",
+          "datasource_slug": "colours",
+          "exclude_empty_option": true,
+          "default_value": "purple"
+        },
+        "richtext": {
+          "type": "richtext",
+          "customize_toolbar": true,
+          "toolbar": [
+            "bold",
+            "list",
+            "highlight",
+            "unset",
+            "hrule",
+            "italic",
+            "link",
+            "olist",
+            "paragraph",
+            "paste-action",
+            "underline",
+            "superscript",
+            "subscript",
+            "strike",
+            "undo",
+            "redo",
+            "anchor",
+            "emoji",
+            "cut",
+            "copy"
+          ],
+          "display_name": "",
+          "key": "body",
+          "pos": 1
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "banner-wysiwyg",
+      "component_group_uuid": "8b6f7710-a564-4e65-92c4-999066389e1a",
+      "color": null,
+      "icon": null,
+      "component_group_name": "wysiwyg"
+    },
+    {
+      "name": "button",
+      "display_name": null,
+      "created_at": "2024-01-19T09:22:21.387Z",
+      "updated_at": "2024-02-09T13:15:00.086Z",
+      "id": 5197379,
+      "schema": {
+        "link": {
+          "type": "multilink",
+          "required": true,
+          "show_anchor": true,
+          "allow_target_blank": true,
+          "allow_custom_attributes": true,
+          "email_link_type": true,
+          "asset_link_type": false
+        },
+        "label": {
+          "type": "text",
+          "required": true
+        },
+        "variant": {
+          "type": "option",
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "94199515-eff2-47e1-8159-f11b9887ee41",
+              "value": "pink",
+              "name": "Pink"
+            },
+            {
+              "_uid": "5ca3246d-7945-495b-afa4-7023737c1fe0",
+              "name": "Purple",
+              "value": "purple"
+            },
+            {
+              "_uid": "52d32985-f536-4ea4-a26d-4000af407ae7",
+              "value": "white",
+              "name": "White"
+            }
+          ],
+          "default_value": "pink",
+          "required": true
+        },
+        "form_trigger": {
+          "type": "boolean",
+          "display_name": "",
+          "description": "Override default link behaviour to trigger popup form instead"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "button",
+      "component_group_uuid": "112cba58-bae8-4802-b6f7-1cf1e9e1e95f",
+      "color": null,
+      "icon": null,
+      "component_group_name": "components"
+    },
+    {
+      "name": "case-study",
+      "display_name": null,
+      "created_at": "2024-02-08T21:25:07.655Z",
+      "updated_at": "2024-02-08T21:25:48.149Z",
+      "id": 5313695,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "categories": {
+          "type": "options",
+          "source": "internal_stories",
+          "filter_content_type": [
+            "category"
+          ],
+          "folder_slug": "categories/"
+        },
+        "tab-b1da14f4-fa97-41c4-87c0-fc405673c0ba": {
+          "display_name": "Seo",
+          "keys": [
+            "meta_title",
+            "meta_desc"
+          ],
+          "pos": 0,
+          "type": "tab"
+        },
+        "meta_title": {
+          "type": "text",
+          "display_name": "Title"
+        },
+        "meta_desc": {
+          "type": "textarea",
+          "display_name": "Description"
+        },
+        "image": {
+          "type": "asset",
+          "pos": 1
+        },
+        "excerpt": {
+          "type": "textarea",
+          "pos": 2,
+          "rtl": false,
+          "max_length": 300
+        },
+        "wysiwyg": {
+          "type": "bloks",
+          "key": "Content",
+          "pos": 3,
+          "required": false,
+          "restrict_type": "groups",
+          "restrict_components": true,
+          "component_whitelist": [],
+          "component_group_whitelist": [
+            "8b6f7710-a564-4e65-92c4-999066389e1a"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "case-study",
+      "component_group_uuid": "54853a5b-3ce1-4d1a-8b61-e6929cfc6b86",
+      "color": "#1b243f",
+      "icon": "block-suitcase",
+      "component_group_name": "pages"
+    },
+    {
+      "name": "case-study-overview",
+      "display_name": null,
+      "created_at": "2024-01-19T16:45:25.517Z",
+      "updated_at": "2024-02-04T17:57:57.597Z",
+      "id": 5199695,
+      "schema": {
+        "title": {
+          "type": "text"
+        },
+        "tab-633a9569-cf10-4789-8284-f3d678712000": {
+          "display_name": "Seo",
+          "keys": [
+            "meta_title"
+          ],
+          "pos": 0,
+          "type": "tab"
+        },
+        "meta_title": {
+          "type": "text"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "case-study-overview",
+      "component_group_uuid": "54853a5b-3ce1-4d1a-8b61-e6929cfc6b86",
+      "color": "#1b243f",
+      "icon": "block-1-2block",
+      "component_group_name": "pages"
+    },
+    {
+      "name": "category",
+      "display_name": null,
+      "created_at": "2024-01-18T22:19:46.066Z",
+      "updated_at": "2024-02-04T17:58:19.422Z",
+      "id": 5195402,
+      "schema": {
+        "name": {
+          "type": "text",
+          "required": true,
+          "key": "name",
+          "pos": 0
+        },
+        "tab-7a20cccc-06a9-42e1-89f3-a3f5fd467b20": {
+          "display_name": "Seo",
+          "keys": [
+            "meta_title",
+            "meta_description"
+          ],
+          "pos": 0,
+          "type": "tab"
+        },
+        "meta_title": {
+          "type": "text"
+        },
+        "meta_description": {
+          "type": "textarea"
+        },
+        "description": {
+          "type": "textarea",
+          "key": "descriptiom",
+          "pos": 1
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "category",
+      "component_group_uuid": "54853a5b-3ce1-4d1a-8b61-e6929cfc6b86",
+      "color": "#1b243f",
+      "icon": "block-tag",
+      "component_group_name": "pages"
+    },
+    {
+      "name": "category-overview",
+      "display_name": null,
+      "created_at": "2024-02-12T17:20:44.780Z",
+      "updated_at": "2024-02-12T17:21:02.172Z",
+      "id": 5330636,
+      "schema": {},
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "category-overview",
+      "component_group_uuid": "54853a5b-3ce1-4d1a-8b61-e6929cfc6b86",
+      "color": "#1b243f",
+      "icon": "block-tag",
+      "component_group_name": "pages"
+    },
+    {
+      "name": "config",
+      "display_name": null,
+      "created_at": "2024-01-22T11:18:54.745Z",
+      "updated_at": "2024-01-22T15:11:56.144Z",
+      "id": 5208611,
+      "schema": {
+        "tab-17a28df4-aec5-4a21-b41a-ec31569efb31": {
+          "display_name": "Header",
+          "keys": [
+            "buttons",
+            "menu",
+            "header"
+          ],
+          "pos": 5,
+          "type": "tab",
+          "key": "tab-17a28df4-aec5-4a21-b41a-ec31569efb31"
+        },
+        "tab-6249f205-8eae-4a98-a4af-37ac0f753c56": {
+          "display_name": "Footer",
+          "keys": [
+            "footer"
+          ],
+          "pos": 6,
+          "type": "tab",
+          "key": "tab-6249f205-8eae-4a98-a4af-37ac0f753c56"
+        },
+        "header": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "header"
+          ],
+          "minimum": 1,
+          "maximum": 1,
+          "required": true
+        },
+        "footer": {
+          "type": "bloks",
+          "required": true,
+          "minimum": 1,
+          "maximum": 1,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "footer"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "config",
+      "component_group_uuid": "54853a5b-3ce1-4d1a-8b61-e6929cfc6b86",
+      "color": "#1b243f",
+      "icon": "block-arrow-pointer",
+      "component_group_name": "pages"
+    },
+    {
+      "name": "faq",
+      "display_name": null,
+      "created_at": "2024-01-23T23:29:46.724Z",
+      "updated_at": "2024-02-04T17:58:40.891Z",
+      "id": 5220221,
+      "schema": {
+        "question": {
+          "type": "textarea",
+          "required": true
+        },
+        "answer": {
+          "type": "richtext",
+          "required": true
+        },
+        "tab-931a5457-95d6-4e9f-a662-fe90dc738cdb": {
+          "display_name": "Seo",
+          "keys": [
+            "meta_title",
+            "meta_description"
+          ],
+          "pos": 0,
+          "type": "tab"
+        },
+        "meta_title": {
+          "type": "text"
+        },
+        "meta_description": {
+          "type": "textarea"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "faq",
+      "component_group_uuid": "54853a5b-3ce1-4d1a-8b61-e6929cfc6b86",
+      "color": "#fbce41",
+      "icon": "block-text-c",
+      "component_group_name": "pages"
+    },
+    {
+      "name": "faqs-section",
+      "display_name": null,
+      "created_at": "2024-01-23T23:31:40.779Z",
+      "updated_at": "2024-01-23T23:32:24.198Z",
+      "id": 5220222,
+      "schema": {
+        "eyebrow": {
+          "type": "text",
+          "key": "eyebrow",
+          "pos": 0
+        },
+        "heading": {
+          "type": "text",
+          "key": "heading",
+          "pos": 1
+        },
+        "body": {
+          "type": "textarea",
+          "key": "body",
+          "pos": 2
+        },
+        "faqs": {
+          "type": "options",
+          "required": true,
+          "source": "internal_stories",
+          "folder_slug": "faqs/",
+          "filter_content_type": [
+            "faq"
+          ],
+          "min_options": "1",
+          "key": "testimonials",
+          "pos": 3
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "faqs-section",
+      "component_group_uuid": "b1d05dd6-af9a-4109-91fe-59ef047439ef",
+      "color": null,
+      "icon": null,
+      "component_group_name": "sections"
+    },
+    {
+      "name": "feature-section",
+      "display_name": null,
+      "created_at": "2024-01-18T15:54:08.904Z",
+      "updated_at": "2024-01-19T09:39:31.250Z",
+      "id": 5194088,
+      "schema": {
+        "name": {
+          "type": "text"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "feature-section",
+      "component_group_uuid": "b1d05dd6-af9a-4109-91fe-59ef047439ef",
+      "color": null,
+      "icon": null,
+      "component_group_name": "sections"
+    },
+    {
+      "name": "footer",
+      "display_name": null,
+      "created_at": "2024-01-22T15:06:51.223Z",
+      "updated_at": "2024-01-22T15:36:40.289Z",
+      "id": 5210566,
+      "schema": {
+        "menu": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "menu-section"
+          ]
+        },
+        "body": {
+          "type": "richtext",
+          "customize_toolbar": true,
+          "restrict_type": "",
+          "restrict_components": false,
+          "toolbar": [
+            "undo",
+            "underline",
+            "list",
+            "bold",
+            "color",
+            "copy",
+            "cut",
+            "emoji",
+            "highlight",
+            "unset",
+            "hrule",
+            "italic",
+            "link",
+            "anchor",
+            "olist",
+            "paragraph",
+            "paste-action",
+            "paste",
+            "quote",
+            "redo",
+            "strike",
+            "subscript",
+            "superscript"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "footer",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
+      "name": "gallery-wysiwyg",
+      "display_name": null,
+      "created_at": "2024-01-31T16:04:55.865Z",
+      "updated_at": "2024-01-31T16:05:14.382Z",
+      "id": 5262370,
+      "schema": {
+        "gallery": {
+          "type": "multiasset",
+          "filetypes": [
+            "images"
+          ],
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "gallery-wysiwyg",
+      "component_group_uuid": "8b6f7710-a564-4e65-92c4-999066389e1a",
+      "color": null,
+      "icon": null,
+      "component_group_name": "wysiwyg"
+    },
+    {
+      "name": "header",
+      "display_name": null,
+      "created_at": "2024-01-22T15:05:13.996Z",
+      "updated_at": "2024-01-22T15:05:54.422Z",
+      "id": 5210562,
+      "schema": {
+        "menu": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "menu-section"
+          ]
+        },
+        "buttons": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "button"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "header",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
+      "name": "image-wysiwyg",
+      "display_name": null,
+      "created_at": "2024-01-28T12:16:34.002Z",
+      "updated_at": "2024-01-28T12:17:15.851Z",
+      "id": 5241644,
+      "schema": {
+        "image": {
+          "type": "asset",
+          "required": true,
+          "filetypes": [
+            "images"
+          ]
+        },
+        "caption": {
+          "type": "text"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "image-wysiwyg",
+      "component_group_uuid": "8b6f7710-a564-4e65-92c4-999066389e1a",
+      "color": null,
+      "icon": null,
+      "component_group_name": "wysiwyg"
+    },
+    {
+      "name": "menu-link",
+      "display_name": null,
+      "created_at": "2024-01-22T11:25:59.537Z",
+      "updated_at": "2024-01-23T18:01:52.451Z",
+      "id": 5208788,
+      "schema": {
+        "label": {
+          "type": "text",
+          "required": true,
+          "pos": 0
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 1
+        },
+        "link": {
+          "type": "multilink",
+          "required": true,
+          "email_link_type": true,
+          "asset_link_type": false,
+          "show_anchor": true,
+          "allow_target_blank": true,
+          "allow_custom_attributes": true,
+          "pos": 2
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "menu-link",
+      "component_group_uuid": "112cba58-bae8-4802-b6f7-1cf1e9e1e95f",
+      "color": null,
+      "icon": null,
+      "component_group_name": "components"
+    },
+    {
+      "name": "menu-section",
+      "display_name": null,
+      "created_at": "2024-01-22T11:27:41.293Z",
+      "updated_at": "2024-01-22T15:46:25.855Z",
+      "id": 5208810,
+      "schema": {
+        "heading": {
+          "type": "text",
+          "required": true
+        },
+        "items": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "menu-link"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "menu-section",
+      "component_group_uuid": "112cba58-bae8-4802-b6f7-1cf1e9e1e95f",
+      "color": null,
+      "icon": null,
+      "component_group_name": "components"
+    },
+    {
+      "name": "page",
+      "display_name": null,
+      "created_at": "2024-01-18T15:54:08.861Z",
+      "updated_at": "2024-02-04T17:58:59.194Z",
+      "id": 5194085,
+      "schema": {
+        "title": {
+          "type": "textarea",
+          "pos": 0,
+          "required": true
+        },
+        "excerpt": {
+          "type": "textarea",
+          "pos": 1,
+          "required": false
+        },
+        "image": {
+          "type": "asset",
+          "pos": 2,
+          "required": false
+        },
+        "body": {
+          "type": "bloks",
+          "restrict_type": "groups",
+          "restrict_components": true,
+          "component_whitelist": [],
+          "component_group_whitelist": [
+            "b1d05dd6-af9a-4109-91fe-59ef047439ef"
+          ],
+          "pos": 3
+        },
+        "tab-5f7c3c65-71e4-4866-a8f5-cde3d4e5c302": {
+          "display_name": "Seo",
+          "keys": [
+            "meta_title",
+            "meta_description"
+          ],
+          "pos": 0,
+          "type": "tab"
+        },
+        "meta_title": {
+          "type": "text"
+        },
+        "meta_description": {
+          "type": "textarea"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "page",
+      "component_group_uuid": "54853a5b-3ce1-4d1a-8b61-e6929cfc6b86",
+      "color": "#1b243f",
+      "icon": "block-doc",
+      "component_group_name": "pages"
+    },
+    {
+      "name": "testimonial",
+      "display_name": null,
+      "created_at": "2024-01-18T23:06:47.333Z",
+      "updated_at": "2024-02-09T11:51:51.942Z",
+      "id": 5195496,
+      "schema": {
+        "author": {
+          "type": "text",
+          "pos": 0,
+          "key": "author"
+        },
+        "role": {
+          "type": "text",
+          "pos": 1,
+          "key": "role"
+        },
+        "avatar": {
+          "type": "asset",
+          "filetypes": [
+            "images"
+          ],
+          "pos": 2,
+          "key": "image"
+        },
+        "content": {
+          "type": "textarea",
+          "pos": 3,
+          "key": "content"
+        },
+        "company": {
+          "type": "asset",
+          "filetypes": [
+            "images"
+          ],
+          "pos": 4
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "testimonial",
+      "component_group_uuid": "54853a5b-3ce1-4d1a-8b61-e6929cfc6b86",
+      "color": "#fbce41",
+      "icon": "block-comment",
+      "component_group_name": "pages"
+    },
+    {
+      "name": "testimonials-section",
+      "display_name": null,
+      "created_at": "2024-01-19T14:56:12.787Z",
+      "updated_at": "2024-01-19T14:57:10.007Z",
+      "id": 5199195,
+      "schema": {
+        "eyebrow": {
+          "type": "text"
+        },
+        "heading": {
+          "type": "text"
+        },
+        "body": {
+          "type": "textarea"
+        },
+        "testimonials": {
+          "type": "options",
+          "required": true,
+          "source": "internal_stories",
+          "folder_slug": "testimonials/",
+          "filter_content_type": [
+            "testimonial"
+          ],
+          "min_options": "1"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "testimonials-section",
+      "component_group_uuid": "b1d05dd6-af9a-4109-91fe-59ef047439ef",
+      "color": null,
+      "icon": null,
+      "component_group_name": "sections"
+    },
+    {
+      "name": "testimonial-wysiwyg",
+      "display_name": null,
+      "created_at": "2024-01-28T12:14:49.302Z",
+      "updated_at": "2024-01-28T13:13:15.857Z",
+      "id": 5241609,
+      "schema": {
+        "testimonial": {
+          "type": "option",
+          "minimum": 1,
+          "maximum": 1,
+          "restrict_type": "groups",
+          "restrict_components": true,
+          "component_whitelist": [],
+          "use_uuid": true,
+          "source": "internal_stories",
+          "folder_slug": "testimonials/",
+          "filter_content_type": [
+            "testimonial"
+          ],
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "testimonial-wysiwyg",
+      "component_group_uuid": "8b6f7710-a564-4e65-92c4-999066389e1a",
+      "color": null,
+      "icon": null,
+      "component_group_name": "wysiwyg"
+    },
+    {
+      "name": "text-and-image-section",
+      "display_name": null,
+      "created_at": "2024-01-19T09:42:01.690Z",
+      "updated_at": "2024-01-30T17:56:28.393Z",
+      "id": 5197611,
+      "schema": {
+        "eyebrow": {
+          "type": "text",
+          "pos": 0
+        },
+        "heading": {
+          "type": "text",
+          "pos": 1
+        },
+        "body": {
+          "type": "textarea",
+          "required": true,
+          "pos": 2
+        },
+        "buttons": {
+          "type": "bloks",
+          "maximum": 1,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "button"
+          ],
+          "pos": 3
+        },
+        "image": {
+          "type": "asset",
+          "required": true,
+          "filetypes": [
+            "images"
+          ],
+          "pos": 4
+        },
+        "is_reverse": {
+          "type": "boolean",
+          "display_name": "Reverse Layout?",
+          "default_value": false,
+          "inline_label": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "text-and-image-section",
+      "component_group_uuid": "b1d05dd6-af9a-4109-91fe-59ef047439ef",
+      "color": null,
+      "icon": null,
+      "component_group_name": "sections"
+    },
+    {
+      "name": "text-section",
+      "display_name": null,
+      "created_at": "2024-01-19T09:40:01.992Z",
+      "updated_at": "2024-01-28T22:10:27.303Z",
+      "id": 5197545,
+      "schema": {
+        "eyebrow": {
+          "type": "text",
+          "pos": 0
+        },
+        "heading": {
+          "type": "text",
+          "pos": 1
+        },
+        "body": {
+          "type": "textarea",
+          "required": true,
+          "pos": 2
+        },
+        "buttons": {
+          "type": "bloks",
+          "maximum": 1,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "button"
+          ],
+          "pos": 3
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "text-section",
+      "component_group_uuid": "b1d05dd6-af9a-4109-91fe-59ef047439ef",
+      "color": null,
+      "icon": null,
+      "component_group_name": "sections"
+    },
+    {
+      "name": "text-wysiwyg",
+      "display_name": null,
+      "created_at": "2024-01-28T12:18:47.156Z",
+      "updated_at": "2024-01-28T12:19:26.593Z",
+      "id": 5241645,
+      "schema": {
+        "richtext": {
+          "type": "richtext",
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "text-wysiwyg",
+      "component_group_uuid": "8b6f7710-a564-4e65-92c4-999066389e1a",
+      "color": null,
+      "icon": null,
+      "component_group_name": "wysiwyg"
+    },
+    {
+      "name": "video-wysiwyg",
+      "display_name": null,
+      "created_at": "2024-01-28T12:19:47.502Z",
+      "updated_at": "2024-01-28T12:20:11.703Z",
+      "id": 5241646,
+      "schema": {
+        "video": {
+          "type": "asset",
+          "required": true,
+          "filetypes": [
+            "videos"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "video-wysiwyg",
+      "component_group_uuid": "8b6f7710-a564-4e65-92c4-999066389e1a",
+      "color": null,
+      "icon": null,
+      "component_group_name": "wysiwyg"
+    }
+  ]
+}

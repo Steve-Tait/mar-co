@@ -2,7 +2,7 @@ import { BannerWysiwygStoryblok } from '@/component-types-sb';
 import { render } from 'storyblok-rich-text-react-renderer';
 
 const BannerWysiwyg = ({ blok }: { blok: BannerWysiwygStoryblok }) => {
-  const { background, richtext } = blok;
+  const { background = 'purple', richtext } = blok;
 
   return (
     <div

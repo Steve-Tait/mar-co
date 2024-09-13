@@ -7,20 +7,25 @@ import Link from 'next/link';
 import Heading from '../Shared/Heading';
 import { CategoryOverviewStoryblok } from '@/component-types-sb';
 import { getCategories } from '@/lib/storyblok';
+import SkeletonGrid from '../Shared/SkeletonGrid';
+import { StoryblokComponent } from '@storyblok/react';
 
 const CategoryOverview = async ({
   blok,
   searchParams,
 }: CategoryOverviewStoryblok) => {
   const categories = await getCategories();
-  const { name, description } = blok;
-
+  const { heading, description, image, body } = blok;
   return (
     <>
-      <Hero title={name} excerpt={description} />
-      <Section>
+      <Hero
+        title={heading ?? 'Categories'}
+        excerpt={description}
+        image={image}
+      />
+      <Section color='muted'>
         <Container className='grid grid-cols-1 gap-8 md:grid-cols-3 md:items-start lg:grid-cols-4'>
-          <aside className='rounded-2xl bg-purple-700/50 p-6 md:sticky md:top-20'>
+          <aside className='rounded-2xl bg-primary p-6 text-primary-foreground md:sticky md:top-28'>
             <Heading heading='Sort by' level={4} />
             <ul>
               {categories.map((category) => (
@@ -40,12 +45,16 @@ const CategoryOverview = async ({
             </ul>
           </aside>
           <div className='md:col-span-2 lg:col-span-3'>
-            <Suspense fallback={<div>Loading</div>}>
+            <Suspense fallback={<SkeletonGrid tiles={3} />}>
               <ArticlesGrid categories={searchParams.id && [searchParams.id]} />
             </Suspense>
           </div>
         </Container>
       </Section>
+      {body &&
+        body.map((nestedBlok: any) => (
+          <StoryblokComponent blok={nestedBlok} key={nestedBlok.uuid} />
+        ))}
     </>
   );
 };

@@ -13,6 +13,7 @@ import { ReactNode } from 'react';
 import { FooterStoryblok, HeaderStoryblok } from '@/component-types-sb';
 import ContactForm from './ContactForm';
 import { getConfig } from '@/lib/storyblok';
+import LayoutScaler from './LayoutScaler';
 
 export default async function Layout({ children }: { children: ReactNode }) {
   const config = await getConfig();
@@ -23,11 +24,12 @@ export default async function Layout({ children }: { children: ReactNode }) {
         header.map((nestedBlok: HeaderStoryblok) => (
           <Header blok={nestedBlok} key={nestedBlok.uuid} />
         ))}
-      {children}
+
+      <LayoutScaler>{children}</LayoutScaler>
       <DrawerContent>
         <div className='mx-auto w-full max-w-lg px-6'>
           <DrawerHeader>
-            <Heading heading='Contact Us' level={2} />
+            <Heading heading='Contact Us' level={3} />
             <DrawerDescription>
               Register to receive monthly updates.
             </DrawerDescription>

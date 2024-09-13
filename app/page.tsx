@@ -19,7 +19,8 @@ export default async function Home({ params, searchParams }: MetaProps) {
   return (
     <StoryblokComponent
       blok={story?.content}
-      id={story.uuid}
+      uuid={story.uuid}
+      id={story.id}
       {...{ params, searchParams }}
     />
   );

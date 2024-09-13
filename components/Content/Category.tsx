@@ -1,4 +1,4 @@
-import { storyblokEditable } from '@storyblok/react/rsc';
+import { StoryblokComponent, storyblokEditable } from '@storyblok/react/rsc';
 import Hero from '../Shared/Hero';
 import ArticlesGrid from '../Shared/ArticlesGrid';
 import Section from '../Shared/Section';
@@ -8,18 +8,22 @@ import { Suspense } from 'react';
 import { CategoryStoryblok } from '@/component-types-sb';
 
 const Category = (content: CategoryStoryblok) => {
-  const { blok, id } = content;
-  const { name, description } = blok;
+  const { blok, uuid } = content;
+  const { name, title, excerpt, image, body } = blok;
   return (
     <div {...storyblokEditable(blok)}>
-      <Hero title={name} excerpt={description} />
-      <Section>
+      <Hero title={title || name} {...{ excerpt, image }} />
+      <Section color='muted'>
         <Container>
-          <Suspense key={id} fallback={<SkeletonGrid tiles={6} />}>
-            <ArticlesGrid categories={[id]} />
+          <Suspense key={uuid} fallback={<SkeletonGrid tiles={6} />}>
+            <ArticlesGrid categories={[uuid]} />
           </Suspense>
         </Container>
       </Section>
+      {body &&
+        body.map((nestedBlok: any) => (
+          <StoryblokComponent blok={nestedBlok} key={nestedBlok.uuid} />
+        ))}
     </div>
   );
 };

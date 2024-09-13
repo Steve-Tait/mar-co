@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import React, { ReactNode } from 'react';
 
 class IProps {
@@ -11,7 +12,7 @@ const Container: React.FC<IProps> = ({
   ...props
 }) => {
   return (
-    <div className={`container ${className}`} {...props}>
+    <div className={cn('container', className)} {...props}>
       {children}
     </div>
   );

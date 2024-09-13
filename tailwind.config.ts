@@ -1,3 +1,4 @@
+import css from 'styled-jsx/css';
 import type { Config } from 'tailwindcss';
 
 const config = {
@@ -7,7 +8,7 @@ const config = {
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
-  safelist: ['bg-purple', 'bg-purple-700', 'bg-pink'],
+  safelist: ['btn--sm', 'bg-purple', 'bg-purple-700', 'bg-pink'],
   theme: {
     fontFamily: {
       heading: ['var(--font-poppins)'],
@@ -28,7 +29,7 @@ const config = {
         50: '#f8f5fe',
       },
       purple: {
-        DEFAULT: '#5E17EB',
+        DEFAULT: '#380E8D',
         900: '#270965',
         700: '#420fa9',
         500: '#5e17eb',
@@ -63,6 +64,10 @@ const config = {
         DEFAULT: 'hsl(var(--muted))',
         foreground: 'hsl(var(--muted-foreground))',
       },
+      'secondary-muted': {
+        DEFAULT: 'hsl(var(--secondary-muted))',
+        foreground: 'hsl(var(--secondary-muted-foreground))',
+      },
       accent: {
         DEFAULT: 'hsl(var(--accent))',
         foreground: 'hsl(var(--accent-foreground))',
@@ -78,12 +83,15 @@ const config = {
     },
     container: {
       center: true,
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px',
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
       },
     },
     extend: {
+      zIndex: {
+        1: '1',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
@@ -99,9 +107,46 @@ const config = {
           to: { height: '0' },
         },
       },
+      padding: {
+        18: '4.5rem',
+      },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            h1: {
+              fontWeight: '900',
+            },
+            h2: {
+              fontWeight: '800',
+            },
+            h3: {
+              fontWeight: '800',
+            },
+            h4: {
+              fontWeight: '800',
+            },
+            h5: {
+              fontWeight: '800',
+            },
+            h6: {
+              fontWeight: '800',
+            },
+          },
+        },
+        lg: {
+          css: {
+            lineHeight: '1.5',
+          },
+        },
+        xl: {
+          css: {
+            lineHeight: '1.5',
+          },
+        },
       },
     },
   },

@@ -19,7 +19,7 @@ const MenuSectionHeader = ({
   const { heading, items } = blok;
   return (
     <NavigationMenuItem {...storyblokEditable({ blok })} {...props}>
-      <NavigationMenuTrigger>{blok.heading}</NavigationMenuTrigger>
+      {heading && <NavigationMenuTrigger>{heading}</NavigationMenuTrigger>}
       <NavigationMenuContent>
         <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2'>
           {items &&
@@ -29,7 +29,7 @@ const MenuSectionHeader = ({
                 title={item.label}
                 href={`/${item.link.cached_url}`}
               >
-                {item.description}
+                {item?.description}
               </ListItem>
             ))}
         </ul>

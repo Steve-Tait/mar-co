@@ -1,26 +1,47 @@
+import { cn } from '@/lib/utils';
 import { storyblokEditable } from '@storyblok/react/rsc';
-import React, { ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 
 class IProps {
   children: ReactNode;
   className?: string;
+  removePadding?: boolean;
+  color?: 'white' | 'muted' | 'primary' | 'none';
   blok?: any;
 }
 
-const Section: React.FC<IProps> = ({
-  children,
-  blok,
-  className = '',
-  ...props
-}) => {
-  return (
-    <section
-      className={`py-10 sm:py-20 ${className}`}
-      {...(blok && storyblokEditable(blok))}
-      {...props}
-    >
-      {children}
-    </section>
-  );
-};
+type Ref = HTMLElement;
+const Section = forwardRef<Ref, IProps>(
+  (
+    {
+      children,
+      blok,
+      removePadding = false,
+      color = 'white',
+      className = '',
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <section
+        className={cn(
+          color === 'primary' &&
+            `dark bg-primary text-foreground [.bg-primary+_&]:pt-0`,
+          color === 'white' && `bg-transparent [.bg-transparent_+_&]:pt-0`,
+          color === 'muted' &&
+            `bg-muted text-muted-foreground [.bg-muted_+_&]:pt-0`,
+          !removePadding && 'py-10 sm:py-24 lg:py-32',
+          className
+        )}
+        {...(blok && storyblokEditable(blok))}
+        {...props}
+        ref={ref}
+      >
+        {children}
+      </section>
+    );
+  }
+);
+Section.displayName = 'Section';
 export default Section;

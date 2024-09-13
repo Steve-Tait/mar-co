@@ -77,7 +77,6 @@ const ContactForm = () => {
                     >
                   | Iterable<React.ReactNode>
                   | React.ReactPortal
-                  | React.PromiseLikeOfReactNode
                   | null
                   | undefined,
                 i: React.Key | null | undefined

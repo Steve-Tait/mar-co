@@ -14,7 +14,7 @@ const Testimonial = ({ blok }: TestimonialStoryblok) => {
               src={image.filename}
               alt={image.alt || image.title || ''}
               fill={true}
-              className='object-cover'
+              className='relative object-cover'
             />
           </div>
         )}

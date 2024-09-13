@@ -1,23 +1,29 @@
 import { CaseStudyOverviewStoryblok } from '@/component-types-sb';
-import { getCaseStudies } from '@/lib/storyblok';
-import Link from 'next/link';
+import Hero from '../Shared/Hero';
+import Section from '../Shared/Section';
+import Container from '../Shared/Container';
+import { Suspense } from 'react';
+import SkeletonGrid from '../Shared/SkeletonGrid';
+import CaseStudies from '../Shared/CaseStudies';
+import { StoryblokComponent } from '@storyblok/react';
 
 const CaseStudiesOverview = async ({ blok }: CaseStudyOverviewStoryblok) => {
-  const caseStudies = await getCaseStudies();
+  const { title, excerpt, image, body } = blok;
   return (
-    <div>
-      <h1>{blok.heading}</h1>
-      {caseStudies[0] &&
-        caseStudies.map((caseStudy) => (
-          <article
-            className='rounded bg-white p-4 text-black'
-            key={caseStudy.uuid}
-          >
-            <h3>{caseStudy.content.title}</h3>
-            <Link href={caseStudy.full_slug}>View article</Link>
-          </article>
+    <>
+      <Hero title={title || 'Case Studies'} {...{ excerpt, image }} />
+      <Section color='muted'>
+        <Container>
+          <Suspense fallback={<SkeletonGrid />}>
+            <CaseStudies />
+          </Suspense>
+        </Container>
+      </Section>
+      {body &&
+        body.map((nestedBlok: any) => (
+          <StoryblokComponent blok={nestedBlok} key={nestedBlok.uuid} />
         ))}
-    </div>
+    </>
   );
 };
 

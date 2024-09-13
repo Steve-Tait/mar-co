@@ -28,7 +28,9 @@ const TestimonialsSection = ({
 }) => {
   const { eyebrow, heading, body, testimonials } = blok;
   return (
-    <Section blok={blok}>
+    <Section className='relative overflow-hidden' blok={blok} color='none'>
+      <div className='pointer-events-none absolute bottom-0 left-1/2 z-[-1] aspect-square h-[150%] -translate-x-1/2 translate-y-3/4 rounded-full bg-primary' />
+
       <Container className='max-w-3xl'>
         <SectionWrap {...{ eyebrow, heading, body }}>
           {testimonials && (

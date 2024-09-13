@@ -4,25 +4,28 @@
 
 @layer base {
   :root {
-    --background: 260 84% 51%;
+    --background: 260, 82%, 30%;
     --foreground: 0 100% 100%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
 
-    --popover: 0 100% 100%;
-    --popover-foreground: 260 84% 51%;
+    --popover: 260 84% 51%;
+    --popover-foreground: 0 100% 100%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 260, 82%, 30%;
+    --primary-foreground: 0 100% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 359.64 100% 67.06%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 0, 0%, 100%, 0.8;
+    --secondary-muted: 0 100% 95%;
+    --secondary-muted-foreground: 0, 100%, 0%;
 
-    --accent: 260, 84%, 36%;
+    --muted: 260, 84%, 95%;
+    --muted-foreground: 0, 100%, 0%;
+
+    --accent: 260 84% 51%;
     --accent-foreground: 0 100% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,6 +38,7 @@
     --radius: 0.5rem;
 
     .prose {
+      --tw-prose-body: #000000;
       --tw-prose-counters: #ff5757;
       --tw-prose-bullets: #ff5757;
       --tw-prose-hr: #5e17eb;
@@ -61,6 +65,11 @@
       }
     }
   }
+  .dark {
+    .prose {
+      @apply prose-invert;
+    }
+  }
 
   ::selection {
     @apply bg-pink text-white;
@@ -70,63 +79,119 @@
     @apply bg-pink text-white;
   }
 
+  ::-webkit-scrollbar {
+    @apply h-1 w-1;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply rounded-xl bg-purple-700/50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-xl bg-pink;
+  }
   @media (prefers-color-scheme: dark) {
     :root {
     }
   }
 }
-
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
 @layer base {
-  body {
-    @apply bg-background font-body text-foreground;
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    @apply font-heading font-extrabold;
   }
 
   h1,
+  .h1 {
+    @apply text-4xl sm:text-5xl lg:text-7xl;
+  }
+
   h2,
+  .h2 {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+
   h3,
+  .h3 {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+
   h4,
+  .h4 {
+    @apply text-xl sm:text-2xl;
+  }
+
   h5,
-  h6 {
-    @apply font-heading font-bold;
+  .h5 {
+    @apply text-lg sm:text-xl;
   }
 
-  h1 {
-    @apply text-4xl md:text-5xl xl:text-7xl;
-  }
-
-  h2 {
-    @apply text-3xl md:text-4xl xl:text-5xl;
-  }
-
-  h3 {
-    @apply text-2xl md:text-3xl xl:text-4xl;
-  }
-
-  h4 {
-    @apply text-xl md:text-2xl;
-  }
-
-  h5 {
-    @apply text-lg md:text-xl;
-  }
-
-  h6 {
-    @apply text-base md:text-lg;
+  h6,
+  .h6 {
+    @apply text-base sm:text-lg;
   }
 
   .btn {
-    @apply inline-block overflow-hidden rounded-full px-4 py-2 text-center text-sm font-bold uppercase transition-all disabled:cursor-not-allowed disabled:opacity-50 lg:px-6 lg:py-3;
+    @apply inline-flex items-center gap-x-1 overflow-hidden rounded-full px-6 py-3 text-center text-sm font-bold uppercase transition-all disabled:cursor-not-allowed disabled:opacity-50 lg:px-6 lg:py-3;
   }
-
+  .btn--sm {
+    @apply px-3 py-2.5 text-xs lg:px-4 lg:py-3;
+  }
   .btn--purple {
-    @apply bg-purple text-white;
+    @apply bg-primary text-primary-foreground;
   }
 
   .btn--pink {
-    @apply bg-pink text-white;
+    @apply bg-secondary text-secondary-foreground;
   }
 
   .btn--white {
     @apply bg-white text-purple;
   }
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+html.lenis-stopped body {
+  @apply pr-1;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

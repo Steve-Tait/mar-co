@@ -5,11 +5,12 @@ import { useEffect, useState } from 'react';
 import Container from '@/components/Shared/Container';
 import Section from '../Shared/Section';
 import { AnimatedWordsSectionStoryblok } from '@/component-types-sb';
+import Heading from '../Shared/Heading';
 
 export default function AnimatedWordsSection({
   blok,
 }: AnimatedWordsSectionStoryblok) {
-  const { heading, animated_words, buttons } = blok;
+  const { heading, eyebrow, animated_words } = blok;
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -19,19 +20,18 @@ export default function AnimatedWordsSection({
   return (
     <Section blok={blok}>
       <Container className='text-center'>
-        <h1>
+        <h6 className='mb-1 text-sm uppercase tracking-wide text-secondary sm:mb-2'>
+          {eyebrow}
+        </h6>
+        <Heading level={3} className='h1'>
           {heading}
           <TextTransition
             springConfig={presets.wobbly}
-            className='justify-center text-pink'
+            className='justify-center text-secondary'
           >
             {animated_words[index % animated_words.length].word}
           </TextTransition>
-        </h1>
-        {buttons &&
-          buttons.map((nestedBlok: any) => (
-            <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-          ))}
+        </Heading>
       </Container>
     </Section>
   );

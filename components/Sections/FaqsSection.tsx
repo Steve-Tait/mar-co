@@ -23,7 +23,7 @@ const FaqsSection = ({
 }) => {
   const { eyebrow, heading, body, faqs } = blok;
   return (
-    <Section blok={blok}>
+    <Section blok={blok} color='muted'>
       <Container className='max-w-3xl'>
         <SectionWrap {...{ eyebrow, heading, body }}>
           {faqs && (

@@ -1,4 +1,4 @@
-import { storyblokEditable } from '@storyblok/react/rsc';
+import { StoryblokComponent, storyblokEditable } from '@storyblok/react/rsc';
 import Wysiwyg from '../Shared/Wysiwyg';
 import Hero from '../Shared/Hero';
 import ArticlesGrid from '../Shared/ArticlesGrid';
@@ -13,8 +13,8 @@ type TArticleStoryblokWithRelations = ArticleStoryblok & {
   categories: CategoryStoryblok[];
 };
 
-const Article = ({ blok }: TArticleStoryblokWithRelations) => {
-  const { title, image, excerpt, wysiwyg, categories } = blok;
+const Article = ({ blok, id }: TArticleStoryblokWithRelations) => {
+  const { title, image, excerpt, wysiwyg, body, categories } = blok;
   const categoryIds =
     categories?.map((category: CategoryStoryblok) => category?.uuid) || [];
   return (
@@ -26,11 +26,15 @@ const Article = ({ blok }: TArticleStoryblokWithRelations) => {
         categories={categories}
       />
       <Wysiwyg wysiwyg={wysiwyg} />
-      <Section>
+      {body &&
+        body.map((nestedBlok: any) => (
+          <StoryblokComponent blok={nestedBlok} key={nestedBlok.uuid} />
+        ))}
+      <Section color='muted'>
         <Container>
           <SectionWrap heading='Related articles'>
             <Suspense fallback={<SkeletonGrid tiles={6} />}>
-              <ArticlesGrid limit={3} categories={categoryIds} />
+              <ArticlesGrid limit={3} categories={categoryIds} toExclude={id} />
             </Suspense>
           </SectionWrap>
         </Container>

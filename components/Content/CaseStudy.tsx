@@ -1,36 +1,25 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
 import Wysiwyg from '../Shared/Wysiwyg';
 import Hero from '../Shared/Hero';
-import ArticlesGrid from '../Shared/ArticlesGrid';
 import Section from '../Shared/Section';
 import Container from '../Shared/Container';
 import { Suspense } from 'react';
 import SkeletonGrid from '../Shared/SkeletonGrid';
 import SectionWrap from '../Shared/SectionWrap';
-import { CaseStudyStoryblok, CategoryStoryblok } from '@/component-types-sb';
+import { CaseStudyStoryblok } from '@/component-types-sb';
+import CaseStudies from '../Shared/CaseStudies';
 
-type TCaseStudyWithRelations = CaseStudyStoryblok & {
-  categories: CategoryStoryblok[];
-};
-
-const CaseStudy = ({ blok }: TCaseStudyWithRelations) => {
-  const { title, image, excerpt, wysiwyg, categories } = blok;
-  const categoryIds =
-    categories?.map((category: CategoryStoryblok) => category?.uuid) || [];
+const CaseStudy = ({ blok, id }: CaseStudyStoryblok) => {
+  const { title, image, excerpt, wysiwyg } = blok;
   return (
     <div {...storyblokEditable(blok)}>
-      <Hero
-        title={title}
-        excerpt={excerpt}
-        image={image}
-        categories={categories}
-      />
+      <Hero {...{ title, excerpt, image }} />
       <Wysiwyg wysiwyg={wysiwyg} />
-      <Section>
+      <Section blok={blok} color='muted'>
         <Container>
-          <SectionWrap heading='Related articles'>
+          <SectionWrap heading='Other Case Studies'>
             <Suspense fallback={<SkeletonGrid tiles={6} />}>
-              <ArticlesGrid limit={3} categories={categoryIds} />
+              <CaseStudies limit={3} toExclude={id} />
             </Suspense>
           </SectionWrap>
         </Container>

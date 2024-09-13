@@ -24,3 +24,6 @@ export type TSubscribeResponse = {
   data?: any;
   error?: any;
 };
+export interface TSVGProps {
+  className?: string;
+}

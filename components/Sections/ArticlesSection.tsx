@@ -15,7 +15,7 @@ const ArticlesSection = ({ blok }: ArticlesSectionStoryblok) => {
     filter_by_category: categories,
   } = blok;
   return (
-    <Section blok={blok}>
+    <Section blok={blok} color='muted'>
       <Container>
         <SectionWrap {...{ eyebrow, heading, body }}>
           <Suspense fallback={<SkeletonGrid tiles={3} />}>

@@ -12,7 +12,7 @@ const TextSection = ({ blok }: { blok: TextSectionStoryblok }) => {
       <Container className='max-w-3xl'>
         <SectionWrap {...{ eyebrow, heading, body }}>
           {buttons && (
-            <div className='mt-4'>
+            <div className='mt-4 text-center'>
               {buttons.map((nestedBlok) => (
                 <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
               ))}

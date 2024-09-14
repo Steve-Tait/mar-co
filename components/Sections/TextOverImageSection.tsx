@@ -28,7 +28,7 @@ const TextOverImageSection = ({
       <div className='pointer-events-none before:absolute before:inset-0 before:bg-purple/70 before:brightness-50'></div>
       <Container className='relative mx-auto flex min-h-[50svh] flex-col justify-center'>
         <SectionWrap {...{ eyebrow, heading }}>
-          <div className='prose prose-xl mx-auto sm:prose-2xl'>
+          <div className='prose prose-lg mx-auto sm:prose-xl lg:prose-2xl'>
             {typeof body === 'string' ? body : render(body)}
           </div>
           {buttons && buttons.length ? (

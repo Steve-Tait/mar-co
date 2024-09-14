@@ -5,15 +5,13 @@ import { PageStoryblok } from '@/component-types-sb';
 const Page = ({ blok }: PageStoryblok) => {
   const { title, excerpt, image, body } = blok;
   return (
-    <>
+    <main {...storyblokEditable(blok)}>
       <Hero {...{ title, excerpt, image }} />
-      <main {...storyblokEditable(blok)}>
-        {body &&
-          body.map((nestedBlok: any) => (
-            <StoryblokComponent blok={nestedBlok} key={nestedBlok.uuid} />
-          ))}
-      </main>
-    </>
+      {body &&
+        body.map((nestedBlok: any) => (
+          <StoryblokComponent blok={nestedBlok} key={nestedBlok.uuid} />
+        ))}
+    </main>
   );
 };
 

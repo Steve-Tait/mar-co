@@ -82,51 +82,10 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
                   {menu.map((nestedBlok: MenuSectionStoryblok) => {
                     const { heading, items } = nestedBlok;
                     return (
-                      <div className='flex flex-col gap-y-2'>
-                        <p className='text-xl font-bold underline decoration-secondary decoration-2 underline-offset-4'>
-                          {heading}
-                        </p>
-                        {items &&
-                          items.map((item) => (
-                            <Link
-                              key={item.label}
-                              title={item.label}
-                              href={`/${item.link.cached_url}`}
-                            >
-                              {item?.label}
-                            </Link>
-                          ))}
-                      </div>
-                    );
-                  })}
-                </nav>{' '}
-                <nav className='flex flex-col gap-y-6 text-left text-primary-foreground'>
-                  {menu.map((nestedBlok: MenuSectionStoryblok) => {
-                    const { heading, items } = nestedBlok;
-                    return (
-                      <div className='flex flex-col gap-y-2'>
-                        <p className='text-xl font-bold underline decoration-secondary decoration-2 underline-offset-4'>
-                          {heading}
-                        </p>
-                        {items &&
-                          items.map((item) => (
-                            <Link
-                              key={item.label}
-                              title={item.label}
-                              href={`/${item.link.cached_url}`}
-                            >
-                              {item?.label}
-                            </Link>
-                          ))}
-                      </div>
-                    );
-                  })}
-                </nav>{' '}
-                <nav className='flex flex-col gap-y-6 text-left text-primary-foreground'>
-                  {menu.map((nestedBlok: MenuSectionStoryblok) => {
-                    const { heading, items } = nestedBlok;
-                    return (
-                      <div className='flex flex-col gap-y-2'>
+                      <div
+                        className='flex flex-col gap-y-2'
+                        key={nestedBlok._uid}
+                      >
                         <p className='text-xl font-bold underline decoration-secondary decoration-2 underline-offset-4'>
                           {heading}
                         </p>

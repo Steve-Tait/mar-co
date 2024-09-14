@@ -28,10 +28,11 @@ const Section = forwardRef<Ref, IProps>(
         className={cn(
           color === 'primary' &&
             `dark bg-primary text-foreground [.bg-primary+_&]:pt-0`,
-          color === 'white' && `bg-transparent [.bg-transparent_+_&]:pt-0`,
+          color === 'white' &&
+            `bg-white text-muted-foreground [.bg-white+_&]:pt-0`,
           color === 'muted' &&
             `bg-muted text-muted-foreground [.bg-muted_+_&]:pt-0`,
-          !removePadding && 'py-10 sm:py-24 lg:py-32',
+          !removePadding && 'py-16 sm:py-24 lg:py-32',
           className
         )}
         {...(blok && storyblokEditable(blok))}

@@ -25,7 +25,8 @@ const Testimonial = ({ blok, isCard, className }: TTestimonial) => {
       <div
         className={cn(
           'flex w-full flex-col gap-y-2 sm:gap-y-4',
-          isCard && 'rounded-xl bg-muted px-6 pb-6 md:px-10 md:pb-10',
+          isCard &&
+            'rounded-xl bg-muted px-6 pb-6 text-muted-foreground md:px-10 md:pb-10',
           avatar?.id ? '-mt-24 pt-24 md:-mt-32 md:pt-32' : 'pt-6 md:pt-10',
           className
         )}

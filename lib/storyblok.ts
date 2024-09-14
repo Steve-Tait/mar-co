@@ -11,17 +11,26 @@ import {
 const { storyblokApi } = storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN,
   use: [apiPlugin],
+  apiOptions: {
+    region: 'eu',
+  },
 });
 
 export async function getLinks() {
   if (!storyblokApi) {
     return;
   }
-  const { data } = await storyblokApi.get('cdn/links', {
-    version: (process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'draft') as
-      | 'draft'
-      | 'published',
-  });
+  const { data } = await storyblokApi.get(
+    'cdn/links',
+    {
+      version: (process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'draft') as
+        | 'draft'
+        | 'published',
+    },
+    {
+      cache: 'no-store',
+    }
+  );
   const links = data ? data.links : null;
   return links;
 }
@@ -32,13 +41,17 @@ export async function getStory(slug: string) {
   }
   let story = undefined;
   try {
-    const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
-      version: (process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'draft') as
-        | 'draft'
-        | 'published',
-      resolve_relations: resolveRelations,
-    });
-    story = data ? data.story : null;
+    const { data } = await storyblokApi.get(
+      `cdn/stories/${slug}`,
+      {
+        version: (process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'draft') as
+          | 'draft'
+          | 'published',
+        resolve_relations: resolveRelations,
+      },
+      { cache: 'no-store' }
+    );
+    story = data?.story ?? null;
   } catch (e) {}
   return story;
 }
@@ -105,13 +118,19 @@ export const getArticles = async (
 
 export const getCategories = async (): Promise<CategoryStoryblok[]> => {
   const storyblokApi = getStoryblokApi();
-  const { data } = await storyblokApi.get(`cdn/stories`, {
-    version: (process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'draft') as
-      | 'draft'
-      | 'published',
-    starts_with: 'categories/',
-    is_startpage: false,
-  });
+  const { data } = await storyblokApi.get(
+    `cdn/stories`,
+    {
+      version: (process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'draft') as
+        | 'draft'
+        | 'published',
+      starts_with: 'categories/',
+      is_startpage: false,
+    },
+    {
+      cache: 'no-store',
+    }
+  );
   return data.stories;
 };
 

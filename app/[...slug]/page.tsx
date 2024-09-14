@@ -1,4 +1,4 @@
-import { StoryblokComponent } from '@storyblok/react/rsc';
+import { StoryblokStory } from '@storyblok/react/rsc';
 import { createMetaData, fetchData } from '@/lib/storyblok';
 import { notFound } from 'next/navigation';
 import { Metadata, ResolvingMetadata } from 'next';
@@ -16,12 +16,6 @@ export default async function Page({ params, searchParams }: MetaProps) {
   if (!story?.content) {
     notFound();
   }
-  return (
-    <StoryblokComponent
-      blok={story?.content}
-      uuid={story.uuid}
-      id={story.id}
-      {...{ params, searchParams }}
-    />
-  );
+
+  return <StoryblokStory story={story} />;
 }

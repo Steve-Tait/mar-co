@@ -4,6 +4,7 @@ import SectionWrap from '../Shared/SectionWrap';
 import { TiktokSectionStoryblok } from '@/component-types-sb';
 
 async function getFeed() {
+  return null;
   const res = await fetch(
     'https://www.tiktok.com/oembed?url=https://www.tiktok.com/@marco.digital.marketing'
   );

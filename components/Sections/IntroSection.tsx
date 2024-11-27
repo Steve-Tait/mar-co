@@ -16,13 +16,13 @@ const IntroSection = ({ blok }: { blok: IntroSectionStoryblok }) => {
           <Heading
             className='uppercase lg:col-span-2'
             heading={heading}
-            level={3}
+            level={4}
           />
         )}
         {content && (
           <div
             className={cn(
-              'prose xl:prose-xl md:col-span-2 lg:col-span-3',
+              'prose-lg xl:prose-xl md:col-span-2 lg:col-span-3',
               heading ? 'md:col-span-2 lg:col-span-3' : 'md:col-span-5'
             )}
           >

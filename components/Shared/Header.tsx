@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import {
   ButtonStoryblok,
   HeaderStoryblok,
+  MenuLinkStoryblok,
   MenuSectionStoryblok,
 } from '@/component-types-sb';
 import { storyblokEditable } from '@storyblok/react/rsc';
@@ -21,6 +22,8 @@ import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import { useLenis } from './SmoothScroller';
 import Hamburger from './Hamburger';
 import Scroll from './Scroll';
+import React from 'react';
+import MenuLinkHeader from '../Content/MenuLink';
 
 export default function Header({ blok }: { blok: HeaderStoryblok }) {
   const { menu, buttons } = blok;
@@ -61,21 +64,18 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
             <NavigationMenuList>
               {menu && (
                 <div className='grid-cols-auto grid grid-flow-col gap-x-4'>
-                  {menu.map((nestedBlok: MenuSectionStoryblok) => (
-                    <>
+                  {menu.map((nestedBlok) => (
+                    <React.Fragment key={nestedBlok._uid}>
                       {nestedBlok.items ? (
                         <MenuSectionHeader
-                          blok={nestedBlok}
-                          key={nestedBlok._uid}
+                          blok={nestedBlok as MenuSectionStoryblok}
                         />
                       ) : (
-                        <NavigationMenuLink asChild>
-                          <Link href={`/${nestedBlok.link.cached_url}`}>
-                            {nestedBlok.link.label}
-                          </Link>
-                        </NavigationMenuLink>
+                        <MenuLinkHeader
+                          blok={nestedBlok as MenuLinkStoryblok}
+                        />
                       )}
-                    </>
+                    </React.Fragment>
                   ))}
                 </div>
               )}
@@ -94,29 +94,34 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
             <SheetContent side='left'>
               <Scroll className='max-h-full'>
                 <nav className='flex flex-col gap-y-6 text-left text-primary-foreground'>
-                  {menu.map((nestedBlok: MenuSectionStoryblok) => {
-                    const { heading, items } = nestedBlok;
-                    return (
-                      <div
-                        className='flex flex-col gap-y-2'
-                        key={nestedBlok._uid}
-                      >
-                        <p className='text-xl font-bold underline decoration-secondary decoration-2 underline-offset-4'>
-                          {heading}
-                        </p>
-                        {items &&
-                          items.map((item, index) => (
-                            <Link
-                              key={index}
-                              title={item.label}
-                              href={`/${item.link.cached_url}`}
-                            >
-                              {item?.label}
-                            </Link>
-                          ))}
-                      </div>
-                    );
-                  })}
+                  {menu.map((nestedBlok) => (
+                    <React.Fragment key={nestedBlok._uid}>
+                      {nestedBlok.items ? (
+                        <div className='flex flex-col gap-y-2'>
+                          <p className='text-xl font-bold underline decoration-secondary decoration-2 underline-offset-4'>
+                            {nestedBlok.heading}
+                          </p>
+                          {nestedBlok.items &&
+                            nestedBlok.items.map((item: MenuLinkStoryblok) => (
+                              <Link
+                                key={item._uid}
+                                title={item.label}
+                                href={`/${item.link.cached_url}`}
+                              >
+                                {item?.label}
+                              </Link>
+                            ))}
+                        </div>
+                      ) : (
+                        <Link
+                          title={nestedBlok.label}
+                          href={`/${nestedBlok.link.cached_url}`}
+                        >
+                          {nestedBlok.label}
+                        </Link>
+                      )}
+                    </React.Fragment>
+                  ))}
                 </nav>
               </Scroll>
             </SheetContent>

@@ -14,7 +14,7 @@ const TextOverImageSection = ({
 }) => {
   const { eyebrow, heading, body, image, buttons } = blok;
   return (
-    <Section blok={blok} className='dark relative' color='primary'>
+    <Section blok={blok} className='dark relative text-center' color='primary'>
       {image && (
         <Parallax className='absolute inset-0 size-full'>
           <Image

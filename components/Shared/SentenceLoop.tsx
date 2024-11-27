@@ -53,6 +53,7 @@ const SentenceLoop = ({
   }, []);
 
   useEffect(() => {
+    console.log('resize');
     refs.current.forEach((element) => {
       const elementHeight = element.offsetHeight;
       let maxHeight = 0;
@@ -62,6 +63,7 @@ const SentenceLoop = ({
       setHeight(maxHeight * 1.1);
     });
   }, [refs.current, width]);
+
   return (
     <div
       className={cn('relative overflow-hidden', className)}

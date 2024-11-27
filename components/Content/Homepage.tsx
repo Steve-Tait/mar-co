@@ -3,10 +3,10 @@ import { PageStoryblok } from '@/component-types-sb';
 import HeroHome from '../Shared/HeroHome';
 
 const Homepage = ({ blok }: PageStoryblok) => {
-  const { title, animated_title, subheading, excerpt, image, body } = blok;
+  const { title, animated_title, subheading, buttons, image, body } = blok;
   return (
     <>
-      <HeroHome {...{ title, animated_title, subheading, excerpt, image }} />
+      <HeroHome {...{ title, animated_title, buttons, subheading, image }} />
       <main {...storyblokEditable(blok)}>
         {body &&
           body.map((nestedBlok: any, index: number) => (

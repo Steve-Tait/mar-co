@@ -1,16 +1,16 @@
-import { StoryblokStory } from 'storyblok-generate-ts';
+import {StoryblokStory} from 'storyblok-generate-ts'
 
 export interface AnimatedWordStoryblok {
   word: string;
   _uid: string;
-  component: 'animated-word';
+  component: "animated-word";
   [k: string]: any;
 }
 
 export interface AnimatedWordsStoryblok {
   animated_words?: AnimatedWordStoryblok[];
   _uid: string;
-  component: 'animated-words';
+  component: "animated-words";
   [k: string]: any;
 }
 
@@ -35,18 +35,18 @@ export interface AssetStoryblok {
 export interface AnimatedWordsSectionStoryblok {
   eyebrow?: string;
   heading?: string;
-  background?: AssetStoryblok;
   animated_words: AnimatedWordStoryblok[];
+  background?: AssetStoryblok;
   _uid: string;
-  component: 'animated-words-section';
+  component: "animated-words-section";
   [k: string]: any;
 }
 
 export interface ArticleStoryblok {
   title?: string;
-  categories?: (StoryblokStory<CategoryStoryblok> | string)[];
-  image?: AssetStoryblok;
   excerpt?: string;
+  image?: AssetStoryblok;
+  categories?: (StoryblokStory<CategoryStoryblok> | string)[];
   wysiwyg?: (
     | BannerWysiwygStoryblok
     | GalleryWysiwygStoryblok
@@ -57,17 +57,53 @@ export interface ArticleStoryblok {
   )[];
   meta_title?: string;
   meta_desc?: string;
+  body?: (
+    | AnimatedWordsSectionStoryblok
+    | ArticlesSectionStoryblok
+    | CaseStudiesSectionStoryblok
+    | ColouredContainerSectionStoryblok
+    | FaqsSectionStoryblok
+    | FeatureSectionStoryblok
+    | ImageSectionStoryblok
+    | IntroSectionStoryblok
+    | LogoCarouselSectionStoryblok
+    | StatsSectionStoryblok
+    | TestimonialsSectionStoryblok
+    | TextAndImageSectionStoryblok
+    | TextOverImageSectionStoryblok
+    | TextSectionStoryblok
+    | TiktokSectionStoryblok
+  )[];
   _uid: string;
-  component: 'article';
+  component: "article";
   [k: string]: any;
 }
 
 export interface ArticleOverviewStoryblok {
-  heading?: string;
+  title?: string;
+  body?: (
+    | AnimatedWordsSectionStoryblok
+    | ArticlesSectionStoryblok
+    | CaseStudiesSectionStoryblok
+    | ColouredContainerSectionStoryblok
+    | FaqsSectionStoryblok
+    | FeatureSectionStoryblok
+    | ImageSectionStoryblok
+    | IntroSectionStoryblok
+    | LogoCarouselSectionStoryblok
+    | StatsSectionStoryblok
+    | TestimonialsSectionStoryblok
+    | TextAndImageSectionStoryblok
+    | TextOverImageSectionStoryblok
+    | TextSectionStoryblok
+    | TiktokSectionStoryblok
+  )[];
   meta_title?: string;
   meta_description?: string;
+  excerpt?: string;
+  image?: AssetStoryblok;
   _uid: string;
-  component: 'article-overview';
+  component: "article-overview";
   [k: string]: any;
 }
 
@@ -78,7 +114,7 @@ export interface ArticlesSectionStoryblok {
   articles?: (StoryblokStory<ArticleStoryblok> | string)[];
   filter_by_category?: (StoryblokStory<CategoryStoryblok> | string)[];
   _uid: string;
-  component: 'articles-section';
+  component: "articles-section";
   [k: string]: any;
 }
 
@@ -95,7 +131,7 @@ export interface BannerWysiwygStoryblok {
   background?: number | string;
   richtext?: RichtextStoryblok;
   _uid: string;
-  component: 'banner-wysiwyg';
+  component: "banner-wysiwyg";
   [k: string]: any;
 }
 
@@ -104,32 +140,32 @@ export type MultilinkStoryblok =
       id?: string;
       cached_url?: string;
       anchor?: string;
-      linktype?: 'story';
-      target?: '_self' | '_blank';
+      linktype?: "story";
+      target?: "_self" | "_blank";
       [k: string]: any;
     }
   | {
       url?: string;
       cached_url?: string;
       anchor?: string;
-      linktype?: 'asset' | 'url';
-      target?: '_self' | '_blank';
+      linktype?: "asset" | "url";
+      target?: "_self" | "_blank";
       [k: string]: any;
     }
   | {
       email?: string;
-      linktype?: 'email';
-      target?: '_self' | '_blank';
+      linktype?: "email";
+      target?: "_self" | "_blank";
       [k: string]: any;
     };
 
 export interface ButtonStoryblok {
-  link: Exclude<MultilinkStoryblok, { linktype?: 'asset' }>;
+  link: Exclude<MultilinkStoryblok, {linktype?: "asset"}>;
   label: string;
-  variant: '' | 'pink' | 'purple' | 'white';
+  variant: "" | "pink" | "purple" | "white";
   form_trigger?: boolean;
   _uid: string;
-  component: 'button';
+  component: "button";
   [k: string]: any;
 }
 
@@ -139,15 +175,15 @@ export interface CaseStudiesSectionStoryblok {
   body?: string;
   articles?: (StoryblokStory<CaseStudyStoryblok> | string)[];
   _uid: string;
-  component: 'case-studies-section';
+  component: "case-studies-section";
   [k: string]: any;
 }
 
 export interface CaseStudyStoryblok {
   title?: string;
-  preview: RichtextStoryblok;
-  image?: AssetStoryblok;
   excerpt?: string;
+  image?: AssetStoryblok;
+  preview: RichtextStoryblok;
   wysiwyg?: (
     | BannerWysiwygStoryblok
     | GalleryWysiwygStoryblok
@@ -159,121 +195,12 @@ export interface CaseStudyStoryblok {
   meta_title?: string;
   meta_desc?: string;
   _uid: string;
-  component: 'case-study';
+  component: "case-study";
   [k: string]: any;
 }
 
 export interface CaseStudyOverviewStoryblok {
-  heading?: string;
-  meta_title?: string;
-  _uid: string;
-  component: 'case-study-overview';
-  [k: string]: any;
-}
-
-export interface CategoryStoryblok {
-  name: string;
-  meta_title?: string;
-  meta_description?: string;
-  description?: string;
-  _uid: string;
-  component: 'category';
-  [k: string]: any;
-}
-
-export interface CategoryOverviewStoryblok {
-  _uid: string;
-  component: 'category-overview';
-  [k: string]: any;
-}
-
-export interface ColouredContainerStoryblok {
-  content: RichtextStoryblok;
-  _uid: string;
-  component: 'coloured-container';
-  [k: string]: any;
-}
-
-export interface ColouredContainerSectionStoryblok {
-  sections?: ColouredContainerStoryblok[];
-  _uid: string;
-  component: 'coloured-container-section';
-  [k: string]: any;
-}
-
-export interface ConfigStoryblok {
-  header: HeaderStoryblok[];
-  footer: FooterStoryblok[];
-  _uid: string;
-  component: 'config';
-  [k: string]: any;
-}
-
-export interface FaqStoryblok {
-  question: string;
-  answer: RichtextStoryblok;
-  meta_title?: string;
-  meta_description?: string;
-  _uid: string;
-  component: 'faq';
-  [k: string]: any;
-}
-
-export interface FaqsSectionStoryblok {
-  eyebrow?: string;
-  heading?: string;
-  body?: string;
-  faqs: (StoryblokStory<FaqStoryblok> | string)[];
-  _uid: string;
-  component: 'faqs-section';
-  [k: string]: any;
-}
-
-export interface FeatureSectionStoryblok {
-  name?: string;
-  _uid: string;
-  component: 'feature-section';
-  [k: string]: any;
-}
-
-export interface FooterStoryblok {
-  menu?: MenuSectionStoryblok[];
-  body?: RichtextStoryblok;
-  _uid: string;
-  component: 'footer';
-  [k: string]: any;
-}
-
-export type MultiassetStoryblok = {
-  alt?: string;
-  copyright?: string;
-  id: number;
-  filename: string;
-  name: string;
   title?: string;
-  [k: string]: any;
-}[];
-
-export interface GalleryWysiwygStoryblok {
-  gallery: MultiassetStoryblok;
-  _uid: string;
-  component: 'gallery-wysiwyg';
-  [k: string]: any;
-}
-
-export interface HeaderStoryblok {
-  menu?: MenuSectionStoryblok[];
-  buttons?: ButtonStoryblok[];
-  _uid: string;
-  component: 'header';
-  [k: string]: any;
-}
-
-export interface HomepageStoryblok {
-  title: string;
-  subheading?: string;
-  animated_title?: AnimatedWordStoryblok[];
-  buttons?: ButtonStoryblok[];
   excerpt?: string;
   image?: AssetStoryblok;
   body?: (
@@ -294,16 +221,163 @@ export interface HomepageStoryblok {
     | TiktokSectionStoryblok
   )[];
   meta_title?: string;
+  _uid: string;
+  component: "case-study-overview";
+  [k: string]: any;
+}
+
+export interface CategoryStoryblok {
+  title?: string;
+  excerpt?: string;
+  image?: AssetStoryblok;
+  name: string;
+  body?: (
+    | AnimatedWordsSectionStoryblok
+    | ArticlesSectionStoryblok
+    | CaseStudiesSectionStoryblok
+    | ColouredContainerSectionStoryblok
+    | FaqsSectionStoryblok
+    | FeatureSectionStoryblok
+    | ImageSectionStoryblok
+    | IntroSectionStoryblok
+    | LogoCarouselSectionStoryblok
+    | StatsSectionStoryblok
+    | TestimonialsSectionStoryblok
+    | TextAndImageSectionStoryblok
+    | TextOverImageSectionStoryblok
+    | TextSectionStoryblok
+    | TiktokSectionStoryblok
+  )[];
+  meta_title?: string;
   meta_description?: string;
   _uid: string;
-  component: 'homepage';
+  component: "category";
+  [k: string]: any;
+}
+
+export interface CategoryOverviewStoryblok {
+  _uid: string;
+  component: "category-overview";
+  [k: string]: any;
+}
+
+export interface ColouredContainerStoryblok {
+  content: RichtextStoryblok;
+  _uid: string;
+  component: "coloured-container";
+  [k: string]: any;
+}
+
+export interface ColouredContainerSectionStoryblok {
+  sections?: ColouredContainerStoryblok[];
+  _uid: string;
+  component: "coloured-container-section";
+  [k: string]: any;
+}
+
+export interface ConfigStoryblok {
+  header: HeaderStoryblok[];
+  footer: FooterStoryblok[];
+  _uid: string;
+  component: "config";
+  [k: string]: any;
+}
+
+export interface FaqStoryblok {
+  question: string;
+  answer: RichtextStoryblok;
+  meta_title?: string;
+  meta_description?: string;
+  _uid: string;
+  component: "faq";
+  [k: string]: any;
+}
+
+export interface FaqsSectionStoryblok {
+  eyebrow?: string;
+  heading?: string;
+  body?: string;
+  faqs: (StoryblokStory<FaqStoryblok> | string)[];
+  _uid: string;
+  component: "faqs-section";
+  [k: string]: any;
+}
+
+export interface FeatureSectionStoryblok {
+  name?: string;
+  _uid: string;
+  component: "feature-section";
+  [k: string]: any;
+}
+
+export interface FooterStoryblok {
+  menu?: MenuSectionStoryblok[];
+  body?: RichtextStoryblok;
+  _uid: string;
+  component: "footer";
+  [k: string]: any;
+}
+
+export type MultiassetStoryblok = {
+  alt?: string;
+  copyright?: string;
+  id: number;
+  filename: string;
+  name: string;
+  title?: string;
+  [k: string]: any;
+}[];
+
+export interface GalleryWysiwygStoryblok {
+  gallery: MultiassetStoryblok;
+  _uid: string;
+  component: "gallery-wysiwyg";
+  [k: string]: any;
+}
+
+export interface HeaderStoryblok {
+  menu?: (MenuSectionStoryblok | MenuLinkStoryblok)[];
+  buttons?: ButtonStoryblok[];
+  _uid: string;
+  component: "header";
+  [k: string]: any;
+}
+
+export interface HomepageStoryblok {
+  title: string;
+  animated_title?: AnimatedWordStoryblok[];
+  subheading?: string;
+  buttons?: ButtonStoryblok[];
+  image?: AssetStoryblok;
+  excerpt?: string;
+  body?: (
+    | AnimatedWordsSectionStoryblok
+    | ArticlesSectionStoryblok
+    | CaseStudiesSectionStoryblok
+    | ColouredContainerSectionStoryblok
+    | FaqsSectionStoryblok
+    | FeatureSectionStoryblok
+    | ImageSectionStoryblok
+    | IntroSectionStoryblok
+    | LogoCarouselSectionStoryblok
+    | StatsSectionStoryblok
+    | TestimonialsSectionStoryblok
+    | TextAndImageSectionStoryblok
+    | TextOverImageSectionStoryblok
+    | TextSectionStoryblok
+    | TiktokSectionStoryblok
+  )[];
+  meta_title?: string;
+  meta_description?: string;
+  _uid: string;
+  component: "homepage";
   [k: string]: any;
 }
 
 export interface ImageSectionStoryblok {
   images?: MultiassetStoryblok;
   _uid: string;
-  component: 'image-section';
+  component: "image-section";
   [k: string]: any;
 }
 
@@ -311,7 +385,7 @@ export interface ImageWysiwygStoryblok {
   image: AssetStoryblok;
   caption?: string;
   _uid: string;
-  component: 'image-wysiwyg';
+  component: "image-wysiwyg";
   [k: string]: any;
 }
 
@@ -319,26 +393,26 @@ export interface IntroSectionStoryblok {
   heading?: string;
   content?: RichtextStoryblok;
   _uid: string;
-  component: 'intro-section';
+  component: "intro-section";
   [k: string]: any;
 }
 
 export interface LogoCarouselSectionStoryblok {
-  heading?: string;
   eyebrow?: string;
+  heading?: string;
   body?: string;
   logos: MultiassetStoryblok;
   _uid: string;
-  component: 'logo-carousel-section';
+  component: "logo-carousel-section";
   [k: string]: any;
 }
 
 export interface MenuLinkStoryblok {
   label: string;
   description?: string;
-  link: Exclude<MultilinkStoryblok, { linktype?: 'asset' }>;
+  link: Exclude<MultilinkStoryblok, {linktype?: "asset"}>;
   _uid: string;
-  component: 'menu-link';
+  component: "menu-link";
   [k: string]: any;
 }
 
@@ -346,7 +420,7 @@ export interface MenuSectionStoryblok {
   heading: string;
   items?: MenuLinkStoryblok[];
   _uid: string;
-  component: 'menu-section';
+  component: "menu-section";
   [k: string]: any;
 }
 
@@ -374,7 +448,7 @@ export interface PageStoryblok {
   meta_title?: string;
   meta_description?: string;
   _uid: string;
-  component: 'page';
+  component: "page";
   uuid?: string;
   [k: string]: any;
 }
@@ -385,7 +459,7 @@ export interface StatStoryblok {
   suffix?: string;
   description: string;
   _uid: string;
-  component: 'stat';
+  component: "stat";
   [k: string]: any;
 }
 
@@ -393,7 +467,7 @@ export interface StatsSectionStoryblok {
   heading?: string;
   stats?: StatStoryblok[];
   _uid: string;
-  component: 'stats-section';
+  component: "stats-section";
   [k: string]: any;
 }
 
@@ -404,7 +478,7 @@ export interface TestimonialStoryblok {
   content?: string;
   company?: AssetStoryblok;
   _uid: string;
-  component: 'testimonial';
+  component: "testimonial";
   [k: string]: any;
 }
 
@@ -414,26 +488,26 @@ export interface TestimonialsSectionStoryblok {
   body?: string;
   testimonials: (StoryblokStory<TestimonialStoryblok> | string)[];
   _uid: string;
-  component: 'testimonials-section';
+  component: "testimonials-section";
   [k: string]: any;
 }
 
 export interface TestimonialWysiwygStoryblok {
   testimonial: StoryblokStory<TestimonialStoryblok> | string;
   _uid: string;
-  component: 'testimonial-wysiwyg';
+  component: "testimonial-wysiwyg";
   [k: string]: any;
 }
 
 export interface TextAndImageSectionStoryblok {
   eyebrow?: string;
+  is_reverse?: boolean;
   heading?: string;
-  body: string;
+  body: RichtextStoryblok;
   buttons?: ButtonStoryblok[];
   image: AssetStoryblok;
-  is_reverse?: boolean;
   _uid: string;
-  component: 'text-and-image-section';
+  component: "text-and-image-section";
   [k: string]: any;
 }
 
@@ -444,31 +518,31 @@ export interface TextOverImageSectionStoryblok {
   buttons?: ButtonStoryblok[];
   image: AssetStoryblok;
   _uid: string;
-  component: 'text-over-image-section';
+  component: "text-over-image-section";
   [k: string]: any;
 }
 
 export interface TextSectionStoryblok {
   eyebrow?: string;
   heading?: string;
-  body: string;
+  body: RichtextStoryblok;
   buttons?: ButtonStoryblok[];
   _uid: string;
-  component: 'text-section';
+  component: "text-section";
   [k: string]: any;
 }
 
 export interface TextWysiwygStoryblok {
   richtext: RichtextStoryblok;
   _uid: string;
-  component: 'text-wysiwyg';
+  component: "text-wysiwyg";
   [k: string]: any;
 }
 
 export interface TiktokStoryblok {
   url?: string;
   _uid: string;
-  component: 'tiktok';
+  component: "tiktok";
   [k: string]: any;
 }
 
@@ -477,13 +551,13 @@ export interface TiktokSectionStoryblok {
   heading?: string;
   body?: string;
   _uid: string;
-  component: 'tiktok-section';
+  component: "tiktok-section";
   [k: string]: any;
 }
 
 export interface VideoWysiwygStoryblok {
   video: AssetStoryblok;
   _uid: string;
-  component: 'video-wysiwyg';
+  component: "video-wysiwyg";
   [k: string]: any;
 }

@@ -31,8 +31,11 @@ const Testimonial = ({ blok, isCard, className }: TTestimonial) => {
           className
         )}
       >
-        <Quote className='size-6 rotate-180 text-purple sm:size-8' />
-        <blockquote className='grow italic sm:text-lg'>{content}</blockquote>
+        <Quote className='size-6 rotate-180 text-black sm:size-8' />
+        <blockquote className='grow italic sm:text-lg lg:text-xl'>
+          {content}
+        </blockquote>
+        <Quote className='size-6 self-end text-black sm:size-8' />
         <hr className='my-2 border-purple/20' />
         <footer className='flex flex-col gap-x-8 gap-y-2 sm:gap-y-4 md:flex-row md:items-center'>
           <div className='flex grow items-center gap-x-4'>

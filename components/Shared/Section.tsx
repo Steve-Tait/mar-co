@@ -32,7 +32,7 @@ const Section = forwardRef<Ref, IProps>(
             `bg-white text-muted-foreground [.bg-white+_&]:pt-0`,
           color === 'muted' &&
             `bg-muted text-muted-foreground [.bg-muted_+_&]:pt-0`,
-          !removePadding && 'py-16 sm:py-24 lg:py-32',
+          !removePadding && 'py-24 sm:py-32 lg:py-48',
           className
         )}
         {...(blok && storyblokEditable(blok))}

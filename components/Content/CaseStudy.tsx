@@ -1,6 +1,6 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
 import Wysiwyg from '../Shared/Wysiwyg';
-import Hero from '../Shared/Hero';
+import HeroCaseStudy from '../Shared/HeroCaseStudy';
 import Section from '../Shared/Section';
 import Container from '../Shared/Container';
 import { Suspense } from 'react';
@@ -13,7 +13,7 @@ const CaseStudy = ({ blok, id }: CaseStudyStoryblok) => {
   const { title, image, excerpt, wysiwyg } = blok;
   return (
     <div {...storyblokEditable(blok)}>
-      <Hero {...{ title, excerpt, image }} />
+      <HeroCaseStudy {...{ title, excerpt, image }} />
       <Wysiwyg wysiwyg={wysiwyg} />
       <Section blok={blok} color='muted'>
         <Container>

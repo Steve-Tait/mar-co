@@ -10,7 +10,12 @@ import Container from './Container';
 import MenuSectionHeader from '../Content/MenuSectionHeader';
 import Button from '../Block/Button';
 import Link from 'next/link';
-import { NavigationMenu, NavigationMenuList } from '../ui/navigation-menu';
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from '../ui/navigation-menu';
 import { cn } from '@/lib/utils';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import { useLenis } from './SmoothScroller';
@@ -57,10 +62,20 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
               {menu && (
                 <div className='grid-cols-auto grid grid-flow-col gap-x-4'>
                   {menu.map((nestedBlok: MenuSectionStoryblok) => (
-                    <MenuSectionHeader
-                      blok={nestedBlok}
-                      key={nestedBlok._uid}
-                    />
+                    <>
+                      {nestedBlok.items ? (
+                        <MenuSectionHeader
+                          blok={nestedBlok}
+                          key={nestedBlok._uid}
+                        />
+                      ) : (
+                        <NavigationMenuLink asChild>
+                          <Link href={`/${nestedBlok.link.cached_url}`}>
+                            {nestedBlok.link.label}
+                          </Link>
+                        </NavigationMenuLink>
+                      )}
+                    </>
                   ))}
                 </div>
               )}
@@ -90,9 +105,9 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
                           {heading}
                         </p>
                         {items &&
-                          items.map((item) => (
+                          items.map((item, index) => (
                             <Link
-                              key={item.label}
+                              key={index}
                               title={item.label}
                               href={`/${item.link.cached_url}`}
                             >

@@ -13,7 +13,7 @@ type THero = {
   className?: string;
 };
 
-const Hero = ({
+const HeroCaseStudy = ({
   title,
   excerpt,
   image,
@@ -57,4 +57,4 @@ const Hero = ({
     </section>
   );
 };
-export default Hero;
+export default HeroCaseStudy;

@@ -50,12 +50,12 @@ const HeroHome = ({
         )}
 
         {subheading && (
-          <p className='mx-auto mt-4 max-w-prose text-balance text-xl md:text-2xl'>
+          <p className='mt-2 text-xl/relaxed font-bold md:text-2xl/relaxed'>
             {subheading}
           </p>
         )}
         {buttons && (
-          <div className='mt-4'>
+          <div className='mt-4 flex flex-col flex-wrap items-center justify-center gap-2 sm:flex-row'>
             {buttons.map((nestedBlok) => (
               <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
             ))}

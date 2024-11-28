@@ -55,7 +55,7 @@ const HeroHome = ({
           </p>
         )}
         {buttons && (
-          <div className='mt-4 flex flex-col flex-wrap items-center justify-center gap-2 sm:flex-row'>
+          <div className='mt-4 flex flex-col flex-wrap items-center justify-center gap-2 sm:flex-row md:mt-8'>
             {buttons.map((nestedBlok) => (
               <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
             ))}

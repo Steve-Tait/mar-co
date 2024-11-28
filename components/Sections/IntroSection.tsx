@@ -11,7 +11,7 @@ const IntroSection = ({ blok }: { blok: IntroSectionStoryblok }) => {
 
   return (
     <Section blok={blok} color='primary'>
-      <Container className='grid max-w-5xl gap-8 gap-y-4 md:grid-cols-3 lg:grid-cols-5'>
+      <Container className='grid max-w-6xl gap-8 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-16'>
         {heading && (
           <Heading
             className='uppercase lg:col-span-2'
@@ -22,8 +22,8 @@ const IntroSection = ({ blok }: { blok: IntroSectionStoryblok }) => {
         {content && (
           <div
             className={cn(
-              'prose-lg xl:prose-xl md:col-span-2 lg:col-span-3',
-              heading ? 'md:col-span-2 lg:col-span-3' : 'md:col-span-5'
+              'prose-lg xl:prose-xl lg:col-span-2 xl:col-span-3',
+              heading ? 'lg:col-span-2 xl:col-span-3' : 'lg:col-span-5'
             )}
           >
             {render(content)}

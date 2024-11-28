@@ -53,10 +53,10 @@ const SentenceLoop = ({
   }, []);
 
   useEffect(() => {
-    console.log('resize');
+    let maxHeight = 0;
+
     refs.current.forEach((element) => {
       const elementHeight = element.offsetHeight;
-      let maxHeight = 0;
       if (elementHeight > maxHeight) {
         maxHeight = elementHeight;
       }

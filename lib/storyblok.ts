@@ -1,5 +1,9 @@
-import { storyblokInit, apiPlugin } from '@storyblok/js';
-import { ISbStoriesParams, getStoryblokApi } from '@storyblok/react/rsc';
+import {
+  apiPlugin,
+  storyblokInit,
+  ISbStoriesParams,
+  StoryblokClient,
+} from '@storyblok/react/rsc';
 import { resolveRelations } from './consts';
 import { Paths } from './types';
 import {
@@ -7,14 +11,18 @@ import {
   CaseStudyStoryblok,
   CategoryStoryblok,
 } from '@/component-types-sb';
+import { COMPONENTS } from './components';
 
-const { storyblokApi } = storyblokInit({
+export const getStoryblokApi = storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN,
   use: [apiPlugin],
   apiOptions: {
     region: 'eu',
   },
+  components: COMPONENTS,
 });
+
+const storyblokApi: StoryblokClient = getStoryblokApi();
 
 export async function getLinks() {
   if (!storyblokApi) {

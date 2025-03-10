@@ -1,16 +1,20 @@
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react/rsc';
-import Hero from '../Shared/Hero';
+import {
+  storyblokEditable,
+  StoryblokServerComponent,
+} from '@storyblok/react/rsc';
 import { PageStoryblok } from '@/component-types-sb';
+import HeroWrap from '../Shared/HeroWrap';
 
 const Page = ({ blok }: PageStoryblok) => {
-  const { title, excerpt, image, body } = blok;
+  const { title, excerpt, image, button, body } = blok;
   return (
     <main {...storyblokEditable(blok)}>
-      <Hero {...{ title, excerpt, image }} />
-      {body &&
-        body.map((nestedBlok: any) => (
-          <StoryblokComponent blok={nestedBlok} key={nestedBlok.uuid} />
-        ))}
+      <HeroWrap {...{ title, excerpt, image, button }}>
+        {body &&
+          body.map((nestedBlok: any) => (
+            <StoryblokServerComponent blok={nestedBlok} key={nestedBlok.uuid} />
+          ))}
+      </HeroWrap>
     </main>
   );
 };

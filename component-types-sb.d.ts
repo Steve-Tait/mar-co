@@ -37,6 +37,7 @@ export interface AnimatedWordsSectionStoryblok {
   heading?: string;
   animated_words: AnimatedWordStoryblok[];
   background?: AssetStoryblok;
+  theme?: number | string;
   _uid: string;
   component: "animated-words-section";
   [k: string]: any;
@@ -64,6 +65,7 @@ export interface ArticleStoryblok {
     | ColouredContainerSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
+    | FullWidthImageSectionStoryblok
     | ImageSectionStoryblok
     | IntroSectionStoryblok
     | LogoCarouselSectionStoryblok
@@ -88,6 +90,7 @@ export interface ArticleOverviewStoryblok {
     | ColouredContainerSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
+    | FullWidthImageSectionStoryblok
     | ImageSectionStoryblok
     | IntroSectionStoryblok
     | LogoCarouselSectionStoryblok
@@ -113,6 +116,7 @@ export interface ArticlesSectionStoryblok {
   body?: string;
   articles?: (StoryblokStory<ArticleStoryblok> | string)[];
   filter_by_category?: (StoryblokStory<CategoryStoryblok> | string)[];
+  theme?: number | string;
   _uid: string;
   component: "articles-section";
   [k: string]: any;
@@ -162,7 +166,7 @@ export type MultilinkStoryblok =
 export interface ButtonStoryblok {
   link: Exclude<MultilinkStoryblok, {linktype?: "asset"}>;
   label: string;
-  variant: "" | "pink" | "purple" | "white";
+  variant: "" | "primary" | "secondary" | "text-link";
   form_trigger?: boolean;
   _uid: string;
   component: "button";
@@ -174,6 +178,7 @@ export interface CaseStudiesSectionStoryblok {
   heading?: string;
   body?: string;
   articles?: (StoryblokStory<CaseStudyStoryblok> | string)[];
+  theme?: number | string;
   _uid: string;
   component: "case-studies-section";
   [k: string]: any;
@@ -210,6 +215,7 @@ export interface CaseStudyOverviewStoryblok {
     | ColouredContainerSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
+    | FullWidthImageSectionStoryblok
     | ImageSectionStoryblok
     | IntroSectionStoryblok
     | LogoCarouselSectionStoryblok
@@ -238,6 +244,7 @@ export interface CategoryStoryblok {
     | ColouredContainerSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
+    | FullWidthImageSectionStoryblok
     | ImageSectionStoryblok
     | IntroSectionStoryblok
     | LogoCarouselSectionStoryblok
@@ -270,6 +277,7 @@ export interface ColouredContainerStoryblok {
 
 export interface ColouredContainerSectionStoryblok {
   sections?: ColouredContainerStoryblok[];
+  theme?: number | string;
   _uid: string;
   component: "coloured-container-section";
   [k: string]: any;
@@ -298,6 +306,7 @@ export interface FaqsSectionStoryblok {
   heading?: string;
   body?: string;
   faqs: (StoryblokStory<FaqStoryblok> | string)[];
+  theme?: number | string;
   _uid: string;
   component: "faqs-section";
   [k: string]: any;
@@ -305,6 +314,7 @@ export interface FaqsSectionStoryblok {
 
 export interface FeatureSectionStoryblok {
   name?: string;
+  theme?: number | string;
   _uid: string;
   component: "feature-section";
   [k: string]: any;
@@ -315,6 +325,13 @@ export interface FooterStoryblok {
   body?: RichtextStoryblok;
   _uid: string;
   component: "footer";
+  [k: string]: any;
+}
+
+export interface FullWidthImageSectionStoryblok {
+  image?: AssetStoryblok;
+  _uid: string;
+  component: "full-width-image-section";
   [k: string]: any;
 }
 
@@ -357,6 +374,7 @@ export interface HomepageStoryblok {
     | ColouredContainerSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
+    | FullWidthImageSectionStoryblok
     | ImageSectionStoryblok
     | IntroSectionStoryblok
     | LogoCarouselSectionStoryblok
@@ -376,6 +394,7 @@ export interface HomepageStoryblok {
 
 export interface ImageSectionStoryblok {
   images?: MultiassetStoryblok;
+  theme?: number | string;
   _uid: string;
   component: "image-section";
   [k: string]: any;
@@ -392,6 +411,7 @@ export interface ImageWysiwygStoryblok {
 export interface IntroSectionStoryblok {
   heading?: string;
   content?: RichtextStoryblok;
+  theme?: number | string;
   _uid: string;
   component: "intro-section";
   [k: string]: any;
@@ -402,6 +422,7 @@ export interface LogoCarouselSectionStoryblok {
   heading?: string;
   body?: string;
   logos: MultiassetStoryblok;
+  theme?: number | string;
   _uid: string;
   component: "logo-carousel-section";
   [k: string]: any;
@@ -428,6 +449,7 @@ export interface PageStoryblok {
   title: string;
   excerpt?: string;
   image?: AssetStoryblok;
+  button?: ButtonStoryblok[];
   body?: (
     | AnimatedWordsSectionStoryblok
     | ArticlesSectionStoryblok
@@ -435,6 +457,7 @@ export interface PageStoryblok {
     | ColouredContainerSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
+    | FullWidthImageSectionStoryblok
     | ImageSectionStoryblok
     | IntroSectionStoryblok
     | LogoCarouselSectionStoryblok
@@ -466,6 +489,7 @@ export interface StatStoryblok {
 export interface StatsSectionStoryblok {
   heading?: string;
   stats?: StatStoryblok[];
+  theme?: number | string;
   _uid: string;
   component: "stats-section";
   [k: string]: any;
@@ -487,6 +511,7 @@ export interface TestimonialsSectionStoryblok {
   heading?: string;
   body?: string;
   testimonials: (StoryblokStory<TestimonialStoryblok> | string)[];
+  theme?: number | string;
   _uid: string;
   component: "testimonials-section";
   [k: string]: any;
@@ -506,6 +531,7 @@ export interface TextAndImageSectionStoryblok {
   body: RichtextStoryblok;
   buttons?: ButtonStoryblok[];
   image: AssetStoryblok;
+  theme?: number | string;
   _uid: string;
   component: "text-and-image-section";
   [k: string]: any;
@@ -527,6 +553,7 @@ export interface TextSectionStoryblok {
   heading?: string;
   body: RichtextStoryblok;
   buttons?: ButtonStoryblok[];
+  theme?: number | string;
   _uid: string;
   component: "text-section";
   [k: string]: any;
@@ -548,8 +575,9 @@ export interface TiktokStoryblok {
 
 export interface TiktokSectionStoryblok {
   eyebrow?: string;
-  heading?: string;
   body?: string;
+  heading?: string;
+  theme?: number | string;
   _uid: string;
   component: "tiktok-section";
   [k: string]: any;

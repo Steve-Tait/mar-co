@@ -1,11 +1,17 @@
 import { TextWysiwygStoryblok } from '@/component-types-sb';
-import { render } from 'storyblok-rich-text-react-renderer';
+import Container from '../Shared/Container';
+import RichText from '../Block/RichText';
 
 const TextWysiwyg = ({ blok }: TextWysiwygStoryblok) => {
   const { richtext } = blok;
   return (
-    <div className='md:col-span-8 md:col-start-3'>
-      <div className='prose lg:prose-lg'>{render(richtext)}</div>
+    <div className='theme--light bg-background py-8 text-foreground md:py-12 lg:py-16 xl:py-24'>
+      <Container>
+        <RichText
+          className='prose max-w-prose lg:prose-lg'
+          content={richtext}
+        />
+      </Container>
     </div>
   );
 };

@@ -68,16 +68,27 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-19T16:32:20.214Z",
-      "updated_at": "2024-09-02T12:27:56.354Z",
+      "updated_at": "2025-02-18T20:03:54.251Z",
       "id": 5199683,
       "schema": {
         "eyebrow": {
           "type": "text",
-          "pos": 0
+          "pos": 0,
+          "id": "LzVu7SO1TW6_ZNRGyERKKg"
+        },
+        "tab-040b58a2-f9b9-4b62-956f-5c26f8e6efd6": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "BAtYovm5S2KVb1wm-Obv1g"
         },
         "heading": {
           "type": "text",
-          "pos": 1
+          "pos": 1,
+          "id": "ZIes4_uHTvas_XSCt0Dh3A"
         },
         "animated_words": {
           "type": "bloks",
@@ -87,11 +98,22 @@
           "component_whitelist": [
             "animated-word"
           ],
-          "pos": 2
+          "pos": 2,
+          "id": "ntTYCj5KTbaghVjSollXaw"
         },
         "background": {
           "type": "asset",
-          "pos": 3
+          "pos": 3,
+          "id": "jCuT1CkNTmSJx2Atj-3h8w"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 5,
+          "use_uuid": true,
+          "source": "internal",
+          "datasource_slug": "theme",
+          "id": "m6ztWNDiTJajhwMBzBDZUA",
+          "exclude_empty_option": true
         }
       },
       "image": null,
@@ -300,17 +322,20 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-30T19:30:53.237Z",
-      "updated_at": "2024-01-31T17:42:50.998Z",
+      "updated_at": "2025-02-18T20:03:45.977Z",
       "id": 5255414,
       "schema": {
         "eyebrow": {
-          "type": "text"
+          "type": "text",
+          "id": "579FhSEwS2y51EF8ST7OLg"
         },
         "heading": {
-          "type": "text"
+          "type": "text",
+          "id": "aGTSM1g5RjqPwyvsqfy3LQ"
         },
         "body": {
-          "type": "textarea"
+          "type": "textarea",
+          "id": "31SpChfKR2mURMiFxbAViA"
         },
         "articles": {
           "type": "options",
@@ -322,7 +347,8 @@
             "article"
           ],
           "min_options": "",
-          "description": "Leave empty to get the latest 3 entries"
+          "description": "Leave empty to get the latest 3 entries",
+          "id": "d1g8qaupQUSJxpdPeSsOzQ"
         },
         "filter_by_category": {
           "type": "options",
@@ -331,7 +357,26 @@
           "filter_content_type": [
             "category"
           ],
-          "default_value": "Only relevant when no articles selected"
+          "default_value": "Only relevant when no articles selected",
+          "id": "1PmsnZQ3SvaBWY4q2m8Hqg"
+        },
+        "tab-cc93c2f6-63e7-4fe2-a276-ae3796d9063c": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "zJPC9mPnT-Kidq43ltkGPA"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 6,
+          "use_uuid": true,
+          "source": "internal",
+          "datasource_slug": "theme",
+          "exclude_empty_option": true,
+          "id": "H9dQ9pdwRjOy_7HaRcDrOA"
         }
       },
       "image": null,
@@ -355,7 +400,7 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-31T15:15:58.644Z",
-      "updated_at": "2024-02-08T21:52:42.175Z",
+      "updated_at": "2025-03-04T22:39:15.544Z",
       "id": 5262063,
       "schema": {
         "background": {
@@ -365,7 +410,8 @@
           "source": "internal",
           "datasource_slug": "colours",
           "exclude_empty_option": true,
-          "default_value": "purple"
+          "default_value": "purple",
+          "id": "FX38yDNPSYuSm6mxShwoBA"
         },
         "richtext": {
           "type": "richtext",
@@ -390,11 +436,17 @@
             "anchor",
             "emoji",
             "cut",
-            "copy"
+            "copy",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6"
           ],
           "display_name": "",
           "key": "body",
-          "pos": 1
+          "pos": 1,
+          "id": "UWVwK7xUR364rWCh-jZcjw"
         }
       },
       "image": null,
@@ -418,7 +470,7 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-19T09:22:21.387Z",
-      "updated_at": "2024-02-09T13:15:00.086Z",
+      "updated_at": "2025-02-18T20:29:24.129Z",
       "id": 5197379,
       "schema": {
         "link": {
@@ -428,11 +480,13 @@
           "allow_target_blank": true,
           "allow_custom_attributes": true,
           "email_link_type": true,
-          "asset_link_type": false
+          "asset_link_type": false,
+          "id": "aHHz2Sq6SM2IbPbufMCaCQ"
         },
         "label": {
           "type": "text",
-          "required": true
+          "required": true,
+          "id": "kVoBJLpDTc6kq9E-1UK5-A"
         },
         "variant": {
           "type": "option",
@@ -440,27 +494,29 @@
           "options": [
             {
               "_uid": "94199515-eff2-47e1-8159-f11b9887ee41",
-              "value": "pink",
-              "name": "Pink"
+              "value": "primary",
+              "name": "Primary"
             },
             {
               "_uid": "5ca3246d-7945-495b-afa4-7023737c1fe0",
-              "name": "Purple",
-              "value": "purple"
+              "name": "Secondary",
+              "value": "secondary"
             },
             {
               "_uid": "52d32985-f536-4ea4-a26d-4000af407ae7",
-              "value": "white",
-              "name": "White"
+              "value": "text-link",
+              "name": "Text link"
             }
           ],
-          "default_value": "pink",
-          "required": true
+          "default_value": "primary",
+          "required": true,
+          "id": "anJhb51HQBOxh_Pia5WVeQ"
         },
         "form_trigger": {
           "type": "boolean",
           "display_name": "",
-          "description": "Override default link behaviour to trigger popup form instead"
+          "description": "Override default link behaviour to trigger popup form instead",
+          "id": "aQ7F8kjCQCWrejPaYJsYHw"
         }
       },
       "image": null,
@@ -484,17 +540,20 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-04-04T11:52:41.261Z",
-      "updated_at": "2024-08-29T19:12:02.232Z",
+      "updated_at": "2025-02-18T20:04:26.403Z",
       "id": 5603839,
       "schema": {
         "eyebrow": {
-          "type": "text"
+          "type": "text",
+          "id": "UYtDb4EoTB2gXSsIyHIn4g"
         },
         "heading": {
-          "type": "text"
+          "type": "text",
+          "id": "us8k-StUS4G0zMfcJ9jzkw"
         },
         "body": {
-          "type": "textarea"
+          "type": "textarea",
+          "id": "2-cKZiejSdaIQfHTU4NusQ"
         },
         "articles": {
           "type": "options",
@@ -506,7 +565,26 @@
             "case-study"
           ],
           "min_options": "",
-          "description": "Leave empty to get the latest 3 entries"
+          "description": "Leave empty to get the latest 3 entries",
+          "id": "2UHIgnqLRpixyNWzrQ8acg"
+        },
+        "tab-62c33361-9885-413b-802c-fe5a7ccc4550": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "YsMzYZiFQTuALP5afMxFUA"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 5,
+          "use_uuid": true,
+          "source": "internal",
+          "datasource_slug": "theme",
+          "exclude_empty_option": true,
+          "id": "x8yqisuoQCCklmN-_NJhIQ"
         }
       },
       "image": null,
@@ -876,7 +954,7 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-09-01T20:25:39.623Z",
-      "updated_at": "2024-09-01T20:50:09.001Z",
+      "updated_at": "2025-02-18T20:05:19.611Z",
       "id": 6238185,
       "schema": {
         "sections": {
@@ -887,7 +965,26 @@
           "component_whitelist": [
             "coloured-container"
           ],
-          "key": "section"
+          "key": "section",
+          "id": "sbodPCruR-OxT6S2T_o5GQ"
+        },
+        "tab-085e17a1-da8f-4f66-95e0-e99a38edc339": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "CF4XodqPT2aV4OmaOO3DOQ"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 2,
+          "use_uuid": true,
+          "source": "internal",
+          "datasource_slug": "theme",
+          "exclude_empty_option": true,
+          "id": "2T8VV7B1R_iZRQ_EoixSpQ"
         }
       },
       "image": null,
@@ -1026,23 +1123,35 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-23T23:31:40.779Z",
-      "updated_at": "2024-01-23T23:32:24.198Z",
+      "updated_at": "2025-02-18T20:05:44.732Z",
       "id": 5220222,
       "schema": {
         "eyebrow": {
           "type": "text",
           "key": "eyebrow",
-          "pos": 0
+          "pos": 0,
+          "id": "DqNH3aeFTkav_r-ML14aKQ"
+        },
+        "tab-5d58567d-a84b-476b-99af-85919775b3e7": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "XVhWfahLR2uZr4WRl3Wz5w"
         },
         "heading": {
           "type": "text",
           "key": "heading",
-          "pos": 1
+          "pos": 1,
+          "id": "8OrnrCcjQcajnjZXs61fOg"
         },
         "body": {
           "type": "textarea",
           "key": "body",
-          "pos": 2
+          "pos": 2,
+          "id": "31Ad7sDxQy6jzupq9Uay2g"
         },
         "faqs": {
           "type": "options",
@@ -1054,7 +1163,17 @@
           ],
           "min_options": "1",
           "key": "testimonials",
-          "pos": 3
+          "pos": 3,
+          "id": "OVK9MtiGR_CZw8kC9kc4vA"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 5,
+          "use_uuid": true,
+          "source": "internal",
+          "datasource_slug": "theme",
+          "exclude_empty_option": true,
+          "id": "hjmUqk3WSnGazSUuYwl5Sg"
         }
       },
       "image": null,
@@ -1078,11 +1197,30 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-18T15:54:08.904Z",
-      "updated_at": "2024-01-19T09:39:31.250Z",
+      "updated_at": "2025-02-18T20:06:45.542Z",
       "id": 5194088,
       "schema": {
         "name": {
-          "type": "text"
+          "type": "text",
+          "id": "slHvJEISRdqUdFxzKoykkA"
+        },
+        "tab-762227d4-58fc-4d8a-b176-91b6a9fe76cf": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "diIn1Fj8TYqxdpG2qf52zw"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 2,
+          "use_uuid": true,
+          "source": "internal",
+          "datasource_slug": "theme",
+          "exclude_empty_option": true,
+          "id": "RWTeSfaIRmSEOCKvU7nWog"
         }
       },
       "image": null,
@@ -1163,6 +1301,36 @@
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null
+    },
+    {
+      "name": "full-width-image-section",
+      "display_name": null,
+      "description": "",
+      "created_at": "2025-03-05T21:23:31.041Z",
+      "updated_at": "2025-03-05T21:24:04.815Z",
+      "id": 7048277,
+      "schema": {
+        "image": {
+          "type": "asset",
+          "pos": 0,
+          "id": "ZtRH3dXpT3-GymeXJC2GEA"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "full-width-image-section",
+      "component_group_uuid": "b1d05dd6-af9a-4109-91fe-59ef047439ef",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "sections"
     },
     {
       "name": "gallery-wysiwyg",
@@ -1348,7 +1516,7 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-08-27T20:50:21.158Z",
-      "updated_at": "2024-08-27T21:01:09.582Z",
+      "updated_at": "2025-02-18T20:07:27.040Z",
       "id": 6218924,
       "schema": {
         "images": {
@@ -1357,7 +1525,26 @@
           "filetypes": [
             "images"
           ],
-          "allow_external_url": false
+          "allow_external_url": false,
+          "id": "HJk4DWe9S8OJbZ5LTlcizA"
+        },
+        "tab-ffa22aee-2160-4d07-97e8-50f2878ba4de": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "_6Iq7iFgTQeX6FDyh4uk3g"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 2,
+          "use_uuid": true,
+          "source": "internal",
+          "datasource_slug": "theme",
+          "exclude_empty_option": true,
+          "id": "LWtZvQgSQ1CdoVnhKOlW0w"
         }
       },
       "image": null,
@@ -1416,17 +1603,37 @@
       "display_name": "Introduction Section",
       "description": null,
       "created_at": "2024-08-27T20:30:10.092Z",
-      "updated_at": "2024-09-02T12:40:32.145Z",
+      "updated_at": "2025-02-18T20:07:58.635Z",
       "id": 6218920,
       "schema": {
         "heading": {
           "type": "textarea",
           "pos": 0,
-          "description": "Mark content between stars to highlight.\ni.e. Et illum maiores ut **perspiciatis** galisum"
+          "description": "Mark content between stars to highlight.\ni.e. Et illum maiores ut **perspiciatis** galisum",
+          "id": "-QpDTcxVSjW8Ut9Y1tSEGQ"
+        },
+        "tab-6bcda724-7923-472e-97b3-6d4a62c58fde": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "a82nJHkjRy6Xs21KYsWP3g"
         },
         "content": {
           "type": "richtext",
-          "pos": 1
+          "pos": 1,
+          "id": "-nugvq3eQbKrsGsY-a-qYg"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 3,
+          "use_uuid": true,
+          "source": "internal",
+          "datasource_slug": "theme",
+          "exclude_empty_option": true,
+          "id": "7748NcJDQwaa4Xf4w4HRWA"
         }
       },
       "image": null,
@@ -1450,20 +1657,32 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-04-04T11:49:22.429Z",
-      "updated_at": "2024-09-02T12:41:56.174Z",
+      "updated_at": "2025-02-18T20:08:38.635Z",
       "id": 5603838,
       "schema": {
         "eyebrow": {
           "type": "text",
-          "pos": 0
+          "pos": 0,
+          "id": "bmzITR1KQH-rE2ORdL7DCA"
+        },
+        "tab-06190d4a-6dca-48bd-90bf-8cde34447dec": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "BhkNSm3KSL2Qv4zeNER97A"
         },
         "heading": {
           "type": "text",
-          "pos": 1
+          "pos": 1,
+          "id": "uJYH-DJwRGKEH6fVMQfXvA"
         },
         "body": {
           "type": "textarea",
-          "pos": 2
+          "pos": 2,
+          "id": "1dUSUF5iSTSnK5MFO1Cpbg"
         },
         "logos": {
           "type": "multiasset",
@@ -1471,7 +1690,17 @@
           "filetypes": [
             "images"
           ],
-          "pos": 3
+          "pos": 3,
+          "id": "CPpfCbDHTECim9SG28HTMg"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 5,
+          "use_uuid": true,
+          "source": "internal",
+          "datasource_slug": "theme",
+          "exclude_empty_option": true,
+          "id": "HQzbOSnVR1im1uHVgaRjig"
         }
       },
       "image": null,
@@ -1576,23 +1805,38 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-18T15:54:08.861Z",
-      "updated_at": "2024-09-02T12:22:56.237Z",
+      "updated_at": "2025-03-04T20:09:15.117Z",
       "id": 5194085,
       "schema": {
         "title": {
           "type": "text",
           "pos": 0,
-          "required": true
+          "required": true,
+          "id": "2Gdb7KKWRBujof1pGjxX6w"
         },
         "excerpt": {
           "type": "textarea",
           "pos": 1,
-          "required": false
+          "required": false,
+          "id": "kPMV_0OiRjObxbg3F90aLQ"
         },
         "image": {
           "type": "asset",
           "pos": 2,
-          "required": false
+          "required": false,
+          "id": "UsJdhAJ5TYGo7EBKAk87IA"
+        },
+        "button": {
+          "type": "bloks",
+          "pos": 3,
+          "display_name": "Call to action",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "button"
+          ],
+          "id": "SM4j61ZaRFKLJ3qB2inkNQ",
+          "maximum": 1
         },
         "body": {
           "type": "bloks",
@@ -1602,18 +1846,22 @@
           "component_group_whitelist": [
             "b1d05dd6-af9a-4109-91fe-59ef047439ef"
           ],
-          "pos": 3
+          "pos": 4,
+          "id": "lB6swZQARXygrqEccN47dg"
         },
         "tab-5d696db6-80e2-496f-89e6-f613a9534eee": {
           "display_name": "Hero",
           "keys": [
             "title",
             "excerpt",
-            "image"
+            "image",
+            "cta",
+            "button"
           ],
-          "pos": 4,
+          "pos": 5,
           "type": "tab",
-          "name": "tab-5d696db6-80e2-496f-89e6-f613a9534eee"
+          "name": "tab-5d696db6-80e2-496f-89e6-f613a9534eee",
+          "id": "XWlttoDiSW-J5vYTqVNO7g"
         },
         "tab-5f7c3c65-71e4-4866-a8f5-cde3d4e5c302": {
           "display_name": "Seo",
@@ -1621,17 +1869,20 @@
             "meta_title",
             "meta_description"
           ],
-          "pos": 5,
+          "pos": 6,
           "type": "tab",
-          "name": "tab-5f7c3c65-71e4-4866-a8f5-cde3d4e5c302"
+          "name": "tab-5f7c3c65-71e4-4866-a8f5-cde3d4e5c302",
+          "id": "X3w8ZXHkSGao9c3j1OXDAg"
         },
         "meta_title": {
           "type": "text",
-          "pos": 6
+          "pos": 7,
+          "id": "fyiq_zLJSbSjx6GgER7oDA"
         },
         "meta_description": {
           "type": "textarea",
-          "pos": 7
+          "pos": 8,
+          "id": "dXpEEwJgTeGg_CaWBEgNkQ"
         }
       },
       "image": null,
@@ -1700,12 +1951,13 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-08-27T20:48:53.728Z",
-      "updated_at": "2024-08-27T20:49:31.094Z",
+      "updated_at": "2025-02-18T20:09:10.902Z",
       "id": 6218922,
       "schema": {
         "heading": {
           "type": "text",
-          "pos": 0
+          "pos": 0,
+          "id": "JT5s0r5OQNWaizJHPTO-Uw"
         },
         "stats": {
           "type": "bloks",
@@ -1714,7 +1966,26 @@
           "restrict_components": true,
           "component_whitelist": [
             "stat"
-          ]
+          ],
+          "id": "5K1dMJT7S8iEe51Z2Dlnfw"
+        },
+        "tab-5704b8db-33e2-4440-8adc-61eafc1cade3": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "VwS42zPiRECK3GHq_Byt4w"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 3,
+          "use_uuid": true,
+          "source": "internal",
+          "datasource_slug": "theme",
+          "exclude_empty_option": true,
+          "id": "jVSRxIAWSO6jBYIRj-Tymw"
         }
       },
       "image": null,
@@ -1793,17 +2064,20 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-19T14:56:12.787Z",
-      "updated_at": "2024-01-19T14:57:10.007Z",
+      "updated_at": "2025-02-18T20:27:27.317Z",
       "id": 5199195,
       "schema": {
         "eyebrow": {
-          "type": "text"
+          "type": "text",
+          "id": "xdb9oFAmSWSsIvic8WJa1g"
         },
         "heading": {
-          "type": "text"
+          "type": "text",
+          "id": "CY4EpFI-TW-vH19ldbAxmA"
         },
         "body": {
-          "type": "textarea"
+          "type": "textarea",
+          "id": "k83kkf8IQuKPyCNNjvwQPw"
         },
         "testimonials": {
           "type": "options",
@@ -1813,7 +2087,26 @@
           "filter_content_type": [
             "testimonial"
           ],
-          "min_options": "1"
+          "min_options": "1",
+          "id": "Aoh1HfEpQAi6LgV3AAng_A"
+        },
+        "tab-5472f938-f5de-4683-a459-c894fbd51a66": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "VHL5OPXeRoOkWciU-9UaZg"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 5,
+          "use_uuid": true,
+          "source": "internal",
+          "datasource_slug": "theme",
+          "exclude_empty_option": true,
+          "id": "dyTP2lxQRxiF301sCooQww"
         }
       },
       "image": null,
@@ -1877,37 +2170,51 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-19T09:42:01.690Z",
-      "updated_at": "2024-10-23T17:24:41.422Z",
+      "updated_at": "2025-02-18T20:30:33.181Z",
       "id": 5197611,
       "schema": {
         "eyebrow": {
           "type": "text",
-          "pos": 0
+          "pos": 0,
+          "id": "b5ZqOBhiSAWBzidCDyCFCQ"
         },
         "is_reverse": {
           "type": "boolean",
           "display_name": "Reverse Layout?",
           "default_value": false,
-          "inline_label": true
+          "inline_label": true,
+          "id": "du8pxIcQQHuFG0bRTKn-1A"
+        },
+        "tab-0d879087-7a2c-4fc5-a35d-115eef46b8aa": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "DYeQh3osT8WjXRFe70a4qg"
         },
         "heading": {
           "type": "text",
-          "pos": 1
+          "pos": 1,
+          "id": "Uc8CC2yHS0aJItxKVF132w"
         },
         "body": {
           "type": "richtext",
           "required": true,
-          "pos": 2
+          "pos": 2,
+          "id": "-mDzVEaYSeSyuJqlbR2xug"
         },
         "buttons": {
           "type": "bloks",
-          "maximum": 1,
+          "maximum": 2,
           "restrict_type": "",
           "restrict_components": true,
           "component_whitelist": [
             "button"
           ],
-          "pos": 3
+          "pos": 3,
+          "id": "xxz8-CI_T8yM2TChbE-K6g"
         },
         "image": {
           "type": "asset",
@@ -1915,7 +2222,17 @@
           "filetypes": [
             "images"
           ],
-          "pos": 4
+          "pos": 4,
+          "id": "rGePf-CeRDyuSDRqeGHbgg"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 7,
+          "use_uuid": true,
+          "source": "internal",
+          "datasource_slug": "theme",
+          "exclude_empty_option": true,
+          "id": "KwchV__9TMKcFQ6VfuzOWg"
         }
       },
       "image": null,
@@ -2032,21 +2349,33 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-19T09:40:01.992Z",
-      "updated_at": "2024-09-02T12:47:59.828Z",
+      "updated_at": "2025-02-18T20:28:13.428Z",
       "id": 5197545,
       "schema": {
         "eyebrow": {
           "type": "text",
-          "pos": 0
+          "pos": 0,
+          "id": "_nzMGNdxQOK3VYR9j8nAJw"
+        },
+        "tab-dee0bb6b-b67d-4fa8-ba6a-3277efb0f48b": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "3uC7a7Z9T6i6ajJ377D0iw"
         },
         "heading": {
           "type": "text",
-          "pos": 1
+          "pos": 1,
+          "id": "da8Y-dSoRJiBXLI2jKCCbA"
         },
         "body": {
           "type": "richtext",
           "required": true,
-          "pos": 2
+          "pos": 2,
+          "id": "601FV_0KTqKJkQgm1CiysQ"
         },
         "buttons": {
           "type": "bloks",
@@ -2056,7 +2385,17 @@
           "component_whitelist": [
             "button"
           ],
-          "pos": 3
+          "pos": 3,
+          "id": "cgCMDNalRoe39I7-ZRUU3w"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 5,
+          "use_uuid": true,
+          "source": "internal",
+          "datasource_slug": "theme",
+          "exclude_empty_option": true,
+          "id": "g1X80bkeSJKw6ewlsqXMHQ"
         }
       },
       "image": null,
@@ -2137,20 +2476,41 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-03-01T14:01:52.590Z",
-      "updated_at": "2024-03-01T16:05:43.884Z",
+      "updated_at": "2025-02-18T20:28:40.414Z",
       "id": 5425857,
       "schema": {
         "eyebrow": {
           "type": "text",
-          "pos": 0
+          "pos": 0,
+          "id": "lDTBiny2QFaluLTB6liU2w"
+        },
+        "body": {
+          "type": "textarea",
+          "id": "1SBKaW8aSrqVwDNv16JUqg"
         },
         "heading": {
           "type": "text",
           "key": "Heading",
-          "pos": 1
+          "pos": 1,
+          "id": "_bj3jTFJQ_2jQr-xS-CmoA"
         },
-        "body": {
-          "type": "textarea"
+        "tab-dec98514-5aeb-4f69-8496-ce4639edbb74": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "3smFFFrrT2mEls5GOe27dA"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 4,
+          "use_uuid": true,
+          "source": "internal",
+          "datasource_slug": "theme",
+          "exclude_empty_option": true,
+          "id": "gZFr-m0xRTegIDUVKGQAiQ"
         }
       },
       "image": null,

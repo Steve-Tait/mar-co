@@ -8,23 +8,25 @@ import SkeletonGrid from '../Shared/SkeletonGrid';
 import SectionWrap from '../Shared/SectionWrap';
 import { CaseStudyStoryblok } from '@/component-types-sb';
 import CaseStudies from '../Shared/CaseStudies';
+import HeroWrap from '../Shared/HeroWrap';
 
 const CaseStudy = ({ blok, id }: CaseStudyStoryblok) => {
   const { title, image, excerpt, wysiwyg } = blok;
   return (
-    <div {...storyblokEditable(blok)}>
-      <HeroCaseStudy {...{ title, excerpt, image }} />
-      <Wysiwyg wysiwyg={wysiwyg} />
-      <Section blok={blok} color='muted'>
-        <Container>
-          <SectionWrap heading='Other Case Studies'>
-            <Suspense fallback={<SkeletonGrid tiles={6} />}>
-              <CaseStudies limit={3} toExclude={id} />
-            </Suspense>
-          </SectionWrap>
-        </Container>
-      </Section>
-    </div>
+    <main {...storyblokEditable(blok)}>
+      <HeroWrap {...{ title, excerpt, image }}>
+        <Wysiwyg wysiwyg={wysiwyg} />
+        <Section blok={blok}>
+          <Container>
+            <SectionWrap heading='Other Case Studies'>
+              <Suspense fallback={<SkeletonGrid tiles={6} />}>
+                <CaseStudies limit={3} toExclude={id} />
+              </Suspense>
+            </SectionWrap>
+          </Container>
+        </Section>
+      </HeroWrap>
+    </main>
   );
 };
 

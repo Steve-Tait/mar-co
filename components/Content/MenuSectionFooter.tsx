@@ -14,7 +14,7 @@ export default function MenuSectionFooter({
       {heading && (
         <p className='mb-2 text-lg font-bold'>
           {blok.heading}
-          <span className='text-pink'>.</span>
+          <span className='text-eyebrow'>.</span>
         </p>
       )}
 

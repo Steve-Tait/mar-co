@@ -4,6 +4,8 @@
 
 @layer base {
   :root {
+    interpolate-size: allow-keywords;
+
     --background: 260, 82%, 30%;
     --foreground: 0 100% 100%;
 
@@ -16,7 +18,7 @@
     --primary: 260, 82%, 30%;
     --primary-foreground: 0 100% 100%;
 
-    --secondary: 359.64 100% 67.06%;
+    --secondary: 360 100% 67%;
     --secondary-foreground: 210 40% 98%;
 
     --secondary-muted: 0 100% 95%;
@@ -37,37 +39,141 @@
 
     --radius: 0.5rem;
 
+    --tw-prose-body: #000000;
+    --tw-prose-counters: #ff5757;
+    --tw-prose-bullets: #ff5757;
+    --tw-prose-hr: #5e17eb;
+    --tw-prose-body: #fff;
+    --tw-prose-headings: #fff;
+    --tw-prose-lead: #fff;
+    --tw-prose-links: #ff5757;
+    --tw-prose-bold: #fff;
+    --tw-prose-counters: #ff5757;
+    --tw-prose-bullets: #ff5757;
+    --tw-prose-hr: #ff5757;
+    --tw-prose-quotes: #ff5757;
+    --tw-prose-quote-borders: #ff5757;
+    --tw-prose-captions: #ff5757;
+    --tw-prose-kbd: #fff;
+    --tw-prose-kbd-shadows: 255 255 255;
+    --tw-prose-code: #fff;
+    --tw-prose-pre-code: #d1d5db;
+    --tw-prose-pre-bg: rgb(0 0 0 / 50%);
+    --tw-prose-th-borders: #4b5563;
+    --tw-prose-td-borders: #374151;
     .prose {
-      --tw-prose-body: #000000;
-      --tw-prose-counters: #ff5757;
-      --tw-prose-bullets: #ff5757;
-      --tw-prose-hr: #5e17eb;
-      --tw-prose-invert-body: #fff;
-      --tw-prose-invert-headings: #fff;
-      --tw-prose-invert-lead: #fff;
-      --tw-prose-invert-links: #fff;
-      --tw-prose-invert-bold: #fff;
-      --tw-prose-invert-counters: #ff5757;
-      --tw-prose-invert-bullets: #ff5757;
-      --tw-prose-invert-hr: #ff5757;
-      --tw-prose-invert-quotes: #ff5757;
-      --tw-prose-invert-quote-borders: #ff5757;
-      --tw-prose-invert-captions: #ff5757;
-      --tw-prose-invert-kbd: #fff;
-      --tw-prose-invert-kbd-shadows: 255 255 255;
-      --tw-prose-invert-code: #fff;
-      --tw-prose-invert-pre-code: #d1d5db;
-      --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
-      --tw-prose-invert-th-borders: #4b5563;
-      --tw-prose-invert-td-borders: #374151;
       ::marker {
         @apply font-bold;
       }
+      text-wrap-style: pretty;
+      ul ul {
+        list-style-type: circle;
+      }
+      ol ol {
+        list-style-type: lower-alpha;
+        ol {
+          list-style-type: lower-roman;
+        }
+      }
+      li > p {
+        @apply first:mt-0 last:mb-0;
+      }
+      [data-type='emoji'] > img {
+        @apply my-0 inline-block;
+      }
     }
   }
-  .dark {
+
+  .theme--light {
+    --background: 0 100% 100%;
+    --foreground: 0 0 7%;
+    --highlight: 360 100% 67%;
+    --eyebrow: 360 100% 67%;
+    --muted: 0 100% 95%;
+  }
+  .theme--image,
+  .theme--dark {
+    --background: 260, 82%, 30%;
+    --foreground: 0 100% 100%;
+    --highlight: 360 100% 67%;
+    --eyebrow: 360 100% 67%;
+    --muted: 260 84% 51%;
     .prose {
-      @apply prose-invert;
+      --tw-prose-body: #fff;
+      --tw-prose-headings: #fff;
+      --tw-prose-lead: #fff;
+      --tw-prose-links: #ff5757;
+      --tw-prose-bold: #fff;
+      --tw-prose-counters: #ff5757;
+      --tw-prose-bullets: #ff5757;
+      --tw-prose-hr: #ff5757;
+      --tw-prose-quotes: #ff5757;
+      --tw-prose-quote-borders: #ff5757;
+      --tw-prose-captions: #ff5757;
+      --tw-prose-kbd: #fff;
+      --tw-prose-kbd-shadows: 255 255 255;
+      --tw-prose-code: #fff;
+      --tw-prose-pre-code: #d1d5db;
+      --tw-prose-pre-bg: rgb(0 0 0 / 50%);
+      --tw-prose-th-borders: #4b5563;
+      --tw-prose-td-borders: #374151;
+    }
+  }
+
+  .theme--dark {
+    &.section {
+      & + & {
+        @apply pt-0;
+      }
+    }
+  }
+
+  .theme--muted {
+    --background: 0 100% 95%;
+    --foreground: 0 0 7%;
+    --highlight: 360 100% 67%;
+    --eyebrow: 360 100% 67%;
+    --muted: 0 100% 100%;
+    &.section {
+      & + & {
+        @apply pt-0;
+      }
+    }
+  }
+
+  .theme--alternate {
+    --background: 360 100% 67%;
+    --foreground: 0, 100%, 1000%;
+    --highlight: 260, 82%, 30%;
+    --eyebrow: 360 100% 67%;
+    --muted: 0 100% 95%;
+    &.section {
+      & + & {
+        @apply pt-0;
+      }
+    }
+  }
+  .theme--muted,
+  .theme--light {
+    .prose {
+      --tw-prose-body: #000;
+      --tw-prose-headings: #000;
+      --tw-prose-lead: #000;
+      --tw-prose-links: #ff5757;
+      --tw-prose-bold: #000;
+      --tw-prose-counters: #ff5757;
+      --tw-prose-bullets: #ff5757;
+      --tw-prose-hr: #ff5757;
+      --tw-prose-quotes: #ff5757;
+      --tw-prose-quote-borders: #ff5757;
+      --tw-prose-captions: #ff5757;
+      --tw-prose-kbd: #fff;
+      --tw-prose-kbd-shadows: 255 255 255;
+      --tw-prose-code: #fff;
+      --tw-prose-pre-code: #d1d5db;
+      --tw-prose-pre-bg: rgb(0 0 0 / 50%);
+      --tw-prose-th-borders: #4b5563;
+      --tw-prose-td-borders: #374151;
     }
   }
 
@@ -89,10 +195,6 @@
 
   ::-webkit-scrollbar-thumb {
     @apply rounded-xl bg-pink;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-    }
   }
 }
 @layer utilities {
@@ -124,7 +226,7 @@
 
   h1,
   .h1 {
-    @apply text-5xl sm:text-7xl lg:text-8xl;
+    @apply text-5xl sm:text-6xl lg:text-7xl;
   }
 
   h2,
@@ -134,7 +236,7 @@
 
   h3,
   .h3 {
-    @apply text-3xl sm:text-4xl lg:text-5xl;
+    @apply text-3xl lg:text-4xl;
   }
 
   h4,
@@ -168,6 +270,12 @@
 
   .btn--white {
     @apply bg-white text-purple;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-sm uppercase tracking-wide text-eyebrow;
   }
 }
 

@@ -15,6 +15,7 @@ import ArticlesSection from '@/components/Sections/ArticlesSection';
 import CaseStudiesSection from '@/components/Sections/CaseStudiesSection';
 import ColouredContainerSection from '@/components/Sections/ColouredContainerSection';
 import FaqsSection from '@/components/Sections/FaqsSection';
+import FullWidthImageSection from '@/components/Sections/FullWidthImageSection';
 import ImageSection from '@/components/Sections/ImageSection';
 import IntroSection from '@/components/Sections/IntroSection';
 import LogoCarouselSection from '@/components/Sections/LogoCarouselSection';
@@ -45,6 +46,7 @@ export const COMPONENTS = {
   'image-section': ImageSection,
   'stats-section': StatsSection,
   'coloured-container-section': ColouredContainerSection,
+  'full-width-image-section': FullWidthImageSection,
   'logo-carousel-section': LogoCarouselSection,
   'text-and-image-section': TextAndImageSection,
   'text-over-image-section': TextOverImageSection,

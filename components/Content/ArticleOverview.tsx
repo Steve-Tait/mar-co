@@ -8,6 +8,7 @@ import SkeletonGrid from '../Shared/SkeletonGrid';
 import { getCategories } from '@/lib/storyblok';
 import Link from 'next/link';
 import Heading from '../Shared/Heading';
+import HeroWrap from '../Shared/HeroWrap';
 
 export default async function ArticlesOverview({
   blok,
@@ -17,9 +18,8 @@ export default async function ArticlesOverview({
   const { title, excerpt, image } = blok;
 
   return (
-    <>
-      <Hero {...{ title, excerpt, image }} />
-      <Section color='muted'>
+    <HeroWrap {...{ title, excerpt, image }}>
+      <Section blok={blok}>
         <Container className='grid grid-cols-1 gap-8 md:grid-cols-3 md:items-start lg:grid-cols-4'>
           <aside className='rounded-2xl bg-primary p-6 text-primary-foreground md:sticky md:top-28'>
             <Heading heading='Sort by' level={4} />
@@ -47,6 +47,6 @@ export default async function ArticlesOverview({
           </div>
         </Container>
       </Section>
-    </>
+    </HeroWrap>
   );
 }

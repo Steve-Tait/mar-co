@@ -48,7 +48,7 @@ export default function TileArticle({
     : '';
   return (
     <motion.article
-      className='group relative flex snap-start snap-always flex-col overflow-hidden rounded-2xl'
+      className='group/tile relative flex snap-start snap-always flex-col overflow-hidden rounded-2xl'
       variants={variants}
       initial='offscreen'
       whileInView='onscreen'
@@ -60,7 +60,7 @@ export default function TileArticle({
             src={image.filename}
             alt={image.alt || image.title || ''}
             fill
-            className='absolute inset-0 h-full w-full object-cover duration-1000 group-hover:scale-[1.1]'
+            className='absolute inset-0 h-full w-full object-cover duration-1000 group-hover/tile:scale-[1.1]'
           />
         </div>
       )}
@@ -92,7 +92,7 @@ export default function TileArticle({
         <div className='flex w-full items-center justify-between'>
           <span>{date}</span>
           <ChevronRight
-            className='-translate-x-2 justify-self-end opacity-0 transition-[opacity,transform] group-hover:translate-x-0 group-hover:opacity-100'
+            className='-translate-x-2 justify-self-end opacity-0 transition-[opacity,transform] group-hover/tile:translate-x-0 group-hover/tile:opacity-100'
             size={32}
           />
         </div>

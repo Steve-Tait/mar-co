@@ -1,6 +1,5 @@
 'use client';
 import TextTransition, { presets } from 'react-text-transition';
-import { StoryblokComponent } from '@storyblok/react';
 import { useEffect, useState } from 'react';
 import Container from '@/components/Shared/Container';
 import Section from '../Shared/Section';
@@ -20,14 +19,12 @@ export default function AnimatedWordsSection({
   return (
     <Section blok={blok}>
       <Container className='text-center'>
-        <h6 className='mb-1 text-sm uppercase tracking-wide text-secondary sm:mb-2'>
-          {eyebrow}
-        </h6>
+        <h6 className='eyebrow mb-1 sm:mb-2'>{eyebrow}</h6>
         <Heading level={3} className='h1'>
           {heading}
           <TextTransition
             springConfig={presets.wobbly}
-            className='justify-center text-secondary'
+            className='justify-center text-highlight'
           >
             {animated_words[index % animated_words.length].word}
           </TextTransition>

@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export function underlineBetweenStars(str: string): string {
   const regex = /\*\*([^*\n]*(?:\*(?!\*)[^*\n]*)*)\*\*/g;
-  return str.replace(regex, '<span class="text-pink">$1</span>');
+  return str.replace(regex, '<span class="text-eyebrow">$1</span>');
 }
 
 export function replacePunctuation(str: string): string {
@@ -15,7 +15,10 @@ export function replacePunctuation(str: string): string {
 
   if (punctuation.test(str)) {
     const punct = str.match(punctuation)!.shift() || '.';
-    return str.replace(punctuation, `<span class="text-pink">${punct}</span>`);
+    return str.replace(
+      punctuation,
+      `<span class="text-eyebrow">${punct}</span>`
+    );
   }
   return str;
 }
@@ -30,3 +33,6 @@ export const countDecimals = (value: number): number => {
   if (value % 1 != 0) return value.toString().split('.')[1].length;
   return 0;
 };
+
+const emojiRegex = /^[\p{Emoji}]/u;
+export const startsWithEmoji = (str: string): boolean => emojiRegex.test(str);

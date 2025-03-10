@@ -16,6 +16,7 @@ const ImageSection = ({ blok }: { blok: ImageSectionStoryblok }) => {
           height: 160,
           filename: image.filename,
           alt: image.alt || image.title || '',
+          name: image.name,
         };
       })
     : [];
@@ -23,16 +24,20 @@ const ImageSection = ({ blok }: { blok: ImageSectionStoryblok }) => {
     <Section blok={blok}>
       <Container className='flex max-w-3xl flex-wrap items-start gap-4'>
         {theImages &&
-          theImages.map((image, index) => (
-            <React.Fragment key={index}>
+          theImages.map(({ filename, alt, width, height, name }, index) => (
+            <div key={index} className='overflow-hidden rounded-lg'>
               <Image
-                src={image.filename}
-                alt={image.alt}
-                width={Math.floor(image.width)}
-                height={image.height}
-                className='rounded-lg'
+                src={filename}
+                alt={alt}
+                width={Math.floor(width)}
+                height={height}
               />
-            </React.Fragment>
+              {name && (
+                <div className='bg-muted px-4 py-2 text-left text-sm'>
+                  {name}
+                </div>
+              )}
+            </div>
           ))}
       </Container>
     </Section>

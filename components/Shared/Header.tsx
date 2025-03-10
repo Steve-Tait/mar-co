@@ -37,8 +37,10 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
   }, [isOpen]);
 
   const updateScroll = () => setHasScrolled(window.scrollY > 100);
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      updateScroll();
       window.addEventListener('scroll', updateScroll);
       return () => window.removeEventListener('scroll', updateScroll);
     }
@@ -47,23 +49,23 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-30 text-white duration-300',
-        hasScrolled ? 'bg-purple py-3 drop-shadow sm:py-6' : 'py-4 sm:py-10'
+        'theme--dark fixed inset-x-0 top-0 z-30 px-4 text-foreground duration-300 sm:px-8',
+        hasScrolled ? 'bg-background py-3 drop-shadow sm:py-6' : 'py-4 sm:py-10'
       )}
       {...storyblokEditable(blok)}
     >
-      <Container className='flex items-center justify-between gap-x-8'>
+      <div className='flex items-center justify-between gap-x-8'>
         <Link
           href='/'
           className='whitespace-nowrap font-heading text-2xl font-bold sm:text-4xl'
         >
-          MAR-CO<span className='text-pink'>.</span>
+          MAR-CO<span className='text-eyebrow'>.</span>
         </Link>
-        <div className='hidden grow items-center justify-between gap-x-8 md:flex'>
+        <div className='hidden grow items-center justify-between gap-x-8 lg:flex'>
           <NavigationMenu className='grow'>
             <NavigationMenuList>
               {menu && (
-                <div className='grid-cols-auto grid grid-flow-col gap-x-4'>
+                <div className='grid-cols-auto grid grid-flow-col gap-x-4 xl:gap-x-8'>
                   {menu.map((nestedBlok) => (
                     <React.Fragment key={nestedBlok._uid}>
                       {nestedBlok.items ? (
@@ -88,7 +90,7 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
         </div>
         {menu && (
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className='md:hidden'>
+            <SheetTrigger asChild className='lg:hidden'>
               <Hamburger isOpen={isOpen} />
             </SheetTrigger>
             <SheetContent side='left'>
@@ -127,7 +129,7 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
             </SheetContent>
           </Sheet>
         )}
-      </Container>
+      </div>
     </header>
   );
 }

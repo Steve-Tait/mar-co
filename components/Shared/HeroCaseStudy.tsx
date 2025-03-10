@@ -32,7 +32,7 @@ const HeroCaseStudy = ({
       {...props}
     >
       <Container className='relative'>
-        <div className='flex max-w-5xl flex-col gap-y-6'>
+        <div className='flex max-w-6xl flex-col gap-y-6'>
           {categories && (
             <div className='flex flex-wrap justify-center gap-x-2'>
               {categories.map((category) => (
@@ -45,7 +45,11 @@ const HeroCaseStudy = ({
             </div>
           )}
           {title && (
-            <Heading className='text-balance' heading={title} level={1} />
+            <Heading
+              className='text-balance uppercase'
+              heading={title}
+              level={1}
+            />
           )}
           {excerpt && (
             <p className='mt-2 text-xl/relaxed font-bold md:text-2xl/relaxed'>

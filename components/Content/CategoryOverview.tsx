@@ -8,7 +8,8 @@ import Heading from '../Shared/Heading';
 import { CategoryOverviewStoryblok } from '@/component-types-sb';
 import { getCategories } from '@/lib/storyblok';
 import SkeletonGrid from '../Shared/SkeletonGrid';
-import { StoryblokComponent } from '@storyblok/react';
+import { StoryblokServerComponent } from '@storyblok/react/rsc';
+import HeroWrap from '../Shared/HeroWrap';
 
 const CategoryOverview = async ({
   blok,
@@ -17,13 +18,12 @@ const CategoryOverview = async ({
   const categories = await getCategories();
   const { heading, description, image, body } = blok;
   return (
-    <>
-      <Hero
-        title={heading ?? 'Categories'}
-        excerpt={description}
-        image={image}
-      />
-      <Section color='muted'>
+    <HeroWrap
+      title={heading ?? 'Categories'}
+      excerpt={description}
+      image={image}
+    >
+      <Section>
         <Container className='grid grid-cols-1 gap-8 md:grid-cols-3 md:items-start lg:grid-cols-4'>
           <aside className='rounded-2xl bg-primary p-6 text-primary-foreground md:sticky md:top-28'>
             <Heading heading='Sort by' level={4} />
@@ -53,9 +53,9 @@ const CategoryOverview = async ({
       </Section>
       {body &&
         body.map((nestedBlok: any) => (
-          <StoryblokComponent blok={nestedBlok} key={nestedBlok.uuid} />
+          <StoryblokServerComponent blok={nestedBlok} key={nestedBlok.uuid} />
         ))}
-    </>
+    </HeroWrap>
   );
 };
 

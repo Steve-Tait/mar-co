@@ -1,5 +1,5 @@
 import { TextAndImageSectionStoryblok } from '@/component-types-sb';
-import { StoryblokComponent } from '@storyblok/react/rsc';
+import { StoryblokServerComponent } from '@storyblok/react/rsc';
 import Container from '@/components/Shared/Container';
 import Section from '../Shared/Section';
 import { cn, getImageDimensionsFromUrl } from '@/lib/utils';
@@ -12,32 +12,35 @@ const TextAndImageSection = ({
   blok: TextAndImageSectionStoryblok;
 }) => {
   const { eyebrow, heading, body, image, buttons, is_reverse } = blok;
-
-  const dimensions = getImageDimensionsFromUrl(image.filename);
-  const scaleFactor = dimensions[1] * dimensions[0];
   return (
-    <Section blok={blok} color='white'>
-      <Container className='grid grid-cols-1 items-center gap-x-10 gap-y-4 sm:grid-cols-2'>
+    <Section blok={blok}>
+      <Container className='grid grid-cols-1 items-center gap-x-10 gap-y-6 sm:grid-cols-2 xl:gap-x-16'>
         {image?.id && (
-          <Image
-            src={image.filename}
-            alt={image.alt || image.title || ''}
-            width={dimensions[0]}
-            height={dimensions[1] * scaleFactor}
+          <div
             className={cn(
-              'h-auto w-full overflow-hidden rounded-2xl object-cover',
+              'relative aspect-square size-full overflow-hidden rounded-3xl object-cover',
               is_reverse && 'sm:order-1'
             )}
-          />
+          >
+            <Image
+              src={image.filename}
+              alt={image.alt || image.title || ''}
+              fill
+              objectFit='cover'
+            />
+          </div>
         )}
         <SectionWrap {...{ eyebrow, heading, body }}>
-          {buttons && (
+          {buttons?.length ? (
             <div className='mt-4'>
               {buttons.map((nestedBlok) => (
-                <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+                <StoryblokServerComponent
+                  blok={nestedBlok}
+                  key={nestedBlok._uid}
+                />
               ))}
             </div>
-          )}
+          ) : null}
         </SectionWrap>
       </Container>
     </Section>

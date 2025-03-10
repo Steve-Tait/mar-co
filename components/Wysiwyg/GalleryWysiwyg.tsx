@@ -18,37 +18,32 @@ const GalleryWysiwyg = ({ blok }: { blok: GalleryWysiwygStoryblok }) => {
     };
   });
   return (
-    <div className='md:col-span-12'>
-      <Carousel
-        className='relative overflow-hidden'
-        opts={{
-          dragFree: true,
-          loop: true,
-          slidesToScroll: 'auto',
-        }}
-      >
-        <CarouselContent>
-          {images &&
-            images.map((image, index) => (
-              <CarouselItem
-                className='min-w-0 max-w-full shrink-0 grow-0 basis-auto'
-                key={index}
-              >
-                <Image
-                  src={image.filename}
-                  alt={image.alt}
-                  width={Math.floor(image.width)}
-                  height={image.height}
-                  className='h-80 w-auto'
-                ></Image>
-              </CarouselItem>
-            ))}
-        </CarouselContent>
-
-        <span className='absolute inset-y-0 left-0 block w-10 bg-gradient-to-r from-white'></span>
-        <span className='absolute inset-y-0 right-0 block w-10 bg-gradient-to-l from-white'></span>
-      </Carousel>
-    </div>
+    <Carousel
+      className='relative overflow-hidden'
+      opts={{
+        dragFree: true,
+        loop: true,
+        slidesToScroll: 'auto',
+      }}
+    >
+      <CarouselContent>
+        {images &&
+          images.map((image, index) => (
+            <CarouselItem
+              className='min-w-0 max-w-full shrink-0 grow-0 basis-auto'
+              key={index}
+            >
+              <Image
+                src={image.filename}
+                alt={image.alt}
+                width={Math.floor(image.width)}
+                height={image.height}
+                className='h-80 w-auto'
+              ></Image>
+            </CarouselItem>
+          ))}
+      </CarouselContent>
+    </Carousel>
   );
 };
 

@@ -1,4 +1,3 @@
-import css from 'styled-jsx/css';
 import type { Config } from 'tailwindcss';
 
 const config = {
@@ -8,7 +7,13 @@ const config = {
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
-  safelist: ['btn--sm', 'bg-purple', 'bg-purple-700', 'bg-pink'],
+  safelist: [
+    'btn--sm',
+    'theme--light',
+    'theme--dark',
+    'theme--muted',
+    'theme--alternate',
+  ],
   theme: {
     fontFamily: {
       heading: ['var(--font-poppins)'],
@@ -18,7 +23,6 @@ const config = {
     colors: {
       inherit: 'inherit',
       current: 'current',
-      body: '#091e1b',
       pink: {
         DEFAULT: '#FF5757',
         900: '#880000',
@@ -48,6 +52,8 @@ const config = {
       ring: 'hsl(var(--ring))',
       background: 'hsl(var(--background))',
       foreground: 'hsl(var(--foreground))',
+      highlight: 'hsl(var(--highlight))',
+      eyebrow: 'hsl(var(--eyebrow))',
       primary: {
         DEFAULT: 'hsl(var(--primary))',
         foreground: 'hsl(var(--primary-foreground))',
@@ -109,6 +115,9 @@ const config = {
       },
       padding: {
         18: '4.5rem',
+      },
+      width: {
+        'calc-content': 'calc-size(max-content, size)',
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',

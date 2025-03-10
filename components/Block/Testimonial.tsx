@@ -10,7 +10,8 @@ type TTestimonial = {
 };
 
 const Testimonial = ({ blok, isCard, className }: TTestimonial) => {
-  const { author, role, content, avatar, company, ...props } = blok;
+  const { author, role, content, avatar, company, ...props } = blok || {};
+  if (!content) return;
   return (
     <figure className={cn('flex flex-col items-center', className)} {...props}>
       {avatar?.id && (
@@ -40,9 +41,11 @@ const Testimonial = ({ blok, isCard, className }: TTestimonial) => {
         <footer className='flex flex-col gap-x-8 gap-y-2 sm:gap-y-4 md:flex-row md:items-center'>
           <div className='flex grow items-center gap-x-4'>
             <figcaption className='grow'>
-              <p className='font-heading font-black uppercase text-purple'>
-                {author}
-              </p>
+              {author && (
+                <p className='font-heading font-black uppercase text-purple'>
+                  {author}
+                </p>
+              )}
               {role && <p className='font-bold'>{role}</p>}
             </figcaption>
           </div>

@@ -3,6 +3,7 @@ import Heading from './Heading';
 import { render } from 'storyblok-rich-text-react-renderer';
 import { cn } from '@/lib/utils';
 import { RichtextStoryblok } from '@/component-types-sb';
+import RichText from '../Block/RichText';
 
 class IProps {
   children: ReactNode;
@@ -17,21 +18,18 @@ const SectionWrap: React.FC<IProps> = ({
   heading,
   body,
   children,
+  className,
   ...props
 }) => {
   return (
-    <div {...props}>
+    <div className={cn('group', className)} {...props}>
       {(eyebrow || heading || body) && (
         <div className='mb-6 sm:mb-10'>
-          {eyebrow && (
-            <h6 className='mb-1 text-sm uppercase tracking-wide text-pink sm:mb-2'>
-              {eyebrow}
-            </h6>
-          )}
+          {eyebrow && <h6 className='eyebrow mb-1 sm:mb-2'>{eyebrow}</h6>}
           {heading && <Heading className='mb-4 sm:mb-6' heading={heading} />}
           {body && (
-            <div className='prose sm:prose-lg'>
-              {typeof body === 'string' ? body : render(body)}
+            <div className='prose sm:prose-lg group-[.text-center]:mx-auto'>
+              {typeof body === 'string' ? body : <RichText content={body} />}
             </div>
           )}
         </div>

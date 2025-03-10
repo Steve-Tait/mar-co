@@ -6,33 +6,22 @@ class IProps {
   children: ReactNode;
   className?: string;
   removePadding?: boolean;
-  color?: 'white' | 'muted' | 'primary' | 'none';
   blok?: any;
 }
 
 type Ref = HTMLElement;
 const Section = forwardRef<Ref, IProps>(
   (
-    {
-      children,
-      blok,
-      removePadding = false,
-      color = 'white',
-      className = '',
-      ...props
-    },
+    { children, blok, removePadding = false, className = '', ...props },
     ref
   ) => {
+    const theme = blok?.theme || 'light';
     return (
       <section
         className={cn(
-          color === 'primary' &&
-            `dark bg-primary text-foreground [.bg-primary+_&]:pt-0`,
-          color === 'white' &&
-            `bg-white text-muted-foreground [.bg-white+_&]:pt-0`,
-          color === 'muted' &&
-            `bg-muted text-muted-foreground [.bg-muted_+_&]:pt-0`,
-          !removePadding && 'py-24 sm:py-32 lg:py-48',
+          'section bg-background text-foreground',
+          theme && `theme--${theme}`,
+          !removePadding && 'py-24 sm:py-32 lg:py-40',
           className
         )}
         {...(blok && storyblokEditable(blok))}

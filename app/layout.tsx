@@ -1,6 +1,3 @@
-import { storyblokInit, apiPlugin } from '@storyblok/react/rsc';
-import StoryblokBridgeLoader from '@storyblok/react/bridge-loader';
-
 import type { Metadata } from 'next';
 import { Open_Sans, Poppins } from 'next/font/google';
 import './globals.css';
@@ -8,8 +5,6 @@ import { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
 import Layout from '@/components/Shared/Layout';
-import { resolveRelations } from '@/lib/consts';
-import { COMPONENTS } from '@/lib/components';
 import StoryblokProvider from '@/components/StoryblokProvider';
 
 const poppins = Poppins({
@@ -38,19 +33,6 @@ export const metadata: Metadata = {
   },
 };
 
-storyblokInit({
-  accessToken: process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN,
-  use: [apiPlugin],
-  apiOptions: {
-    region: 'eu',
-  },
-  components: COMPONENTS,
-});
-
-const bridgeOptions = {
-  resolveRelations: resolveRelations,
-};
-
 export default async function RootLayout({
   children,
 }: {
@@ -61,14 +43,13 @@ export default async function RootLayout({
       <html lang='en'>
         <body
           className={cn(
-            'font-sans flex min-h-screen flex-col bg-primary text-primary-foreground antialiased',
+            'font-sans theme--dark flex min-h-screen flex-col bg-background text-foreground antialiased',
             openSans.variable,
             poppins.variable
           )}
         >
           <Layout>{children}</Layout>
         </body>
-        {/* <StoryblokBridgeLoader options={bridgeOptions} /> */}
       </html>
     </StoryblokProvider>
   );

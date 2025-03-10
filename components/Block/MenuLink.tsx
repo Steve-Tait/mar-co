@@ -1,5 +1,5 @@
 import { MenuLinkStoryblok } from '@/component-types-sb';
-import { storyblokEditable } from '@storyblok/react';
+import { storyblokEditable } from '@storyblok/react/rsc';
 import Link from 'next/link';
 
 interface MenuLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {

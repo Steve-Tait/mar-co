@@ -567,27 +567,25 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.10.4.tgz#427d5549943a9c6fce808e39ea64dbe60d4047f1"
   integrity sha512-WJgX9nzTqknM393q1QJDJmoW28kUfEnybeTfVNcNAPnIx210RXm2DiXiHzfNPJNIUUb1tJnz/l4QGtJ30PgWmA==
 
-"@storyblok/js@^3.0.12":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@storyblok/js/-/js-3.1.0.tgz#05cfb586894c0123f6b3840fa071bd889540dfb6"
-  integrity sha512-/zNLpkCuUx1sWf4JdU59rvxmGf/msJ9gZXpC40Slj31fHI1xEWbTAlfU1VcL89WqE9xFFWWX3qXquGCGXAim3A==
+"@storyblok/js@3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@storyblok/js/-/js-3.2.3.tgz#7c71c928b84214f86deaf6e20ebe6c88a637a242"
+  integrity sha512-RRnskb6GCpy2CeVVxQMEwAgbWqG7ehnzCVqbidsR7GpPhcdfdCgsAYDlSnAePwzbpMZXqpW1itJXDnuLmm1LXQ==
   dependencies:
-    "@storyblok/richtext" "^2.0.0"
-    storyblok-js-client "^6.9.0"
+    "@storyblok/richtext" "3.0.2"
+    storyblok-js-client "6.10.8"
 
-"@storyblok/react@^3.0.13":
-  version "3.0.13"
-  resolved "https://registry.yarnpkg.com/@storyblok/react/-/react-3.0.13.tgz#e17423cd5cfcaf70fee68ea4a8649ba62a45d31f"
-  integrity sha512-bGlPmxqJeW4/Pf96SIV2rn4szHPuL5TmDQ7R6c79GWnbUiF9k+cWLo+cUy/4gx6J0VfHsOF+9/2prqkMJiYLBw==
+"@storyblok/react@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@storyblok/react/-/react-4.4.1.tgz#4ea29119886ba67952161403d31e9284f0de0fb1"
+  integrity sha512-7Q2c5bT0eZ+IGRXQxSXwK1WYdBaiQ8yIasXS2g7yvJF9Oc23TpjBQmL2QB1oC4C83BHEzBf8MPZaLCKtxQBQbg==
   dependencies:
-    "@storyblok/js" "^3.0.12"
+    "@storyblok/js" "3.2.3"
 
-"@storyblok/richtext@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@storyblok/richtext/-/richtext-2.0.0.tgz#264594b69cf57944abf6d011d7e7c48ad4af81cf"
-  integrity sha512-yJm5BgWrCRGUdwZtviPgGno3rLXcnEvjK1bL1Ut4GmU1UOEVLC42m543EtrrOBVGDZdRPD9dK8ObgyHp6zNwqw==
-  dependencies:
-    consola "^3.2.3"
+"@storyblok/richtext@3.0.2", "@storyblok/richtext@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@storyblok/richtext/-/richtext-3.0.2.tgz#98b85029aa62a79ea0191708f7d924e25d37f176"
+  integrity sha512-KBLx9ycNVMyVnNyPiwBH5g9uWmiJpMzp9YvpnnADXlPLoksusrwI56BusSM8HaIgJgcnB5RR0LvhySkPFdC8Zg==
 
 "@studio-freight/hamo@^0.6.28":
   version "0.6.33"
@@ -1255,11 +1253,6 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
-
-consola@^3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/consola/-/consola-3.2.3.tgz#0741857aa88cfa0d6fd53f1cff0375136e98502f"
-  integrity sha512-I5qxpzLv+sJhTVEoLYNcTW+bThDCPsit0vLNKShZx6rLtpilNpmmeTPaeqJb9ZE9dV3DGaeby6Vuhrw38WjeyQ==
 
 cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
   version "7.0.3"
@@ -3538,10 +3531,10 @@ storyblok-generate-ts@^2.1.0:
     ts-command-line-args "^2.3.1"
     tsup "^6.4.0"
 
-storyblok-js-client@^6.9.0:
-  version "6.9.1"
-  resolved "https://registry.yarnpkg.com/storyblok-js-client/-/storyblok-js-client-6.9.1.tgz#7524dcc2cdd6b8c127386e8939a144421d6b9e5b"
-  integrity sha512-mXCSNIr7tvFzH+TibM7hbq+xNAeDWnrfQwh8HS4fLskVHwQ2HaCQG9BkdbT1zWUFav3HWB+B8kqi3+KjRG1CUg==
+storyblok-js-client@6.10.8:
+  version "6.10.8"
+  resolved "https://registry.yarnpkg.com/storyblok-js-client/-/storyblok-js-client-6.10.8.tgz#bb83a8848d3a505c3b655430160a4b042d231e33"
+  integrity sha512-yjXzKQO16ry+LMEUksfLjO/Eq88DwMflHVxg1YDF2Ak13fHhSD/M36XE/E1jrTbjdVuxSnlxrt8jYP6NiCnCSQ==
 
 storyblok-rich-text-react-renderer@^2.9.2:
   version "2.9.2"
@@ -3732,10 +3725,10 @@ table-layout@^1.0.2:
     typical "^5.2.0"
     wordwrapjs "^4.0.0"
 
-tailwind-merge@^2.5.2:
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/tailwind-merge/-/tailwind-merge-2.5.2.tgz#000f05a703058f9f9f3829c644235f81d4c08a1f"
-  integrity sha512-kjEBm+pvD+6eAwzJL2Bi+02/9LFLal1Gs61+QB7HvTfQQ0aXwC5LGT8PEt1gS0CWKktKe6ysPTAy3cBC5MeiIg==
+tailwind-merge@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/tailwind-merge/-/tailwind-merge-3.0.2.tgz#567eff76de12211e24dd909da0f5ed6f4f422b0c"
+  integrity sha512-l7z+OYZ7mu3DTqrL88RiKrKIqO3NcpEO8V/Od04bNpvk0kiIFndGEoqfuzvj4yuhRkHKjRkII2z+KS2HfPcSxw==
 
 tailwindcss-animate@^1.0.7:
   version "1.0.7"

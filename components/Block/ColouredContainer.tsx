@@ -2,12 +2,13 @@
 import { cn } from '@/lib/utils';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 import { useRef } from 'react';
-import { render } from 'storyblok-rich-text-react-renderer';
+import RichText from './RichText';
+
 const COLOUR_MAP = {
-  primary: 'bg-primary text-primary-foreground dark',
-  secondary: 'bg-secondary text-secondary-foreground dark',
-  muted: 'bg-muted text-muted-foreground',
-  'secondary-muted': 'bg-secondary-muted text-secondary-muted-foreground',
+  primary: 'theme--dark',
+  secondary: 'theme--alternate',
+  muted: 'theme--muted',
+  'secondary-muted': 'theme--alternate',
 };
 const DOT_COLOR_MAP = {
   primary: 'bg-secondary',
@@ -52,7 +53,7 @@ const ColouredContainer = ({
   return (
     <motion.div
       className={cn(
-        'sm:10 grid items-center gap-6 rounded-xl p-6 sm:grid-cols-4 md:gap-x-16 md:rounded-3xl lg:p-20',
+        'sm:10 grid items-center gap-6 rounded-xl bg-background p-6 text-left text-foreground sm:grid-cols-4 md:gap-x-16 md:rounded-3xl lg:p-20',
         className,
         COLOUR_MAP[color]
       )}
@@ -87,9 +88,10 @@ const ColouredContainer = ({
           </motion.div>
         </div>
       </div>
-      <div className='prose prose-lg md:prose-xl sm:col-span-3'>
-        {render(content)}
-      </div>
+      <RichText
+        className='prose prose-lg md:prose-xl sm:col-span-3'
+        content={content}
+      />
     </motion.div>
   );
 };

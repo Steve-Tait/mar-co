@@ -3,6 +3,7 @@ import {
   TestimonialWysiwygStoryblok,
 } from '@/component-types-sb';
 import Testimonial from '../Block/Testimonial';
+import Container from '../Shared/Container';
 
 type TTestimonialWysiwygStoryblokWithRelations = TestimonialWysiwygStoryblok & {
   testimonial: TestimonialStoryblok;
@@ -13,8 +14,10 @@ const TestimonialWysiwyg = ({
 }: TTestimonialWysiwygStoryblokWithRelations) => {
   const { testimonial } = blok;
   return (
-    <div className='md:col-span-8 md:col-start-3'>
-      <Testimonial blok={testimonial.content} />
+    <div className='theme--muted bg-background py-8 text-foreground'>
+      <Container className='max-w-5xl'>
+        <Testimonial blok={testimonial.content} />
+      </Container>
     </div>
   );
 };

@@ -1,11 +1,11 @@
-import { StoryblokComponent } from '@storyblok/react/rsc';
+import { StoryblokServerComponent } from '@storyblok/react/rsc';
 import Container from '@/components/Shared/Container';
 import Section from '../Shared/Section';
 import Image from 'next/image';
 import SectionWrap from '../Shared/SectionWrap';
 import Parallax from '../Shared/Parallax';
-import { render } from 'storyblok-rich-text-react-renderer';
 import { TextOverImageSectionStoryblok } from '@/component-types-sb';
+import RichText from '../Block/RichText';
 
 const TextOverImageSection = ({
   blok,
@@ -14,7 +14,13 @@ const TextOverImageSection = ({
 }) => {
   const { eyebrow, heading, body, image, buttons } = blok;
   return (
-    <Section blok={blok} className='dark relative text-center' color='primary'>
+    <Section
+      blok={{
+        ...blok,
+        theme: 'image',
+      }}
+      className='relative text-center'
+    >
       {image && (
         <Parallax className='absolute inset-0 size-full'>
           <Image
@@ -29,12 +35,15 @@ const TextOverImageSection = ({
       <Container className='relative mx-auto flex min-h-[50svh] flex-col justify-center'>
         <SectionWrap {...{ eyebrow, heading }}>
           <div className='prose prose-lg mx-auto sm:prose-xl lg:prose-2xl'>
-            {typeof body === 'string' ? body : render(body)}
+            {typeof body === 'string' ? body : <RichText content={body} />}
           </div>
           {buttons && buttons.length ? (
             <div className='relative mt-4'>
               {buttons.map((nestedBlok) => (
-                <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+                <StoryblokServerComponent
+                  blok={nestedBlok}
+                  key={nestedBlok._uid}
+                />
               ))}
             </div>
           ) : null}

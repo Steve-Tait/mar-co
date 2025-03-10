@@ -11,6 +11,7 @@ import { render } from 'storyblok-rich-text-react-renderer';
 import { FaqStoryblok, FaqsSectionStoryblok } from '@/component-types-sb';
 import SectionWrap from '../Shared/SectionWrap';
 import { StoryblokStory } from 'storyblok-generate-ts';
+import RichText from '../Block/RichText';
 
 type TFaqsSectionStoryblokWithRelations = FaqsSectionStoryblok & {
   faqs: StoryblokStory<FaqStoryblok>[];
@@ -23,7 +24,7 @@ const FaqsSection = ({
 }) => {
   const { eyebrow, heading, body, faqs } = blok;
   return (
-    <Section blok={blok} color='muted'>
+    <Section blok={blok}>
       <Container className='max-w-3xl'>
         <SectionWrap {...{ eyebrow, heading, body }}>
           {faqs && (
@@ -36,7 +37,7 @@ const FaqsSection = ({
                 <AccordionItem value={(index + 1).toString()} key={index}>
                   <AccordionTrigger>{faq.content.question}</AccordionTrigger>
                   <AccordionContent>
-                    {render(faq.content.answer)}
+                    <RichText content={faq.content.answer} />
                   </AccordionContent>
                 </AccordionItem>
               ))}

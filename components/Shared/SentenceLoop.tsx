@@ -74,7 +74,7 @@ const SentenceLoop = ({
         const length = title.word.split(' ').length;
         return (
           <motion.p
-            className='absolute left-0 top-0 block w-full text-balance'
+            className='absolute left-0 top-1/2 block w-full -translate-y-1/2 text-balance'
             ref={(el) => {
               if (!el) return;
               refs.current[index] = el;
@@ -100,7 +100,7 @@ const SentenceLoop = ({
               variants={textVariants}
               custom={length}
               key='dot'
-              className='text-pink'
+              className='text-eyebrow'
             >
               .
             </motion.span>

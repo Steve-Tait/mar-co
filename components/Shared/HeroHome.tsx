@@ -8,7 +8,17 @@ import Heading from './Heading';
 import Container from './Container';
 import { cn } from '@/lib/utils';
 import SentenceLoop from './SentenceLoop';
-import { StoryblokComponent } from '@storyblok/react';
+import { StoryblokServerComponent } from '@storyblok/react/rsc';
+
+export type THeroHome = {
+  title?: string | undefined;
+  subheading?: string;
+  animated_title: AnimatedWordStoryblok[];
+  excerpt?: string;
+  image?: AssetStoryblok;
+  buttons?: ButtonStoryblok[];
+  className?: string;
+};
 
 const HeroHome = ({
   title,
@@ -18,19 +28,11 @@ const HeroHome = ({
   buttons,
   className = '',
   ...props
-}: {
-  title?: string | undefined;
-  subheading?: string;
-  animated_title: AnimatedWordStoryblok[];
-  excerpt?: string;
-  image?: AssetStoryblok;
-  buttons?: ButtonStoryblok[];
-  className?: string;
-}) => {
+}: THeroHome) => {
   return (
     <section
       className={cn(
-        'relative flex aspect-video h-svh w-full flex-col justify-center bg-purple bg-cover py-24 text-white',
+        'theme--dark relative flex aspect-video h-svh w-full flex-col justify-center bg-purple bg-cover py-24 text-white',
         image?.filename &&
           'before:absolute before:inset-0 before:bg-purple/50 before:backdrop-brightness-50'
       )}
@@ -57,7 +59,10 @@ const HeroHome = ({
         {buttons && (
           <div className='mt-4 flex flex-col flex-wrap items-center justify-center gap-2 sm:flex-row md:mt-8'>
             {buttons.map((nestedBlok) => (
-              <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+              <StoryblokServerComponent
+                blok={nestedBlok}
+                key={nestedBlok._uid}
+              />
             ))}
           </div>
         )}

@@ -13,7 +13,6 @@ import { ReactNode } from 'react';
 import { FooterStoryblok, HeaderStoryblok } from '@/component-types-sb';
 import ContactForm from './ContactForm';
 import { getConfig } from '@/lib/storyblok';
-import LayoutScaler from './LayoutScaler';
 import Scroll from './Scroll';
 
 export default async function Layout({ children }: { children: ReactNode }) {
@@ -27,7 +26,7 @@ export default async function Layout({ children }: { children: ReactNode }) {
             <Header blok={nestedBlok} key={nestedBlok.uuid} />
           ))}
 
-        <LayoutScaler>{children}</LayoutScaler>
+        {children}
         <DrawerContent>
           <div className='mx-auto w-full max-w-lg px-6'>
             <DrawerHeader>

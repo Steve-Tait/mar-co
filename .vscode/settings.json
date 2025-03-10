@@ -1,6 +1,8 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "editor.colorDecorators": true,
+  "editor.defaultColorDecorators": "auto",
   "editor.tabSize": 4,
   "eslint.validate": ["javascript"],
   "[javascript]": {

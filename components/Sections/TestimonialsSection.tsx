@@ -29,25 +29,13 @@ const TestimonialsSection = ({
   blok: TTestimonialsSectionWithRelations;
 }) => {
   const { eyebrow, heading, body, testimonials } = blok;
-
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end end'],
-  });
-  const y = useTransform(scrollYProgress, [0.5, 1], ['100%', '0%']);
-  const opacity = useTransform(scrollYProgress, [0.5, 1], [0, 1]);
-
+  if (!testimonials || !testimonials.length) return;
   return (
-    <Section className='relative overflow-hidden' blok={blok} ref={ref}>
+    <Section className='relative overflow-hidden' blok={blok}>
       <div className='pointer-events-none absolute bottom-0 left-1/2 z-[-1] aspect-square h-[150%] -translate-x-1/2 translate-y-3/4 rounded-full bg-primary' />
-      <motion.div
-        style={{ y, opacity }}
-        className='absolute top-1/2 mx-auto aspect-square w-full rounded-full bg-primary'
-      ></motion.div>
       <Container className='relative max-w-3xl'>
         <SectionWrap {...{ eyebrow, heading, body }}>
-          {testimonials && (
+          {testimonials.length > 1 ? (
             <Carousel>
               <CarouselContent>
                 {testimonials.map(
@@ -69,6 +57,19 @@ const TestimonialsSection = ({
               <CarouselPrevious />
               <CarouselNext />
             </Carousel>
+          ) : (
+            <>
+              {testimonials.map(
+                (testimonial: StoryblokStory<TestimonialStoryblok>) => (
+                  <Testimonial
+                    className='h-full'
+                    blok={testimonial.content}
+                    key={testimonial.uuid}
+                    isCard={true}
+                  />
+                )
+              )}
+            </>
           )}
         </SectionWrap>
       </Container>

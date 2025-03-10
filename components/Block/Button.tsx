@@ -7,9 +7,9 @@ import { CircleChevronRight, MessageCircleMore } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const LABEL_CLASS =
-  'transition-transform translate-x-3 group-focus:translate-x-0 group-hover:translate-x-0';
+  'transition-transform translate-x-3 group-focus/btn:translate-x-0 group-hover/btn:translate-x-0';
 const ICON_CLASS =
-  '-translate-x-2 opacity-0 transition-[opacity,transform] group-focus:translate-x-0 group-focus:opacity-100 group-hover:translate-x-0 group-hover:opacity-100';
+  '-translate-x-2 opacity-0 transition-[opacity,transform] group-focus/btn:translate-x-0 group-focus/btn:opacity-100 group-hover/btn:translate-x-0 group-hover/btn:opacity-100';
 
 const Button = ({
   blok,
@@ -24,7 +24,7 @@ const Button = ({
     return (
       <DrawerTrigger
         className={cn(
-          'btn group',
+          'btn group/btn',
           variant && `btn--${variant}`,
           size && `btn--${size}`
         )}
@@ -45,7 +45,7 @@ const Button = ({
         >
           <motion.a
             className={cn(
-              'btn group',
+              'btn group/btn',
               variant && `btn--${variant}`,
               size && `btn--${size}`
             )}
@@ -62,7 +62,7 @@ const Button = ({
         <motion.a
           href={`mailto:${link.email}`}
           className={cn(
-            'btn group',
+            'btn group/btn',
             variant && `btn--${variant}`,
             size && `btn--${size}`
           )}
@@ -78,7 +78,7 @@ const Button = ({
         <motion.a
           href={link.url}
           className={cn(
-            'btn group',
+            'btn group/btn',
             variant && `btn--${variant}`,
             size && `btn--${size}`
           )}

@@ -11,7 +11,7 @@ const CaseStudiesSection = ({ blok }: ArticlesSectionStoryblok) => {
     eyebrow,
     heading,
     body,
-    caseStudies,
+    articles,
     id: toExclude,
     filter_by_category: categories,
   } = blok;
@@ -22,7 +22,7 @@ const CaseStudiesSection = ({ blok }: ArticlesSectionStoryblok) => {
           <Suspense fallback={<SkeletonGrid tiles={3} />}>
             <CaseStudiesCarousel
               limit={3}
-              {...{ caseStudies, categories, toExclude }}
+              {...{ caseStudies: articles, categories, toExclude }}
             />
           </Suspense>
         </SectionWrap>

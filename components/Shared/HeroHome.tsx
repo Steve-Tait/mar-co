@@ -47,16 +47,16 @@ const HeroHome = ({
             className={cn(animated_title?.length && 'sr-only')}
           />
         )}
-        {animated_title.length && (
+        {animated_title.length ? (
           <SentenceLoop className='h1 uppercase' sentences={animated_title} />
-        )}
+        ) : null}
 
         {subheading && (
           <p className='mx-auto mt-2 max-w-prose text-balance text-xl/relaxed font-bold md:text-2xl/relaxed'>
             {subheading}
           </p>
         )}
-        {buttons && (
+        {buttons?.length ? (
           <div className='mt-4 flex flex-col flex-wrap items-center justify-center gap-2 sm:flex-row md:mt-8'>
             {buttons.map((nestedBlok) => (
               <StoryblokServerComponent
@@ -65,7 +65,7 @@ const HeroHome = ({
               />
             ))}
           </div>
-        )}
+        ) : null}
       </Container>
     </section>
   );

@@ -41,6 +41,7 @@ const RichText = ({ content, className, ...props }: RichTextProps) => {
     resolvers,
   });
 
+  if (!content) return;
   if (typeof content === 'string') {
     return (
       <div className={cn('prose max-w-prose', className)} {...props}>

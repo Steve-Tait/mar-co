@@ -20,6 +20,7 @@ const CaseStudiesCarousel = async ({
   if (!caseStudies?.length) {
     caseStudies = await getCaseStudies(limit, toExclude);
   }
+
   return (
     <div
       className='no-scrollbar grid snap-x snap-mandatory auto-cols-[minmax(75vw,_1fr)] grid-flow-col gap-4 overflow-x-auto sm:grid-flow-row sm:grid-cols-2 sm:gap-8 lg:grid-cols-3'

@@ -48,7 +48,6 @@ const TestimonialsSection = ({
                         className='h-full'
                         blok={testimonial.content}
                         key={testimonial.uuid}
-                        isCard={true}
                       />
                     </CarouselItem>
                   )
@@ -65,7 +64,6 @@ const TestimonialsSection = ({
                     className='h-full'
                     blok={testimonial.content}
                     key={testimonial.uuid}
-                    isCard={true}
                   />
                 )
               )}

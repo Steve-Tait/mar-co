@@ -52,7 +52,7 @@ const HeroHome = ({
         )}
 
         {subheading && (
-          <p className='mt-2 text-xl/relaxed font-bold md:text-2xl/relaxed'>
+          <p className='mt-2 max-w-prose text-balance text-xl/relaxed font-bold md:text-2xl/relaxed'>
             {subheading}
           </p>
         )}

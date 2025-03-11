@@ -116,7 +116,6 @@ export const getArticles = async (
   if (toExclude) {
     options['excluding_ids'] = toExclude;
   }
-  console.log('options', options);
   const { data } = await storyblokApi.get(`cdn/stories`, options);
   return data.stories.map((article: ArticleStoryblok) => {
     article.content.slug = article.slug;

@@ -7,7 +7,6 @@ import { cn } from '@/lib/utils';
 
 const TextSection = ({ blok }: { blok: TextSectionStoryblok }) => {
   const { eyebrow, heading, body, buttons, isCenter } = blok;
-  console.log(buttons);
   return (
     <Section blok={blok}>
       <Container className='max-w-3xl'>

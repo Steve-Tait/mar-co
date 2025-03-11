@@ -5,7 +5,7 @@ import RichText from './RichText';
 import { KeyPointStoryblok } from '@/component-types-sb';
 import Heading from '../Shared/Heading';
 import { StoryblokServerComponent } from '@storyblok/react/rsc';
-import { CheckIcon } from 'lucide-react';
+import { CheckIcon, HomeIcon } from 'lucide-react';
 
 const KeyPoint = ({
   blok,
@@ -27,7 +27,7 @@ const KeyPoint = ({
       {...props}
     >
       <div className='mb-4 rounded-xl bg-accent p-2 text-accent-foreground sm:mb-6'>
-        <CheckIcon size={36} />
+        <HomeIcon size={36} />
       </div>
       {heading && <Heading heading={heading} level={5} />}
       {body && <RichText content={body} />}

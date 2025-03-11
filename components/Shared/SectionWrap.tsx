@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import Heading from './Heading';
-import { render } from 'storyblok-rich-text-react-renderer';
 import { cn } from '@/lib/utils';
 import { RichtextStoryblok } from '@/component-types-sb';
 import RichText from '../Block/RichText';

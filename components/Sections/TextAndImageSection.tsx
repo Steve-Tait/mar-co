@@ -2,9 +2,10 @@ import { TextAndImageSectionStoryblok } from '@/component-types-sb';
 import { StoryblokServerComponent } from '@storyblok/react/rsc';
 import Container from '@/components/Shared/Container';
 import Section from '../Shared/Section';
-import { cn, getImageDimensionsFromUrl } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import SectionWrap from '../Shared/SectionWrap';
 import Image from 'next/image';
+import Parallax from '../Shared/Parallax';
 
 const TextAndImageSection = ({
   blok,
@@ -17,7 +18,7 @@ const TextAndImageSection = ({
     <Section blok={blok}>
       <Container className='grid grid-cols-1 items-center gap-x-10 gap-y-6 sm:grid-cols-2 xl:gap-x-16'>
         {image?.id && (
-          <div
+          <Parallax
             className={cn(
               'relative aspect-square size-full overflow-hidden rounded-3xl object-cover',
               is_reverse && 'sm:order-1'
@@ -29,11 +30,11 @@ const TextAndImageSection = ({
               fill
               objectFit='cover'
             />
-          </div>
+          </Parallax>
         )}
-        <SectionWrap {...{ eyebrow, heading, body }} headingLevel={3}>
+        <SectionWrap {...{ eyebrow, heading, body }}>
           {buttons?.length ? (
-            <div className='mt-4'>
+            <div>
               {buttons.map((nestedBlok) => (
                 <StoryblokServerComponent
                   blok={nestedBlok}

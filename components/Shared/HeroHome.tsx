@@ -48,7 +48,7 @@ const HeroHome = ({
           />
         )}
         {animated_title.length && (
-          <SentenceLoop className='h1' sentences={animated_title} />
+          <SentenceLoop className='h1 uppercase' sentences={animated_title} />
         )}
 
         {subheading && (

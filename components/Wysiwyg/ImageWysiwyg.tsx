@@ -1,5 +1,6 @@
 import { ImageWysiwygStoryblok } from '@/component-types-sb';
 import Container from '../Shared/Container';
+import { Camera } from 'lucide-react';
 
 const ImageWysiwyg = ({ blok }: { blok: ImageWysiwygStoryblok }) => {
   const { image, caption } = blok;
@@ -14,8 +15,8 @@ const ImageWysiwyg = ({ blok }: { blok: ImageWysiwygStoryblok }) => {
             alt={image.alt || image.title || ''}
           />
           {caption && (
-            <div className='bg-purple-700 px-4 py-2 text-left text-sm text-white'>
-              {caption}
+            <div className='flex items-center gap-x-4 bg-purple-700 px-4 py-2 text-left text-sm text-white'>
+              <Camera className='shrink-0' size='20' /> {caption}
             </div>
           )}
         </div>

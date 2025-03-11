@@ -11,7 +11,7 @@ const IntroSection = ({ blok }: { blok: IntroSectionStoryblok }) => {
 
   return (
     <Section blok={blok}>
-      <Container className='grid max-w-6xl gap-8 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-16'>
+      <Container className='grid gap-8 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-16'>
         {heading && (
           <Heading className='xl:col-span-2' heading={heading} level={3} />
         )}

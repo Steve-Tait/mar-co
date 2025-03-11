@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { getImageDimensionsFromUrl } from '@/lib/utils';
 import React from 'react';
 import { ImageSectionStoryblok } from '@/component-types-sb';
+import { Camera } from 'lucide-react';
 
 const ImageSection = ({ blok }: { blok: ImageSectionStoryblok }) => {
   const { images } = blok || {};
@@ -33,8 +34,8 @@ const ImageSection = ({ blok }: { blok: ImageSectionStoryblok }) => {
                 height={height}
               />
               {name && (
-                <div className='bg-muted px-4 py-2 text-left text-sm'>
-                  {name}
+                <div className='flex items-center gap-x-4 bg-card px-4 py-2 text-left text-sm text-card-foreground'>
+                  <Camera className='shrink-0' size='20' /> {name}
                 </div>
               )}
             </div>

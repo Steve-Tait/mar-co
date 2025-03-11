@@ -5,21 +5,22 @@ import Image from 'next/image';
 import SectionWrap from '../Shared/SectionWrap';
 import Parallax from '../Shared/Parallax';
 import { TextOverImageSectionStoryblok } from '@/component-types-sb';
-import RichText from '../Block/RichText';
+import { cn } from '@/lib/utils';
 
 const TextOverImageSection = ({
   blok,
 }: {
   blok: TextOverImageSectionStoryblok;
 }) => {
-  const { eyebrow, heading, body, image, buttons } = blok;
+  const { eyebrow, heading, body, image, isContained, buttons } = blok;
   return (
     <Section
       blok={{
         ...blok,
-        theme: 'image',
+        theme: isContained ? 'dark' : 'image',
       }}
-      className='relative text-center'
+      className='relative'
+      removePadding
     >
       {image && (
         <Parallax className='absolute inset-0 size-full'>
@@ -31,12 +32,23 @@ const TextOverImageSection = ({
           />
         </Parallax>
       )}
-      <div className='pointer-events-none before:absolute before:inset-0 before:bg-purple/70 before:brightness-50'></div>
-      <Container className='relative mx-auto flex min-h-[50svh] flex-col justify-center'>
-        <SectionWrap {...{ eyebrow, heading }}>
-          <RichText className='mx-auto' content={body} />
+      <div className='pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-t before:from-black/80 before:to-black/20 before:bg-blend-darken'></div>
+      <Container
+        className={cn(
+          'relative mx-auto flex min-h-[80svh] flex-col py-4 sm:py-6 lg:py-8',
+          isContained ? 'justify-end md:justify-start' : 'justify-center'
+        )}
+      >
+        <SectionWrap
+          className={
+            isContained
+              ? 'max-w-lg rounded-2xl bg-background p-4 text-foreground sm:p-8 md:sticky md:top-28 md:w-1/2 lg:p-12'
+              : 'text-center'
+          }
+          {...{ eyebrow, heading, body }}
+        >
           {buttons && buttons.length ? (
-            <div className='relative mt-4'>
+            <div>
               {buttons.map((nestedBlok) => (
                 <StoryblokServerComponent
                   blok={nestedBlok}

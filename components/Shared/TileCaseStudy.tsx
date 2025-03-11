@@ -57,7 +57,7 @@ export default function TileCaseStudy({
           />
         </div>
       )}
-      <div className='relative flex grow flex-col justify-between gap-y-4 p-8 lg:gap-y-8 lg:p-10 xl:px-12 xl:py-16'>
+      <div className='relative flex grow flex-col justify-between gap-y-4 p-4 lg:gap-y-8 lg:p-6 xl:px-12 xl:py-16'>
         {title && <h6 className='text-sm font-light'>{title}</h6>}
         <RichText
           className='grow text-balance text-3xl font-black'
@@ -66,7 +66,7 @@ export default function TileCaseStudy({
 
         <Link href={`/case-studies/${slug}/`} passHref legacyBehavior>
           <motion.a
-            className='btn btn--white group-hover/tile:w-calc-content w-16 origin-right justify-end self-end overflow-x-clip whitespace-nowrap duration-300 before:absolute before:inset-0'
+            className='btn btn--white w-16 origin-right justify-end self-end overflow-x-clip whitespace-nowrap duration-300 before:absolute before:inset-0 group-hover/tile:w-calc-content'
             whileTap={{ scale: 0.9 }}
           >
             <span className='opacity-0 transition-opacity group-hover/tile:opacity-100'>

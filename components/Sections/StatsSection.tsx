@@ -15,11 +15,7 @@ const StatsSection = ({ blok }: StatsSectionStoryblok) => {
       className='relative bg-muted pb-[20vmin] text-muted-foreground'
     >
       <Container className='grid max-w-5xl gap-8 gap-y-4 sm:grid-cols-3'>
-        <Heading
-          heading={heading}
-          level={3}
-          className='pt-[20vmin] uppercase'
-        />
+        <Heading heading={heading} level={3} className='pt-[20vmin]' />
         <div className='sm:col-span-2'>
           {stats.map((stat: StatStoryblok, index: number) => (
             <Stat key={index} stat={stat} />

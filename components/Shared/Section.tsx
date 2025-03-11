@@ -21,7 +21,7 @@ const Section = forwardRef<Ref, IProps>(
         className={cn(
           'section bg-background text-foreground',
           theme && `theme--${theme}`,
-          !removePadding && 'py-24 sm:py-32 lg:py-40',
+          !removePadding && 'py-24 sm:py-28 lg:py-32',
           className
         )}
         {...(blok && storyblokEditable(blok))}

@@ -19,6 +19,7 @@ const config = {
       heading: ['var(--font-poppins)'],
       body: ['var(--font-open-sans)'],
       serif: ['serif'],
+      mono: ['monospace'],
     },
     colors: {
       inherit: 'inherit',
@@ -159,7 +160,7 @@ const config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
+  plugins: [require('tailwindcss-animate')],
 } satisfies Config;
 
 export default config;

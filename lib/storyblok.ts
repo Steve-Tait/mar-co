@@ -160,7 +160,6 @@ export const getCaseStudies = async (
   if (toExclude) {
     options['excluding_ids'] = toExclude;
   }
-
   const { data } = await storyblokApi.get(`cdn/stories`, options);
   return data.stories.map((caseStudy: CaseStudyStoryblok) => {
     caseStudy.content.slug = caseStudy.slug;

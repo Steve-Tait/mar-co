@@ -7,14 +7,9 @@ const BannerWysiwyg = ({ blok }: { blok: BannerWysiwygStoryblok }) => {
   const { background = 'purple', richtext } = blok;
   if (!richtext) return;
   return (
-    <div
-      className={`bg-${background} dark relative py-8 md:py-12 lg:py-16 xl:py-24`}
-    >
+    <div className={`bg-${background} dark relative py-8 md:py-12 xl:py-16`}>
       <Container>
-        <RichText
-          className='prose relative max-w-prose lg:prose-lg'
-          content={richtext}
-        />
+        <RichText className='mx-auto' content={richtext} />
       </Container>
     </div>
   );

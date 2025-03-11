@@ -65,7 +65,7 @@ export default function TileArticle({
         </div>
       )}
 
-      <div className='relative flex grow flex-col items-start gap-y-2 bg-card p-6 text-card-foreground'>
+      <div className='relative flex grow flex-col items-start gap-y-2 bg-card p-4 text-card-foreground lg:p-6'>
         <div className='flex grow flex-col items-start gap-y-2'>
           {categories?.length && (
             <div className='pointer-events-none flex flex-wrap gap-2'>

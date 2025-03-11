@@ -38,7 +38,7 @@ const Hero = ({
       style={{ backgroundImage: `url(${image?.filename})` }}
       {...props}
     >
-      <Container className='relative flex max-w-prose flex-col gap-y-6 text-center'>
+      <Container className='relative flex flex-col items-center gap-y-6 text-center'>
         {categories && (
           <div className='flex flex-wrap justify-center gap-x-2'>
             {categories.map((category) => (
@@ -51,21 +51,18 @@ const Hero = ({
           </div>
         )}
         {title && (
-          <Heading
-            className='text-balance uppercase'
-            heading={title}
-            level={1}
-          />
+          <Heading className='text-balance' heading={title} level={1} />
         )}
         {excerpt && (
-          <p className='mt-2 text-balance text-xl/relaxed font-bold md:text-2xl/relaxed'>
+          <p className='mt-2 max-w-prose text-balance text-xl/relaxed font-bold md:text-2xl/relaxed'>
             {excerpt}
           </p>
         )}
-        {button &&
-          button.map((nestedBlok: ButtonStoryblok) => (
-            <Button size='sm' blok={nestedBlok} key={nestedBlok._uid} />
-          ))}
+        {button?.length
+          ? button.map((nestedBlok: ButtonStoryblok) => (
+              <Button size='sm' blok={nestedBlok} key={nestedBlok._uid} />
+            ))
+          : null}
       </Container>
     </section>
   );

@@ -11,6 +11,7 @@ class IProps {
   eyebrow?: string;
   heading?: string;
   body?: string | RichtextStoryblok;
+  headingLevel?: number;
 }
 
 const SectionWrap: React.FC<IProps> = ({
@@ -19,19 +20,21 @@ const SectionWrap: React.FC<IProps> = ({
   body,
   children,
   className,
+  headingLevel = 2,
   ...props
 }) => {
   return (
-    <div className={cn('group', className)} {...props}>
+    <div
+      className={cn('group flex flex-col gap-y-6 md:gap-y-10', className)}
+      {...props}
+    >
       {(eyebrow || heading || body) && (
-        <div className='mb-6 sm:mb-10'>
-          {eyebrow && <h6 className='eyebrow mb-1 sm:mb-2'>{eyebrow}</h6>}
-          {heading && <Heading className='mb-4 sm:mb-6' heading={heading} />}
-          {body && (
-            <div className='prose sm:prose-lg group-[.text-center]:mx-auto'>
-              {typeof body === 'string' ? body : <RichText content={body} />}
-            </div>
-          )}
+        <div className='flex flex-col gap-y-1 group-[.text-center]:items-center md:gap-y-2'>
+          {eyebrow && <h6>{eyebrow}</h6>}
+          <div className='flex flex-col gap-y-4 group-[.text-center]:items-center md:gap-y-6'>
+            {heading && <Heading heading={heading} level={headingLevel} />}
+            {body && <RichText content={body} />}
+          </div>
         </div>
       )}
       {children}

@@ -17,5 +17,11 @@ export default async function Home({ params, searchParams }: MetaProps) {
   if (!story?.content) {
     notFound();
   }
-  return <StoryblokStory story={story} bridgeOptions={{ resolveRelations }} />;
+  return (
+    <StoryblokStory
+      id={story.id}
+      story={story}
+      bridgeOptions={{ resolveRelations }}
+    />
+  );
 }

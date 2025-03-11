@@ -13,16 +13,11 @@ const IntroSection = ({ blok }: { blok: IntroSectionStoryblok }) => {
     <Section blok={blok}>
       <Container className='grid max-w-6xl gap-8 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-16'>
         {heading && (
-          <Heading
-            className='uppercase xl:col-span-2'
-            heading={heading}
-            level={3}
-          />
+          <Heading className='xl:col-span-2' heading={heading} level={3} />
         )}
         {content && (
           <RichText
             className={cn(
-              'prose prose-lg xl:prose-xl',
               heading ? 'lg:col-span-2 xl:col-span-3' : 'lg:col-span-5'
             )}
             content={content}

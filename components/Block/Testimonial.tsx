@@ -5,61 +5,53 @@ import { Quote } from 'lucide-react';
 
 type TTestimonial = {
   blok: TestimonialStoryblok;
-  isCard?: boolean;
   className?: string;
 };
 
-const Testimonial = ({ blok, isCard, className }: TTestimonial) => {
+const Testimonial = ({ blok, className }: TTestimonial) => {
   const { author, role, content, avatar, company, ...props } = blok || {};
   if (!content) return;
   return (
-    <figure className={cn('flex flex-col items-center', className)} {...props}>
-      {avatar?.id && (
-        <Image
-          src={avatar.filename}
-          alt={avatar.alt || avatar.title || ''}
-          height={256}
-          width={256}
-          className='relative mb-6 aspect-square w-48 shrink-0 overflow-hidden rounded-full object-cover md:w-64'
-        />
+    <figure
+      className={cn(
+        'flex flex-col items-center gap-y-4 text-center md:gap-y-12',
+        className
       )}
-      <div
-        className={cn(
-          'flex w-full flex-col gap-y-2 sm:gap-y-4',
-          isCard &&
-            'rounded-xl bg-muted px-6 pb-6 text-muted-foreground md:px-10 md:pb-10',
-          avatar?.id ? '-mt-24 pt-24 md:-mt-32 md:pt-32' : 'pt-6 md:pt-10',
-          className
+      {...props}
+    >
+      <blockquote className='text-balance text-lg italic sm:text-xl lg:text-xl'>
+        "{content}"
+      </blockquote>
+      <footer className='flex flex-col items-center gap-y-2'>
+        {avatar?.id && (
+          <Image
+            src={avatar.filename}
+            alt={avatar.alt || avatar.title || ''}
+            height={128}
+            width={128}
+            className='aspect-square w-24 shrink-0 overflow-hidden rounded-full object-cover md:w-32'
+          />
         )}
-      >
-        <Quote className='size-6 rotate-180 text-black sm:size-8' />
-        <blockquote className='grow italic sm:text-lg lg:text-xl'>
-          {content}
-        </blockquote>
-        <Quote className='size-6 self-end text-black sm:size-8' />
-        <hr className='my-2 border-purple/20' />
-        <footer className='flex flex-col gap-x-8 gap-y-2 sm:gap-y-4 md:flex-row md:items-center'>
-          <div className='flex grow items-center gap-x-4'>
-            <figcaption className='grow'>
-              {author && (
-                <p className='font-heading font-black uppercase text-purple'>
-                  {author}
-                </p>
-              )}
-              {role && <p className='font-bold'>{role}</p>}
-            </figcaption>
-          </div>
-          {company?.id && (
-            <Image
-              src={company.filename}
-              alt={company.alt || company.title || ''}
-              height={48}
-              width={208}
-              className='h-8 w-52 self-end object-contain object-right sm:h-12'
-            />
-          )}
-        </footer>
-      </div>
+        <div>
+          <figcaption>
+            {author && (
+              <p className='font-heading font-black uppercase text-eyebrow'>
+                {author}
+              </p>
+            )}
+            {role && <p className='font-bold'>{role}</p>}
+          </figcaption>
+        </div>
+        {company?.id && (
+          <Image
+            src={company.filename}
+            alt={company.alt || company.title || ''}
+            height={48}
+            width={208}
+            className='h-8 w-52 object-contain sm:h-12'
+          />
+        )}
+      </footer>
     </figure>
   );
 };

@@ -34,9 +34,7 @@ const TextOverImageSection = ({
       <div className='pointer-events-none before:absolute before:inset-0 before:bg-purple/70 before:brightness-50'></div>
       <Container className='relative mx-auto flex min-h-[50svh] flex-col justify-center'>
         <SectionWrap {...{ eyebrow, heading }}>
-          <div className='prose prose-lg mx-auto sm:prose-xl lg:prose-2xl'>
-            {typeof body === 'string' ? body : <RichText content={body} />}
-          </div>
+          <RichText className='mx-auto' content={body} />
           {buttons && buttons.length ? (
             <div className='relative mt-4'>
               {buttons.map((nestedBlok) => (

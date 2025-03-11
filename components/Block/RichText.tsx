@@ -15,10 +15,11 @@ import {
 } from 'react';
 import Link from 'next/link';
 import { RichtextStoryblok } from '@/component-types-sb';
+import { cn } from '@/lib/utils';
 
 interface RichTextProps
   extends Omit<ComponentPropsWithoutRef<'div'>, 'content'> {
-  content: RichtextStoryblok;
+  content: RichtextStoryblok | string;
 }
 
 const resolvers = {
@@ -35,14 +36,25 @@ const resolvers = {
   },
 };
 
-const RichText = ({ content, ...props }: RichTextProps) => {
+const RichText = ({ content, className, ...props }: RichTextProps) => {
   const { render } = useStoryblokRichTextResolver({
     resolvers,
   });
 
+  if (typeof content === 'string') {
+    return (
+      <div className={cn('prose max-w-prose', className)} {...props}>
+        {content}
+      </div>
+    );
+  }
+
   const html = render(content as StoryblokRichTextNode<ReactNode>);
   const formattedHtml = convertAttributesInElement(html as React.ReactElement);
-
-  return <div {...props}>{formattedHtml}</div>;
+  return (
+    <div className={cn('prose max-w-prose', className)} {...props}>
+      {formattedHtml}
+    </div>
+  );
 };
 export default RichText;

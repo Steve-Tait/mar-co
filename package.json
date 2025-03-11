@@ -9,6 +9,7 @@
     "lint": "next lint",
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
+    "pull-components": "storyblok pull-components --space 271647",
     "generate-sb-types": "storyblok user --space 271647 && storyblok-generate-ts source=./components.271647.json target=./component-types-sb"
   },
   "dependencies": {

@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 import { useRef } from 'react';
 import RichText from './RichText';
+import { ColouredContainerStoryblok } from '@/component-types-sb';
 
 const COLOUR_MAP = {
   primary: 'theme--dark',
@@ -38,7 +39,7 @@ const ColouredContainer = ({
   isReverse = false,
   className = '',
 }: {
-  blok: any;
+  blok: ColouredContainerStoryblok;
   color: 'primary' | 'secondary' | 'muted' | 'secondary-muted';
   isReverse?: boolean;
   className?: string;

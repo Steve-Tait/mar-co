@@ -68,6 +68,7 @@ export interface ArticleStoryblok {
     | FullWidthImageSectionStoryblok
     | ImageSectionStoryblok
     | IntroSectionStoryblok
+    | KeyFeaturesSectionStoryblok
     | LogoCarouselSectionStoryblok
     | StatsSectionStoryblok
     | TestimonialsSectionStoryblok
@@ -93,6 +94,7 @@ export interface ArticleOverviewStoryblok {
     | FullWidthImageSectionStoryblok
     | ImageSectionStoryblok
     | IntroSectionStoryblok
+    | KeyFeaturesSectionStoryblok
     | LogoCarouselSectionStoryblok
     | StatsSectionStoryblok
     | TestimonialsSectionStoryblok
@@ -218,6 +220,7 @@ export interface CaseStudyOverviewStoryblok {
     | FullWidthImageSectionStoryblok
     | ImageSectionStoryblok
     | IntroSectionStoryblok
+    | KeyFeaturesSectionStoryblok
     | LogoCarouselSectionStoryblok
     | StatsSectionStoryblok
     | TestimonialsSectionStoryblok
@@ -247,6 +250,7 @@ export interface CategoryStoryblok {
     | FullWidthImageSectionStoryblok
     | ImageSectionStoryblok
     | IntroSectionStoryblok
+    | KeyFeaturesSectionStoryblok
     | LogoCarouselSectionStoryblok
     | StatsSectionStoryblok
     | TestimonialsSectionStoryblok
@@ -276,6 +280,8 @@ export interface ColouredContainerStoryblok {
 }
 
 export interface ColouredContainerSectionStoryblok {
+  heading?: string;
+  body?: RichtextStoryblok;
   sections?: ColouredContainerStoryblok[];
   theme?: number | string;
   _uid: string;
@@ -377,6 +383,7 @@ export interface HomepageStoryblok {
     | FullWidthImageSectionStoryblok
     | ImageSectionStoryblok
     | IntroSectionStoryblok
+    | KeyFeaturesSectionStoryblok
     | LogoCarouselSectionStoryblok
     | StatsSectionStoryblok
     | TestimonialsSectionStoryblok
@@ -414,6 +421,27 @@ export interface IntroSectionStoryblok {
   theme?: number | string;
   _uid: string;
   component: "intro-section";
+  [k: string]: any;
+}
+
+export interface KeyFeaturesSectionStoryblok {
+  heading?: string;
+  body?: RichtextStoryblok;
+  buttons?: ButtonStoryblok[];
+  isVertical?: boolean;
+  features?: KeyPointStoryblok[];
+  theme?: number | string;
+  _uid: string;
+  component: "key-features-section";
+  [k: string]: any;
+}
+
+export interface KeyPointStoryblok {
+  heading: string;
+  body?: RichtextStoryblok;
+  button?: ButtonStoryblok[];
+  _uid: string;
+  component: "key-point";
   [k: string]: any;
 }
 
@@ -460,6 +488,7 @@ export interface PageStoryblok {
     | FullWidthImageSectionStoryblok
     | ImageSectionStoryblok
     | IntroSectionStoryblok
+    | KeyFeaturesSectionStoryblok
     | LogoCarouselSectionStoryblok
     | StatsSectionStoryblok
     | TestimonialsSectionStoryblok
@@ -554,6 +583,7 @@ export interface TextSectionStoryblok {
   body: RichtextStoryblok;
   buttons?: ButtonStoryblok[];
   theme?: number | string;
+  isCenter?: boolean;
   _uid: string;
   component: "text-section";
   [k: string]: any;

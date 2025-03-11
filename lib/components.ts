@@ -1,5 +1,6 @@
 import Button from '@/components/Block/Button';
 import ColouredContainer from '@/components/Block/ColouredContainer';
+import KeyPoint from '@/components/Block/KeyPoint';
 import MenuLink from '@/components/Block/MenuLink';
 import Article from '@/components/Content/Article';
 import ArticleOverview from '@/components/Content/ArticleOverview';
@@ -18,6 +19,7 @@ import FaqsSection from '@/components/Sections/FaqsSection';
 import FullWidthImageSection from '@/components/Sections/FullWidthImageSection';
 import ImageSection from '@/components/Sections/ImageSection';
 import IntroSection from '@/components/Sections/IntroSection';
+import KeyFeaturesSection from '@/components/Sections/KeyFeaturesSection';
 import LogoCarouselSection from '@/components/Sections/LogoCarouselSection';
 import StatsSection from '@/components/Sections/StatsSection';
 import TestimonialsSection from '@/components/Sections/TestimonialsSection';
@@ -46,6 +48,7 @@ export const COMPONENTS = {
   'image-section': ImageSection,
   'stats-section': StatsSection,
   'coloured-container-section': ColouredContainerSection,
+  'key-features-section': KeyFeaturesSection,
   'full-width-image-section': FullWidthImageSection,
   'logo-carousel-section': LogoCarouselSection,
   'text-and-image-section': TextAndImageSection,
@@ -61,6 +64,7 @@ export const COMPONENTS = {
   page: Page,
   button: Button,
   'coloured-container': ColouredContainer,
+  'key-point': KeyPoint,
 
   'banner-wysiwyg': BannerWysiwyg,
   'gallery-wysiwyg': GalleryWysiwyg,

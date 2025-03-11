@@ -35,7 +35,9 @@ const CategoryOverview = async ({
                     replace
                     scroll={false}
                     className={
-                      category.uuid === searchParams.id ? 'font-bold' : ''
+                      searchParams?.id && category.uuid === searchParams.id
+                        ? 'font-bold'
+                        : ''
                     }
                   >
                     {category.content.name}
@@ -46,7 +48,9 @@ const CategoryOverview = async ({
           </aside>
           <div className='md:col-span-2 lg:col-span-3'>
             <Suspense fallback={<SkeletonGrid tiles={3} />}>
-              <ArticlesGrid categories={searchParams.id && [searchParams.id]} />
+              <ArticlesGrid
+                categories={searchParams?.id && [searchParams.id]}
+              />
             </Suspense>
           </div>
         </Container>

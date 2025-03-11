@@ -31,7 +31,9 @@ export default async function ArticlesOverview({
                     replace
                     scroll={false}
                     className={
-                      category.uuid === searchParams.id ? 'font-bold' : ''
+                      searchParams?.id && category.uuid === searchParams.id
+                        ? 'font-bold'
+                        : ''
                     }
                   >
                     {category.content.name}
@@ -42,7 +44,9 @@ export default async function ArticlesOverview({
           </aside>
           <div className='md:col-span-2 lg:col-span-3'>
             <Suspense fallback={<SkeletonGrid />}>
-              <ArticlesGrid categories={searchParams.id && [searchParams.id]} />
+              <ArticlesGrid
+                categories={searchParams?.id && [searchParams.id]}
+              />
             </Suspense>
           </div>
         </Container>

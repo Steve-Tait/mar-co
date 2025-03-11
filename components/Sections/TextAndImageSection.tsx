@@ -12,6 +12,7 @@ const TextAndImageSection = ({
   blok: TextAndImageSectionStoryblok;
 }) => {
   const { eyebrow, heading, body, image, buttons, is_reverse } = blok;
+
   return (
     <Section blok={blok}>
       <Container className='grid grid-cols-1 items-center gap-x-10 gap-y-6 sm:grid-cols-2 xl:gap-x-16'>
@@ -30,7 +31,7 @@ const TextAndImageSection = ({
             />
           </div>
         )}
-        <SectionWrap {...{ eyebrow, heading, body }}>
+        <SectionWrap {...{ eyebrow, heading, body }} headingLevel={3}>
           {buttons?.length ? (
             <div className='mt-4'>
               {buttons.map((nestedBlok) => (

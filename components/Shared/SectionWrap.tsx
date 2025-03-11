@@ -30,7 +30,7 @@ const SectionWrap: React.FC<IProps> = ({
     >
       {(eyebrow || heading || body) && (
         <div className='flex flex-col gap-y-1 group-[.text-center]:items-center md:gap-y-2'>
-          {eyebrow && <h6>{eyebrow}</h6>}
+          {eyebrow && <h6 className='eyebrow'>{eyebrow}</h6>}
           <div className='flex flex-col gap-y-4 group-[.text-center]:items-center md:gap-y-6'>
             {heading && <Heading heading={heading} level={headingLevel} />}
             {body && <RichText content={body} />}

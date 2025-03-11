@@ -67,7 +67,7 @@ export default function TileArticle({
 
       <div className='relative flex grow flex-col items-start gap-y-2 bg-card p-4 text-card-foreground lg:p-6'>
         <div className='flex grow flex-col items-start gap-y-2'>
-          {categories?.length && (
+          {categories?.length ? (
             <div className='pointer-events-none flex flex-wrap gap-2'>
               {categories.map((category) => (
                 <Badge
@@ -78,7 +78,7 @@ export default function TileArticle({
                 />
               ))}
             </div>
-          )}
+          ) : null}
           <h5 className='line-clamp-2 font-bold' title={title}>
             {title}
           </h5>

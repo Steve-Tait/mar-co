@@ -79,16 +79,17 @@ const KeyFeaturesSection = ({
           whileInView='onscreen'
           variants={variants}
         >
-          {features?.length &&
-            features.map((feature) => (
-              <StoryblokServerComponent
-                blok={feature}
-                isVertical={isVertical}
-                key={feature._uid}
-                variants={variantsChild}
-                custom={isVertical}
-              />
-            ))}
+          {features?.length
+            ? features.map((feature) => (
+                <StoryblokServerComponent
+                  blok={feature}
+                  isVertical={isVertical}
+                  key={feature._uid}
+                  variants={variantsChild}
+                  custom={isVertical}
+                />
+              ))
+            : null}
         </motion.div>
       </Container>
     </Section>

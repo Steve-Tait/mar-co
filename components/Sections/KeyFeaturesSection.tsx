@@ -45,7 +45,7 @@ const KeyFeaturesSection = ({
       <Container
         className={cn(
           'grid grid-cols-1 gap-8 xl:gap-16',
-          isVertical ? 'md:grid-cols-3' : ''
+          isVertical ? 'items-start md:grid-cols-3' : ''
         )}
       >
         <div

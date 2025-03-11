@@ -100,7 +100,7 @@ export const getArticles = async (
     version: (process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'draft') as
       | 'draft'
       | 'published',
-    starts_with: 'articles/',
+    starts_with: 'insights/',
     is_startpage: false,
     sort_by: 'created_at:desc',
     per_page: limit,
@@ -116,7 +116,7 @@ export const getArticles = async (
   if (toExclude) {
     options['excluding_ids'] = toExclude;
   }
-
+  console.log('options', options);
   const { data } = await storyblokApi.get(`cdn/stories`, options);
   return data.stories.map((article: ArticleStoryblok) => {
     article.content.slug = article.slug;

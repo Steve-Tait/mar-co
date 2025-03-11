@@ -41,7 +41,7 @@ const Article = ({ blok, id }: TArticleStoryblokWithRelations) => {
                 <ArticlesGrid
                   limit={3}
                   categories={categoryIds}
-                  toExclude={id}
+                  toExclude={id.toString()}
                 />
               </Suspense>
             </SectionWrap>

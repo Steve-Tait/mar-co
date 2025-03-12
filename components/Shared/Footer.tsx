@@ -14,9 +14,7 @@ export default function Footer({ blok }: { blok: FooterStoryblok }) {
     >
       <Container className='flex flex-col gap-8'>
         <div className='sm:align-center flex flex-col items-center gap-8 sm:flex-row sm:justify-start'>
-          {body && (
-            <RichText className='text-lg [&_a]:text-eyebrow' content={body} />
-          )}
+          {body && <RichText className='text-lg' content={body} />}
         </div>
         {menu && (
           <div className='grid-cols-auto grid grid-flow-col'>
@@ -27,7 +25,7 @@ export default function Footer({ blok }: { blok: FooterStoryblok }) {
         )}
 
         <div className='self-end whitespace-nowrap text-4xl font-bold'>
-          MAR-CO<span className='text-eyebrow'>.</span>
+          MAR-CO<span className='text-secondary'>.</span>
         </div>
         <div>&copy; Copyright {new Date().getFullYear()} MAR-CO</div>
       </Container>

@@ -14,12 +14,12 @@ const Testimonial = ({ blok, className }: TTestimonial) => {
   return (
     <figure
       className={cn(
-        'flex flex-col items-center gap-y-4 text-center md:gap-y-12',
+        'flex flex-col items-center gap-y-4 text-center md:gap-y-6',
         className
       )}
       {...props}
     >
-      <blockquote className='text-balance text-lg italic sm:text-xl lg:text-xl'>
+      <blockquote className='flex grow items-center text-balance rounded-2xl bg-muted p-4 text-lg italic text-muted-foreground sm:p-6 sm:text-xl lg:text-xl'>
         "{content}"
       </blockquote>
       <footer className='flex flex-col items-center gap-y-2'>
@@ -35,7 +35,7 @@ const Testimonial = ({ blok, className }: TTestimonial) => {
         <div>
           <figcaption>
             {author && (
-              <p className='font-heading font-black uppercase text-eyebrow'>
+              <p className='font-heading font-black uppercase text-secondary'>
                 {author}
               </p>
             )}

@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 import RichText from '../Block/RichText';
 import { StoryblokServerComponent } from '@storyblok/react/rsc';
 import { motion, Variants } from 'framer-motion';
+import ButtonGroup from '../Shared/ButtonGroup';
 
 const variants: Variants = {
   offscreen: {},
@@ -56,13 +57,7 @@ const KeyFeaturesSection = ({
         >
           {heading && <Heading heading={heading} level={isVertical ? 3 : 2} />}
           {body && <RichText content={body} />}
-          {buttons?.length ? (
-            <div className='mt-4'>
-              {buttons.map((button) => (
-                <StoryblokServerComponent blok={button} key={button._uid} />
-              ))}
-            </div>
-          ) : null}
+          <ButtonGroup buttons={buttons} className='mt-4' />
         </div>
         <motion.div
           className={cn(

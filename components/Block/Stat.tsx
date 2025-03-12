@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { useTransform, motion, useScroll } from 'framer-motion';
 import { useRef } from 'react';
 import NumberCounter from '../Shared/NumberCounter';
+import RichText from './RichText';
 
 export default function Stat({
   stat,
@@ -26,7 +27,7 @@ export default function Stat({
   return (
     <div
       className={cn(
-        'relative flex items-center gap-x-8 pt-[20vmin] text-black lg:gap-x-16',
+        'relative flex items-center gap-x-8 pt-[20vmin] lg:gap-x-16',
         className
       )}
       ref={ref}
@@ -45,7 +46,7 @@ export default function Stat({
           <NumberCounter value={value} />
           {suffix}
         </p>
-        <p className='text-lg'>{description}</p>
+        <RichText className='text-lg' content={description} />
       </motion.div>
     </div>
   );

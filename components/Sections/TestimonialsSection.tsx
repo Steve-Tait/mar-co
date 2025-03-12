@@ -16,8 +16,6 @@ import {
 import Testimonial from '../Block/Testimonial';
 import SectionWrap from '../Shared/SectionWrap';
 import { StoryblokStory } from 'storyblok-generate-ts';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
 
 type TTestimonialsSectionWithRelations = TestimonialsSectionStoryblok & {
   testimonials: StoryblokStory<TestimonialStoryblok>[];
@@ -34,7 +32,7 @@ const TestimonialsSection = ({
     <Section className='relative overflow-hidden' blok={blok}>
       <div className='pointer-events-none absolute bottom-0 left-1/2 z-[-1] aspect-square h-[150%] -translate-x-1/2 translate-y-3/4 rounded-full bg-primary' />
       <Container className='relative max-w-3xl'>
-        <SectionWrap {...{ eyebrow, heading, body }}>
+        <SectionWrap className='text-center' {...{ eyebrow, heading, body }}>
           {testimonials.length > 1 ? (
             <Carousel>
               <CarouselContent>

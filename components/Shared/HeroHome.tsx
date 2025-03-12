@@ -9,6 +9,7 @@ import Container from './Container';
 import { cn } from '@/lib/utils';
 import SentenceLoop from './SentenceLoop';
 import { StoryblokServerComponent } from '@storyblok/react/rsc';
+import ButtonGroup from './ButtonGroup';
 
 export type THeroHome = {
   title?: string | undefined;
@@ -32,7 +33,7 @@ const HeroHome = ({
   return (
     <section
       className={cn(
-        'theme--dark relative flex aspect-video h-svh w-full flex-col justify-center bg-purple bg-cover py-24 text-white',
+        'theme--dark relative flex aspect-video min-h-[75svh] w-full flex-col justify-end bg-purple bg-cover pb-8 pt-24 text-white md:min-h-svh md:justify-center md:pb-24',
         image?.filename &&
           'before:absolute before:inset-0 before:bg-purple/50 before:backdrop-brightness-50'
       )}
@@ -56,16 +57,7 @@ const HeroHome = ({
             {subheading}
           </p>
         )}
-        {buttons?.length ? (
-          <div className='mt-4 flex flex-col flex-wrap items-center justify-center gap-2 sm:flex-row md:mt-8'>
-            {buttons.map((nestedBlok) => (
-              <StoryblokServerComponent
-                blok={nestedBlok}
-                key={nestedBlok._uid}
-              />
-            ))}
-          </div>
-        ) : null}
+        <ButtonGroup buttons={buttons} className='mt-4 md:mt-8' />
       </Container>
     </section>
   );

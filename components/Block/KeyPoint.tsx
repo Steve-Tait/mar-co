@@ -5,7 +5,8 @@ import RichText from './RichText';
 import { KeyPointStoryblok } from '@/component-types-sb';
 import Heading from '../Shared/Heading';
 import { StoryblokServerComponent } from '@storyblok/react/rsc';
-import { CheckIcon, HomeIcon } from 'lucide-react';
+import { HomeIcon } from 'lucide-react';
+import ButtonGroup from '../Shared/ButtonGroup';
 
 const KeyPoint = ({
   blok,
@@ -26,18 +27,12 @@ const KeyPoint = ({
       )}
       {...props}
     >
-      <div className='mb-4 rounded-xl bg-accent p-2 text-accent-foreground sm:mb-6'>
+      <div className='mb-4 rounded-xl bg-secondary p-2 text-secondary-foreground sm:mb-6'>
         <HomeIcon size={36} />
       </div>
       {heading && <Heading heading={heading} level={5} />}
       {body && <RichText content={body} />}
-      {button?.length ? (
-        <div className='mt-4'>
-          {button.map((button) => (
-            <StoryblokServerComponent blok={button} key={button._uid} />
-          ))}
-        </div>
-      ) : null}
+      <ButtonGroup buttons={button} className='mt-4' />
     </motion.div>
   );
 };

@@ -41,14 +41,14 @@ export default function TileCaseStudy({
 
   return (
     <motion.article
-      className='group/tile relative flex snap-start snap-always overflow-hidden rounded-2xl bg-primary text-primary-foreground transition-colors hover:bg-popover hover:text-popover-foreground'
+      className='group/tile relative flex snap-start snap-always overflow-hidden rounded-2xl bg-card text-card-foreground transition-colors hover:bg-accent hover:text-accent-foreground'
       variants={variants}
       initial='offscreen'
       whileInView='onscreen'
       custom={index}
     >
       {image?.filename && (
-        <div className='pointer-events-none opacity-0 transition-opacity duration-500 after:absolute after:inset-0 after:bg-gradient-to-t after:from-black/80 after:to-black/50 after:bg-blend-darken group-hover/tile:opacity-100'>
+        <div className='pointer-events-none transition-opacity duration-500 after:absolute after:inset-0 after:bg-gradient-to-t after:from-black/80 after:to-black/50 after:bg-blend-darken md:opacity-0 md:group-hover/tile:opacity-100'>
           <Image
             src={image.filename}
             alt={image.alt ?? ''}
@@ -57,7 +57,7 @@ export default function TileCaseStudy({
           />
         </div>
       )}
-      <div className='relative flex grow flex-col justify-between gap-y-4 p-4 lg:gap-y-8 lg:p-6 xl:px-12 xl:py-16'>
+      <div className='relative flex grow flex-col justify-between gap-y-4 p-6 sm:p-8 lg:gap-y-8 xl:px-12 xl:py-16'>
         {title && <h6 className='text-sm font-light'>{title}</h6>}
         <RichText
           className='h4 grow text-balance font-bold uppercase'
@@ -66,7 +66,7 @@ export default function TileCaseStudy({
 
         <Link href={`/case-studies/${slug}/`} passHref legacyBehavior>
           <motion.a
-            className='btn btn--white w-16 origin-right justify-end self-end overflow-x-clip whitespace-nowrap duration-300 before:absolute before:inset-0 group-hover/tile:w-calc-content'
+            className='btn btn--text-link w-16 origin-right justify-end self-end overflow-x-clip whitespace-nowrap duration-300 before:absolute before:inset-0 group-hover/tile:w-calc-content'
             whileTap={{ scale: 0.9 }}
           >
             <span className='opacity-0 transition-opacity group-hover/tile:opacity-100'>

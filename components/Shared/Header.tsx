@@ -1,5 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
+
 import {
   ButtonStoryblok,
   HeaderStoryblok,
@@ -7,16 +9,10 @@ import {
   MenuSectionStoryblok,
 } from '@/component-types-sb';
 import { storyblokEditable } from '@storyblok/react/rsc';
-import Container from './Container';
 import MenuSectionHeader from '../Content/MenuSectionHeader';
 import Button from '../Block/Button';
 import Link from 'next/link';
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from '../ui/navigation-menu';
+import { NavigationMenu, NavigationMenuList } from '../ui/navigation-menu';
 import { cn } from '@/lib/utils';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import { useLenis } from './SmoothScroller';
@@ -46,6 +42,12 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
     }
   }, []);
 
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname, searchParams]);
+
   return (
     <header
       className={cn(
@@ -59,7 +61,7 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
           href='/'
           className='whitespace-nowrap font-heading text-2xl font-bold sm:text-4xl'
         >
-          MAR-CO<span className='text-eyebrow'>.</span>
+          MAR-CO<span className='text-secondary'>.</span>
         </Link>
         <div className='hidden grow items-center justify-between gap-x-8 lg:flex'>
           <NavigationMenu className='grow'>

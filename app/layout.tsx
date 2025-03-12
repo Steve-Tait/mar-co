@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Open_Sans, Poppins } from 'next/font/google';
-import './globals.css';
+import './globals.scss';
 import { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 

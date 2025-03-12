@@ -14,19 +14,22 @@ const ICON_CLASS =
 const Button = ({
   blok,
   size,
+  className,
   ...props
 }: {
   blok: ButtonStoryblok;
   size: string;
+  className?: string;
 }) => {
-  const { link, label, variant = 'pink', form_trigger } = blok || {};
+  const { link, label, variant = 'primary', form_trigger } = blok || {};
   if (form_trigger) {
     return (
       <DrawerTrigger
         className={cn(
           'btn group/btn',
           variant && `btn--${variant}`,
-          size && `btn--${size}`
+          size && `btn--${size}`,
+          className
         )}
       >
         <span className={LABEL_CLASS}>{label}</span>
@@ -47,7 +50,8 @@ const Button = ({
             className={cn(
               'btn group/btn',
               variant && `btn--${variant}`,
-              size && `btn--${size}`
+              size && `btn--${size}`,
+              className
             )}
             whileTap={{ scale: 0.9 }}
             {...props}
@@ -64,7 +68,8 @@ const Button = ({
           className={cn(
             'btn group/btn',
             variant && `btn--${variant}`,
-            size && `btn--${size}`
+            size && `btn--${size}`,
+            className
           )}
           whileTap={{ scale: 0.9 }}
           {...props}
@@ -80,7 +85,8 @@ const Button = ({
           className={cn(
             'btn group/btn',
             variant && `btn--${variant}`,
-            size && `btn--${size}`
+            size && `btn--${size}`,
+            className
           )}
           target={link.target}
           whileTap={{ scale: 0.9 }}

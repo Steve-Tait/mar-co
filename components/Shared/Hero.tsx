@@ -9,6 +9,7 @@ import Container from './Container';
 import Badge from './Badge';
 import { cn } from '@/lib/utils';
 import Button from '../Block/Button';
+import ButtonGroup from './ButtonGroup';
 
 export type THero = {
   title?: string | undefined;
@@ -31,9 +32,10 @@ const Hero = ({
   return (
     <section
       className={cn(
-        'theme--dark relative flex min-h-svh w-full flex-col justify-center bg-background bg-cover py-24 text-foreground sm:py-48',
-        image?.filename &&
-          'before:absolute before:inset-0 before:bg-purple/50 before:backdrop-brightness-50'
+        'theme--image relative flex aspect-video min-h-[75svh] w-full flex-col justify-end bg-purple bg-cover pb-8 pt-24 text-white md:min-h-svh md:justify-center md:pb-24',
+        image?.filename
+          ? 'theme--image before:absolute before:inset-0 before:bg-purple/50 before:backdrop-brightness-50'
+          : 'theme--dark'
       )}
       style={{ backgroundImage: `url(${image?.filename})` }}
       {...props}
@@ -58,11 +60,7 @@ const Hero = ({
             {excerpt}
           </p>
         )}
-        {button?.length
-          ? button.map((nestedBlok: ButtonStoryblok) => (
-              <Button size='sm' blok={nestedBlok} key={nestedBlok._uid} />
-            ))
-          : null}
+        <ButtonGroup buttons={button} />
       </Container>
     </section>
   );

@@ -15,7 +15,7 @@ const AccordionItem = React.forwardRef<
   <AccordionPrimitive.Item
     ref={ref}
     className={cn(
-      'rounded-xl bg-background text-primary-foreground duration-300 hover:bg-accent hover:text-accent-foreground',
+      'rounded-xl bg-card text-card-foreground duration-300 hover:bg-accent hover:text-accent-foreground',
       className
     )}
     {...props}

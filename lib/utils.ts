@@ -7,17 +7,17 @@ export function cn(...inputs: ClassValue[]) {
 
 export function underlineBetweenStars(str: string): string {
   const regex = /\*\*([^*\n]*(?:\*(?!\*)[^*\n]*)*)\*\*/g;
-  return str.replace(regex, '<span class="text-eyebrow">$1</span>');
+  return str.replace(regex, '<span class="text-secondary">$1</span>');
 }
 
 export function replacePunctuation(str: string): string {
-  const punctuation = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]*$/;
+  const punctuation = /[!"#$%&'()*+,-./:;=?@[\]^_`{|}~]*$/;
 
   if (punctuation.test(str)) {
     const punct = str.match(punctuation)!.shift() || '.';
     return str.replace(
       punctuation,
-      `<span class="text-eyebrow">${punct}</span>`
+      `<span class="text-secondary">${punct}</span>`
     );
   }
   return str;

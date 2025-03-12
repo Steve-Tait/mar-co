@@ -100,7 +100,7 @@ const SentenceLoop = ({
               variants={textVariants}
               custom={length}
               key='dot'
-              className='text-eyebrow'
+              className='text-secondary'
             >
               .
             </motion.span>

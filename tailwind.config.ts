@@ -8,6 +8,9 @@ const config = {
     './src/**/*.{ts,tsx}',
   ],
   safelist: [
+    'btn--primary',
+    'btn--secondary',
+    'btn--text-link',
     'btn--sm',
     'theme--light',
     'theme--dark',

@@ -1,6 +1,7 @@
 import { storyblokEditable } from '@storyblok/react';
 import MenuLink from '../Block/MenuLink';
 import { MenuSectionStoryblok } from '@/component-types-sb';
+import Heading from '../Shared/Heading';
 
 export default function MenuSectionFooter({
   blok,
@@ -11,12 +12,7 @@ export default function MenuSectionFooter({
   const { heading, items } = blok;
   return (
     <div {...storyblokEditable({ blok })} {...props}>
-      {heading && (
-        <p className='mb-2 text-lg font-bold'>
-          {blok.heading}
-          <span className='text-eyebrow'>.</span>
-        </p>
-      )}
+      {heading && <Heading level={5} className='mb-2' heading={heading} />}
 
       {items && (
         <div className='flex flex-col gap-1'>

@@ -4,6 +4,7 @@ import Container from '@/components/Shared/Container';
 import Section from '../Shared/Section';
 import SectionWrap from '../Shared/SectionWrap';
 import { cn } from '@/lib/utils';
+import ButtonGroup from '../Shared/ButtonGroup';
 
 const TextSection = ({ blok }: { blok: TextSectionStoryblok }) => {
   const { eyebrow, heading, body, buttons, isCenter } = blok;
@@ -14,16 +15,10 @@ const TextSection = ({ blok }: { blok: TextSectionStoryblok }) => {
           className={cn(isCenter && 'text-center')}
           {...{ eyebrow, heading, body }}
         >
-          {buttons?.length ? (
-            <div className='mt-4 text-center'>
-              {buttons.map((nestedBlok) => (
-                <StoryblokServerComponent
-                  blok={nestedBlok}
-                  key={nestedBlok._uid}
-                />
-              ))}
-            </div>
-          ) : null}
+          <ButtonGroup
+            buttons={buttons}
+            className={cn(isCenter && 'text-center')}
+          />
         </SectionWrap>
       </Container>
     </Section>

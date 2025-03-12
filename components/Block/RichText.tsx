@@ -1,18 +1,11 @@
 import {
-  StoryblokRichText,
   MarkTypes,
   type StoryblokRichTextNode,
-  StoryblokRichTextProps,
   useStoryblokRichTextResolver,
   convertAttributesInElement,
 } from '@storyblok/react';
 
-import {
-  ComponentPropsWithoutRef,
-  JSXElementConstructor,
-  ReactElement,
-  ReactNode,
-} from 'react';
+import { ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react';
 import Link from 'next/link';
 import { RichtextStoryblok } from '@/component-types-sb';
 import { cn } from '@/lib/utils';

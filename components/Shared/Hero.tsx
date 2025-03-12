@@ -32,7 +32,7 @@ const Hero = ({
   return (
     <section
       className={cn(
-        'theme--image relative flex aspect-video min-h-[75svh] w-full flex-col justify-end bg-purple bg-cover pb-8 pt-24 text-white md:min-h-svh md:justify-center md:pb-24',
+        'relative flex aspect-video min-h-[75svh] w-full flex-col justify-end bg-purple bg-cover pb-8 pt-24 text-white md:min-h-svh md:justify-center md:pb-24',
         image?.filename
           ? 'theme--image before:absolute before:inset-0 before:bg-purple/50 before:backdrop-brightness-50'
           : 'theme--dark'

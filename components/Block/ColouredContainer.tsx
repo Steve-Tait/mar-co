@@ -9,7 +9,7 @@ const COLOUR_MAP = {
   primary: 'theme--dark',
   secondary: 'theme--alternate',
   muted: 'theme--muted',
-  'secondary-muted': 'theme--alternate',
+  'secondary-muted': 'theme--alternate-muted',
 };
 const DOT_COLOR_MAP = {
   primary: 'bg-secondary',

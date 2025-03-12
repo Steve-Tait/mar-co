@@ -7,7 +7,7 @@ interface Heading extends React.HTMLAttributes<HTMLHeadingElement> {
   className?: string;
   children?: React.ReactNode;
 }
-const CLASS_NAME = 'uppercase text-balance';
+const CLASS_NAME = 'text-balance';
 
 const Heading = ({
   level = 2,

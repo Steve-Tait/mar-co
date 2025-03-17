@@ -322,7 +322,7 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-30T19:30:53.237Z",
-      "updated_at": "2025-02-18T20:03:45.977Z",
+      "updated_at": "2025-03-17T08:54:22.056Z",
       "id": 5255414,
       "schema": {
         "eyebrow": {
@@ -342,7 +342,7 @@
           "restrict_type": "",
           "restrict_components": true,
           "source": "internal_stories",
-          "folder_slug": "articles/",
+          "folder_slug": "insights/",
           "filter_content_type": [
             "article"
           ],
@@ -377,6 +377,17 @@
           "datasource_slug": "theme",
           "exclude_empty_option": true,
           "id": "H9dQ9pdwRjOy_7HaRcDrOA"
+        },
+        "button": {
+          "type": "bloks",
+          "pos": 7,
+          "maximum": 1,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "button"
+          ],
+          "id": "ohT01G0cQEmoUUlkt8yMHA"
         }
       },
       "image": null,
@@ -470,7 +481,7 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-19T09:22:21.387Z",
-      "updated_at": "2025-02-18T20:29:24.129Z",
+      "updated_at": "2025-03-17T08:59:35.441Z",
       "id": 5197379,
       "schema": {
         "link": {
@@ -529,7 +540,7 @@
       "real_name": "button",
       "component_group_uuid": "112cba58-bae8-4802-b6f7-1cf1e9e1e95f",
       "color": null,
-      "icon": null,
+      "icon": "block-text-img-c",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
@@ -540,7 +551,7 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-04-04T11:52:41.261Z",
-      "updated_at": "2025-02-18T20:04:26.403Z",
+      "updated_at": "2025-03-17T08:54:37.088Z",
       "id": 5603839,
       "schema": {
         "eyebrow": {
@@ -585,6 +596,12 @@
           "datasource_slug": "theme",
           "exclude_empty_option": true,
           "id": "x8yqisuoQCCklmN-_NJhIQ"
+        },
+        "button": {
+          "type": "bloks",
+          "pos": 6,
+          "maximum": 1,
+          "id": "whp_zxXMRLi45bzX7akMLQ"
         }
       },
       "image": null,
@@ -920,11 +937,86 @@
       "component_group_name": "pages"
     },
     {
+      "name": "checklist-section",
+      "display_name": null,
+      "description": "",
+      "created_at": "2025-03-17T08:52:15.001Z",
+      "updated_at": "2025-03-17T09:01:33.061Z",
+      "id": 7093199,
+      "schema": {
+        "eyebrow": {
+          "type": "text",
+          "pos": 0,
+          "id": "d3NrCN4sRA6NwaTj9hhZTw"
+        },
+        "tab-b3011da5-750b-46d7-8066-deeab93424b7": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "swEdpXULRteAZt7quTQktw"
+        },
+        "heading": {
+          "type": "text",
+          "pos": 1,
+          "id": "_zu5eRY0TGGdeOEDnVHupw"
+        },
+        "button": {
+          "type": "bloks",
+          "pos": 2,
+          "maximum": 1,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "button"
+          ],
+          "id": "_qFe6KmcSCSjZpHaThUgAA"
+        },
+        "checklist": {
+          "type": "bloks",
+          "pos": 3,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "list-item"
+          ],
+          "minimum": 1,
+          "id": "2JH7p0jjSF-1Ds0985yXXw"
+        },
+        "theme": {
+          "type": "option",
+          "pos": 5,
+          "use_uuid": true,
+          "source": "internal",
+          "exclude_empty_option": true,
+          "datasource_slug": "theme",
+          "id": "qGWt4-dtQPe4D5yqYrCEhg"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "checklist-section",
+      "component_group_uuid": "b1d05dd6-af9a-4109-91fe-59ef047439ef",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "sections"
+    },
+    {
       "name": "coloured-container",
       "display_name": null,
       "description": null,
       "created_at": "2024-09-01T20:27:35.832Z",
-      "updated_at": "2024-09-01T20:36:28.154Z",
+      "updated_at": "2025-03-17T08:59:21.116Z",
       "id": 6238187,
       "schema": {
         "content": {
@@ -943,7 +1035,7 @@
       "real_name": "coloured-container",
       "component_group_uuid": "112cba58-bae8-4802-b6f7-1cf1e9e1e95f",
       "color": null,
-      "icon": null,
+      "icon": "block-text-img-t-l",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
@@ -1133,7 +1225,7 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-23T23:31:40.779Z",
-      "updated_at": "2025-02-18T20:05:44.732Z",
+      "updated_at": "2025-03-17T08:53:06.325Z",
       "id": 5220222,
       "schema": {
         "eyebrow": {
@@ -1184,6 +1276,17 @@
           "datasource_slug": "theme",
           "exclude_empty_option": true,
           "id": "hjmUqk3WSnGazSUuYwl5Sg"
+        },
+        "button": {
+          "type": "bloks",
+          "pos": 6,
+          "maximum": 1,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "button"
+          ],
+          "id": "l7Lb2j8UTHu0cW3LWE-LBw"
         }
       },
       "image": null,
@@ -1613,37 +1716,53 @@
       "display_name": "Introduction Section",
       "description": null,
       "created_at": "2024-08-27T20:30:10.092Z",
-      "updated_at": "2025-02-18T20:07:58.635Z",
+      "updated_at": "2025-03-11T23:31:10.954Z",
       "id": 6218920,
       "schema": {
+        "eyebrow": {
+          "type": "text",
+          "pos": 0,
+          "id": "NTGcNYnGS8-4Qjqj9IYoTA"
+        },
         "heading": {
           "type": "textarea",
-          "pos": 0,
+          "pos": 1,
           "description": "Mark content between stars to highlight.\ni.e. Et illum maiores ut **perspiciatis** galisum",
           "id": "-QpDTcxVSjW8Ut9Y1tSEGQ"
+        },
+        "content": {
+          "type": "richtext",
+          "pos": 2,
+          "id": "-nugvq3eQbKrsGsY-a-qYg"
         },
         "tab-6bcda724-7923-472e-97b3-6d4a62c58fde": {
           "display_name": "Theme",
           "keys": [
             "theme"
           ],
-          "pos": 0,
+          "pos": 3,
           "type": "tab",
           "id": "a82nJHkjRy6Xs21KYsWP3g"
         },
-        "content": {
-          "type": "richtext",
-          "pos": 1,
-          "id": "-nugvq3eQbKrsGsY-a-qYg"
-        },
         "theme": {
           "type": "option",
-          "pos": 3,
+          "pos": 4,
           "use_uuid": true,
           "source": "internal",
           "datasource_slug": "theme",
           "exclude_empty_option": true,
           "id": "7748NcJDQwaa4Xf4w4HRWA"
+        },
+        "button": {
+          "type": "bloks",
+          "pos": 5,
+          "maximum": 1,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "button"
+          ],
+          "id": "v-ug0BkySqmfJFZeq3TN-A"
         }
       },
       "image": null,
@@ -1749,14 +1868,15 @@
       "display_name": null,
       "description": "",
       "created_at": "2025-03-10T16:26:55.577Z",
-      "updated_at": "2025-03-10T16:54:49.021Z",
+      "updated_at": "2025-03-11T22:49:09.561Z",
       "id": 7067021,
       "schema": {
         "heading": {
-          "type": "text",
+          "type": "textarea",
           "pos": 0,
           "id": "fmMVC6S7QvKU6fvDqzYrmw",
-          "required": true
+          "required": true,
+          "description": "Mark content between stars to highlight.\ni.e. Et illum maiores ut **perspiciatis** galisum"
         },
         "body": {
           "type": "richtext",
@@ -1825,8 +1945,39 @@
       "preset_id": null,
       "real_name": "key-point",
       "component_group_uuid": "112cba58-bae8-4802-b6f7-1cf1e9e1e95f",
+      "color": "#dfe3e8",
+      "icon": "block-comment",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "components"
+    },
+    {
+      "name": "list-item",
+      "display_name": null,
+      "description": "",
+      "created_at": "2025-03-17T08:57:48.251Z",
+      "updated_at": "2025-03-17T08:58:38.532Z",
+      "id": 7093200,
+      "schema": {
+        "text": {
+          "type": "textarea",
+          "pos": 0,
+          "required": true,
+          "id": "W8d-WRcoSsuy6Xj-dXvzMA"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "list-item",
+      "component_group_uuid": "112cba58-bae8-4802-b6f7-1cf1e9e1e95f",
       "color": null,
-      "icon": null,
+      "icon": "block-tag",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
@@ -2436,16 +2587,18 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-08-29T15:04:54.817Z",
-      "updated_at": "2024-08-29T15:09:49.582Z",
+      "updated_at": "2025-03-11T15:06:05.556Z",
       "id": 6228785,
       "schema": {
         "eyebrow": {
           "type": "text",
-          "pos": 0
+          "pos": 0,
+          "id": "MHI469akTYWpkj7toxvdqg"
         },
         "heading": {
           "type": "text",
-          "pos": 1
+          "pos": 1,
+          "id": "bzEAirmaQBmvk0d2sBh5Ng"
         },
         "body": {
           "type": "richtext",
@@ -2487,7 +2640,8 @@
             "subscript",
             "superscript",
             "underline"
-          ]
+          ],
+          "id": "B2T35TiCQWO9Mb_YX2HjIg"
         },
         "buttons": {
           "type": "bloks",
@@ -2497,7 +2651,8 @@
           "component_whitelist": [
             "button"
           ],
-          "pos": 3
+          "pos": 3,
+          "id": "QGP7DF0GQWqmHuAv7J7Cyg"
         },
         "image": {
           "type": "asset",
@@ -2505,7 +2660,14 @@
           "filetypes": [
             "images"
           ],
-          "pos": 4
+          "pos": 4,
+          "id": "ENVSPCm_SM2rdxW0TXVLFw"
+        },
+        "isContained": {
+          "type": "boolean",
+          "pos": 5,
+          "display_name": "Contain text within a box?",
+          "id": "W3-vGqIdRBCvv9oOLS9m3A"
         }
       },
       "image": null,

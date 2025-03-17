@@ -6,6 +6,7 @@ import SectionWrap from '../Shared/SectionWrap';
 import Parallax from '../Shared/Parallax';
 import { TextOverImageSectionStoryblok } from '@/component-types-sb';
 import { cn } from '@/lib/utils';
+import ButtonGroup from '../Shared/ButtonGroup';
 
 const TextOverImageSection = ({
   blok,
@@ -47,16 +48,7 @@ const TextOverImageSection = ({
           }
           {...{ eyebrow, heading, body }}
         >
-          {buttons && buttons.length ? (
-            <div>
-              {buttons.map((nestedBlok) => (
-                <StoryblokServerComponent
-                  blok={nestedBlok}
-                  key={nestedBlok._uid}
-                />
-              ))}
-            </div>
-          ) : null}
+          <ButtonGroup buttons={buttons} />
         </SectionWrap>
       </Container>
     </Section>

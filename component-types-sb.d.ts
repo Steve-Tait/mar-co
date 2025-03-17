@@ -62,6 +62,7 @@ export interface ArticleStoryblok {
     | AnimatedWordsSectionStoryblok
     | ArticlesSectionStoryblok
     | CaseStudiesSectionStoryblok
+    | ChecklistSectionStoryblok
     | ColouredContainerSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
@@ -88,6 +89,7 @@ export interface ArticleOverviewStoryblok {
     | AnimatedWordsSectionStoryblok
     | ArticlesSectionStoryblok
     | CaseStudiesSectionStoryblok
+    | ChecklistSectionStoryblok
     | ColouredContainerSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
@@ -119,6 +121,7 @@ export interface ArticlesSectionStoryblok {
   articles?: (StoryblokStory<ArticleStoryblok> | string)[];
   filter_by_category?: (StoryblokStory<CategoryStoryblok> | string)[];
   theme?: number | string;
+  button?: ButtonStoryblok[];
   _uid: string;
   component: "articles-section";
   [k: string]: any;
@@ -181,6 +184,55 @@ export interface CaseStudiesSectionStoryblok {
   body?: string;
   articles?: (StoryblokStory<CaseStudyStoryblok> | string)[];
   theme?: number | string;
+  button?: (
+    | AnimatedWordStoryblok
+    | AnimatedWordsStoryblok
+    | AnimatedWordsSectionStoryblok
+    | ArticleStoryblok
+    | ArticleOverviewStoryblok
+    | ArticlesSectionStoryblok
+    | BannerWysiwygStoryblok
+    | ButtonStoryblok
+    | CaseStudiesSectionStoryblok
+    | CaseStudyStoryblok
+    | CaseStudyOverviewStoryblok
+    | CategoryStoryblok
+    | CategoryOverviewStoryblok
+    | ChecklistSectionStoryblok
+    | ColouredContainerStoryblok
+    | ColouredContainerSectionStoryblok
+    | ConfigStoryblok
+    | FaqStoryblok
+    | FaqsSectionStoryblok
+    | FeatureSectionStoryblok
+    | FooterStoryblok
+    | FullWidthImageSectionStoryblok
+    | GalleryWysiwygStoryblok
+    | HeaderStoryblok
+    | HomepageStoryblok
+    | ImageSectionStoryblok
+    | ImageWysiwygStoryblok
+    | IntroSectionStoryblok
+    | KeyFeaturesSectionStoryblok
+    | KeyPointStoryblok
+    | ListItemStoryblok
+    | LogoCarouselSectionStoryblok
+    | MenuLinkStoryblok
+    | MenuSectionStoryblok
+    | PageStoryblok
+    | StatStoryblok
+    | StatsSectionStoryblok
+    | TestimonialStoryblok
+    | TestimonialsSectionStoryblok
+    | TestimonialWysiwygStoryblok
+    | TextAndImageSectionStoryblok
+    | TextOverImageSectionStoryblok
+    | TextSectionStoryblok
+    | TextWysiwygStoryblok
+    | TiktokStoryblok
+    | TiktokSectionStoryblok
+    | VideoWysiwygStoryblok
+  )[];
   _uid: string;
   component: "case-studies-section";
   [k: string]: any;
@@ -214,6 +266,7 @@ export interface CaseStudyOverviewStoryblok {
     | AnimatedWordsSectionStoryblok
     | ArticlesSectionStoryblok
     | CaseStudiesSectionStoryblok
+    | ChecklistSectionStoryblok
     | ColouredContainerSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
@@ -244,6 +297,7 @@ export interface CategoryStoryblok {
     | AnimatedWordsSectionStoryblok
     | ArticlesSectionStoryblok
     | CaseStudiesSectionStoryblok
+    | ChecklistSectionStoryblok
     | ColouredContainerSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
@@ -269,6 +323,17 @@ export interface CategoryStoryblok {
 export interface CategoryOverviewStoryblok {
   _uid: string;
   component: "category-overview";
+  [k: string]: any;
+}
+
+export interface ChecklistSectionStoryblok {
+  eyebrow?: string;
+  heading?: string;
+  button?: ButtonStoryblok[];
+  checklist?: ListItemStoryblok[];
+  theme?: number | string;
+  _uid: string;
+  component: "checklist-section";
   [k: string]: any;
 }
 
@@ -313,6 +378,7 @@ export interface FaqsSectionStoryblok {
   body?: string;
   faqs: (StoryblokStory<FaqStoryblok> | string)[];
   theme?: number | string;
+  button?: ButtonStoryblok[];
   _uid: string;
   component: "faqs-section";
   [k: string]: any;
@@ -377,6 +443,7 @@ export interface HomepageStoryblok {
     | AnimatedWordsSectionStoryblok
     | ArticlesSectionStoryblok
     | CaseStudiesSectionStoryblok
+    | ChecklistSectionStoryblok
     | ColouredContainerSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
@@ -416,9 +483,11 @@ export interface ImageWysiwygStoryblok {
 }
 
 export interface IntroSectionStoryblok {
+  eyebrow?: string;
   heading?: string;
   content?: RichtextStoryblok;
   theme?: number | string;
+  button?: ButtonStoryblok[];
   _uid: string;
   component: "intro-section";
   [k: string]: any;
@@ -442,6 +511,13 @@ export interface KeyPointStoryblok {
   button?: ButtonStoryblok[];
   _uid: string;
   component: "key-point";
+  [k: string]: any;
+}
+
+export interface ListItemStoryblok {
+  text: string;
+  _uid: string;
+  component: "list-item";
   [k: string]: any;
 }
 
@@ -482,6 +558,7 @@ export interface PageStoryblok {
     | AnimatedWordsSectionStoryblok
     | ArticlesSectionStoryblok
     | CaseStudiesSectionStoryblok
+    | ChecklistSectionStoryblok
     | ColouredContainerSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
@@ -572,6 +649,7 @@ export interface TextOverImageSectionStoryblok {
   body: RichtextStoryblok;
   buttons?: ButtonStoryblok[];
   image: AssetStoryblok;
+  isContained?: boolean;
   _uid: string;
   component: "text-over-image-section";
   [k: string]: any;

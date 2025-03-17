@@ -20,6 +20,7 @@ import Hamburger from './Hamburger';
 import Scroll from './Scroll';
 import React from 'react';
 import MenuLinkHeader from '../Content/MenuLink';
+import ButtonGroup from './ButtonGroup';
 
 export default function Header({ blok }: { blok: HeaderStoryblok }) {
   const { menu, buttons } = blok;
@@ -85,10 +86,7 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
               )}
             </NavigationMenuList>
           </NavigationMenu>
-          {buttons &&
-            buttons.map((nestedBlok: ButtonStoryblok) => (
-              <Button size='sm' blok={nestedBlok} key={nestedBlok._uid} />
-            ))}
+          <ButtonGroup buttons={buttons} size='sm' />
         </div>
         {menu && (
           <Sheet open={isOpen} onOpenChange={setIsOpen}>

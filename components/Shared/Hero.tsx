@@ -56,7 +56,7 @@ const Hero = ({
           <Heading className='text-balance' heading={title} level={1} />
         )}
         {excerpt && (
-          <p className='mt-2 max-w-prose text-balance text-xl/relaxed font-bold md:text-2xl/relaxed'>
+          <p className='mt-2 max-w-prose text-balance text-lg md:text-xl'>
             {excerpt}
           </p>
         )}

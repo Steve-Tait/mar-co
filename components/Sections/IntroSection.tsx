@@ -13,11 +13,15 @@ const IntroSection = ({ blok }: { blok: IntroSectionStoryblok }) => {
 
   return (
     <Section blok={blok}>
-      <Container className='grid gap-8 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-16'>
+      <Container className='grid gap-x-8 gap-y-4 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-16'>
         <div className='flex flex-col gap-y-1 md:gap-y-2 xl:col-span-2'>
           {eyebrow && <h6 className='eyebrow'>{eyebrow}</h6>}
           {heading && <Heading heading={heading} level={3} />}
-          <ButtonGroup buttons={button} className='mt-4' size='sm' />
+          <ButtonGroup
+            buttons={button}
+            className='mt-4 hidden lg:flex'
+            size='sm'
+          />
         </div>
         {content && (
           <RichText
@@ -27,6 +31,7 @@ const IntroSection = ({ blok }: { blok: IntroSectionStoryblok }) => {
             content={content}
           />
         )}
+        <ButtonGroup buttons={button} className='lg:hidden' size='sm' />
       </Container>
     </Section>
   );

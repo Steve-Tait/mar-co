@@ -40,7 +40,7 @@ const HeroHome = ({
       style={{ backgroundImage: `url(${image?.filename})` }}
       {...props}
     >
-      <Container className='relative text-center'>
+      <Container className='relative flex flex-col items-center gap-y-4 text-center'>
         {title && (
           <Heading
             heading={title}
@@ -53,11 +53,11 @@ const HeroHome = ({
         ) : null}
 
         {subheading && (
-          <p className='mx-auto mt-2 max-w-prose text-balance text-xl/relaxed font-bold md:text-2xl/relaxed'>
+          <p className='max-w-prose text-balance text-lg md:text-xl'>
             {subheading}
           </p>
         )}
-        <ButtonGroup buttons={buttons} className='mt-4 md:mt-8' />
+        <ButtonGroup buttons={buttons} className='mt-4' />
       </Container>
     </section>
   );

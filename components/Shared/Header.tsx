@@ -3,14 +3,12 @@ import { useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 import {
-  ButtonStoryblok,
   HeaderStoryblok,
   MenuLinkStoryblok,
   MenuSectionStoryblok,
 } from '@/component-types-sb';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import MenuSectionHeader from '../Content/MenuSectionHeader';
-import Button from '../Block/Button';
 import Link from 'next/link';
 import { NavigationMenu, NavigationMenuList } from '../ui/navigation-menu';
 import { cn } from '@/lib/utils';
@@ -21,9 +19,10 @@ import Scroll from './Scroll';
 import React from 'react';
 import MenuLinkHeader from '../Content/MenuLink';
 import ButtonGroup from './ButtonGroup';
+import { Phone } from 'lucide-react';
 
 export default function Header({ blok }: { blok: HeaderStoryblok }) {
-  const { menu, buttons } = blok;
+  const { menu, buttons, phone } = blok;
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -57,15 +56,15 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
       )}
       {...storyblokEditable(blok)}
     >
-      <div className='flex items-center justify-between gap-x-8'>
+      <div className='flex items-center justify-between gap-x-5 lg:gap-x-8'>
         <Link
           href='/'
           className='whitespace-nowrap font-heading text-2xl font-bold sm:text-4xl'
         >
           MAR-CO<span className='text-secondary'>.</span>
         </Link>
-        <div className='hidden grow items-center justify-between gap-x-8 lg:flex'>
-          <NavigationMenu className='grow'>
+        <div className='flex grow items-center justify-between gap-x-8'>
+          <NavigationMenu className='hidden grow lg:block'>
             <NavigationMenuList>
               {menu && (
                 <div className='grid-cols-auto grid grid-flow-col gap-x-4 xl:gap-x-8'>
@@ -86,7 +85,18 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
               )}
             </NavigationMenuList>
           </NavigationMenu>
-          <ButtonGroup buttons={buttons} size='sm' />
+          {phone && (
+            <a
+              className='group ml-auto inline-flex items-center gap-x-2 transition-colors hover:text-secondary'
+              href={`tel:${phone.replace(/\s/g, '')}`}
+            >
+              <span className='h-8 w-8 shrink-0 rounded-full border border-secondary p-1.5 text-secondary transition-colors group-hover:bg-secondary group-hover:text-white'>
+                <Phone className='size-full' />
+              </span>
+              <span className='hidden xl:block'>{phone}</span>
+            </a>
+          )}
+          <ButtonGroup className='hidden lg:flex' buttons={buttons} size='sm' />
         </div>
         {menu && (
           <Sheet open={isOpen} onOpenChange={setIsOpen}>

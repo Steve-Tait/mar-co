@@ -57,10 +57,10 @@ export default function TileCaseStudy({
           />
         </div>
       )}
-      <div className='relative flex grow flex-col justify-between gap-y-4 p-6 sm:p-8 lg:gap-y-8 xl:px-12 xl:py-16'>
+      <div className='relative flex min-h-96 grow flex-col justify-between gap-y-4 p-6 sm:p-8 lg:gap-y-8 xl:px-12 xl:py-16'>
         {title && <h6 className='text-sm font-light'>{title}</h6>}
         <RichText
-          className='h4 grow text-balance font-bold uppercase'
+          className='grow text-balance font-bold uppercase'
           content={preview}
         />
 

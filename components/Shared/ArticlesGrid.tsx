@@ -22,7 +22,7 @@ const ArticlesGrid = async ({
   }
   return (
     <div
-      className='no-scrollbar grid snap-x snap-mandatory auto-cols-[minmax(75vw,_1fr)] grid-flow-col gap-4 overflow-x-auto sm:grid-flow-row sm:grid-cols-2 sm:gap-8 lg:grid-cols-3'
+      className='no-scrollbar grid snap-x snap-mandatory auto-cols-[minmax(75vw,_1fr)] grid-flow-col gap-4 overflow-x-auto overflow-y-clip sm:grid-flow-row sm:grid-cols-2 sm:gap-8 lg:grid-cols-3'
       {...props}
     >
       {articles.map((article, index) => (

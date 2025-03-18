@@ -19,7 +19,7 @@ const ButtonGroup = ({
   return (
     <div
       className={cn(
-        'flex flex-col flex-wrap items-start gap-2 sm:flex-row [.text-center_&]:items-stretch sm:[.text-center_&]:justify-center',
+        'flex flex-col flex-wrap items-start gap-2 sm:flex-row [.text-center_&]:items-center sm:[.text-center_&]:justify-center',
         className
       )}
       {...props}

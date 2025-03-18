@@ -36,8 +36,10 @@ const TextOverImageSection = ({
       <div className='pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 to-black/60 bg-blend-darken'></div>
       <Container
         className={cn(
-          'relative mx-auto flex min-h-[60svh] flex-col py-4 sm:py-6 md:min-h-[80svh] lg:py-8',
-          isContained ? 'justify-end md:justify-start' : 'justify-center'
+          'relative mx-auto flex min-h-[60svh] flex-col md:min-h-[80svh]',
+          isContained
+            ? 'justify-end py-4 sm:py-6 md:justify-start lg:py-8'
+            : 'justify-center py-16 sm:py-24 lg:py-32'
         )}
       >
         <SectionWrap

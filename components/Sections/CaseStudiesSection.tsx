@@ -4,7 +4,7 @@ import SectionWrap from '../Shared/SectionWrap';
 import { Suspense } from 'react';
 import SkeletonGrid from '../Shared/SkeletonGrid';
 import { ArticlesSectionStoryblok } from '@/component-types-sb';
-import CaseStudiesCarousel from '../Shared/CaseStudiesCarousel';
+import CaseStudies from '../Shared/CaseStudies';
 
 const CaseStudiesSection = ({ blok }: ArticlesSectionStoryblok) => {
   const {
@@ -20,7 +20,7 @@ const CaseStudiesSection = ({ blok }: ArticlesSectionStoryblok) => {
       <Container>
         <SectionWrap {...{ eyebrow, heading, body }}>
           <Suspense fallback={<SkeletonGrid tiles={3} />}>
-            <CaseStudiesCarousel
+            <CaseStudies
               limit={3}
               {...{ caseStudies: articles, categories, toExclude }}
             />

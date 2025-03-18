@@ -52,7 +52,7 @@ const HeroCaseStudy = ({
             />
           )}
           {excerpt && (
-            <p className='mt-2 max-w-prose text-balance text-lg md:text-xl'>
+            <p className='max-w-prose text-balance text-lg md:text-xl'>
               {excerpt}
             </p>
           )}

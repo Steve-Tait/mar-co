@@ -6,6 +6,7 @@ type Props = {
   value: number;
   direction?: 'up' | 'down';
   decimals?: number;
+  formatNumber?: boolean;
   className?: string;
 };
 
@@ -13,6 +14,7 @@ export default function NumberCounter({
   value,
   decimals,
   direction = 'up',
+  formatNumber = true,
   className,
 }: Props) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -30,9 +32,11 @@ export default function NumberCounter({
     () =>
       springValue.on('change', (latest) => {
         if (!ref.current) return;
-        ref.current.textContent = Intl.NumberFormat('en-US').format(
-          Number(latest.toFixed(decimals ?? countDecimals(value)))
-        );
+        ref.current.textContent = formatNumber
+          ? Intl.NumberFormat('en-US').format(
+              Number(latest.toFixed(decimals ?? countDecimals(value)))
+            )
+          : Math.round(latest) + '';
       }),
     [springValue]
   );

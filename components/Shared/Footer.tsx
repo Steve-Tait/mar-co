@@ -27,7 +27,11 @@ export default function Footer({ blok }: { blok: FooterStoryblok }) {
         <div className='self-end whitespace-nowrap text-4xl font-bold'>
           MAR-CO<span className='text-secondary'>.</span>
         </div>
-        <div>&copy; Copyright {new Date().getFullYear()} MAR-CO</div>
+        <div>
+          &copy; Copyright {new Date().getFullYear()} MAR-CO Digital Ltd Company{' '}
+          <br />
+          Company Number 16256681
+        </div>
       </Container>
     </footer>
   );

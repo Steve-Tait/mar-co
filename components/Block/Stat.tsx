@@ -5,15 +5,16 @@ import { useTransform, motion, useScroll } from 'framer-motion';
 import { useRef } from 'react';
 import NumberCounter from '../Shared/NumberCounter';
 import RichText from './RichText';
+import { StatStoryblok } from '@/component-types-sb';
 
 export default function Stat({
   stat,
   className,
 }: {
-  stat: any;
+  stat: StatStoryblok;
   className?: string;
 }) {
-  const { prefix, suffix, value = 0, description } = stat;
+  const { prefix, suffix, value = 0, description, formatNumber } = stat;
 
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -43,7 +44,7 @@ export default function Stat({
       <motion.div className='flex flex-col gap-y-2' style={{ opacity, y }}>
         <p className='text-3xl font-black'>
           {prefix}
-          <NumberCounter value={value} />
+          <NumberCounter value={Number(value)} formatNumber={formatNumber} />
           {suffix}
         </p>
         <RichText className='text-lg' content={description} />

@@ -17,6 +17,7 @@ import ArticlesSection from '@/components/Sections/ArticlesSection';
 import CaseStudiesSection from '@/components/Sections/CaseStudiesSection';
 import ChecklistSection from '@/components/Sections/ChecklistSection';
 import ColouredContainerSection from '@/components/Sections/ColouredContainerSection';
+import ContactSection from '@/components/Sections/ContactSection';
 import FaqsSection from '@/components/Sections/FaqsSection';
 import FullWidthImageSection from '@/components/Sections/FullWidthImageSection';
 import ImageSection from '@/components/Sections/ImageSection';
@@ -46,6 +47,7 @@ export const COMPONENTS = {
   'article-overview': ArticleOverview,
   'case-study-overview': CaseStudyOverview,
   'text-section': TextSection,
+  'contact-section': ContactSection,
   'intro-section': IntroSection,
   'image-section': ImageSection,
   'stats-section': StatsSection,

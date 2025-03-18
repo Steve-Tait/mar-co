@@ -87,6 +87,15 @@
       code {
         @apply font-mono;
       }
+      table {
+        td,
+        th {
+          @apply border border-primary p-1;
+        }
+        th {
+          @apply bg-muted text-muted-foreground;
+        }
+      }
     }
   }
 

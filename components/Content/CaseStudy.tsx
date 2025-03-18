@@ -14,10 +14,10 @@ const CaseStudy = ({
   blok,
   id,
 }: CaseStudyStoryblok & StoryblokStory<CaseStudyStoryblok>) => {
-  const { title, image, excerpt, wysiwyg } = blok;
+  const { title, image, excerpt, wysiwyg, disclaimer } = blok;
   return (
     <main {...storyblokEditable(blok)}>
-      <HeroWrap {...{ title, excerpt, image }}>
+      <HeroWrap {...{ title, excerpt, image, disclaimer }}>
         <Wysiwyg wysiwyg={wysiwyg} />
         <Section blok={blok}>
           <Container>

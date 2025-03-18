@@ -25,7 +25,7 @@ const ButtonGroup = ({
       {...props}
     >
       {buttons?.map((button) => (
-        <Button key={button.uuid} blok={button} size={size} />
+        <Button key={button._uid} blok={button} size={size} />
       ))}
     </div>
   );

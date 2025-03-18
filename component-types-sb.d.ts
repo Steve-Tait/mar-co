@@ -64,6 +64,7 @@ export interface ArticleStoryblok {
     | CaseStudiesSectionStoryblok
     | ChecklistSectionStoryblok
     | ColouredContainerSectionStoryblok
+    | ContactSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
     | FullWidthImageSectionStoryblok
@@ -84,13 +85,14 @@ export interface ArticleStoryblok {
 }
 
 export interface ArticleOverviewStoryblok {
-  title?: string;
+  showSort?: boolean;
   body?: (
     | AnimatedWordsSectionStoryblok
     | ArticlesSectionStoryblok
     | CaseStudiesSectionStoryblok
     | ChecklistSectionStoryblok
     | ColouredContainerSectionStoryblok
+    | ContactSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
     | FullWidthImageSectionStoryblok
@@ -105,10 +107,12 @@ export interface ArticleOverviewStoryblok {
     | TextSectionStoryblok
     | TiktokSectionStoryblok
   )[];
+  title?: string;
   meta_title?: string;
   meta_description?: string;
   excerpt?: string;
   image?: AssetStoryblok;
+  button?: ButtonStoryblok[];
   _uid: string;
   component: "article-overview";
   [k: string]: any;
@@ -184,55 +188,7 @@ export interface CaseStudiesSectionStoryblok {
   body?: string;
   articles?: (StoryblokStory<CaseStudyStoryblok> | string)[];
   theme?: number | string;
-  button?: (
-    | AnimatedWordStoryblok
-    | AnimatedWordsStoryblok
-    | AnimatedWordsSectionStoryblok
-    | ArticleStoryblok
-    | ArticleOverviewStoryblok
-    | ArticlesSectionStoryblok
-    | BannerWysiwygStoryblok
-    | ButtonStoryblok
-    | CaseStudiesSectionStoryblok
-    | CaseStudyStoryblok
-    | CaseStudyOverviewStoryblok
-    | CategoryStoryblok
-    | CategoryOverviewStoryblok
-    | ChecklistSectionStoryblok
-    | ColouredContainerStoryblok
-    | ColouredContainerSectionStoryblok
-    | ConfigStoryblok
-    | FaqStoryblok
-    | FaqsSectionStoryblok
-    | FeatureSectionStoryblok
-    | FooterStoryblok
-    | FullWidthImageSectionStoryblok
-    | GalleryWysiwygStoryblok
-    | HeaderStoryblok
-    | HomepageStoryblok
-    | ImageSectionStoryblok
-    | ImageWysiwygStoryblok
-    | IntroSectionStoryblok
-    | KeyFeaturesSectionStoryblok
-    | KeyPointStoryblok
-    | ListItemStoryblok
-    | LogoCarouselSectionStoryblok
-    | MenuLinkStoryblok
-    | MenuSectionStoryblok
-    | PageStoryblok
-    | StatStoryblok
-    | StatsSectionStoryblok
-    | TestimonialStoryblok
-    | TestimonialsSectionStoryblok
-    | TestimonialWysiwygStoryblok
-    | TextAndImageSectionStoryblok
-    | TextOverImageSectionStoryblok
-    | TextSectionStoryblok
-    | TextWysiwygStoryblok
-    | TiktokStoryblok
-    | TiktokSectionStoryblok
-    | VideoWysiwygStoryblok
-  )[];
+  button?: ButtonStoryblok[];
   _uid: string;
   component: "case-studies-section";
   [k: string]: any;
@@ -253,6 +209,7 @@ export interface CaseStudyStoryblok {
   )[];
   meta_title?: string;
   meta_desc?: string;
+  disclaimer?: string;
   _uid: string;
   component: "case-study";
   [k: string]: any;
@@ -268,6 +225,7 @@ export interface CaseStudyOverviewStoryblok {
     | CaseStudiesSectionStoryblok
     | ChecklistSectionStoryblok
     | ColouredContainerSectionStoryblok
+    | ContactSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
     | FullWidthImageSectionStoryblok
@@ -283,6 +241,7 @@ export interface CaseStudyOverviewStoryblok {
     | TiktokSectionStoryblok
   )[];
   meta_title?: string;
+  button?: ButtonStoryblok[];
   _uid: string;
   component: "case-study-overview";
   [k: string]: any;
@@ -299,6 +258,7 @@ export interface CategoryStoryblok {
     | CaseStudiesSectionStoryblok
     | ChecklistSectionStoryblok
     | ColouredContainerSectionStoryblok
+    | ContactSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
     | FullWidthImageSectionStoryblok
@@ -329,8 +289,8 @@ export interface CategoryOverviewStoryblok {
 export interface ChecklistSectionStoryblok {
   eyebrow?: string;
   heading?: string;
-  button?: ButtonStoryblok[];
   checklist?: ListItemStoryblok[];
+  button?: ButtonStoryblok[];
   theme?: number | string;
   _uid: string;
   component: "checklist-section";
@@ -359,6 +319,20 @@ export interface ConfigStoryblok {
   footer: FooterStoryblok[];
   _uid: string;
   component: "config";
+  [k: string]: any;
+}
+
+export interface ContactSectionStoryblok {
+  eyebrow?: string;
+  heading?: string;
+  theme?: number | string;
+  isCenter?: boolean;
+  linkedin?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  email?: Exclude<MultilinkStoryblok, {linktype?: "asset"}>;
+  phone?: string;
+  address?: string;
+  _uid: string;
+  component: "contact-section";
   [k: string]: any;
 }
 
@@ -427,6 +401,7 @@ export interface GalleryWysiwygStoryblok {
 export interface HeaderStoryblok {
   menu?: (MenuSectionStoryblok | MenuLinkStoryblok)[];
   buttons?: ButtonStoryblok[];
+  phone?: string;
   _uid: string;
   component: "header";
   [k: string]: any;
@@ -445,6 +420,7 @@ export interface HomepageStoryblok {
     | CaseStudiesSectionStoryblok
     | ChecklistSectionStoryblok
     | ColouredContainerSectionStoryblok
+    | ContactSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
     | FullWidthImageSectionStoryblok
@@ -560,6 +536,7 @@ export interface PageStoryblok {
     | CaseStudiesSectionStoryblok
     | ChecklistSectionStoryblok
     | ColouredContainerSectionStoryblok
+    | ContactSectionStoryblok
     | FaqsSectionStoryblok
     | FeatureSectionStoryblok
     | FullWidthImageSectionStoryblok
@@ -586,6 +563,7 @@ export interface StatStoryblok {
   prefix?: string;
   value: string;
   suffix?: string;
+  formatNumber?: boolean;
   description: string;
   _uid: string;
   component: "stat";

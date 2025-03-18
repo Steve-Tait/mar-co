@@ -18,7 +18,7 @@
     "@radix-ui/react-navigation-menu": "^1.2.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@storyblok/react": "^4.4.1",
-    "@storyblok/richtext": "^3.0.2",
+    "@storyblok/richtext": "^3.1.0",
     "@studio-freight/lenis": "^1.0.42",
     "@studio-freight/react-lenis": "^0.0.47",
     "blobshape": "^1.0.0",

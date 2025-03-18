@@ -64,7 +64,7 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
           MAR-CO<span className='text-secondary'>.</span>
         </Link>
         <div className='flex grow items-center justify-between gap-x-8'>
-          <NavigationMenu className='hidden grow lg:block'>
+          <NavigationMenu className='hidden lg:block'>
             <NavigationMenuList>
               {menu && (
                 <div className='grid-cols-auto grid grid-flow-col gap-x-4 xl:gap-x-8'>

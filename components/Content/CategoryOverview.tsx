@@ -57,7 +57,7 @@ const CategoryOverview = async ({
       </Section>
       {body &&
         body.map((nestedBlok: any) => (
-          <StoryblokServerComponent blok={nestedBlok} key={nestedBlok.uuid} />
+          <StoryblokServerComponent blok={nestedBlok} key={nestedBlok._uid} />
         ))}
     </HeroWrap>
   );

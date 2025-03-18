@@ -8,7 +8,7 @@ export function SubmitButton({ children, ...props }: { children: ReactNode }) {
 
   return (
     <button
-      className='btn btn--pink mx-auto block'
+      className='btn btn--primary mx-auto block'
       type='submit'
       aria-disabled={pending}
       disabled={pending}

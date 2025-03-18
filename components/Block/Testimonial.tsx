@@ -14,22 +14,28 @@ const Testimonial = ({ blok, className }: TTestimonial) => {
   return (
     <figure
       className={cn(
-        'flex flex-col items-center gap-y-4 text-center md:gap-y-6',
+        'flex flex-col items-center text-center',
+        !avatar?.filename && 'gap-y-4 md:gap-y-6',
         className
       )}
       {...props}
     >
-      <blockquote className='flex grow items-center text-balance rounded-2xl bg-muted p-4 text-lg italic text-muted-foreground sm:p-6 sm:text-xl lg:text-xl'>
+      <blockquote
+        className={cn(
+          'flex grow items-center text-balance rounded-2xl bg-muted p-4 text-lg italic text-muted-foreground md:p-6 md:text-xl lg:text-xl',
+          avatar?.filename && 'pb-16 md:pb-16'
+        )}
+      >
         "{content}"
       </blockquote>
       <footer className='flex flex-col items-center gap-y-2'>
-        {avatar?.id && (
+        {avatar?.filename && (
           <Image
             src={avatar.filename}
             alt={avatar.alt || avatar.title || ''}
             height={128}
             width={128}
-            className='aspect-square w-24 shrink-0 overflow-hidden rounded-full object-cover md:w-32'
+            className='-mt-12 aspect-square w-24 shrink-0 overflow-hidden rounded-full object-cover md:-mt-16 md:w-32'
           />
         )}
         <div>

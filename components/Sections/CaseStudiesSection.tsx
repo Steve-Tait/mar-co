@@ -15,7 +15,6 @@ const CaseStudiesSection = ({ blok }: ArticlesSectionStoryblok) => {
     id: toExclude,
     filter_by_category: categories,
   } = blok;
-  console.log('blok', blok);
   return (
     <Section blok={blok}>
       <Container>

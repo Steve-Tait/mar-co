@@ -7,7 +7,7 @@ type TBadge = {
   className?: string;
 };
 
-export default function Badge({ href, label, className, ...props }: TBadge) {
+const Badge = ({ href, label, className, ...props }: TBadge) => {
   return (
     <Link
       className={cn(
@@ -20,4 +20,5 @@ export default function Badge({ href, label, className, ...props }: TBadge) {
       {label}
     </Link>
   );
-}
+};
+export default Badge;

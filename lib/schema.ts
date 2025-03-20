@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { parsePhoneNumberFromString } from 'libphonenumber-js';
 
 export const subscribeSchema = z.object({
   email: z
@@ -11,7 +12,32 @@ export const subscribeSchema = z.object({
   lastName: z
     .string({ required_error: 'Last name is required' })
     .min(1, { message: 'Last name is required' }),
-  phone: z.string(),
+  phone: z
+    .string()
+    .optional()
+    .transform((arg, ctx) => {
+      if (!arg) return;
+      const phone = parsePhoneNumberFromString(arg, {
+        // set this to use a default country when the phone number omits country code
+        defaultCountry: 'GB',
+
+        // set to false to require that the whole string is exactly a phone number,
+        // otherwise, it will search for a phone number anywhere within the string
+        extract: false,
+      });
+
+      // when it's good
+      if (phone && phone.isValid()) {
+        return phone.number;
+      }
+
+      // when it's not
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Invalid phone number',
+      });
+      return z.NEVER;
+    }),
   agree: z.coerce.boolean().refine((bool) => bool == true, {
     message: 'You must agree to our terms and conditions',
   }),

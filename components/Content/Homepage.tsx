@@ -4,6 +4,7 @@ import {
 } from '@storyblok/react/rsc';
 import { PageStoryblok } from '@/component-types-sb';
 import HeroWrap from '../Shared/HeroWrap';
+import SectionBuilder from '../Shared/SectionBuilder';
 
 const Homepage = ({ blok }: PageStoryblok) => {
   const { title, animated_title, subheading, buttons, image, body } = blok;
@@ -13,10 +14,7 @@ const Homepage = ({ blok }: PageStoryblok) => {
       {...{ title, animated_title, buttons, subheading, image }}
     >
       <main {...storyblokEditable(blok)}>
-        {body &&
-          body.map((nestedBlok: any, index: number) => (
-            <StoryblokServerComponent blok={nestedBlok} key={index} />
-          ))}
+        <SectionBuilder body={body} />
       </main>
     </HeroWrap>
   );

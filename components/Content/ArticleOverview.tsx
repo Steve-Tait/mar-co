@@ -11,6 +11,7 @@ import Heading from '../Shared/Heading';
 import HeroWrap from '../Shared/HeroWrap';
 import { StoryblokServerComponent } from '@storyblok/react/rsc';
 import { cn } from '@/lib/utils';
+import SectionBuilder from '../Shared/SectionBuilder';
 
 export default async function ArticlesOverview({
   blok,
@@ -64,10 +65,7 @@ export default async function ArticlesOverview({
           </div>
         </Container>
       </Section>
-      {body &&
-        body.map((nestedBlok: any) => (
-          <StoryblokServerComponent blok={nestedBlok} key={nestedBlok._uid} />
-        ))}
+      <SectionBuilder body={body} />
     </HeroWrap>
   );
 }

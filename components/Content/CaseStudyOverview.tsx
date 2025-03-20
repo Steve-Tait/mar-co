@@ -6,6 +6,7 @@ import SkeletonGrid from '../Shared/SkeletonGrid';
 import CaseStudies from '../Shared/CaseStudies';
 import { StoryblokServerComponent } from '@storyblok/react/rsc';
 import HeroWrap from '../Shared/HeroWrap';
+import SectionBuilder from '../Shared/SectionBuilder';
 
 const CaseStudiesOverview = async ({ blok }: CaseStudyOverviewStoryblok) => {
   const { title, excerpt, image, body } = blok;
@@ -18,10 +19,7 @@ const CaseStudiesOverview = async ({ blok }: CaseStudyOverviewStoryblok) => {
           </Suspense>
         </Container>
       </Section>
-      {body &&
-        body.map((nestedBlok: any) => (
-          <StoryblokServerComponent blok={nestedBlok} key={nestedBlok.uuid} />
-        ))}
+      <SectionBuilder body={body} />
     </HeroWrap>
   );
 };

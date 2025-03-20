@@ -1,7 +1,6 @@
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { TestimonialStoryblok } from '@/component-types-sb';
-import { Quote } from 'lucide-react';
 
 type TTestimonial = {
   blok: TestimonialStoryblok;

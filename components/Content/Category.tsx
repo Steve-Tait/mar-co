@@ -9,6 +9,7 @@ import SkeletonGrid from '../Shared/SkeletonGrid';
 import { Suspense } from 'react';
 import { CategoryStoryblok } from '@/component-types-sb';
 import HeroWrap from '../Shared/HeroWrap';
+import SectionBuilder from '../Shared/SectionBuilder';
 
 const Category = (content: CategoryStoryblok) => {
   const { blok, uuid } = content;
@@ -23,10 +24,7 @@ const Category = (content: CategoryStoryblok) => {
             </Suspense>
           </Container>
         </Section>
-        {body &&
-          body.map((nestedBlok: any) => (
-            <StoryblokServerComponent blok={nestedBlok} key={nestedBlok.uuid} />
-          ))}
+        <SectionBuilder body={body} />
       </HeroWrap>
     </div>
   );

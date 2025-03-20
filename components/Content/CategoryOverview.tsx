@@ -10,6 +10,7 @@ import { getCategories } from '@/lib/storyblok';
 import SkeletonGrid from '../Shared/SkeletonGrid';
 import { StoryblokServerComponent } from '@storyblok/react/rsc';
 import HeroWrap from '../Shared/HeroWrap';
+import SectionBuilder from '../Shared/SectionBuilder';
 
 const CategoryOverview = async ({
   blok,
@@ -55,10 +56,7 @@ const CategoryOverview = async ({
           </div>
         </Container>
       </Section>
-      {body &&
-        body.map((nestedBlok: any) => (
-          <StoryblokServerComponent blok={nestedBlok} key={nestedBlok._uid} />
-        ))}
+      <SectionBuilder body={body} />
     </HeroWrap>
   );
 };

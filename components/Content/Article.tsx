@@ -12,6 +12,7 @@ import SkeletonGrid from '../Shared/SkeletonGrid';
 import SectionWrap from '../Shared/SectionWrap';
 import { ArticleStoryblok, CategoryStoryblok } from '@/component-types-sb';
 import HeroWrap from '../Shared/HeroWrap';
+import SectionBuilder from '../Shared/SectionBuilder';
 
 type TArticleStoryblokWithRelations = ArticleStoryblok & {
   categories: CategoryStoryblok[];
@@ -30,10 +31,7 @@ const Article = ({ blok, id }: TArticleStoryblokWithRelations) => {
         categories={categories}
       >
         <Wysiwyg wysiwyg={wysiwyg} />
-        {body &&
-          body.map((nestedBlok: any) => (
-            <StoryblokServerComponent blok={nestedBlok} key={nestedBlok._uid} />
-          ))}
+        <SectionBuilder body={body} />
         <Section blok={blok}>
           <Container>
             <SectionWrap heading='Related articles'>

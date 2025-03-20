@@ -16,14 +16,14 @@ export interface AnimatedWordsStoryblok {
 
 export interface AssetStoryblok {
   _uid?: string;
-  id: number;
-  alt?: string;
+  id: number | null;
+  alt: string | null;
   name: string;
-  focus?: string;
-  source?: string;
-  title?: string;
+  focus: string | null;
+  source: string | null;
+  title: string | null;
   filename: string;
-  copyright?: string;
+  copyright: string | null;
   fieldtype?: string;
   meta_data?: null | {
     [k: string]: any;
@@ -85,7 +85,7 @@ export interface ArticleStoryblok {
 }
 
 export interface ArticleOverviewStoryblok {
-  showSort?: boolean;
+  showSort: boolean;
   body?: (
     | AnimatedWordsSectionStoryblok
     | ArticlesSectionStoryblok
@@ -176,7 +176,7 @@ export interface ButtonStoryblok {
   link: Exclude<MultilinkStoryblok, {linktype?: "asset"}>;
   label: string;
   variant: "" | "primary" | "secondary" | "text-link";
-  form_trigger?: boolean;
+  form_trigger: boolean;
   _uid: string;
   component: "button";
   [k: string]: any;
@@ -210,6 +210,27 @@ export interface CaseStudyStoryblok {
   meta_title?: string;
   meta_desc?: string;
   disclaimer?: string;
+  body?: (
+    | AnimatedWordsSectionStoryblok
+    | ArticlesSectionStoryblok
+    | CaseStudiesSectionStoryblok
+    | ChecklistSectionStoryblok
+    | ColouredContainerSectionStoryblok
+    | ContactSectionStoryblok
+    | FaqsSectionStoryblok
+    | FeatureSectionStoryblok
+    | FullWidthImageSectionStoryblok
+    | ImageSectionStoryblok
+    | IntroSectionStoryblok
+    | KeyFeaturesSectionStoryblok
+    | LogoCarouselSectionStoryblok
+    | StatsSectionStoryblok
+    | TestimonialsSectionStoryblok
+    | TextAndImageSectionStoryblok
+    | TextOverImageSectionStoryblok
+    | TextSectionStoryblok
+    | TiktokSectionStoryblok
+  )[];
   _uid: string;
   component: "case-study";
   [k: string]: any;
@@ -326,7 +347,6 @@ export interface ContactSectionStoryblok {
   eyebrow?: string;
   heading?: string;
   theme?: number | string;
-  isCenter?: boolean;
   linkedin?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   email?: Exclude<MultilinkStoryblok, {linktype?: "asset"}>;
   phone?: string;
@@ -473,7 +493,7 @@ export interface KeyFeaturesSectionStoryblok {
   heading?: string;
   body?: RichtextStoryblok;
   buttons?: ButtonStoryblok[];
-  isVertical?: boolean;
+  isVertical: boolean;
   features?: KeyPointStoryblok[];
   theme?: number | string;
   _uid: string;
@@ -563,7 +583,7 @@ export interface StatStoryblok {
   prefix?: string;
   value: string;
   suffix?: string;
-  formatNumber?: boolean;
+  formatNumber: boolean;
   description: string;
   _uid: string;
   component: "stat";
@@ -610,7 +630,7 @@ export interface TestimonialWysiwygStoryblok {
 
 export interface TextAndImageSectionStoryblok {
   eyebrow?: string;
-  is_reverse?: boolean;
+  is_reverse: boolean;
   heading?: string;
   body: RichtextStoryblok;
   buttons?: ButtonStoryblok[];
@@ -627,7 +647,7 @@ export interface TextOverImageSectionStoryblok {
   body: RichtextStoryblok;
   buttons?: ButtonStoryblok[];
   image: AssetStoryblok;
-  isContained?: boolean;
+  isContained: boolean;
   _uid: string;
   component: "text-over-image-section";
   [k: string]: any;
@@ -639,7 +659,7 @@ export interface TextSectionStoryblok {
   body: RichtextStoryblok;
   buttons?: ButtonStoryblok[];
   theme?: number | string;
-  isCenter?: boolean;
+  isCenter: boolean;
   _uid: string;
   component: "text-section";
   [k: string]: any;

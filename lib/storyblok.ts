@@ -28,17 +28,11 @@ export async function getLinks() {
   if (!storyblokApi) {
     return;
   }
-  const { data } = await storyblokApi.get(
-    'cdn/links',
-    {
-      version: (process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'draft') as
-        | 'draft'
-        | 'published',
-    },
-    {
-      cache: 'no-store',
-    }
-  );
+  const { data } = await storyblokApi.get('cdn/links', {
+    version: (process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'draft') as
+      | 'draft'
+      | 'published',
+  });
   const links = data ? data.links : null;
   return links;
 }

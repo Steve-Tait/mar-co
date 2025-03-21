@@ -75,10 +75,15 @@ export async function fetchData(params: Paths) {
 
 export async function createMetaData(params: Paths) {
   const story = await fetchData(params);
-  const { content, name } = story || {};
+  const { content, name, full_slug } = story || {};
   const { title, excerpt, meta_title, meta_desc, image } = content || {};
   const theTitle = meta_title || title?.replace(/\**/g, '') || name;
   const theDescription = meta_desc || excerpt;
+  const baseUrl = new URL(
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : `http://localhost:${process.env.PORT || 3000}`
+  );
   return {
     title: theTitle,
     description: theDescription,
@@ -86,6 +91,9 @@ export async function createMetaData(params: Paths) {
       title: theTitle,
       description: theDescription,
       images: image?.filename,
+    },
+    alternates: {
+      canonical: `${baseUrl}${full_slug}/`,
     },
   };
 }

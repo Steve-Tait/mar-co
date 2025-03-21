@@ -1,3 +1,5 @@
+'use server';
+
 import { getLinks } from '@/lib/storyblok';
 import type { MetadataRoute } from 'next';
 

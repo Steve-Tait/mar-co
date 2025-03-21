@@ -86,7 +86,7 @@ export default function TileArticle({
             {excerpt}
           </p>
         </div>
-        <Link className='absolute inset-0' href={`/articles/${slug}/`}>
+        <Link className='absolute inset-0' href={`/insights/${slug}/`}>
           <span className='sr-only'>Read more</span>
         </Link>
         <div className='flex w-full items-center justify-between'>

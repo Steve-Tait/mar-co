@@ -28,7 +28,7 @@ type TTileCaseStudy = {
   caseStudy: {
     title: string;
     slug: string;
-    preview: ISbRichtext;
+    excerpt: ISbRichtext;
     image?: AssetStoryblok;
   };
 };
@@ -37,8 +37,7 @@ export default function TileCaseStudy({
   caseStudy,
   index = 0,
 }: TTileCaseStudy) {
-  const { title, slug, preview, image } = caseStudy || {};
-
+  const { title, slug, excerpt, image } = caseStudy || {};
   return (
     <motion.article
       className='group/tile relative flex snap-start snap-always overflow-hidden rounded-2xl bg-card text-card-foreground transition-colors hover:bg-accent hover:text-accent-foreground'
@@ -61,7 +60,7 @@ export default function TileCaseStudy({
         {title && <h6 className='text-sm font-light'>{title}</h6>}
         <RichText
           className='grow text-balance font-bold uppercase'
-          content={preview}
+          content={excerpt}
         />
 
         <Link href={`/case-studies/${slug}/`} passHref legacyBehavior>

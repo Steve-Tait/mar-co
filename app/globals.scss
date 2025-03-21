@@ -41,6 +41,9 @@
 
     .prose {
       @apply flex flex-col gap-y-4 text-base lg:text-lg;
+      &--lg {
+        @apply text-lg lg:text-xl;
+      }
       ::marker {
         @apply font-bold text-secondary;
       }

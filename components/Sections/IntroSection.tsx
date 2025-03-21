@@ -2,10 +2,9 @@
 import Container from '@/components/Shared/Container';
 import Section from '../Shared/Section';
 import Heading from '../Shared/Heading';
-import { ButtonStoryblok, IntroSectionStoryblok } from '@/component-types-sb';
+import { IntroSectionStoryblok } from '@/component-types-sb';
 import { cn } from '@/lib/utils';
 import RichText from '../Block/RichText';
-import Button from '../Block/Button';
 import ButtonGroup from '../Shared/ButtonGroup';
 
 const IntroSection = ({ blok }: { blok: IntroSectionStoryblok }) => {

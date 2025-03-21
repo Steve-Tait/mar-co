@@ -10,6 +10,7 @@ import Badge from './Badge';
 import { cn } from '@/lib/utils';
 import Button from '../Block/Button';
 import ButtonGroup from './ButtonGroup';
+import RichText from '../Block/RichText';
 
 export type THero = {
   title?: string | undefined;
@@ -58,9 +59,11 @@ const Hero = ({
           <Heading className='text-balance' heading={title} level={1} />
         )}
         {excerpt && (
-          <p className='max-w-prose text-balance text-lg md:text-xl'>
-            {excerpt}
-          </p>
+          <RichText
+            className='max-w-prose text-balance'
+            large
+            content={excerpt}
+          />
         )}
         <ButtonGroup buttons={button} className='mt-4 lg:mt-8' />
       </Container>

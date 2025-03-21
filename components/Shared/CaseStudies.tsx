@@ -25,7 +25,10 @@ const CaseStudies = async ({
       {...props}
     >
       {caseStudies.map((caseStudy) => (
-        <TileCaseStudy caseStudy={caseStudy.content} key={caseStudy.uuid} />
+        <TileCaseStudy
+          caseStudy={{ ...caseStudy.content, slug: caseStudy.slug }}
+          key={caseStudy.uuid}
+        />
       ))}
     </div>
   );

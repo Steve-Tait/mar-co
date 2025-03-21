@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils';
 interface RichTextProps
   extends Omit<ComponentPropsWithoutRef<'div'>, 'content'> {
   content: RichtextStoryblok | string;
+  large?: boolean;
 }
 
 const resolvers = {
@@ -29,7 +30,7 @@ const resolvers = {
   },
 };
 
-const RichText = ({ content, className, ...props }: RichTextProps) => {
+const RichText = ({ content, className, large, ...props }: RichTextProps) => {
   const { render } = useStoryblokRichTextResolver({
     resolvers,
   });
@@ -37,7 +38,10 @@ const RichText = ({ content, className, ...props }: RichTextProps) => {
   if (!content) return;
   if (typeof content === 'string') {
     return (
-      <div className={cn('prose max-w-prose', className)} {...props}>
+      <div
+        className={cn('prose max-w-prose', large && 'prose--lg', className)}
+        {...props}
+      >
         {content}
       </div>
     );
@@ -46,7 +50,10 @@ const RichText = ({ content, className, ...props }: RichTextProps) => {
   const html = render(content as StoryblokRichTextNode<ReactNode>);
   const formattedHtml = convertAttributesInElement(html as React.ReactElement);
   return (
-    <div className={cn('prose max-w-prose', className)} {...props}>
+    <div
+      className={cn('prose max-w-prose', large && 'prose--lg', className)}
+      {...props}
+    >
       {formattedHtml}
     </div>
   );

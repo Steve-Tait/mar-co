@@ -66,11 +66,7 @@ const HeroSecondary = ({
             )}
           </div>
           {title && (
-            <Heading
-              className='text-balance uppercase'
-              heading={title}
-              level={1}
-            />
+            <Heading className='text-balance' heading={title} level={1} />
           )}
           {excerpt && (
             <RichText

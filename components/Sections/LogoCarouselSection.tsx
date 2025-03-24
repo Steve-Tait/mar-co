@@ -47,7 +47,7 @@ const LogoCarouselSection = ({
                       width={Math.floor(image.width)}
                       height={image.height}
                       className='h-40 w-auto'
-                    ></Image>
+                    />
                   </CarouselItem>
                 ))}
               </CarouselContent>

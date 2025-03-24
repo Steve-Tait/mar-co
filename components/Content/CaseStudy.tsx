@@ -1,7 +1,4 @@
-import {
-  storyblokEditable,
-  StoryblokServerComponent,
-} from '@storyblok/react/rsc';
+import { storyblokEditable } from '@storyblok/react/rsc';
 import Wysiwyg from '../Shared/Wysiwyg';
 import Section from '../Shared/Section';
 import Container from '../Shared/Container';
@@ -10,9 +7,10 @@ import SkeletonGrid from '../Shared/SkeletonGrid';
 import SectionWrap from '../Shared/SectionWrap';
 import { CaseStudyStoryblok } from '@/component-types-sb';
 import CaseStudies from '../Shared/CaseStudies';
-import HeroWrap from '../Shared/HeroWrap';
 import { StoryblokStory } from 'storyblok-generate-ts';
 import SectionBuilder from '../Shared/SectionBuilder';
+import HeroSecondary from '../Shared/HeroSecondary';
+import LayoutScaler from '../Shared/LayoutScaler';
 
 const CaseStudy = ({
   blok,
@@ -21,7 +19,8 @@ const CaseStudy = ({
   const { title, image, excerpt, wysiwyg, disclaimer, body } = blok;
   return (
     <main {...storyblokEditable(blok)}>
-      <HeroWrap {...{ title, excerpt, image, disclaimer }}>
+      <LayoutScaler>
+        <HeroSecondary {...{ title, excerpt, image, disclaimer }} />
         <Wysiwyg wysiwyg={wysiwyg} />
         <SectionBuilder body={body} />
         <Section blok={blok}>
@@ -33,7 +32,7 @@ const CaseStudy = ({
             </SectionWrap>
           </Container>
         </Section>
-      </HeroWrap>
+      </LayoutScaler>
     </main>
   );
 };

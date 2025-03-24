@@ -1,9 +1,5 @@
-import {
-  StoryblokServerComponent,
-  storyblokEditable,
-} from '@storyblok/react/rsc';
+import { storyblokEditable } from '@storyblok/react/rsc';
 import Wysiwyg from '../Shared/Wysiwyg';
-import Hero from '../Shared/Hero';
 import ArticlesGrid from '../Shared/ArticlesGrid';
 import Section from '../Shared/Section';
 import Container from '../Shared/Container';
@@ -11,26 +7,23 @@ import { Suspense } from 'react';
 import SkeletonGrid from '../Shared/SkeletonGrid';
 import SectionWrap from '../Shared/SectionWrap';
 import { ArticleStoryblok, CategoryStoryblok } from '@/component-types-sb';
-import HeroWrap from '../Shared/HeroWrap';
 import SectionBuilder from '../Shared/SectionBuilder';
+import LayoutScaler from '../Shared/LayoutScaler';
+import HeroSecondary from '../Shared/HeroSecondary';
 
 type TArticleStoryblokWithRelations = ArticleStoryblok & {
   categories: CategoryStoryblok[];
 };
 
 const Article = ({ blok, id }: TArticleStoryblokWithRelations) => {
-  const { title, image, excerpt, wysiwyg, body, categories } = blok;
+  const { title, image, excerpt, wysiwyg, body, categories, author } = blok;
   const categoryIds =
     categories?.map((category: CategoryStoryblok) => category?.uuid) || [];
   return (
     <div {...storyblokEditable(blok)}>
-      <HeroWrap
-        title={title}
-        excerpt={excerpt}
-        image={image}
-        categories={categories}
-      >
-        <Wysiwyg wysiwyg={wysiwyg} />
+      <LayoutScaler>
+        <HeroSecondary {...{ title, excerpt, image, categories }} />
+        <Wysiwyg wysiwyg={wysiwyg} author={author.content} />
         <SectionBuilder body={body} />
         <Section blok={blok}>
           <Container>
@@ -45,7 +38,7 @@ const Article = ({ blok, id }: TArticleStoryblokWithRelations) => {
             </SectionWrap>
           </Container>
         </Section>
-      </HeroWrap>
+      </LayoutScaler>
     </div>
   );
 };

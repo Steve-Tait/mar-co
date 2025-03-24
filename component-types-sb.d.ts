@@ -79,6 +79,7 @@ export interface ArticleStoryblok {
     | TextSectionStoryblok
     | TiktokSectionStoryblok
   )[];
+  author?: StoryblokStory<AuthorStoryblok> | string;
   _uid: string;
   component: "article";
   [k: string]: any;
@@ -131,23 +132,6 @@ export interface ArticlesSectionStoryblok {
   [k: string]: any;
 }
 
-export interface RichtextStoryblok {
-  type: string;
-  content?: RichtextStoryblok[];
-  marks?: RichtextStoryblok[];
-  attrs?: any;
-  text?: string;
-  [k: string]: any;
-}
-
-export interface BannerWysiwygStoryblok {
-  background?: number | string;
-  richtext?: RichtextStoryblok;
-  _uid: string;
-  component: "banner-wysiwyg";
-  [k: string]: any;
-}
-
 export type MultilinkStoryblok =
   | {
       id?: string;
@@ -172,6 +156,33 @@ export type MultilinkStoryblok =
       [k: string]: any;
     };
 
+export interface AuthorStoryblok {
+  avatar?: AssetStoryblok;
+  name: string;
+  description?: string;
+  linkedin?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  _uid: string;
+  component: "author";
+  [k: string]: any;
+}
+
+export interface RichtextStoryblok {
+  type: string;
+  content?: RichtextStoryblok[];
+  marks?: RichtextStoryblok[];
+  attrs?: any;
+  text?: string;
+  [k: string]: any;
+}
+
+export interface BannerWysiwygStoryblok {
+  background?: number | string;
+  richtext?: RichtextStoryblok;
+  _uid: string;
+  component: "banner-wysiwyg";
+  [k: string]: any;
+}
+
 export interface ButtonStoryblok {
   link: Exclude<MultilinkStoryblok, {linktype?: "asset"}>;
   label: string;
@@ -195,10 +206,11 @@ export interface CaseStudiesSectionStoryblok {
 }
 
 export interface CaseStudyStoryblok {
+  logo?: AssetStoryblok;
   title?: string;
-  excerpt?: string;
+  excerpt?: RichtextStoryblok;
   image?: AssetStoryblok;
-  preview: RichtextStoryblok;
+  disclaimer?: string;
   wysiwyg?: (
     | BannerWysiwygStoryblok
     | GalleryWysiwygStoryblok
@@ -209,7 +221,6 @@ export interface CaseStudyStoryblok {
   )[];
   meta_title?: string;
   meta_desc?: string;
-  disclaimer?: string;
   body?: (
     | AnimatedWordsSectionStoryblok
     | ArticlesSectionStoryblok
@@ -326,10 +337,12 @@ export interface ColouredContainerStoryblok {
 }
 
 export interface ColouredContainerSectionStoryblok {
+  eyebrow?: string;
   heading?: string;
   body?: RichtextStoryblok;
   sections?: ColouredContainerStoryblok[];
   theme?: number | string;
+  button?: ButtonStoryblok[];
   _uid: string;
   component: "coloured-container-section";
   [k: string]: any;

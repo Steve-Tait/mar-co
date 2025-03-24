@@ -1,5 +1,4 @@
 import { BannerWysiwygStoryblok } from '@/component-types-sb';
-import { render } from 'storyblok-rich-text-react-renderer';
 import Container from '../Shared/Container';
 import RichText from '../Block/RichText';
 

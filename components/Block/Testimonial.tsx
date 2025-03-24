@@ -22,7 +22,7 @@ const Testimonial = ({ blok, className }: TTestimonial) => {
       <blockquote
         className={cn(
           'flex grow items-center text-balance rounded-2xl bg-muted p-4 text-lg italic text-muted-foreground md:p-6 md:text-xl lg:text-xl',
-          avatar?.filename && 'pb-16 md:pb-16'
+          avatar?.filename && 'pb-16 md:pb-20'
         )}
       >
         "{content}"

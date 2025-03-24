@@ -3,8 +3,10 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { MenuLinkStoryblok } from '@/component-types-sb';
+import { usePathname } from 'next/navigation';
 
 const MenuLinkHeader = ({ blok, ...props }: { blok: MenuLinkStoryblok }) => {
+  const pathname = usePathname();
   const { link, label } = blok;
   return (
     <NavigationMenuLink asChild>

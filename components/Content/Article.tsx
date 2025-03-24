@@ -34,7 +34,7 @@ const Article = ({
         <HeroSecondary
           {...{ title, excerpt, image, categories, publishedDate }}
         />
-        <Wysiwyg wysiwyg={wysiwyg} author={author.content} />
+        <Wysiwyg wysiwyg={wysiwyg} author={author?.content} />
         <SectionBuilder body={body} />
         <Section blok={blok}>
           <Container>

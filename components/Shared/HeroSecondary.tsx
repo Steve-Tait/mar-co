@@ -13,6 +13,7 @@ type THero = {
   image?: AssetStoryblok;
   disclaimer?: string;
   categories?: CategoryStoryblok[];
+  publishedDate?: string;
   className?: string;
 };
 
@@ -21,6 +22,7 @@ const HeroSecondary = ({
   excerpt,
   image,
   categories,
+  publishedDate,
   disclaimer,
   className = '',
   ...props
@@ -28,7 +30,7 @@ const HeroSecondary = ({
   return (
     <section
       className={cn(
-        'relative flex w-full items-end overflow-hidden bg-primary pb-24 pt-72 text-primary-foreground sm:min-h-[75svh] sm:items-center sm:py-24 md:py-48',
+        'relative flex w-full items-end overflow-hidden bg-primary pb-16 pt-72 text-primary-foreground sm:min-h-[75svh] sm:items-center sm:py-24 md:py-48',
         image?.filename &&
           'before:absolute before:inset-0 before:bg-purple/50 before:backdrop-brightness-50'
       )}
@@ -46,19 +48,23 @@ const HeroSecondary = ({
           </div>
         )}
       </div>
-      <Container className='relative p-4 sm:pt-0'>
-        <div className='flex max-w-[50%] flex-col gap-y-6'>
-          {categories && (
-            <div className='flex flex-wrap gap-x-2'>
-              {categories.map((category) => (
-                <Badge
-                  href={`/${category.full_slug}`}
-                  label={category.name}
-                  key={category.uuid}
-                />
-              ))}
-            </div>
-          )}
+      <Container className='relative'>
+        <div className='flex flex-col gap-y-2 sm:max-w-[50%]'>
+          <div className='mb-4 flex gap-x-4'>
+            {publishedDate && <p className='eyebrow'>{publishedDate}</p>}
+
+            {categories && (
+              <div className='flex flex-wrap gap-x-2'>
+                {categories.map((category) => (
+                  <Badge
+                    href={`/${category.full_slug}`}
+                    label={category.name}
+                    key={category.uuid}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
           {title && (
             <Heading
               className='text-balance uppercase'

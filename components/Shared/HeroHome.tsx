@@ -45,7 +45,7 @@ const HeroHome = ({
           <Heading
             heading={title}
             level={1}
-            className={cn(animated_title?.length && 'sr-only')}
+            className={cn('text-display', animated_title?.length && 'sr-only')}
           />
         )}
         {animated_title.length ? (

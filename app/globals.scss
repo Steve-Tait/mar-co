@@ -310,10 +310,12 @@
   .h6 {
     @apply font-heading font-bold;
   }
-
+  .text-display {
+    @apply text-4xl sm:text-5xl lg:text-6xl;
+  }
   h1,
   .h1 {
-    @apply text-4xl sm:text-5xl lg:text-6xl;
+    @apply text-3xl sm:text-4xl lg:text-5xl;
   }
 
   h2,

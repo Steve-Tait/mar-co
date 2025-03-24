@@ -17,11 +17,11 @@ export default async function Page({ params, searchParams }: MetaProps) {
   if (!story?.content) {
     notFound();
   }
-
   return (
     <StoryblokStory
       story={story}
       id={story.id}
+      first_published_at={story.first_published_at}
       bridgeOptions={{ resolveRelations }}
     />
   );

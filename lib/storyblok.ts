@@ -53,6 +53,7 @@ export async function getStory(slug: string) {
       },
       { cache: 'no-store' }
     );
+
     story = data?.story ?? null;
   } catch (e) {}
   return story;

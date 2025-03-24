@@ -13,16 +13,27 @@ import HeroSecondary from '../Shared/HeroSecondary';
 
 type TArticleStoryblokWithRelations = ArticleStoryblok & {
   categories: CategoryStoryblok[];
+  first_published_at: Date;
 };
 
-const Article = ({ blok, id }: TArticleStoryblokWithRelations) => {
+const Article = ({
+  blok,
+  id,
+  first_published_at,
+}: TArticleStoryblokWithRelations) => {
+  const publishedDate = new Date(first_published_at).toLocaleString('en-gb', {
+    year: 'numeric',
+    month: 'long',
+  });
   const { title, image, excerpt, wysiwyg, body, categories, author } = blok;
   const categoryIds =
     categories?.map((category: CategoryStoryblok) => category?.uuid) || [];
   return (
     <div {...storyblokEditable(blok)}>
       <LayoutScaler>
-        <HeroSecondary {...{ title, excerpt, image, categories }} />
+        <HeroSecondary
+          {...{ title, excerpt, image, categories, publishedDate }}
+        />
         <Wysiwyg wysiwyg={wysiwyg} author={author.content} />
         <SectionBuilder body={body} />
         <Section blok={blok}>

@@ -10,8 +10,8 @@ import {
   TextWysiwygStoryblok,
   VideoWysiwygStoryblok,
 } from '@/component-types-sb';
-import Container from './Container';
 import Heading from './Heading';
+import Author from './Author';
 
 type TWysiwyg = {
   author?: AuthorStoryblok;
@@ -39,24 +39,8 @@ export default function Wysiwyg({
       {wysiwyg?.map((nestedBlok) => (
         <StoryblokServerComponent blok={nestedBlok} key={nestedBlok.uuid} />
       ))}
-      {author?.name && (
-        <section className='theme--light bg-background py-8 text-foreground md:py-12 xl:py-16'>
-          <div className='mx-auto flex max-w-prose gap-x-12 rounded-lg bg-card p-8 text-lg text-card-foreground'>
-            <Image
-              className='aspect-square size-32 rounded-full object-cover'
-              src={author?.avatar?.filename || ''}
-              alt={author?.name || 'Author Avatar'}
-              width={256}
-              height={256}
-            />
-            <div className='flex flex-col gap-y-1'>
-              <p className='eyebrow'>About the Author</p>
-              <Heading className='mb-2' level={5} heading={author?.name} />
-              <p>{author?.description}</p>
-            </div>
-          </div>
-        </section>
-      )}
+
+      {author && <Author author={author} />}
     </>
   );
 }

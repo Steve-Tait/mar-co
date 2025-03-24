@@ -1,7 +1,4 @@
-import {
-  storyblokEditable,
-  StoryblokServerComponent,
-} from '@storyblok/react/rsc';
+import { storyblokEditable } from '@storyblok/react/rsc';
 import { PageStoryblok } from '@/component-types-sb';
 import HeroWrap from '../Shared/HeroWrap';
 import SectionBuilder from '../Shared/SectionBuilder';

@@ -2,8 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import { AuthorStoryblok } from '@/component-types-sb';
 import Heading from './Heading';
-import { Linkedin } from 'lucide-react';
 import Container from '../Shared/Container';
+import SocialLink from './SocialLink';
 
 type TWysiwyg = {
   author: AuthorStoryblok;
@@ -30,16 +30,7 @@ export default function Author({ author, className = '', ...props }: TWysiwyg) {
             <p className='eyebrow'>About the Author</p>
             {name && <Heading className='mb-2' level={5} heading={name} />}
             {description && <p>{description}</p>}
-            {linkedin?.url && (
-              <a
-                className='mt-4 h-8 w-8 shrink-0 rounded-full border border-secondary p-1.5 text-secondary transition-colors hover:bg-secondary hover:text-white'
-                href={linkedin.url}
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <Linkedin className='size-full' />
-              </a>
-            )}
+            {linkedin?.url && <SocialLink link={linkedin} />}
           </div>
         </div>
       </Container>

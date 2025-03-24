@@ -11,7 +11,7 @@ const ChecklistSection = ({ blok }: { blok: ChecklistSectionStoryblok }) => {
     <Section blok={blok} className='overflow-hidden'>
       <Container className='flex max-w-5xl flex-col gap-y-6 lg:gap-y-10'>
         <SectionWrap className='text-center' {...{ eyebrow, heading }}>
-          <ul className='mx-auto columns-1 text-left sm:columns-2 sm:gap-x-12 lg:gap-x-24'>
+          <ul className='mx-auto columns-2 gap-x-6 text-left sm:gap-x-12 lg:gap-x-24'>
             {checklist &&
               checklist.map((item, index) => (
                 <ListItem blok={item} key={index} />

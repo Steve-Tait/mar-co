@@ -13,7 +13,6 @@ export default function MenuSectionFooter({
   return (
     <div {...storyblokEditable({ blok })} {...props}>
       {heading && <Heading level={5} className='mb-2' heading={heading} />}
-
       {items && (
         <div className='flex flex-col gap-1'>
           {items.map((nestedBlok) => (

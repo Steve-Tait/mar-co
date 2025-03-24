@@ -1583,7 +1583,7 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-22T15:06:51.223Z",
-      "updated_at": "2024-01-22T15:36:40.289Z",
+      "updated_at": "2025-03-24T22:43:13.149Z",
       "id": 5210566,
       "schema": {
         "menu": {
@@ -1592,7 +1592,8 @@
           "restrict_components": true,
           "component_whitelist": [
             "menu-section"
-          ]
+          ],
+          "id": "FvISPIWSRlWEENAxud907w"
         },
         "body": {
           "type": "richtext",
@@ -1623,7 +1624,23 @@
             "strike",
             "subscript",
             "superscript"
-          ]
+          ],
+          "id": "40HAHV_pTSSey9yi0L1GXA"
+        },
+        "linkedin": {
+          "type": "multilink",
+          "pos": 2,
+          "id": "E27XAnqwTnKNwiF0EAQlYw"
+        },
+        "mandatories": {
+          "type": "bloks",
+          "pos": 3,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "link"
+          ],
+          "id": "wEo78SmGTlG9qw40aQFvFg"
         }
       },
       "image": null,
@@ -2103,19 +2120,26 @@
       "display_name": null,
       "description": "",
       "created_at": "2025-03-10T16:26:55.577Z",
-      "updated_at": "2025-03-11T22:49:09.561Z",
+      "updated_at": "2025-03-24T22:26:04.534Z",
       "id": 7067021,
       "schema": {
+        "icon": {
+          "type": "text",
+          "pos": 0,
+          "default_value": "home",
+          "id": "AOETtwnQTWKu96FSb2qB_w",
+          "description": "Find icon names here:\nhttps://lucide.dev/icons/"
+        },
         "heading": {
           "type": "textarea",
-          "pos": 0,
+          "pos": 1,
           "id": "fmMVC6S7QvKU6fvDqzYrmw",
           "required": true,
           "description": "Mark content between stars to highlight.\ni.e. Et illum maiores ut **perspiciatis** galisum"
         },
         "body": {
           "type": "richtext",
-          "pos": 1,
+          "pos": 2,
           "id": "--gci5ghRaOWkwUJFmXWlQ",
           "source": "internal_stories",
           "entry_appearance": "card",
@@ -2161,7 +2185,7 @@
         },
         "button": {
           "type": "bloks",
-          "pos": 2,
+          "pos": 3,
           "maximum": 1,
           "restrict_type": "",
           "restrict_components": true,
@@ -2182,6 +2206,44 @@
       "component_group_uuid": "112cba58-bae8-4802-b6f7-1cf1e9e1e95f",
       "color": "#dfe3e8",
       "icon": "block-comment",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "components"
+    },
+    {
+      "name": "link",
+      "display_name": null,
+      "description": "",
+      "created_at": "2025-03-24T22:41:43.742Z",
+      "updated_at": "2025-03-24T22:43:58.409Z",
+      "id": 7124715,
+      "schema": {
+        "label": {
+          "type": "text",
+          "pos": 0,
+          "required": true,
+          "id": "vQg4intDRnyeL3UNsJLacA"
+        },
+        "link": {
+          "type": "multilink",
+          "pos": 1,
+          "id": "qlobITUpSVusmMw-_Zh0rw",
+          "required": true,
+          "allow_target_blank": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "link",
+      "component_group_uuid": "112cba58-bae8-4802-b6f7-1cf1e9e1e95f",
+      "color": null,
+      "icon": null,
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
@@ -2371,30 +2433,51 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-18T15:54:08.861Z",
-      "updated_at": "2025-03-04T20:09:15.117Z",
+      "updated_at": "2025-03-24T20:57:20.348Z",
       "id": 5194085,
       "schema": {
+        "type": {
+          "type": "option",
+          "pos": 0,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "b843f7df-5129-45cc-adeb-6bf9e0db4995",
+              "name": "Primary",
+              "value": "primary"
+            },
+            {
+              "_uid": "87ec782a-2a7e-4e14-9ffd-38c42fb73ab4",
+              "value": "secondary",
+              "name": "Secondary"
+            }
+          ],
+          "exclude_empty_option": true,
+          "default_value": "primary",
+          "id": "H7lzSIkrTr6UvwzWYSKBug",
+          "required": false
+        },
         "title": {
           "type": "text",
-          "pos": 0,
+          "pos": 1,
           "required": true,
           "id": "2Gdb7KKWRBujof1pGjxX6w"
         },
         "excerpt": {
           "type": "textarea",
-          "pos": 1,
+          "pos": 2,
           "required": false,
           "id": "kPMV_0OiRjObxbg3F90aLQ"
         },
         "image": {
           "type": "asset",
-          "pos": 2,
+          "pos": 3,
           "required": false,
           "id": "UsJdhAJ5TYGo7EBKAk87IA"
         },
         "button": {
           "type": "bloks",
-          "pos": 3,
+          "pos": 4,
           "display_name": "Call to action",
           "restrict_type": "",
           "restrict_components": true,
@@ -2412,7 +2495,7 @@
           "component_group_whitelist": [
             "b1d05dd6-af9a-4109-91fe-59ef047439ef"
           ],
-          "pos": 4,
+          "pos": 5,
           "id": "lB6swZQARXygrqEccN47dg"
         },
         "tab-5d696db6-80e2-496f-89e6-f613a9534eee": {
@@ -2422,9 +2505,10 @@
             "excerpt",
             "image",
             "cta",
-            "button"
+            "button",
+            "type"
           ],
-          "pos": 5,
+          "pos": 6,
           "type": "tab",
           "name": "tab-5d696db6-80e2-496f-89e6-f613a9534eee",
           "id": "XWlttoDiSW-J5vYTqVNO7g"
@@ -2435,19 +2519,19 @@
             "meta_title",
             "meta_description"
           ],
-          "pos": 6,
+          "pos": 7,
           "type": "tab",
           "name": "tab-5f7c3c65-71e4-4866-a8f5-cde3d4e5c302",
           "id": "X3w8ZXHkSGao9c3j1OXDAg"
         },
         "meta_title": {
           "type": "text",
-          "pos": 7,
+          "pos": 8,
           "id": "fyiq_zLJSbSjx6GgER7oDA"
         },
         "meta_description": {
           "type": "textarea",
-          "pos": 8,
+          "pos": 9,
           "id": "dXpEEwJgTeGg_CaWBEgNkQ"
         }
       },
@@ -2472,7 +2556,7 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-08-27T20:46:43.994Z",
-      "updated_at": "2025-03-18T20:29:30.291Z",
+      "updated_at": "2025-03-24T20:50:03.070Z",
       "id": 6218921,
       "schema": {
         "prefix": {
@@ -2502,7 +2586,7 @@
         },
         "description": {
           "type": "textarea",
-          "pos": 4,
+          "pos": 5,
           "required": true,
           "id": "EvtTf8KTS9S9sE1ElV-D0Q"
         }
@@ -2528,13 +2612,22 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-08-27T20:48:53.728Z",
-      "updated_at": "2025-02-18T20:09:10.902Z",
+      "updated_at": "2025-03-24T20:50:27.962Z",
       "id": 6218922,
       "schema": {
         "heading": {
           "type": "text",
           "pos": 0,
           "id": "JT5s0r5OQNWaizJHPTO-Uw"
+        },
+        "tab-5704b8db-33e2-4440-8adc-61eafc1cade3": {
+          "display_name": "Theme",
+          "keys": [
+            "theme"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "VwS42zPiRECK3GHq_Byt4w"
         },
         "stats": {
           "type": "bloks",
@@ -2546,15 +2639,6 @@
           ],
           "id": "5K1dMJT7S8iEe51Z2Dlnfw"
         },
-        "tab-5704b8db-33e2-4440-8adc-61eafc1cade3": {
-          "display_name": "Theme",
-          "keys": [
-            "theme"
-          ],
-          "pos": 0,
-          "type": "tab",
-          "id": "VwS42zPiRECK3GHq_Byt4w"
-        },
         "theme": {
           "type": "option",
           "pos": 3,
@@ -2563,6 +2647,12 @@
           "datasource_slug": "theme",
           "exclude_empty_option": true,
           "id": "jVSRxIAWSO6jBYIRj-Tymw"
+        },
+        "countNumbers": {
+          "type": "boolean",
+          "pos": 4,
+          "id": "bORNLTVDSo2wdkThIhBPnQ",
+          "default_value": true
         }
       },
       "image": null,

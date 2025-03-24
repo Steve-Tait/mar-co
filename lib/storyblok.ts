@@ -105,7 +105,7 @@ export const getArticles = async (
       | 'published',
     starts_with: 'insights/',
     is_startpage: false,
-    sort_by: 'position:desc',
+    sort_by: 'position:asc',
     per_page: limit,
     resolve_relations: ['article.categories'],
   };
@@ -155,7 +155,7 @@ export const getCaseStudies = async (
       | 'published',
     starts_with: 'case-studies/',
     is_startpage: false,
-    sort_by: 'position:desc',
+    sort_by: 'position:asc',
     per_page: limit,
     resolve_relations: ['case-study.categories'],
   };

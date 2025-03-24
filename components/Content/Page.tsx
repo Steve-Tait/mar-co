@@ -2,14 +2,23 @@ import { storyblokEditable } from '@storyblok/react/rsc';
 import { PageStoryblok } from '@/component-types-sb';
 import HeroWrap from '../Shared/HeroWrap';
 import SectionBuilder from '../Shared/SectionBuilder';
+import HeroSecondary from '../Shared/HeroSecondary';
 
 const Page = ({ blok }: PageStoryblok) => {
-  const { title, excerpt, image, button, body } = blok;
+  const { title, excerpt, image, button, type, body } = blok;
+
   return (
     <main {...storyblokEditable(blok)}>
-      <HeroWrap {...{ title, excerpt, image, button }}>
-        <SectionBuilder body={body} />
-      </HeroWrap>
+      {type === 'primary' ? (
+        <HeroWrap {...{ title, excerpt, image, button }}>
+          <SectionBuilder body={body} />
+        </HeroWrap>
+      ) : (
+        <>
+          <HeroSecondary {...{ title, excerpt, image, button }} />
+          <SectionBuilder body={body} />
+        </>
+      )}
     </main>
   );
 };

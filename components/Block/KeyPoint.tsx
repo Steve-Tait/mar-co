@@ -4,8 +4,7 @@ import { motion } from 'framer-motion';
 import RichText from './RichText';
 import { KeyPointStoryblok } from '@/component-types-sb';
 import Heading from '../Shared/Heading';
-import { StoryblokServerComponent } from '@storyblok/react/rsc';
-import { HomeIcon } from 'lucide-react';
+import { DynamicIcon, IconName } from 'lucide-react/dynamic';
 import ButtonGroup from '../Shared/ButtonGroup';
 
 const KeyPoint = ({
@@ -18,7 +17,7 @@ const KeyPoint = ({
   isVertical?: boolean;
   className?: string;
 }) => {
-  const { heading, body, button } = blok;
+  const { heading, body, button, icon = 'home' } = blok;
   return (
     <motion.div
       className={cn(
@@ -28,7 +27,7 @@ const KeyPoint = ({
       {...props}
     >
       <div className='mb-4 rounded-xl bg-secondary p-2 text-secondary-foreground sm:mb-6'>
-        <HomeIcon size={36} />
+        <DynamicIcon name={icon as IconName} size={36} />
       </div>
       {heading && <Heading heading={heading} level={5} />}
       {body && <RichText content={body} />}

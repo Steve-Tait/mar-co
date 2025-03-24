@@ -30,14 +30,14 @@ const ListItem = ({
   return (
     <motion.li
       className={cn(
-        'mb-2 flex break-inside-avoid items-center gap-x-2 text-lg font-medium sm:mb-4 sm:gap-x-3 md:text-xl',
+        'mb-4 flex break-inside-avoid items-start gap-x-2 font-medium sm:gap-x-3 sm:text-lg md:text-xl',
         className
       )}
       initial='offscreen'
       whileInView='onscreen'
       variants={variants}
     >
-      <Check className='size-8 shrink-0 rounded-full bg-accent p-1 text-accent-foreground' />
+      <Check className='size-6 shrink-0 rounded-full bg-accent p-0.5 text-accent-foreground sm:size-8 sm:p-1' />
       {text}
     </motion.li>
   );

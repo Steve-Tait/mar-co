@@ -19,7 +19,7 @@ const TextAndImageSection = ({
     <Section blok={blok}>
       <Container className='grid grid-cols-1 items-center gap-x-10 gap-y-6 sm:grid-cols-2 xl:gap-x-16'>
         {image?.id && (
-          <Parallax
+          <div
             className={cn(
               'relative aspect-square size-full overflow-hidden rounded-3xl object-cover',
               is_reverse && 'sm:order-1'
@@ -31,7 +31,7 @@ const TextAndImageSection = ({
               fill
               objectFit='cover'
             />
-          </Parallax>
+          </div>
         )}
         <SectionWrap {...{ eyebrow, heading, body }}>
           <ButtonGroup buttons={buttons} />

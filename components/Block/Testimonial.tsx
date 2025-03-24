@@ -39,11 +39,7 @@ const Testimonial = ({ blok, className }: TTestimonial) => {
         )}
         <div>
           <figcaption>
-            {author && (
-              <p className='font-heading font-black uppercase text-secondary'>
-                {author}
-              </p>
-            )}
+            {author && <p className='eyebrow'>{author}</p>}
             {role && <p className='font-bold'>{role}</p>}
           </figcaption>
         </div>

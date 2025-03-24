@@ -402,6 +402,8 @@ export interface FeatureSectionStoryblok {
 export interface FooterStoryblok {
   menu?: MenuSectionStoryblok[];
   body?: RichtextStoryblok;
+  linkedin?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  mandatories?: LinkStoryblok[];
   _uid: string;
   component: "footer";
   [k: string]: any;
@@ -515,11 +517,20 @@ export interface KeyFeaturesSectionStoryblok {
 }
 
 export interface KeyPointStoryblok {
+  icon?: string;
   heading: string;
   body?: RichtextStoryblok;
   button?: ButtonStoryblok[];
   _uid: string;
   component: "key-point";
+  [k: string]: any;
+}
+
+export interface LinkStoryblok {
+  label: string;
+  link: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  _uid: string;
+  component: "link";
   [k: string]: any;
 }
 
@@ -559,6 +570,7 @@ export interface MenuSectionStoryblok {
 }
 
 export interface PageStoryblok {
+  type?: "primary" | "secondary";
   title: string;
   excerpt?: string;
   image?: AssetStoryblok;
@@ -607,6 +619,7 @@ export interface StatsSectionStoryblok {
   heading?: string;
   stats?: StatStoryblok[];
   theme?: number | string;
+  countNumbers: boolean;
   _uid: string;
   component: "stats-section";
   [k: string]: any;

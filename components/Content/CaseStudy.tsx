@@ -16,16 +16,16 @@ const CaseStudy = ({
   blok,
   id,
 }: CaseStudyStoryblok & StoryblokStory<CaseStudyStoryblok>) => {
-  const { title, image, excerpt, wysiwyg, disclaimer, body } = blok;
+  const { title, image, excerpt, wysiwyg, disclaimer, logo, body } = blok;
   return (
     <main {...storyblokEditable(blok)}>
       <LayoutScaler>
-        <HeroSecondary {...{ title, excerpt, image, disclaimer }} />
+        <HeroSecondary {...{ title, excerpt, image, disclaimer, logo }} />
         <Wysiwyg wysiwyg={wysiwyg} />
         <SectionBuilder body={body} />
         <Section blok={blok}>
           <Container>
-            <SectionWrap heading='Other Case Studies'>
+            <SectionWrap heading='Related work'>
               <Suspense fallback={<SkeletonGrid tiles={6} />}>
                 <CaseStudies limit={3} toExclude={id.toString()} />
               </Suspense>

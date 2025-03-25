@@ -63,7 +63,7 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
         >
           MAR-CO<span className='text-secondary'>.</span>
         </Link>
-        <div className='flex grow items-center justify-between gap-x-8'>
+        <div className='flex grow items-center justify-between gap-x-2 sm:gap-x-4'>
           <NavigationMenu className='hidden lg:block'>
             <NavigationMenuList>
               {menu && (
@@ -96,7 +96,7 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
               <span className='hidden xl:block'>{phone}</span>
             </a>
           )}
-          <ButtonGroup className='hidden lg:flex' buttons={buttons} size='sm' />
+          <ButtonGroup buttons={buttons} size='sm' />
         </div>
         {menu && (
           <Sheet open={isOpen} onOpenChange={setIsOpen}>

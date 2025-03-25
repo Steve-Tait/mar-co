@@ -16,11 +16,7 @@ const IntroSection = ({ blok }: { blok: IntroSectionStoryblok }) => {
         <div className='flex flex-col gap-y-1 md:gap-y-2 xl:col-span-2'>
           {eyebrow && <h6 className='eyebrow'>{eyebrow}</h6>}
           {heading && <Heading heading={heading} level={3} />}
-          <ButtonGroup
-            buttons={button}
-            className='mt-4 hidden lg:flex'
-            size='sm'
-          />
+          <ButtonGroup buttons={button} className='mt-4 hidden lg:flex' />
         </div>
         {content && (
           <RichText
@@ -30,7 +26,7 @@ const IntroSection = ({ blok }: { blok: IntroSectionStoryblok }) => {
             content={content}
           />
         )}
-        <ButtonGroup buttons={button} className='lg:hidden' size='sm' />
+        <ButtonGroup buttons={button} className='lg:hidden' />
       </Container>
     </Section>
   );

@@ -1,3 +1,4 @@
+import { RichtextStoryblok } from '@/component-types-sb';
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -36,3 +37,12 @@ export const countDecimals = (value: number): number => {
 
 const emojiRegex = /^[\p{Emoji}]/u;
 export const startsWithEmoji = (str: string): boolean => emojiRegex.test(str);
+
+export const isRichTextPopulated = (
+  doc?: RichtextStoryblok | null
+): boolean => {
+  if (!doc || !doc?.content || doc.content.length === 0) return false;
+  if (doc.content[0].type === 'blok') return false;
+
+  return !!doc.content[0].content;
+};

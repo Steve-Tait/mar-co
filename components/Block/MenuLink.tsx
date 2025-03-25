@@ -9,7 +9,7 @@ interface MenuLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
 export default function MenuLink({ blok, ...props }: MenuLinkProps) {
   const { label, link } = blok;
   return (
-    <Link href={link.cached_url} {...storyblokEditable(blok)} {...props}>
+    <Link href={`/${link.cached_url}`} {...storyblokEditable(blok)} {...props}>
       {label}
     </Link>
   );

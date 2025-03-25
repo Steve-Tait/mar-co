@@ -4,6 +4,8 @@ import MenuSectionFooter from '../Content/MenuSectionFooter';
 import { FooterStoryblok, MenuSectionStoryblok } from '@/component-types-sb';
 import RichText from '../Block/RichText';
 import SocialLink from './SocialLink';
+import { isRichTextPopulated } from '@/lib/utils';
+import Link from 'next/link';
 
 export default function Footer({ blok }: { blok: FooterStoryblok }) {
   const { menu, body, linkedin, mandatories } = blok;
@@ -12,9 +14,9 @@ export default function Footer({ blok }: { blok: FooterStoryblok }) {
       <Container className='flex flex-col gap-8 py-10'>
         <div className='grid grid-cols-1 gap-8 sm:grid-cols-3'>
           <div className='flex flex-col items-center justify-between gap-4 sm:items-start'>
-            <div className='whitespace-nowrap text-4xl font-bold'>
+            <Link href='/' className='whitespace-nowrap text-4xl font-bold'>
               MAR-CO<span className='text-secondary'>.</span>
-            </div>
+            </Link>
             {linkedin?.url && <SocialLink link={linkedin} />}
           </div>
           {menu && (
@@ -25,7 +27,7 @@ export default function Footer({ blok }: { blok: FooterStoryblok }) {
             </div>
           )}
         </div>
-        {body && (
+        {body && isRichTextPopulated(body) && (
           <div className='sm:align-center flex flex-col items-center gap-8 sm:flex-row sm:justify-start'>
             <RichText className='text-lg' content={body} />
           </div>
@@ -41,14 +43,14 @@ export default function Footer({ blok }: { blok: FooterStoryblok }) {
           {mandatories?.length && (
             <nav className='flex flex-wrap items-center gap-4'>
               {mandatories.map(({ link, _uid, label }) => (
-                <a
+                <Link
                   key={_uid}
                   href={link.cached_url || link.url}
                   target={link.target}
                   className='text-white hover:underline'
                 >
                   {label}
-                </a>
+                </Link>
               ))}
             </nav>
           )}

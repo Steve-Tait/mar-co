@@ -34,26 +34,30 @@ const TestimonialsSection = ({
       <Container className='relative max-w-3xl'>
         <SectionWrap className='text-center' {...{ eyebrow, heading, body }}>
           {testimonials.length > 1 ? (
-            <Carousel>
-              <CarouselContent>
-                {testimonials.map(
-                  (
-                    testimonial: StoryblokStory<TestimonialStoryblok>,
-                    index
-                  ) => (
-                    <CarouselItem key={index}>
-                      <Testimonial
-                        className='h-full'
-                        blok={testimonial.content}
-                        key={testimonial.uuid}
-                      />
-                    </CarouselItem>
-                  )
-                )}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
+            <div>
+              <Carousel className='flex flex-wrap items-center justify-center gap-4 sm:flex-nowrap'>
+                <CarouselPrevious />
+                <div className='-order-1 min-w-0 sm:order-none'>
+                  <CarouselContent>
+                    {testimonials.map(
+                      (
+                        testimonial: StoryblokStory<TestimonialStoryblok>,
+                        index
+                      ) => (
+                        <CarouselItem key={index}>
+                          <Testimonial
+                            className='h-full'
+                            blok={testimonial.content}
+                            key={testimonial.uuid}
+                          />
+                        </CarouselItem>
+                      )
+                    )}
+                  </CarouselContent>
+                </div>
+                <CarouselNext />
+              </Carousel>
+            </div>
           ) : (
             <>
               {testimonials.map(

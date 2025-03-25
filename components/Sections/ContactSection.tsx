@@ -42,7 +42,7 @@ const ContactSection = ({ blok }: { blok: ContactSectionStoryblok }) => {
             {linkedin?.url && (
               <a
                 className='group/contact col-span-1 flex flex-col items-center gap-y-4'
-                href={`mailto:${linkedin.url}`}
+                href={linkedin.url}
                 target='_blank'
                 rel='noopener noreferrer'
               >

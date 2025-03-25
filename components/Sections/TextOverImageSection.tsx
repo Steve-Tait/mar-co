@@ -38,10 +38,10 @@ const TextOverImageSection = ({
       )}
       <Container
         className={cn(
-          'relative mx-auto flex min-h-[60svh] flex-col md:min-h-svh',
+          'relative mx-auto flex min-h-[80svh] flex-col md:min-h-svh',
           isContained
             ? 'justify-end py-4 sm:py-6 md:justify-start lg:py-8'
-            : 'justify-center py-16 sm:py-24 lg:py-32'
+            : 'justify-center py-24 lg:py-32'
         )}
       >
         <SectionWrap

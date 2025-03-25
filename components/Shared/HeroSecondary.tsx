@@ -36,7 +36,7 @@ const HeroSecondary = ({
       )}
       {...props}
     >
-      <div className='absolute bottom-0 right-0 top-0 aspect-square w-72 overflow-hidden rounded-bl-full bg-accent sm:left-1/2 sm:w-auto'>
+      <div className='absolute bottom-0 right-0 top-0 aspect-square w-72 overflow-hidden rounded-bl-full bg-accent sm:left-1/4 sm:w-auto md:left-1/3 lg:left-1/2'>
         {image?.filename && (
           <div className='relative size-full after:absolute after:inset-0 after:bg-black/50'>
             <Image

@@ -52,7 +52,7 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
     <header
       className={cn(
         'theme--dark fixed inset-x-0 top-0 z-30 px-4 text-foreground duration-300 sm:px-8',
-        hasScrolled ? 'bg-background py-3 drop-shadow sm:py-6' : 'py-4 sm:py-10'
+        hasScrolled ? 'bg-background py-3 drop-shadow lg:py-6' : 'py-4 lg:py-10'
       )}
       {...storyblokEditable(blok)}
     >
@@ -96,7 +96,7 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
               <span className='hidden xl:block'>{phone}</span>
             </a>
           )}
-          <ButtonGroup buttons={buttons} size='sm' />
+          <ButtonGroup className='hidden sm:flex' buttons={buttons} size='sm' />
         </div>
         {menu && (
           <Sheet open={isOpen} onOpenChange={setIsOpen}>

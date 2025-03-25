@@ -64,7 +64,7 @@ export default function TileCaseStudy({
         />
 
         <Link href={`/case-studies/${slug}/`} passHref legacyBehavior>
-          <motion.a className='btn btn--text-link w-16 origin-right justify-end self-end overflow-x-clip whitespace-nowrap duration-300 before:absolute before:inset-0 group-hover/tile:w-calc-content'>
+          <motion.a className='btn btn--text-link max-w-16 origin-right justify-end self-end overflow-x-clip whitespace-nowrap duration-300 before:absolute before:inset-0 group-hover/tile:max-w-40'>
             <span className='opacity-0 transition-opacity group-hover/tile:opacity-100'>
               Read More
             </span>

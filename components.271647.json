@@ -1259,29 +1259,9 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-22T11:18:54.745Z",
-      "updated_at": "2024-01-22T15:11:56.144Z",
+      "updated_at": "2025-03-25T17:00:06.302Z",
       "id": 5208611,
       "schema": {
-        "tab-17a28df4-aec5-4a21-b41a-ec31569efb31": {
-          "display_name": "Header",
-          "keys": [
-            "buttons",
-            "menu",
-            "header"
-          ],
-          "pos": 5,
-          "type": "tab",
-          "key": "tab-17a28df4-aec5-4a21-b41a-ec31569efb31"
-        },
-        "tab-6249f205-8eae-4a98-a4af-37ac0f753c56": {
-          "display_name": "Footer",
-          "keys": [
-            "footer"
-          ],
-          "pos": 6,
-          "type": "tab",
-          "key": "tab-6249f205-8eae-4a98-a4af-37ac0f753c56"
-        },
         "header": {
           "type": "bloks",
           "restrict_type": "",
@@ -1291,7 +1271,8 @@
           ],
           "minimum": 1,
           "maximum": 1,
-          "required": true
+          "required": true,
+          "id": "kK_4scikTVGjpFM_9M_32w"
         },
         "footer": {
           "type": "bloks",
@@ -1302,7 +1283,51 @@
           "restrict_components": true,
           "component_whitelist": [
             "footer"
-          ]
+          ],
+          "id": "nNQGuTITRKaFd1etCb0a0g"
+        },
+        "tab-29a0eb5b-1421-4793-afe8-77f96a59b0cd": {
+          "display_name": "Cookie",
+          "keys": [
+            "cookie"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "KaDrWxQhR5Ov6Hf5almwzQ"
+        },
+        "tab-17a28df4-aec5-4a21-b41a-ec31569efb31": {
+          "display_name": "Header",
+          "keys": [
+            "buttons",
+            "menu",
+            "header"
+          ],
+          "pos": 5,
+          "type": "tab",
+          "key": "tab-17a28df4-aec5-4a21-b41a-ec31569efb31",
+          "id": "F6KN9K7FSiG0GuwxVp77MQ"
+        },
+        "cookie": {
+          "type": "bloks",
+          "pos": 5,
+          "minimum": 1,
+          "maximum": 1,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "cookie-consent"
+          ],
+          "id": "EZyHE6h-SOidsiIce0stJA"
+        },
+        "tab-6249f205-8eae-4a98-a4af-37ac0f753c56": {
+          "display_name": "Footer",
+          "keys": [
+            "footer"
+          ],
+          "pos": 6,
+          "type": "tab",
+          "key": "tab-6249f205-8eae-4a98-a4af-37ac0f753c56",
+          "id": "YknyBY6uSpikrzesD3U8Vg"
         }
       },
       "image": null,
@@ -1397,6 +1422,36 @@
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
       "component_group_name": "sections"
+    },
+    {
+      "name": "cookie-consent",
+      "display_name": null,
+      "description": "",
+      "created_at": "2025-03-25T16:58:58.960Z",
+      "updated_at": "2025-03-25T16:59:17.678Z",
+      "id": 7129505,
+      "schema": {
+        "message": {
+          "type": "richtext",
+          "pos": 0,
+          "id": "GxT4ByYyT6OiPclxn7vryQ"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "cookie-consent",
+      "component_group_uuid": "all",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
     },
     {
       "name": "faq",

@@ -10,45 +10,57 @@ import {
 } from '@/components/ui/drawer';
 import Heading from './Heading';
 import { ReactNode } from 'react';
-import { FooterStoryblok, HeaderStoryblok } from '@/component-types-sb';
+import {
+  CookieConsentStoryblok,
+  FooterStoryblok,
+  HeaderStoryblok,
+} from '@/component-types-sb';
 import ContactForm from './ContactForm';
 import { getConfig } from '@/lib/storyblok';
 import Scroll from './Scroll';
+import CookieConsentBanner from './CookieConsentBanner';
 
 export default async function Layout({ children }: { children: ReactNode }) {
   const config = await getConfig();
-  const { header, footer } = config?.content || {};
+  const { header, footer, cookie } = config?.content || {};
   return (
-    <Scroll root>
-      <Drawer>
-        {header &&
-          header.map((nestedBlok: HeaderStoryblok) => (
-            <Header blok={nestedBlok} key={nestedBlok.uuid} />
-          ))}
+    <>
+      <Scroll root>
+        <Drawer>
+          {header &&
+            header.map((nestedBlok: HeaderStoryblok) => (
+              <Header blok={nestedBlok} key={nestedBlok.uuid} />
+            ))}
 
-        {children}
-        <DrawerContent>
-          <div className='mx-auto w-full max-w-lg px-6'>
-            <DrawerHeader>
-              <Heading
-                heading='Get in touch with us about your latest project'
-                level={3}
-              />
-              <DrawerDescription>
-                Fill in the form below and we will contact you within 24 hours.
-              </DrawerDescription>
-            </DrawerHeader>
-            <ContactForm />
-            <DrawerFooter>
-              <DrawerClose asChild>Close</DrawerClose>
-            </DrawerFooter>
-          </div>
-        </DrawerContent>
-        {footer &&
-          footer.map((nestedBlok: FooterStoryblok) => (
-            <Footer blok={nestedBlok} key={nestedBlok._uid} />
-          ))}
-      </Drawer>
-    </Scroll>
+          {children}
+          <DrawerContent>
+            <div className='mx-auto w-full max-w-lg px-6'>
+              <DrawerHeader>
+                <Heading
+                  heading='Get in touch with us about your latest project'
+                  level={3}
+                />
+                <DrawerDescription>
+                  Fill in the form below and we will contact you within 24
+                  hours.
+                </DrawerDescription>
+              </DrawerHeader>
+              <ContactForm />
+              <DrawerFooter>
+                <DrawerClose asChild>Close</DrawerClose>
+              </DrawerFooter>
+            </div>
+          </DrawerContent>
+          {footer &&
+            footer.map((nestedBlok: FooterStoryblok) => (
+              <Footer blok={nestedBlok} key={nestedBlok._uid} />
+            ))}
+        </Drawer>
+      </Scroll>
+      {cookie &&
+        cookie.map((nestedBlok: CookieConsentStoryblok) => (
+          <CookieConsentBanner blok={nestedBlok} />
+        ))}
+    </>
   );
 }

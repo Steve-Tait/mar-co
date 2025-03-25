@@ -65,34 +65,36 @@ export default function TileArticle({
         </div>
       )}
 
-      <div className='relative flex grow flex-col items-start gap-y-2 bg-card p-4 text-card-foreground lg:p-6'>
-        <div className='flex grow flex-col items-start gap-y-2'>
-          {categories?.length ? (
-            <div className='pointer-events-none flex flex-wrap gap-2'>
-              {categories.map((category) => (
-                <Badge
-                  className='relative z-1'
-                  href={`/${category.full_slug}`}
-                  label={category.name}
-                  key={category.uuid}
-                />
-              ))}
-            </div>
-          ) : null}
+      <div className='relative flex grow flex-col items-start gap-y-2 bg-card p-4 text-card-foreground sm:gap-y-4 sm:p-8 xl:p-12'>
+        {categories?.length ? (
+          <div className='pointer-events-none mb-6 flex flex-wrap gap-2'>
+            {categories.map((category) => (
+              <Badge
+                className='relative z-1'
+                href={`/${category.full_slug}`}
+                label={category.name}
+                key={category.uuid}
+              />
+            ))}
+          </div>
+        ) : null}
+
+        <div className='flex flex-col gap-y-2'>
+          <p className='eyebrow'>{date}</p>
+
           <h5 className='line-clamp-2 font-bold' title={title}>
             {title}
           </h5>
-          <p className='line-clamp-3 text-sm' title={excerpt}>
-            {excerpt}
-          </p>
         </div>
         <Link className='absolute inset-0' href={`/insights/${slug}/`}>
           <span className='sr-only'>Read more</span>
         </Link>
-        <div className='flex w-full items-center justify-between'>
-          <span>{date}</span>
+        <div className='flex w-full items-center justify-between gap-x-6'>
+          <p className='line-clamp-3 text-sm' title={excerpt}>
+            {excerpt}
+          </p>
           <ChevronRight
-            className='-translate-x-2 justify-self-end opacity-0 transition-[opacity,transform] group-hover/tile:translate-x-0 group-hover/tile:opacity-100'
+            className='shrink-0 -translate-x-2 justify-self-end opacity-0 transition-[opacity,transform] group-hover/tile:translate-x-0 group-hover/tile:opacity-100'
             size={32}
           />
         </div>

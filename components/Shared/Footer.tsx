@@ -47,7 +47,7 @@ export default function Footer({ blok }: { blok: FooterStoryblok }) {
                   key={_uid}
                   href={link.cached_url || link.url}
                   target={link.target}
-                  className='text-white hover:underline'
+                  className='text-white underline decoration-transparent underline-offset-4 duration-200 hover:decoration-current hover:underline-offset-2'
                 >
                   {label}
                 </Link>

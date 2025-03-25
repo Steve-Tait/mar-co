@@ -26,7 +26,7 @@ const config = {
     },
     colors: {
       inherit: 'inherit',
-      current: 'current',
+      current: 'currentColor',
       pink: {
         DEFAULT: '#FF5757',
         900: '#880000',

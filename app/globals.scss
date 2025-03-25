@@ -99,6 +99,9 @@
           @apply bg-muted text-muted-foreground;
         }
       }
+      a {
+        @apply underline decoration-inherit underline-offset-4 duration-200 hover:underline-offset-2;
+      }
     }
   }
 

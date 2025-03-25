@@ -351,6 +351,7 @@ export interface ColouredContainerSectionStoryblok {
 export interface ConfigStoryblok {
   header: HeaderStoryblok[];
   footer: FooterStoryblok[];
+  cookie?: CookieConsentStoryblok[];
   _uid: string;
   component: "config";
   [k: string]: any;
@@ -366,6 +367,13 @@ export interface ContactSectionStoryblok {
   address?: string;
   _uid: string;
   component: "contact-section";
+  [k: string]: any;
+}
+
+export interface CookieConsentStoryblok {
+  message?: RichtextStoryblok;
+  _uid: string;
+  component: "cookie-consent";
   [k: string]: any;
 }
 

@@ -14,7 +14,6 @@ export default function CookieConsentBanner({
 }: {
   blok: CookieConsentStoryblok;
 }) {
-  console.log('CookieConsentBanner', blok);
   const { message } = blok || {};
   const [showBanner, setShowBanner] = useState(false);
   const lenis = useLenis();

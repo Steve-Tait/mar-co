@@ -12,7 +12,7 @@ import MenuSectionHeader from '../Content/MenuSectionHeader';
 import Link from 'next/link';
 import { NavigationMenu, NavigationMenuList } from '../ui/navigation-menu';
 import { cn } from '@/lib/utils';
-import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '../ui/sheet';
 import { useLenis } from './SmoothScroller';
 import Hamburger from './Hamburger';
 import Scroll from './Scroll';
@@ -104,25 +104,25 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
               <Hamburger isOpen={isOpen} />
             </SheetTrigger>
             <SheetContent side='left'>
-              <Scroll className='max-h-full'>
+              <div className='flex h-full flex-col justify-between gap-y-4'>
+                <SheetTitle className='sr-only'>Menu</SheetTitle>
                 <nav className='flex flex-col gap-y-6 text-left text-primary-foreground'>
                   {menu.map((nestedBlok) => (
                     <React.Fragment key={nestedBlok._uid}>
-                      {nestedBlok.items ? (
+                      {nestedBlok?.items ? (
                         <div className='flex flex-col gap-y-2'>
                           <p className='text-xl font-bold underline decoration-secondary decoration-2 underline-offset-4'>
                             {nestedBlok.heading}
                           </p>
-                          {nestedBlok.items &&
-                            nestedBlok.items.map((item: MenuLinkStoryblok) => (
-                              <Link
-                                key={item._uid}
-                                title={item.label}
-                                href={`/${item.link.cached_url}`}
-                              >
-                                {item?.label}
-                              </Link>
-                            ))}
+                          {nestedBlok?.items.map((item: MenuLinkStoryblok) => (
+                            <Link
+                              key={item._uid}
+                              title={item.label}
+                              href={`/${item.link.cached_url}`}
+                            >
+                              {item?.label}
+                            </Link>
+                          ))}
                         </div>
                       ) : (
                         <Link
@@ -135,7 +135,8 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
                     </React.Fragment>
                   ))}
                 </nav>
-              </Scroll>
+                <ButtonGroup className='flex w-full' buttons={buttons} />
+              </div>
             </SheetContent>
           </Sheet>
         )}

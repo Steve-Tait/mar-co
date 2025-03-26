@@ -6,17 +6,19 @@ export default function robots(): MetadataRoute.Robots {
       ? `https://${process.env.VERCEL_URL}`
       : `http://localhost:${process.env.PORT || 3000}`
   );
-  return {
-    rules:
-      process.env.VERCEL_ENV === 'production'
-        ? {
-            userAgent: '*',
-            allow: '/',
-          }
-        : {
-            userAgent: '*',
-            disallow: '/',
-          },
-    sitemap: `${baseUrl}/sitemap.xml`,
-  };
+
+  return process.env.VERCEL_ENV === 'production'
+    ? {
+        rules: {
+          userAgent: '*',
+          allow: '/',
+        },
+        sitemap: `${baseUrl}/sitemap.xml`,
+      }
+    : {
+        rules: {
+          userAgent: '*',
+          disallow: '/',
+        },
+      };
 }

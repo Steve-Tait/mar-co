@@ -40,7 +40,7 @@ const formFields: FormField[] = [
     placeholder: '07XXXXXXXXX',
   },
   {
-    label: 'I agree to the terms and conditions',
+    label: "I agree to join MAR-CO's email list and can opt-out at any time.",
     type: 'checkbox',
     name: 'agree',
     isWide: true,
@@ -68,8 +68,11 @@ const ContactForm = () => {
           <div className={cn(field.isWide && 'col-span-2')} key={field.name}>
             <>
               {field.type === 'checkbox' ? (
-                <div className='flex items-center gap-x-2'>
-                  <label className='shink-0 order-1' htmlFor={field.name}>
+                <div className='grid-cols-auto grid grid-flow-col items-center gap-x-2'>
+                  <label
+                    className='shink-0 order-1 text-sm'
+                    htmlFor={field.name}
+                  >
                     {field.label}
                   </label>
                   <input
@@ -77,7 +80,7 @@ const ContactForm = () => {
                     type={field.type || 'text'}
                     name={field.name}
                     placeholder={field?.placeholder}
-                    className='accent-pink'
+                    className='h-5 accent-pink'
                   />
                 </div>
               ) : (

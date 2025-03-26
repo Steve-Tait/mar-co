@@ -39,6 +39,6 @@ export const subscribeSchema = z.object({
       return z.NEVER;
     }),
   agree: z.coerce.boolean().refine((bool) => bool == true, {
-    message: 'You must agree to our terms and conditions',
+    message: 'You must agree to join the email list',
   }),
 });

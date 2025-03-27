@@ -7,7 +7,7 @@ interface Heading extends React.HTMLAttributes<HTMLHeadingElement> {
   className?: string;
   children?: React.ReactNode;
 }
-const CLASS_NAME = 'text-balance';
+const CLASS_NAME = 'text-balance whitespace-pre-line';
 
 const Heading = ({
   level = 2,

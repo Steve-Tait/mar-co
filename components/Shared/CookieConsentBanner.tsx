@@ -16,12 +16,12 @@ export default function CookieConsentBanner({
 }) {
   const { message } = blok || {};
   const [showBanner, setShowBanner] = useState(false);
-  const lenis = useLenis();
+  // const lenis = useLenis();
 
-  useEffect(() => {
-    if (!lenis) return;
-    showBanner ? lenis.stop() : lenis.start();
-  }, [showBanner, lenis]);
+  // useEffect(() => {
+  //   if (!lenis) return;
+  //   showBanner ? lenis.stop() : lenis.start();
+  // }, [showBanner, lenis]);
 
   useEffect(() => {
     const consentCookie = cookie.get('cookieConsent');
@@ -44,15 +44,8 @@ export default function CookieConsentBanner({
   return (
     <AnimatePresence>
       <motion.div
-        key='backdrop'
-        className='pointer-events-none fixed inset-0 z-50 bg-black/10 backdrop-blur-sm'
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      ></motion.div>
-      <motion.div
         key='banner'
-        className='fixed inset-x-0 bottom-0 z-50 bg-background p-4 text-center text-foreground'
+        className='theme--alternate fixed inset-x-0 bottom-0 z-50 bg-background p-4 text-center text-foreground'
         initial={{ y: '100%', opacity: 0 }}
         animate={{ y: '0', opacity: 1 }}
         exit={{ y: '100%', opacity: 0 }}

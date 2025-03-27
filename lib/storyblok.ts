@@ -12,6 +12,7 @@ import {
   CategoryStoryblok,
 } from '@/component-types-sb';
 import { COMPONENTS } from './components';
+import { htmlToText } from './utils';
 
 export const getStoryblokApi = storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN,

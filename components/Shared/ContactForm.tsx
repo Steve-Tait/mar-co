@@ -1,9 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useActionState } from 'react';
 import { SubmitButton } from './SubmitButton';
 import { subscribe } from '@/lib/actions';
-import { useFormState } from 'react-dom';
 import { cn } from '@/lib/utils';
 
 type FormField = {
@@ -49,7 +48,7 @@ const formFields: FormField[] = [
 
 const ContactForm = () => {
   const ref = React.useRef<HTMLFormElement>(null);
-  const [state, formAction] = useFormState(subscribe, null);
+  const [state, formAction] = useActionState(subscribe, null);
   if (state?.wasSuccessful) {
     ref?.current?.reset();
     return (

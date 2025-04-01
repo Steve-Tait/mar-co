@@ -29,7 +29,7 @@ const TextAndImageSection = ({
               src={image.filename}
               alt={image.alt || image.title || ''}
               fill
-              objectFit='cover'
+              className='object-cover'
             />
           </div>
         )}

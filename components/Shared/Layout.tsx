@@ -33,6 +33,10 @@ export default async function Layout({ children }: { children: ReactNode }) {
             ))}
 
           {children}
+          {footer &&
+            footer.map((nestedBlok: FooterStoryblok) => (
+              <Footer blok={nestedBlok} key={nestedBlok._uid} />
+            ))}
           <DrawerContent>
             <div className='mx-auto w-full max-w-lg px-6'>
               <DrawerHeader>
@@ -51,10 +55,6 @@ export default async function Layout({ children }: { children: ReactNode }) {
               </DrawerFooter>
             </div>
           </DrawerContent>
-          {footer &&
-            footer.map((nestedBlok: FooterStoryblok) => (
-              <Footer blok={nestedBlok} key={nestedBlok._uid} />
-            ))}
         </Drawer>
       </Scroll>
       {cookie &&

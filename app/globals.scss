@@ -40,14 +40,13 @@
     --radius: 0.5rem;
 
     .prose {
-      @apply flex flex-col gap-y-4 text-base lg:text-lg;
+      @apply flex flex-col gap-y-4 text-pretty text-base lg:text-lg;
       &--lg {
         @apply text-lg lg:text-xl;
       }
       ::marker {
         @apply font-bold text-secondary;
       }
-      text-wrap-style: pretty;
       h1,
       h2,
       h3,

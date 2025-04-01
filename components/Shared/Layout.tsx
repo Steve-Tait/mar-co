@@ -7,6 +7,7 @@ import {
   DrawerDescription,
   DrawerFooter,
   DrawerHeader,
+  DrawerTitle,
 } from '@/components/ui/drawer';
 import Heading from './Heading';
 import { ReactNode } from 'react';
@@ -40,10 +41,12 @@ export default async function Layout({ children }: { children: ReactNode }) {
           <DrawerContent>
             <div className='mx-auto w-full max-w-lg px-6'>
               <DrawerHeader>
-                <Heading
-                  heading='Get in touch with us about your latest project'
-                  level={3}
-                />
+                <DrawerTitle asChild>
+                  <Heading
+                    heading='Get in touch with us about your latest project'
+                    level={3}
+                  />
+                </DrawerTitle>
                 <DrawerDescription>
                   Fill in the form below and we will contact you within 24
                   hours.

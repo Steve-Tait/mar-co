@@ -50,31 +50,32 @@ export async function subscribe(
       const errorData = await res.json();
       throw errorData;
     }
-
-    await fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'api-key': process.env.BREVO_API_KEY,
-      },
-      body: JSON.stringify({
-        sender: { name: 'System Notification', email: 'info@mar-co.digital' },
-        to: [{ email: 'info@mar-co.digital', name: 'MAR-CO Digital' }],
-        subject: 'New Contact Added to Your List',
-        htmlContent: `
-          <p>A new contact has been added to your Brevo list:</p>
-          <ul>
-            <li><b>First Name:</b> ${validatedFields.data.firstName}</li>
-            <li><b>Last Name:</b> ${validatedFields.data.lastName}</li>
-            <li><b>Email:</b> ${validatedFields.data.email}</li>
-            <li><b>Phone:</b> ${validatedFields.data.phone}</li>
-          </ul>
-        `,
-      }),
-    });
+    // await fetch('https://api.brevo.com/v3/smtp/email', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'api-key': process.env.BREVO_API_KEY,
+    //   },
+    //   body: JSON.stringify({
+    //     sender: { name: 'System Notification', email: 'info@mar-co.digital' },
+    //     to: [{ email: 'info@mar-co.digital', name: 'MAR-CO Digital' }],
+    //     subject: 'New Contact Added to Your List',
+    //     htmlContent: `
+    //       <p>A new contact has been added to your Brevo list:</p>
+    //       <ul>
+    //         <li><b>First Name:</b> ${validatedFields.data.firstName}</li>
+    //         <li><b>Last Name:</b> ${validatedFields.data.lastName}</li>
+    //         <li><b>Email:</b> ${validatedFields.data.email}</li>
+    //         <li><b>Phone:</b> ${validatedFields.data.phone}</li>
+    //       </ul>
+    //     `,
+    //   }),
+    // });
+    const data = await res.text();
+    console.log('data', data);
     response = {
       wasSuccessful: true,
-      data: await res.json(),
+      data: data,
     };
   } catch (e) {
     response = {

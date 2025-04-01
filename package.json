@@ -13,6 +13,7 @@
     "generate-sb-types": "storyblok user --space 271647 && storyblok-generate-ts source=./components.271647.json target=./component-types-sb"
   },
   "dependencies": {
+    "@next/third-parties": "^15.2.4",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-navigation-menu": "^1.2.0",
@@ -31,7 +32,7 @@
     "js-cookie": "^3.0.5",
     "libphonenumber-js": "^1.12.6",
     "lucide-react": "^0.483.0",
-    "next": "^14.2.11",
+    "next": "^15.2.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-social-media-embed": "^2.5.17",

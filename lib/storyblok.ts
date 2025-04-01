@@ -14,7 +14,7 @@ import {
 import { COMPONENTS } from './components';
 
 export const getStoryblokApi = storyblokInit({
-  accessToken: process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN,
+  accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
   use: [apiPlugin],
   apiOptions: {
     region: 'eu',
@@ -29,7 +29,7 @@ export async function getLinks() {
     return;
   }
   const { data } = await storyblokApi.get('cdn/links', {
-    version: (process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'draft') as
+    version: (process.env.STORYBLOK_VERSION ?? 'draft') as
       | 'draft'
       | 'published',
   });
@@ -46,7 +46,7 @@ export async function getStory(slug: string) {
     const { data } = await storyblokApi.get(
       `cdn/stories/${slug}`,
       {
-        version: (process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'draft') as
+        version: (process.env.STORYBLOK_VERSION ?? 'draft') as
           | 'draft'
           | 'published',
         resolve_relations: resolveRelations,
@@ -100,7 +100,7 @@ export const getArticles = async (
 ): Promise<ArticleStoryblok[]> => {
   const storyblokApi = getStoryblokApi();
   let options: ISbStoriesParams = {
-    version: (process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'draft') as
+    version: (process.env.STORYBLOK_VERSION ?? 'draft') as
       | 'draft'
       | 'published',
     starts_with: 'insights/',
@@ -131,7 +131,7 @@ export const getCategories = async (): Promise<CategoryStoryblok[]> => {
   const { data } = await storyblokApi.get(
     `cdn/stories`,
     {
-      version: (process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'draft') as
+      version: (process.env.STORYBLOK_VERSION ?? 'draft') as
         | 'draft'
         | 'published',
       starts_with: 'categories/',
@@ -150,7 +150,7 @@ export const getCaseStudies = async (
 ): Promise<CaseStudyStoryblok[]> => {
   const storyblokApi = getStoryblokApi();
   let options: ISbStoriesParams = {
-    version: (process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'draft') as
+    version: (process.env.STORYBLOK_VERSION ?? 'draft') as
       | 'draft'
       | 'published',
     starts_with: 'case-studies/',

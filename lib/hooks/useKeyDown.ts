@@ -1,31 +1,30 @@
 import { useEffect } from 'react';
 
 export const useKeyPress = (
-	callback: (T?: any) => void,
-	keys: KeyboardKey[],
+  callback: (T?: any) => void,
+  keys: KeyboardKey[]
 ) => {
-	const onKeyDown = (event: KeyboardEvent) => {
-		const wasAnyKeyPressed = keys.some((key) => event.key === key);
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      const wasAnyKeyPressed = keys.some((key) => event.key === key);
 
-		if (wasAnyKeyPressed) {
-			event.preventDefault();
-			callback();
-		}
-	};
+      if (wasAnyKeyPressed) {
+        event.preventDefault();
+        callback();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
 
-	useEffect(() => {
-		document.addEventListener('keydown', onKeyDown);
-
-		return () => {
-			document.removeEventListener('keydown', onKeyDown);
-		};
-	}, [onKeyDown]);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
 };
 
 // enums/KeyboardKey.ts
 export enum KeyboardKey {
-	escape = 'Escape',
-	enter = 'Enter',
-	arrowleft = 'ArrowLeft',
-	arrowright = 'ArrowRight',
+  escape = 'Escape',
+  enter = 'Enter',
+  arrowleft = 'ArrowLeft',
+  arrowright = 'ArrowRight',
 }

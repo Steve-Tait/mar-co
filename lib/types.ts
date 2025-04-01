@@ -12,12 +12,14 @@ export interface SvgBlobProps
   shapeProps?: ShapeProps;
   image?: string;
 }
+
 export type Paths = {
   slug: string[];
 };
+
 export type MetaProps = {
-  params: Paths;
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<Paths>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 export type TSubscribeResponse = {
   wasSuccessful: boolean;

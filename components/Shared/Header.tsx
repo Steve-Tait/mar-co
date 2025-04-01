@@ -30,7 +30,7 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
   useEffect(() => {
     if (!lenis) return;
     isOpen ? lenis.stop() : lenis.start();
-  }, [isOpen]);
+  }, [isOpen, lenis]);
 
   const updateScroll = () => setHasScrolled(window.scrollY > 100);
 

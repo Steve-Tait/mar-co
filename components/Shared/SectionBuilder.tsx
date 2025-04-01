@@ -53,7 +53,7 @@ export default function SectionBuilder({
   return (
     <>
       {body?.map((nestedBlok) => (
-        <StoryblokServerComponent blok={nestedBlok} key={nestedBlok.uuid} />
+        <StoryblokServerComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
     </>
   );

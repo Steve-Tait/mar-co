@@ -6,7 +6,7 @@ import { MetaProps } from '@/lib/types';
 import { resolveRelations } from '@/lib/consts';
 
 export async function generateMetadata(
-  { params }: MetaProps,
+  props: MetaProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   return createMetaData({ slug: ['home'] });

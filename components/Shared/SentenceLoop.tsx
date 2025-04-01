@@ -50,7 +50,7 @@ const SentenceLoop = ({
       setCurrentSlide((prev) => (prev + 1 === sentences.length ? 0 : prev + 1));
     }, 5000);
     return () => clearInterval(id);
-  }, []);
+  }, [sentences.length]);
 
   useEffect(() => {
     let maxHeight = 0;
@@ -62,7 +62,7 @@ const SentenceLoop = ({
       }
       setHeight(maxHeight * 1.1);
     });
-  }, [refs.current, width]);
+  }, [width]);
 
   return (
     <div

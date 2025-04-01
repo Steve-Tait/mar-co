@@ -328,7 +328,7 @@ const Lava = ({
     lava0 = new LavaLamp(screen.width, screen.height, 6, color1, color2);
 
     run();
-  }, []);
+  }, [color1, color2]);
 
   return (
     <canvas

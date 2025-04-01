@@ -26,7 +26,7 @@ export default function NumberCounter({
     if (isInView) {
       motionValue.set(direction === 'down' ? 0 : value);
     }
-  }, [motionValue, isInView]);
+  }, [motionValue, isInView, direction, value]);
 
   useEffect(
     () =>
@@ -38,7 +38,7 @@ export default function NumberCounter({
             )
           : Math.round(latest) + '';
       }),
-    [springValue]
+    [springValue, decimals, value, formatNumber]
   );
 
   return <span className={className} ref={ref} />;

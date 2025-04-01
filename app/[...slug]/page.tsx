@@ -6,13 +6,15 @@ import { MetaProps } from '@/lib/types';
 import { resolveRelations } from '@/lib/consts';
 
 export async function generateMetadata(
-  { params }: MetaProps,
+  props: MetaProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
+  const params = await props.params;
   return createMetaData(params);
 }
 
-export default async function Page({ params, searchParams }: MetaProps) {
+export default async function Page(props: MetaProps) {
+  const params = await props.params;
   const story = await fetchData(params);
   if (!story?.content) {
     notFound();

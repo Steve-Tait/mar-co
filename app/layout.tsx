@@ -42,6 +42,22 @@ export default async function RootLayout({
   return (
     <StoryblokProvider>
       <html lang='en'>
+        <head>
+          <link
+            rel='icon'
+            href='/icon?<generated>'
+            type='image/<generated>'
+            sizes='<generated>'
+          />
+          <link
+            rel='apple-touch-icon'
+            href='/apple-icon?<generated>'
+            type='image/<generated>'
+            sizes='<generated>'
+          />
+          <link rel='icon' href='/favicon.ico' sizes='any' />
+          <meta name='apple-mobile-web-app-title' content='Mar-co' />
+        </head>
         <GoogleTagManager gtmId={process.env.GTM_ID || ''} />
         <body
           className={cn(

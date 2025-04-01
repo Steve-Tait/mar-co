@@ -29,7 +29,7 @@ export default async function Layout({ children }: { children: ReactNode }) {
         <Drawer>
           {header &&
             header.map((nestedBlok: HeaderStoryblok) => (
-              <Header blok={nestedBlok} key={nestedBlok.uuid} />
+              <Header blok={nestedBlok} key={nestedBlok._uid} />
             ))}
 
           {children}
@@ -59,7 +59,7 @@ export default async function Layout({ children }: { children: ReactNode }) {
       </Scroll>
       {cookie &&
         cookie.map((nestedBlok: CookieConsentStoryblok) => (
-          <CookieConsentBanner blok={nestedBlok} />
+          <CookieConsentBanner key={nestedBlok._uid} blok={nestedBlok} />
         ))}
     </>
   );

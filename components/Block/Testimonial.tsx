@@ -25,7 +25,7 @@ const Testimonial = ({ blok, className }: TTestimonial) => {
           avatar?.filename && 'pb-16 md:pb-20'
         )}
       >
-        "{content}"
+        &#34;{content}&#34;
       </blockquote>
       <footer className='flex flex-col items-center gap-y-2'>
         {avatar?.filename && (

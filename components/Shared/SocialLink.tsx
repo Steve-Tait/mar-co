@@ -1,14 +1,15 @@
-import { MultilinkStoryblok } from '@/component-types-sb';
 import { DynamicIcon, IconName } from 'lucide-react/dynamic';
 
 type TBadge = {
-  link: MultilinkStoryblok;
+  link: string;
+  target?: string;
   icon?: IconName;
   className?: string;
 };
 
 const SocialLink = ({
   link,
+  target,
   icon = 'linkedin',
   className,
   ...props
@@ -16,8 +17,8 @@ const SocialLink = ({
   return (
     <a
       className='mt-4 flex h-8 w-8 shrink-0 rounded-full border border-secondary p-1.5 text-secondary transition-colors hover:bg-secondary hover:text-white'
-      href={link.url}
-      target='_blank'
+      href={link}
+      target={target}
       rel='noopener noreferrer'
       {...props}
     >

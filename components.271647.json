@@ -1259,7 +1259,7 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-22T11:18:54.745Z",
-      "updated_at": "2025-03-25T17:00:06.302Z",
+      "updated_at": "2025-04-02T10:13:05.569Z",
       "id": 5208611,
       "schema": {
         "header": {
@@ -1295,6 +1295,15 @@
           "type": "tab",
           "id": "KaDrWxQhR5Ov6Hf5almwzQ"
         },
+        "tab-38082658-7f10-49ca-87cd-90069fcef098": {
+          "display_name": "Contact",
+          "keys": [
+            "contact"
+          ],
+          "pos": 0,
+          "type": "tab",
+          "id": "OAgmWH8QScqHzZAGn87wmA"
+        },
         "tab-17a28df4-aec5-4a21-b41a-ec31569efb31": {
           "display_name": "Header",
           "keys": [
@@ -1328,6 +1337,18 @@
           "type": "tab",
           "key": "tab-6249f205-8eae-4a98-a4af-37ac0f753c56",
           "id": "YknyBY6uSpikrzesD3U8Vg"
+        },
+        "contact": {
+          "type": "bloks",
+          "pos": 7,
+          "minimum": 1,
+          "maximum": 1,
+          "id": "8m6uC_VYQCeLYbVeMeGGiQ",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "contact"
+          ]
         }
       },
       "image": null,
@@ -1347,11 +1368,58 @@
       "component_group_name": "pages"
     },
     {
+      "name": "contact",
+      "display_name": null,
+      "description": "",
+      "created_at": "2025-04-02T10:10:35.947Z",
+      "updated_at": "2025-04-02T10:11:32.975Z",
+      "id": 7158563,
+      "schema": {
+        "linkedin": {
+          "type": "multilink",
+          "pos": 0,
+          "id": "ynSfKlJmTe65iSkbhsGZAQ",
+          "force_link_scope": false
+        },
+        "email": {
+          "type": "multilink",
+          "pos": 1,
+          "email_link_type": true,
+          "id": "sOOqcBOPTdai-D2uTlGQbg"
+        },
+        "phone": {
+          "type": "text",
+          "pos": 2,
+          "id": "dOjn1JtqRnSxsnrYsv2vLw"
+        },
+        "address": {
+          "type": "textarea",
+          "pos": 3,
+          "id": "VpDDcU9PQp67Og8JTHnjMQ"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "contact",
+      "component_group_uuid": "all",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
       "name": "contact-section",
       "display_name": null,
       "description": null,
       "created_at": "2025-03-18T22:02:18.450Z",
-      "updated_at": "2025-03-18T22:14:49.513Z",
+      "updated_at": "2025-04-02T10:13:35.291Z",
       "id": 7102832,
       "schema": {
         "eyebrow": {
@@ -1386,7 +1454,7 @@
           "type": "multilink",
           "pos": 6,
           "display_name": "LinkedIn",
-          "allow_target_blank": true,
+          "allow_target_blank": false,
           "id": "BHtO9TpASpW69hPjXJQTAQ"
         },
         "email": {
@@ -1830,13 +1898,14 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-08-29T10:53:18.972Z",
-      "updated_at": "2024-09-02T12:24:56.636Z",
+      "updated_at": "2025-03-27T10:23:04.841Z",
       "id": 6226488,
       "schema": {
         "title": {
-          "type": "text",
+          "type": "textarea",
           "pos": 0,
-          "required": true
+          "required": true,
+          "id": "WOVyfM56RtaMm9E9NAqZ0w"
         },
         "animated_title": {
           "type": "bloks",
@@ -1846,11 +1915,13 @@
           "restrict_components": true,
           "component_whitelist": [
             "animated-word"
-          ]
+          ],
+          "id": "WAF4R6cnQwWexNRNMwfviA"
         },
         "subheading": {
           "type": "textarea",
-          "pos": 2
+          "pos": 2,
+          "id": "RZ-JVNnnQ9K1QsU_kufRSg"
         },
         "buttons": {
           "type": "bloks",
@@ -1860,17 +1931,20 @@
           "component_whitelist": [
             "button"
           ],
-          "maximum": 2
+          "maximum": 2,
+          "id": "K5y6ppw6SXWDnviMC6Yz8A"
         },
         "image": {
           "type": "asset",
           "pos": 4,
-          "required": false
+          "required": false,
+          "id": "oC5iNVFjT-eZ-GiFPUh06g"
         },
         "excerpt": {
           "type": "textarea",
           "pos": 5,
-          "required": false
+          "required": false,
+          "id": "nNeK5YBpQAmgKu_nDzyktQ"
         },
         "body": {
           "type": "bloks",
@@ -1880,7 +1954,8 @@
           "component_group_whitelist": [
             "b1d05dd6-af9a-4109-91fe-59ef047439ef"
           ],
-          "pos": 6
+          "pos": 6,
+          "id": "lt_FFjPlRtWgt4JNbSNGzg"
         },
         "tab-d7c46f8c-20ec-44e2-9b78-1442be387744": {
           "display_name": "Hero",
@@ -1894,7 +1969,8 @@
           ],
           "pos": 7,
           "type": "tab",
-          "name": "tab-d7c46f8c-20ec-44e2-9b78-1442be387744"
+          "name": "tab-d7c46f8c-20ec-44e2-9b78-1442be387744",
+          "id": "18RvjCDsROKbeBRCvjh3RA"
         },
         "tab-5f7c3c65-71e4-4866-a8f5-cde3d4e5c302": {
           "display_name": "Seo",
@@ -1904,15 +1980,18 @@
           ],
           "pos": 8,
           "type": "tab",
-          "name": "tab-5f7c3c65-71e4-4866-a8f5-cde3d4e5c302"
+          "name": "tab-5f7c3c65-71e4-4866-a8f5-cde3d4e5c302",
+          "id": "X3w8ZXHkSGao9c3j1OXDAg"
         },
         "meta_title": {
           "type": "text",
-          "pos": 9
+          "pos": 9,
+          "id": "8owfGV7JRSyE-pyMVVRFoQ"
         },
         "meta_description": {
           "type": "textarea",
-          "pos": 10
+          "pos": 10,
+          "id": "xbD81DhzTnqLlSALYQ3Y5g"
         }
       },
       "image": null,
@@ -2488,7 +2567,7 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-01-18T15:54:08.861Z",
-      "updated_at": "2025-03-24T20:57:20.348Z",
+      "updated_at": "2025-03-27T10:33:03.266Z",
       "id": 5194085,
       "schema": {
         "type": {
@@ -2513,7 +2592,7 @@
           "required": false
         },
         "title": {
-          "type": "text",
+          "type": "textarea",
           "pos": 1,
           "required": true,
           "id": "2Gdb7KKWRBujof1pGjxX6w"

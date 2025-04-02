@@ -60,9 +60,9 @@ const ContactSection = ({ blok }: { blok: ContactSectionStoryblok }) => {
                 <span className='size-8 shrink-0 rounded-full border border-secondary p-1.5 text-secondary transition-colors group-hover/contact:bg-secondary group-hover/contact:text-white lg:size-12 lg:p-2.5'>
                   <MapPin className='size-full' />
                 </span>
-                <span className='flex flex-col gap-y-1 whitespace-pre-wrap'>
+                <span className='flex flex-col gap-y-1 whitespace-pre-line'>
                   <h6>In-person:</h6>
-                  {address}
+                  <address className='not-italic'>{address}</address>
                 </span>
               </div>
             )}

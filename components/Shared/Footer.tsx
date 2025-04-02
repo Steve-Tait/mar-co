@@ -1,14 +1,25 @@
 import { storyblokEditable } from '@storyblok/react';
 import Container from '@/components/Shared/Container';
 import MenuSectionFooter from '../Content/MenuSectionFooter';
-import { FooterStoryblok, MenuSectionStoryblok } from '@/component-types-sb';
+import {
+  ContactStoryblok,
+  FooterStoryblok,
+  MenuSectionStoryblok,
+} from '@/component-types-sb';
 import RichText from '../Block/RichText';
 import SocialLink from './SocialLink';
 import { isRichTextPopulated } from '@/lib/utils';
 import Link from 'next/link';
 
-export default function Footer({ blok }: { blok: FooterStoryblok }) {
-  const { menu, body, linkedin, mandatories } = blok;
+export default function Footer({
+  blok,
+  contact,
+}: {
+  blok: FooterStoryblok;
+  contact: ContactStoryblok;
+}) {
+  const { menu, body, mandatories } = blok;
+  const { email, phone, linkedin, address } = contact;
   return (
     <footer className='text-center sm:text-left' {...storyblokEditable(blok)}>
       <Container className='flex flex-col gap-8 py-10'>
@@ -17,10 +28,28 @@ export default function Footer({ blok }: { blok: FooterStoryblok }) {
             <Link href='/' className='whitespace-nowrap text-4xl font-bold'>
               MAR-CO<span className='text-secondary'>.</span>
             </Link>
-            {linkedin?.url && <SocialLink link={linkedin} />}
+            <div>
+              {address && (
+                <address className='whitespace-pre-line text-sm'>
+                  {address}
+                </address>
+              )}
+              <nav className='inline-flex gap-x-4'>
+                {linkedin?.url && (
+                  <SocialLink link={linkedin.url} target='_blank' />
+                )}
+                {phone && (
+                  <SocialLink
+                    icon='phone'
+                    link={`tel:${phone.replace(/\s/g, '')}`}
+                  />
+                )}
+                {email && <SocialLink icon='mail' link={email.email} />}
+              </nav>
+            </div>
           </div>
           {menu && (
-            <div className='md:grid-cols-auto grid grid-cols-2 gap-y-8 sm:col-span-2 sm:grid-cols-3 md:grid-flow-col'>
+            <div className='grid grid-cols-2 gap-y-8 sm:col-span-2 sm:grid-cols-3 md:grid-flow-col md:grid-cols-none'>
               {menu.map((nestedBlok: MenuSectionStoryblok) => (
                 <MenuSectionFooter blok={nestedBlok} key={nestedBlok._uid} />
               ))}

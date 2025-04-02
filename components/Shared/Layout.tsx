@@ -23,7 +23,7 @@ import CookieConsentBanner from './CookieConsentBanner';
 
 export default async function Layout({ children }: { children: ReactNode }) {
   const config = await getConfig();
-  const { header, footer, cookie } = config?.content || {};
+  const { header, footer, cookie, contact } = config?.content || {};
   return (
     <>
       <Scroll root>
@@ -36,7 +36,11 @@ export default async function Layout({ children }: { children: ReactNode }) {
           {children}
           {footer &&
             footer.map((nestedBlok: FooterStoryblok) => (
-              <Footer blok={nestedBlok} key={nestedBlok._uid} />
+              <Footer
+                blok={nestedBlok}
+                key={nestedBlok._uid}
+                contact={contact[0]}
+              />
             ))}
           <DrawerContent>
             <div className='mx-auto w-full max-w-lg px-6'>

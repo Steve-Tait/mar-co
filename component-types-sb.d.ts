@@ -352,8 +352,19 @@ export interface ConfigStoryblok {
   header: HeaderStoryblok[];
   footer: FooterStoryblok[];
   cookie?: CookieConsentStoryblok[];
+  contact?: ContactStoryblok[];
   _uid: string;
   component: "config";
+  [k: string]: any;
+}
+
+export interface ContactStoryblok {
+  linkedin?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  email?: Exclude<MultilinkStoryblok, {linktype?: "asset"}>;
+  phone?: string;
+  address?: string;
+  _uid: string;
+  component: "contact";
   [k: string]: any;
 }
 

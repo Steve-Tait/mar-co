@@ -39,17 +39,14 @@ export default async function Layout({ children }: { children: ReactNode }) {
               <Footer
                 blok={nestedBlok}
                 key={nestedBlok._uid}
-                contact={contact[0]}
+                contact={contact?.[0]}
               />
             ))}
           <DrawerContent>
             <div className='mx-auto w-full max-w-lg px-6'>
               <DrawerHeader>
                 <DrawerTitle asChild>
-                  <Heading
-                    heading='Get in touch with us about your latest project'
-                    level={3}
-                  />
+                  <Heading heading='Get in touch with us' level={3} />
                 </DrawerTitle>
                 <DrawerDescription>
                   Fill in the form below and we will contact you within 24

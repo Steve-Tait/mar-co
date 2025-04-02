@@ -16,10 +16,10 @@ export default function Footer({
   contact,
 }: {
   blok: FooterStoryblok;
-  contact: ContactStoryblok;
+  contact?: ContactStoryblok;
 }) {
   const { menu, body, mandatories } = blok;
-  const { email, phone, linkedin, address } = contact;
+  const { email, phone, linkedin, address } = contact || {};
   return (
     <footer className='text-center sm:text-left' {...storyblokEditable(blok)}>
       <Container className='flex flex-col gap-8 py-10'>

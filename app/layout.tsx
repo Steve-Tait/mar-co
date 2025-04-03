@@ -58,6 +58,12 @@ export default async function RootLayout({
           />
           <link rel='icon' href='/favicon.ico' sizes='any' />
           <meta name='apple-mobile-web-app-title' content='Mar-co' />
+          {process.env.VERCEL_ENV !== 'production' && (
+            <meta
+              name='google-site-verification'
+              content='uDKbndwkUah4Kl_vA4wk2PcdTnLWDWxJQbs1lW7hZCY'
+            />
+          )}
         </head>
         <GoogleTagManager gtmId={process.env.GTM_ID || ''} />
         <body

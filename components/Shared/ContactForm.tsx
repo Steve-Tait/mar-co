@@ -55,8 +55,8 @@ const ContactForm = ({ children }: { children: React.ReactNode }) => {
     const name = state?.fields?.firstName;
     return (
       <div className='flex flex-col items-center justify-center gap-y-4 sm:justify-start'>
-        <Heading level={3} heading={`Thank you${name ? `, ${name}` : ''}`} />
-        <p className='text-lg'>We'll be in touch within 24 hours.</p>
+        <Heading level={3} heading={`Thank you${name ? `, ${name}` : null}`} />
+        <p className='text-lg'>We&#34;ll be in touch within 24 hours.</p>
       </div>
     );
   } else if (state?.error) {

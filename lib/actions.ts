@@ -1,5 +1,6 @@
 'use server';
 
+import { E164Number } from 'libphonenumber-js';
 import { subscribeSchema } from './schema';
 import { TSubscribeResponse } from './types';
 
@@ -26,6 +27,8 @@ export async function subscribe(
 
     if (!process.env.BREVO_API_KEY || !process.env.BREVO_LIST_ID)
       throw 'Brevo API Key or List ID not configured properly';
+
+    const fields = validatedFields.data;
     const res = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {
@@ -36,12 +39,12 @@ export async function subscribe(
 
       body: JSON.stringify({
         updateEnabled: true,
-        email: validatedFields.data.email,
+        email: fields.email,
         listIds: [7],
         attributes: {
-          FIRSTNAME: validatedFields.data.firstName,
-          LASTNAME: validatedFields.data.lastName,
-          SMS: validatedFields.data.phone || '',
+          FIRSTNAME: fields.firstName,
+          LASTNAME: fields.lastName,
+          SMS: fields.phone || '',
         },
       }),
     });
@@ -50,13 +53,13 @@ export async function subscribe(
       const errorData = await res.json();
       throw errorData;
     }
-    notifyAdmin(validatedFields);
 
-    const data = await res.text();
-    console.log('data', data);
+    notifyAdmin(fields);
+    notifySubscriber(fields);
     response = {
       wasSuccessful: true,
-      data: data,
+      data: res?.status === 204 ? 'No Content' : await res.json(),
+      fields: fields,
     };
   } catch (e) {
     response = {
@@ -67,10 +70,12 @@ export async function subscribe(
   return response;
 }
 
-const notifyAdmin = async (validatedFields: {
-  success?: true;
-  data: any;
-  error?: undefined;
+const notifyAdmin = async (fields: {
+  email: string;
+  firstName: string;
+  lastName: string;
+  agree: boolean;
+  phone?: E164Number | undefined;
 }) => {
   if (!process.env.BREVO_API_KEY) return;
   return await fetch('https://api.brevo.com/v3/smtp/email', {
@@ -86,11 +91,41 @@ const notifyAdmin = async (validatedFields: {
       htmlContent: `
         <p>A new contact has been added to your Brevo list:</p>
         <ul>
-          <li><b>First Name:</b> ${validatedFields.data.firstName}</li>
-          <li><b>Last Name:</b> ${validatedFields.data.lastName}</li>
-          <li><b>Email:</b> ${validatedFields.data.email}</li>
-          <li><b>Phone:</b> ${validatedFields.data.phone}</li>
+          <li><b>First Name:</b> ${fields.firstName}</li>
+          <li><b>Last Name:</b> ${fields.lastName}</li>
+          <li><b>Email:</b> ${fields.email}</li>
+          <li><b>Phone:</b> ${fields.phone}</li>
         </ul>
+      `,
+    }),
+  });
+};
+const notifySubscriber = async (fields: {
+  email: string;
+  firstName: string;
+  lastName: string;
+  agree: boolean;
+  phone?: E164Number | undefined;
+}) => {
+  if (!process.env.BREVO_API_KEY) return;
+  return await fetch('https://api.brevo.com/v3/smtp/email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'api-key': process.env.BREVO_API_KEY,
+    },
+    body: JSON.stringify({
+      sender: { name: 'System Notification', email: 'info@mar-co.digital' },
+      to: [
+        { email: fields.email, name: `${fields.firstName} ${fields.lastName}` },
+      ],
+      subject: 'Thank you for subscribing',
+      htmlContent: `
+        <h4>Ciao, ${fields.firstName},</h4>
+        <br />
+        <p>Thank you for getting in touch with MAR-CO Digital.</p>
+        <p>We will contact you within 24 hours to discuss your enquiry.</p>
+        <p>In the meantime, check out our latest updates on <a href='https://www.linkedin.com/company/mar-co.digital/'>LinkedIn</a>.</p>
       `,
     }),
   });

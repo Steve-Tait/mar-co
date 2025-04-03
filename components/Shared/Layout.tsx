@@ -44,16 +44,17 @@ export default async function Layout({ children }: { children: ReactNode }) {
             ))}
           <DrawerContent>
             <div className='mx-auto w-full max-w-lg px-6'>
-              <DrawerHeader>
-                <DrawerTitle asChild>
-                  <Heading heading='Get in touch with us' level={3} />
-                </DrawerTitle>
-                <DrawerDescription>
-                  Fill in the form below and we will contact you within 24
-                  hours.
-                </DrawerDescription>
-              </DrawerHeader>
-              <ContactForm />
+              <ContactForm>
+                <DrawerHeader>
+                  <DrawerTitle asChild>
+                    <Heading heading='Get in touch with us' level={3} />
+                  </DrawerTitle>
+                  <DrawerDescription>
+                    Fill in the form below and we will contact you within 24
+                    hours.
+                  </DrawerDescription>
+                </DrawerHeader>
+              </ContactForm>
               <DrawerFooter>
                 <DrawerClose asChild>Close</DrawerClose>
               </DrawerFooter>

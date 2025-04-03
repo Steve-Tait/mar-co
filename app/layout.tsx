@@ -7,6 +7,7 @@ import { GoogleTagManager } from '@next/third-parties/google';
 
 import Layout from '@/components/Shared/Layout';
 import StoryblokProvider from '@/components/StoryblokProvider';
+import Script from 'next/script';
 
 const poppins = Poppins({
   weight: ['400', '600', '700', '900'],
@@ -67,6 +68,17 @@ export default async function RootLayout({
           )}
         >
           <Layout>{children}</Layout>
+          {process.env.VERCEL_ENV === 'production' && (
+            <Script id='clarity-script' strategy='afterInteractive'>
+              {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "${process.env.CLARITY_PROJECT_ID}");
+          `}
+            </Script>
+          )}
         </body>
       </html>
     </StoryblokProvider>

@@ -8,8 +8,8 @@ import Heading from './Heading';
 import Container from './Container';
 import { cn } from '@/lib/utils';
 import SentenceLoop from './SentenceLoop';
-import { StoryblokServerComponent } from '@storyblok/react/rsc';
 import ButtonGroup from './ButtonGroup';
+import Image from 'next/image';
 
 export type THeroHome = {
   title?: string | undefined;
@@ -35,12 +35,20 @@ const HeroHome = ({
       className={cn(
         'theme--dark relative flex aspect-video min-h-[75svh] w-full flex-col justify-end bg-purple bg-cover pb-8 pt-24 text-white md:min-h-svh md:justify-center md:pb-24',
         image?.filename &&
-          'before:absolute before:inset-0 before:bg-purple/50 before:backdrop-brightness-50'
+          'after:absolute after:inset-0 after:bg-purple/50 after:backdrop-brightness-50'
       )}
-      style={{ backgroundImage: `url(${image?.filename})` }}
       {...props}
     >
-      <Container className='relative flex flex-col items-center gap-y-4 text-center'>
+      {image?.filename && (
+        <Image
+          className='pointer-events-none absolute inset-0 h-full w-full object-cover'
+          src={image.filename}
+          alt={image.alt || image.title || ''}
+          fill
+          priority
+        />
+      )}
+      <Container className='relative z-1 flex flex-col items-center gap-y-4 text-center'>
         {title && (
           <Heading
             heading={title}

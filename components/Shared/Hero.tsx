@@ -45,6 +45,7 @@ const Hero = ({
             src={image.filename}
             alt={image.alt || image.title || ''}
             fill
+            priority
           />
           <div className='absolute inset-0 bg-purple/50 backdrop-brightness-50' />
         </>

@@ -25,6 +25,7 @@ export type TSubscribeResponse = {
   wasSuccessful: boolean;
   data?: any;
   error?: any;
+  fields?: any;
 };
 export interface TSVGProps {
   className?: string;

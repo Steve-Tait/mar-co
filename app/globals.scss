@@ -105,17 +105,17 @@
   }
 
   .theme--light {
-    --background: 0 0 100%;
-    --foreground: 0 0 0%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
 
     --card: 260 82% 30%;
-    --card-foreground: 0 0 100%;
+    --card-foreground: 0 0% 100%;
 
     --popover: 260 84% 51%;
     --popover-foreground: 0 100% 100%;
 
     --primary: 260 82% 30%;
-    --primary-foreground: 0 0 100%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 360 100% 67%;
     --secondary-foreground: 210 40% 98%;
@@ -124,7 +124,7 @@
     --secondary-muted-foreground: 0 100% 100%%;
 
     --muted: 260 84% 95%;
-    --muted-foreground: 0 0 0%;
+    --muted-foreground: 0 0% 0%;
 
     --accent: 260 84% 51%;
     --accent-foreground: 0 100% 100%;
@@ -168,17 +168,17 @@
   }
 
   .theme--muted {
-    --background: 260 84 95%;
-    --foreground: 0 0 7%;
+    --background: 260 84% 95%;
+    --foreground: 0 0% 7%;
 
     --card: 260 82% 30%;
-    --card-foreground: 0 0 100%;
+    --card-foreground: 0 0% 100%;
 
     --popover: 260 84% 51%;
     --popover-foreground: 0 100% 100%;
 
     --primary: 260 82% 30%;
-    --primary-foreground: 0 0 100%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 360 100% 67%;
     --secondary-foreground: 210 40% 98%;
@@ -203,16 +203,16 @@
   }
   .theme--alternate-muted {
     --background: 0 100% 80%;
-    --foreground: 0 0 7%;
+    --foreground: 0 0% 7%;
 
     --card: 260 82% 30%;
-    --card-foreground: 0 0 100%;
+    --card-foreground: 0 0% 100%;
 
     --popover: 260 84% 51%;
     --popover-foreground: 0 100% 100%;
 
     --primary: 260 82% 30%;
-    --primary-foreground: 0 0 100%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 360 100% 67%;
     --secondary-foreground: 210 40% 98%;

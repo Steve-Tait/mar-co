@@ -44,7 +44,7 @@ export default function Footer({
                     link={`tel:${phone.replace(/\s/g, '')}`}
                   />
                 )}
-                {email && <SocialLink icon='mail' link={email.email} />}
+                {email && <SocialLink icon='mail' link={`${email.email}`} />}
               </nav>
             </div>
           </div>

@@ -1,4 +1,8 @@
-import { AssetStoryblok, CategoryStoryblok } from '@/component-types-sb';
+import {
+  AssetStoryblok,
+  CategoryStoryblok,
+  IndustryStoryblok,
+} from '@/component-types-sb';
 import React from 'react';
 import Heading from './Heading';
 import Container from './Container';
@@ -13,6 +17,7 @@ type THero = {
   image?: AssetStoryblok;
   disclaimer?: string;
   categories?: CategoryStoryblok[];
+  industry?: IndustryStoryblok[];
   publishedDate?: string;
   logo?: AssetStoryblok;
   className?: string;
@@ -22,13 +27,15 @@ const HeroSecondary = ({
   title,
   excerpt,
   image,
-  categories,
+  categories = [],
+  industry = [],
   publishedDate,
   disclaimer,
   logo,
   className = '',
   ...props
 }: THero) => {
+  const tags = [...categories, ...industry];
   return (
     <section
       className={cn(
@@ -61,13 +68,13 @@ const HeroSecondary = ({
                 width={128}
               />
             )}
-            {categories && (
+            {tags && (
               <div className='flex flex-wrap gap-x-2'>
-                {categories.map((category) => (
+                {tags.map((tag) => (
                   <Badge
-                    href={`/${category.full_slug}`}
-                    label={category.name}
-                    key={category.uuid}
+                    href={`/${tag.full_slug}`}
+                    label={tag.name}
+                    key={tag._uid}
                   />
                 ))}
               </div>

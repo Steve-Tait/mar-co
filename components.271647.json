@@ -727,46 +727,20 @@
       "display_name": null,
       "description": null,
       "created_at": "2024-02-08T21:25:07.655Z",
-      "updated_at": "2025-03-21T08:18:58.637Z",
+      "updated_at": "2025-04-09T08:59:54.078Z",
       "id": 5313695,
       "schema": {
-        "logo": {
-          "type": "asset",
+        "industry": {
+          "type": "options",
           "pos": 0,
-          "filetypes": [
-            "images"
-          ],
-          "id": "237vyjWBTi6Vz-T8_WsAOQ"
-        },
-        "title": {
-          "type": "text",
-          "pos": 1,
-          "key": "title",
-          "id": "nAkTpovRQ0utM2aw78Bnww"
-        },
-        "excerpt": {
-          "type": "richtext",
-          "pos": 2,
-          "rtl": false,
-          "max_length": 300,
-          "key": "excerpt",
-          "id": "1II06ELLSmOB8q_21484gw"
-        },
-        "image": {
-          "type": "asset",
-          "pos": 3,
-          "key": "image",
-          "id": "uQvDHh_7RZe_s7oHa2oQNQ"
-        },
-        "disclaimer": {
-          "type": "text",
-          "pos": 4,
-          "id": "7C3hIBvvR9q7xglkIrecvQ"
+          "source": "internal_stories",
+          "folder_slug": "industry/",
+          "id": "Otrj67zeRQSzJLogL92crQ"
         },
         "wysiwyg": {
           "type": "bloks",
           "key": "wysiwyg",
-          "pos": 6,
+          "pos": 1,
           "required": false,
           "restrict_type": "groups",
           "restrict_components": true,
@@ -775,6 +749,50 @@
             "8b6f7710-a564-4e65-92c4-999066389e1a"
           ],
           "id": "9oMBb7lWTWqbtcI3uEpwug"
+        },
+        "body": {
+          "type": "bloks",
+          "pos": 2,
+          "restrict_type": "groups",
+          "restrict_components": true,
+          "component_whitelist": [],
+          "component_group_whitelist": [
+            "b1d05dd6-af9a-4109-91fe-59ef047439ef"
+          ],
+          "id": "AWqhNJh2TWeSO1AO3TYrSA"
+        },
+        "logo": {
+          "type": "asset",
+          "pos": 3,
+          "filetypes": [
+            "images"
+          ],
+          "id": "237vyjWBTi6Vz-T8_WsAOQ"
+        },
+        "title": {
+          "type": "text",
+          "pos": 4,
+          "key": "title",
+          "id": "nAkTpovRQ0utM2aw78Bnww"
+        },
+        "excerpt": {
+          "type": "richtext",
+          "pos": 5,
+          "rtl": false,
+          "max_length": 300,
+          "key": "excerpt",
+          "id": "1II06ELLSmOB8q_21484gw"
+        },
+        "image": {
+          "type": "asset",
+          "pos": 6,
+          "key": "image",
+          "id": "uQvDHh_7RZe_s7oHa2oQNQ"
+        },
+        "disclaimer": {
+          "type": "text",
+          "pos": 7,
+          "id": "7C3hIBvvR9q7xglkIrecvQ"
         },
         "tab-3bf1b1f3-554c-47e0-9e50-c6789c369f71": {
           "display_name": "Hero",
@@ -785,7 +803,7 @@
             "disclaimer",
             "logo"
           ],
-          "pos": 7,
+          "pos": 8,
           "type": "tab",
           "name": "tab-3bf1b1f3-554c-47e0-9e50-c6789c369f71",
           "id": "O_Gx81VMR-CeUMZ4nDafcQ"
@@ -796,7 +814,7 @@
             "meta_title",
             "meta_desc"
           ],
-          "pos": 8,
+          "pos": 9,
           "type": "tab",
           "key": "tab-b1da14f4-fa97-41c4-87c0-fc405673c0ba",
           "name": "tab-b1da14f4-fa97-41c4-87c0-fc405673c0ba",
@@ -806,26 +824,15 @@
           "type": "text",
           "display_name": "Title",
           "key": "meta_title",
-          "pos": 9,
+          "pos": 10,
           "id": "DkSD7LgOQsKA42yyY1kbJw"
         },
         "meta_desc": {
           "type": "textarea",
           "display_name": "Description",
           "key": "meta_desc",
-          "pos": 10,
-          "id": "rQjNtQH6Q2aKoYSjFSNq7A"
-        },
-        "body": {
-          "type": "bloks",
           "pos": 11,
-          "restrict_type": "groups",
-          "restrict_components": true,
-          "component_whitelist": [],
-          "component_group_whitelist": [
-            "b1d05dd6-af9a-4109-91fe-59ef047439ef"
-          ],
-          "id": "AWqhNJh2TWeSO1AO3TYrSA"
+          "id": "rQjNtQH6Q2aKoYSjFSNq7A"
         }
       },
       "image": null,
@@ -2096,6 +2103,136 @@
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
       "component_group_name": "wysiwyg"
+    },
+    {
+      "name": "industry",
+      "display_name": null,
+      "description": null,
+      "created_at": "2025-04-09T09:00:08.641Z",
+      "updated_at": "2025-04-09T09:00:21.840Z",
+      "id": 7191627,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0,
+          "display_name": "Title",
+          "key": "Title",
+          "id": "wkhUzS_4RvKlWHuho_0ZZw"
+        },
+        "excerpt": {
+          "type": "textarea",
+          "pos": 1,
+          "display_name": "Excerpt",
+          "key": "excerpt",
+          "id": "ZSHnfP1sTPm0i0EVbp-Qxg"
+        },
+        "image": {
+          "type": "asset",
+          "pos": 2,
+          "filetypes": [
+            "images"
+          ],
+          "display_name": "img",
+          "key": "image",
+          "id": "oppIhFsDSQqnqsOf0SxuPQ"
+        },
+        "name": {
+          "type": "text",
+          "required": true,
+          "key": "name",
+          "pos": 3,
+          "id": "sNUtsr1ARiuv0ERy4Qf_4w"
+        },
+        "body": {
+          "type": "bloks",
+          "pos": 4,
+          "restrict_type": "groups",
+          "restrict_components": true,
+          "component_whitelist": [],
+          "component_group_whitelist": [
+            "b1d05dd6-af9a-4109-91fe-59ef047439ef"
+          ],
+          "key": "body",
+          "id": "lTdVrrEnSR--M0cTZeGk1w"
+        },
+        "tab-b08fdaaf-d23c-4935-9c83-c22744f27537": {
+          "display_name": "Hero",
+          "keys": [
+            "Title",
+            "Excerpt",
+            "Image",
+            "image",
+            "title",
+            "excerpt"
+          ],
+          "pos": 5,
+          "type": "tab",
+          "key": "tab-b08fdaaf-d23c-4935-9c83-c22744f27537",
+          "id": "sI_ar9I8STWcg8InRPJ1Nw"
+        },
+        "tab-7a20cccc-06a9-42e1-89f3-a3f5fd467b20": {
+          "display_name": "Seo",
+          "keys": [
+            "meta_title",
+            "meta_description"
+          ],
+          "pos": 6,
+          "type": "tab",
+          "key": "tab-7a20cccc-06a9-42e1-89f3-a3f5fd467b20",
+          "id": "eiDMzAapQuGJ86P1_UZ7IA"
+        },
+        "meta_title": {
+          "type": "text",
+          "pos": 7,
+          "key": "meta_title",
+          "id": "56FicSIRQ9K5XWF6LAQPgA"
+        },
+        "meta_description": {
+          "type": "textarea",
+          "pos": 8,
+          "key": "meta_description",
+          "id": "wqQZ7NwTQiKoQa6JHWWGgA"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "industry",
+      "component_group_uuid": "54853a5b-3ce1-4d1a-8b61-e6929cfc6b86",
+      "color": "#1b243f",
+      "icon": "block-tag",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "pages"
+    },
+    {
+      "name": "industry-overview",
+      "display_name": null,
+      "description": null,
+      "created_at": "2025-04-09T09:00:41.287Z",
+      "updated_at": "2025-04-09T09:00:58.492Z",
+      "id": 7191628,
+      "schema": {},
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "industry-overview",
+      "component_group_uuid": "54853a5b-3ce1-4d1a-8b61-e6929cfc6b86",
+      "color": "#1b243f",
+      "icon": "block-tag",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "pages"
     },
     {
       "name": "intro-section",

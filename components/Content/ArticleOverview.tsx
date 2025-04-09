@@ -1,7 +1,6 @@
 import { ArticleOverviewStoryblok } from '@/component-types-sb';
 import Section from '../Shared/Section';
 import Container from '../Shared/Container';
-import Hero from '../Shared/Hero';
 import ArticlesGrid from '../Shared/ArticlesGrid';
 import { Suspense } from 'react';
 import SkeletonGrid from '../Shared/SkeletonGrid';
@@ -9,7 +8,6 @@ import { getCategories } from '@/lib/storyblok';
 import Link from 'next/link';
 import Heading from '../Shared/Heading';
 import HeroWrap from '../Shared/HeroWrap';
-import { StoryblokServerComponent } from '@storyblok/react/rsc';
 import { cn } from '@/lib/utils';
 import SectionBuilder from '../Shared/SectionBuilder';
 

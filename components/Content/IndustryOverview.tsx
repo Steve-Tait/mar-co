@@ -1,25 +1,24 @@
-import Hero from '../Shared/Hero';
 import Section from '../Shared/Section';
 import Container from '../Shared/Container';
 import { Suspense } from 'react';
-import ArticlesGrid from '../Shared/ArticlesGrid';
 import Link from 'next/link';
 import Heading from '../Shared/Heading';
-import { CategoryOverviewStoryblok } from '@/component-types-sb';
-import { getCategories } from '@/lib/storyblok';
+import { IndustryOverviewStoryblok } from '@/component-types-sb';
+import { getIndustries } from '@/lib/storyblok';
 import SkeletonGrid from '../Shared/SkeletonGrid';
 import HeroWrap from '../Shared/HeroWrap';
 import SectionBuilder from '../Shared/SectionBuilder';
+import CaseStudies from '../Shared/CaseStudies';
 
-const CategoryOverview = async ({
+const IndustryOverview = async ({
   blok,
   searchParams,
-}: CategoryOverviewStoryblok) => {
-  const categories = await getCategories();
+}: IndustryOverviewStoryblok) => {
+  const industries = await getIndustries();
   const { heading, description, image, body } = blok;
   return (
     <HeroWrap
-      title={heading ?? 'Categories'}
+      title={heading ?? 'Industries'}
       excerpt={description}
       image={image}
     >
@@ -28,19 +27,19 @@ const CategoryOverview = async ({
           <aside className='rounded-2xl bg-primary p-6 text-primary-foreground md:sticky md:top-28'>
             <Heading heading='Sort by' level={4} />
             <ul>
-              {categories.map((category) => (
-                <li key={category.content.slug}>
+              {industries.map((industry) => (
+                <li key={industry.content.slug}>
                   <Link
-                    href={`?${new URLSearchParams({ id: category.uuid })}`}
+                    href={`?${new URLSearchParams({ id: industry.uuid })}`}
                     replace
                     scroll={false}
                     className={
-                      searchParams?.id && category.uuid === searchParams.id
+                      searchParams?.id && industry.uuid === searchParams.id
                         ? 'font-bold'
                         : ''
                     }
                   >
-                    {category.content.name}
+                    {industry.content.name}
                   </Link>
                 </li>
               ))}
@@ -48,9 +47,7 @@ const CategoryOverview = async ({
           </aside>
           <div className='md:col-span-2 lg:col-span-3'>
             <Suspense fallback={<SkeletonGrid tiles={3} />}>
-              <ArticlesGrid
-                categories={searchParams?.id && [searchParams.id]}
-              />
+              <CaseStudies industry={searchParams?.id && [searchParams.id]} />
             </Suspense>
           </div>
         </Container>
@@ -60,4 +57,4 @@ const CategoryOverview = async ({
   );
 };
 
-export default CategoryOverview;
+export default IndustryOverview;

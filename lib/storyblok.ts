@@ -144,7 +144,25 @@ export const getCategories = async (): Promise<CategoryStoryblok[]> => {
   return data.stories;
 };
 
+export const getIndustries = async (): Promise<CategoryStoryblok[]> => {
+  const storyblokApi = getStoryblokApi();
+  const { data } = await storyblokApi.get(
+    `cdn/stories`,
+    {
+      version: (process.env.STORYBLOK_VERSION ?? 'draft') as
+        | 'draft'
+        | 'published',
+      starts_with: 'industry/',
+      is_startpage: false,
+    },
+    {
+      cache: 'no-store',
+    }
+  );
+  return data.stories;
+};
 export const getCaseStudies = async (
+  industry: string[] = [],
   limit: number = 25,
   toExclude: string = ''
 ): Promise<CaseStudyStoryblok[]> => {
@@ -157,8 +175,15 @@ export const getCaseStudies = async (
     is_startpage: false,
     sort_by: 'position:asc',
     per_page: limit,
-    resolve_relations: ['case-study.categories'],
+    resolve_relations: ['case-study.industry'],
   };
+  if (industry?.length) {
+    options['filter_query'] = {
+      industry: {
+        any_in_array: industry.join(),
+      },
+    };
+  }
   if (toExclude) {
     options['excluding_ids'] = toExclude;
   }

@@ -206,11 +206,7 @@ export interface CaseStudiesSectionStoryblok {
 }
 
 export interface CaseStudyStoryblok {
-  logo?: AssetStoryblok;
-  title?: string;
-  excerpt?: RichtextStoryblok;
-  image?: AssetStoryblok;
-  disclaimer?: string;
+  industry?: any[];
   wysiwyg?: (
     | BannerWysiwygStoryblok
     | GalleryWysiwygStoryblok
@@ -219,8 +215,6 @@ export interface CaseStudyStoryblok {
     | TextWysiwygStoryblok
     | VideoWysiwygStoryblok
   )[];
-  meta_title?: string;
-  meta_desc?: string;
   body?: (
     | AnimatedWordsSectionStoryblok
     | ArticlesSectionStoryblok
@@ -242,6 +236,13 @@ export interface CaseStudyStoryblok {
     | TextSectionStoryblok
     | TiktokSectionStoryblok
   )[];
+  logo?: AssetStoryblok;
+  title?: string;
+  excerpt?: RichtextStoryblok;
+  image?: AssetStoryblok;
+  disclaimer?: string;
+  meta_title?: string;
+  meta_desc?: string;
   _uid: string;
   component: "case-study";
   [k: string]: any;
@@ -509,6 +510,45 @@ export interface ImageWysiwygStoryblok {
   caption?: string;
   _uid: string;
   component: "image-wysiwyg";
+  [k: string]: any;
+}
+
+export interface IndustryStoryblok {
+  title?: string;
+  excerpt?: string;
+  image?: AssetStoryblok;
+  name: string;
+  body?: (
+    | AnimatedWordsSectionStoryblok
+    | ArticlesSectionStoryblok
+    | CaseStudiesSectionStoryblok
+    | ChecklistSectionStoryblok
+    | ColouredContainerSectionStoryblok
+    | ContactSectionStoryblok
+    | FaqsSectionStoryblok
+    | FeatureSectionStoryblok
+    | FullWidthImageSectionStoryblok
+    | ImageSectionStoryblok
+    | IntroSectionStoryblok
+    | KeyFeaturesSectionStoryblok
+    | LogoCarouselSectionStoryblok
+    | StatsSectionStoryblok
+    | TestimonialsSectionStoryblok
+    | TextAndImageSectionStoryblok
+    | TextOverImageSectionStoryblok
+    | TextSectionStoryblok
+    | TiktokSectionStoryblok
+  )[];
+  meta_title?: string;
+  meta_description?: string;
+  _uid: string;
+  component: "industry";
+  [k: string]: any;
+}
+
+export interface IndustryOverviewStoryblok {
+  _uid: string;
+  component: "industry-overview";
   [k: string]: any;
 }
 

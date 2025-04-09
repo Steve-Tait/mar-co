@@ -1,18 +1,15 @@
-import {
-  StoryblokServerComponent,
-  storyblokEditable,
-} from '@storyblok/react/rsc';
-import ArticlesGrid from '../Shared/ArticlesGrid';
+import { storyblokEditable } from '@storyblok/react/rsc';
 import Section from '../Shared/Section';
 import Container from '../Shared/Container';
 import SkeletonGrid from '../Shared/SkeletonGrid';
 import { Suspense } from 'react';
-import { CategoryStoryblok } from '@/component-types-sb';
+import { IndustryStoryblok } from '@/component-types-sb';
 import SectionBuilder from '../Shared/SectionBuilder';
 import HeroSecondary from '../Shared/HeroSecondary';
 import LayoutScaler from '../Shared/LayoutScaler';
+import CaseStudies from '../Shared/CaseStudies';
 
-const Category = (content: CategoryStoryblok) => {
+const Industry = (content: IndustryStoryblok) => {
   const { blok, uuid } = content;
   const { name, title, excerpt, image, body } = blok;
   return (
@@ -22,7 +19,7 @@ const Category = (content: CategoryStoryblok) => {
         <Section>
           <Container>
             <Suspense key={uuid} fallback={<SkeletonGrid tiles={6} />}>
-              <ArticlesGrid categories={[uuid]} />
+              <CaseStudies industry={[uuid]} />
             </Suspense>
           </Container>
         </Section>
@@ -32,4 +29,4 @@ const Category = (content: CategoryStoryblok) => {
   );
 };
 
-export default Category;
+export default Industry;

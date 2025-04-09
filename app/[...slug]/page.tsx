@@ -23,6 +23,7 @@ export default async function Page(props: MetaProps) {
     <StoryblokStory
       story={story}
       id={story.id}
+      uuid={story.uuid}
       first_published_at={story.first_published_at}
       bridgeOptions={{ resolveRelations }}
     />

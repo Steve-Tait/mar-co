@@ -10,6 +10,8 @@ import CaseStudyOverview from '@/components/Content/CaseStudyOverview';
 import Category from '@/components/Content/Category';
 import CategoryOverview from '@/components/Content/CategoryOverview';
 import Homepage from '@/components/Content/Homepage';
+import Industry from '@/components/Content/Industry';
+import IndustryOverview from '@/components/Content/IndustryOverview';
 import Page from '@/components/Content/Page';
 import Testimonial from '@/components/Content/Testimonial';
 import AnimatedWordsSection from '@/components/Sections/AnimatedWordsSection';
@@ -42,6 +44,8 @@ export const COMPONENTS = {
   category: Category,
   'category-overview': CategoryOverview,
   'case-study': CaseStudy,
+  industry: Industry,
+  'industry-overview': IndustryOverview,
   config: Layout,
   'menu-link': MenuLink,
   'article-overview': ArticleOverview,

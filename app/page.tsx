@@ -20,6 +20,7 @@ export default async function Home({ params, searchParams }: MetaProps) {
   return (
     <StoryblokStory
       id={story.id}
+      uuid={story.uuid}
       story={story}
       bridgeOptions={{ resolveRelations }}
     />

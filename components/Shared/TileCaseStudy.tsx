@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { ISbRichtext } from '@storyblok/react';
 import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
-import { AssetStoryblok } from '@/component-types-sb';
+import Badge from './Badge';
+import { AssetStoryblok, IndustryStoryblok } from '@/component-types-sb';
 import RichText from '../Block/RichText';
 import { ArrowRight } from 'lucide-react';
 
@@ -29,6 +30,7 @@ type TTileCaseStudy = {
     title: string;
     slug: string;
     excerpt: ISbRichtext;
+    industry: IndustryStoryblok[];
     image?: AssetStoryblok;
   };
 };
@@ -37,7 +39,7 @@ export default function TileCaseStudy({
   caseStudy,
   index = 0,
 }: TTileCaseStudy) {
-  const { title, slug, excerpt, image } = caseStudy || {};
+  const { title, slug, excerpt, image, industry } = caseStudy || {};
   return (
     <motion.article
       className='group/tile relative flex snap-start snap-always overflow-hidden rounded-2xl bg-card text-card-foreground transition-colors hover:bg-accent hover:text-accent-foreground'
@@ -58,7 +60,21 @@ export default function TileCaseStudy({
         </div>
       )}
       <div className='relative flex min-h-96 grow flex-col justify-between gap-y-4 p-6 sm:p-8 lg:gap-y-8 xl:px-12 xl:py-16'>
-        {title && <h6 className='text-sm font-light'>{title}</h6>}
+        <div className='flex flex-col items-start gap-y-2'>
+          {industry?.length ? (
+            <div className='pointer-events-none flex flex-wrap gap-2'>
+              {industry.map((industry) => (
+                <Badge
+                  className='relative z-1'
+                  href={`/${industry.full_slug}`}
+                  label={industry.name}
+                  key={industry.uuid}
+                />
+              ))}
+            </div>
+          ) : null}
+          {title && <h6 className='text-sm font-light'>{title}</h6>}
+        </div>
         <RichText
           className='grow text-balance font-bold uppercase'
           content={excerpt}

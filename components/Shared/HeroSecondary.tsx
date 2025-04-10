@@ -57,7 +57,7 @@ const HeroSecondary = ({
       </div>
       <Container className='relative'>
         <div className='flex flex-col gap-y-6 sm:max-w-[50%]'>
-          <div className='mb-4 flex gap-x-4'>
+          <div className='mb-4 flex items-end gap-x-4'>
             {publishedDate && <p className='eyebrow'>{publishedDate}</p>}
             {logo?.filename && (
               <Image

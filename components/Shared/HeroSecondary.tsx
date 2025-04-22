@@ -18,7 +18,7 @@ type THero = {
   disclaimer?: string;
   categories?: CategoryStoryblok[];
   industry?: IndustryStoryblok[];
-  publishedDate?: string;
+  date?: string;
   logo?: AssetStoryblok;
   className?: string;
 };
@@ -29,7 +29,7 @@ const HeroSecondary = ({
   image,
   categories = [],
   industry = [],
-  publishedDate,
+  date,
   disclaimer,
   logo,
   className = '',
@@ -58,7 +58,7 @@ const HeroSecondary = ({
       <Container className='relative'>
         <div className='flex flex-col gap-y-6 sm:max-w-[50%]'>
           <div className='mb-4 flex items-end gap-x-4'>
-            {publishedDate && <p className='eyebrow'>{publishedDate}</p>}
+            {date && <p className='eyebrow'>{date}</p>}
             {logo?.filename && (
               <Image
                 className='w-24 brightness-0 invert md:w-32'
@@ -74,7 +74,7 @@ const HeroSecondary = ({
                   <Badge
                     href={`/${tag.full_slug}`}
                     label={tag.name}
-                    key={tag._uid}
+                    key={tag.uuid}
                   />
                 ))}
               </div>

@@ -29,19 +29,15 @@ type TTileArticle = {
     excerpt: string;
     categories: CategoryStoryblok[];
     image: AssetStoryblok;
+    date: Date;
   };
   index?: number;
-  published_at: Date;
 };
 
-export default function TileArticle({
-  article,
-  index = 0,
-  published_at,
-}: TTileArticle) {
-  const { title, slug, excerpt, categories, image } = article || {};
-  const date = published_at
-    ? new Date(published_at).toLocaleString('default', {
+export default function TileArticle({ article, index = 0 }: TTileArticle) {
+  const { title, slug, excerpt, categories, image, date } = article || {};
+  const formattedDate = date
+    ? new Date(date).toLocaleString('default', {
         month: 'long',
         year: 'numeric',
       })
@@ -80,7 +76,7 @@ export default function TileArticle({
         ) : null}
 
         <div className='flex flex-col gap-y-2'>
-          <p className='eyebrow'>{date}</p>
+          {formattedDate && <p className='eyebrow'>{formattedDate}</p>}
 
           <h5 className='line-clamp-2 font-bold' title={title}>
             {title}

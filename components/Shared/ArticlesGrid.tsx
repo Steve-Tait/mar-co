@@ -38,9 +38,12 @@ const ArticlesGrid = async ({
     >
       {articles.map((article, index) => (
         <TileArticle
-          article={{ ...article.content, slug: article.slug }}
+          article={{
+            ...article.content,
+            slug: article.slug,
+            date: article.first_published_at,
+          }}
           index={index}
-          published_at={article.first_published_at}
           key={article.uuid}
         />
       ))}

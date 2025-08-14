@@ -2,17 +2,20 @@ import { ButtonStoryblok } from '@/component-types-sb';
 import React from 'react';
 import Button from '../Block/Button';
 import { cn } from '@/lib/utils';
+import { Trigger } from '@radix-ui/react-dialog';
 
 type TButtonGroup = {
   buttons?: ButtonStoryblok[];
   size?: 'sm' | 'default';
   className?: string;
+  children?: React.ReactNode;
 };
 
 const ButtonGroup = ({
   buttons,
   size = 'default',
   className,
+  children,
   ...props
 }: TButtonGroup) => {
   if (!(buttons && buttons.length)) return;
@@ -27,6 +30,7 @@ const ButtonGroup = ({
       {buttons?.map((button) => (
         <Button key={button._uid} blok={button} size={size} />
       ))}
+      {children}
     </div>
   );
 };

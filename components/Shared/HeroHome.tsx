@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import SentenceLoop from './SentenceLoop';
 import ButtonGroup from './ButtonGroup';
 import Image from 'next/image';
+import { Trigger } from '@radix-ui/react-dialog';
 
 export type THeroHome = {
   title?: string | undefined;
@@ -65,7 +66,16 @@ const HeroHome = ({
             {subheading}
           </p>
         )}
-        <ButtonGroup buttons={buttons} className='mt-4' />
+        <ButtonGroup buttons={buttons} className='mt-4'>
+          <Trigger asChild>
+            <button
+              className={cn('btn btn--secondary', className)}
+              type='button'
+            >
+              Book a free consultation
+            </button>
+          </Trigger>
+        </ButtonGroup>
       </Container>
     </section>
   );

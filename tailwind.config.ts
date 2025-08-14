@@ -116,6 +116,17 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        overlayShow: {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
+        contentShow: {
+          from: {
+            opacity: '0',
+            transform: 'translate(-50%, -48%) scale(0.96)',
+          },
+          to: { opacity: '1', transform: 'translate(-50%, -50%) scale(1)' },
+        },
       },
       padding: {
         18: '4.5rem',
@@ -126,6 +137,8 @@ const config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        overlayShow: 'overlayShow 300ms forwards cubic-bezier(0.16, 1, 0.3, 1)',
+        contentShow: 'contentShow 500ms forwards cubic-bezier(0.16, 1, 0.3, 1)',
       },
       typography: {
         DEFAULT: {

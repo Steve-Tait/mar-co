@@ -4,10 +4,11 @@ import './globals.scss';
 import { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 import { GoogleTagManager } from '@next/third-parties/google';
-
+import { Root as DialogRoot } from '@radix-ui/react-dialog';
 import Layout from '@/components/Shared/Layout';
 import StoryblokProvider from '@/components/StoryblokProvider';
 import Script from 'next/script';
+import Calendar from '@/components/Shared/Calendar';
 
 const poppins = Poppins({
   weight: ['400', '600', '700', '900'],
@@ -66,6 +67,7 @@ export default async function RootLayout({
           )}
         </head>
         <GoogleTagManager gtmId={process.env.GTM_ID || ''} />
+
         <body
           className={cn(
             'font-sans theme--dark flex min-h-screen flex-col bg-background text-foreground antialiased',
@@ -73,7 +75,10 @@ export default async function RootLayout({
             poppins.variable
           )}
         >
-          <Layout>{children}</Layout>
+          <DialogRoot>
+            <Layout>{children}</Layout>
+            <Calendar />
+          </DialogRoot>
           {process.env.VERCEL_ENV === 'production' && (
             <Script id='clarity-script' strategy='afterInteractive'>
               {`

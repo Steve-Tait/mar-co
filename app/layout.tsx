@@ -10,6 +10,8 @@ import StoryblokProvider from '@/components/StoryblokProvider';
 import Script from 'next/script';
 import Calendar from '@/components/Shared/Calendar';
 
+export const runtime = "nodejs"
+
 const poppins = Poppins({
   weight: ['400', '600', '700', '900'],
   subsets: ['latin'],

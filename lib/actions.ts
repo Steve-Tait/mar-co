@@ -11,7 +11,6 @@ export async function subscribe(
   let response = {} as TSubscribeResponse;
 
   try {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
     const validatedFields = subscribeSchema.safeParse({
       email: formData.get('email'),
       firstName: formData.get('firstName'),
@@ -27,20 +26,23 @@ export async function subscribe(
 
     if (!process.env.BREVO_API_KEY || !process.env.BREVO_LIST_ID)
       throw 'Brevo API Key or List ID not configured properly';
+    const listId = Number(process.env.BREVO_LIST_ID);
+    if (!listId || Number.isNaN(listId))
+      throw 'Brevo List ID environment variable is invalid';
 
     const fields = validatedFields.data;
-    const res = await fetch('https://api.brevo.com/v3/contacts', {
+    const res = await fetchWithRetry('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {
         accept: 'application/json',
         'content-type': 'application/json',
         'api-key': process.env.BREVO_API_KEY,
+        'user-agent': 'mar-co/subscribe (vercel)'
       },
-
       body: JSON.stringify({
         updateEnabled: true,
         email: fields.email,
-        listIds: [7],
+        listIds: [listId],
         attributes: {
           FIRSTNAME: fields.firstName,
           LASTNAME: fields.lastName,
@@ -70,6 +72,50 @@ export async function subscribe(
   return response;
 }
 
+const RETRYABLE_CODES = new Set([
+  'UND_ERR_SOCKET',
+  'ECONNRESET',
+  'ETIMEDOUT',
+  'ENETUNREACH',
+  'EAI_AGAIN',
+]);
+
+async function fetchWithRetry(
+  url: string,
+  init: RequestInit,
+  opts: { retries?: number; timeoutMs?: number } = {}
+) {
+  const retries = opts.retries ?? 3;
+  const timeoutMs = opts.timeoutMs ?? 10000;
+  let lastError: any = null;
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        ...init,
+        signal: controller.signal,
+        cache: 'no-store',
+      });
+      clearTimeout(timer);
+      return res;
+    } catch (err: any) {
+      clearTimeout(timer);
+      lastError = err;
+      const code = err?.cause?.code || err?.code;
+      const isAbort = err?.name === 'AbortError';
+      const retryable = RETRYABLE_CODES.has(code) || isAbort;
+      if (attempt < retries && retryable) {
+        // simple backoff
+        await new Promise((r) => setTimeout(r, 400 * attempt));
+        continue;
+      }
+      throw err;
+    }
+  }
+  throw lastError;
+}
+
 const notifyAdmin = async (fields: {
   email: string;
   firstName: string;
@@ -78,11 +124,12 @@ const notifyAdmin = async (fields: {
   phone?: E164Number | undefined;
 }) => {
   if (!process.env.BREVO_API_KEY) return;
-  return await fetch('https://api.brevo.com/v3/smtp/email', {
+  return await fetchWithRetry('https://api.brevo.com/v3/smtp/email', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'api-key': process.env.BREVO_API_KEY,
+      'user-agent': 'mar-co/subscribe (vercel)'
     },
     body: JSON.stringify({
       sender: { name: 'System Notification', email: 'info@mar-co.digital' },
@@ -108,11 +155,12 @@ const notifySubscriber = async (fields: {
   phone?: E164Number | undefined;
 }) => {
   if (!process.env.BREVO_API_KEY) return;
-  return await fetch('https://api.brevo.com/v3/smtp/email', {
+  return await fetchWithRetry('https://api.brevo.com/v3/smtp/email', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'api-key': process.env.BREVO_API_KEY,
+      'user-agent': 'mar-co/subscribe (vercel)'
     },
     body: JSON.stringify({
       sender: { name: 'System Notification', email: 'info@mar-co.digital' },

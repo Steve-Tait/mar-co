@@ -1,60 +1,62 @@
-import React from 'react';
-import { StoryblokServerComponent } from '@storyblok/react/rsc';
+import React from "react";
+import { StoryblokServerComponent } from "@storyblok/react/rsc";
 import {
-  AnimatedWordsSectionStoryblok,
-  ArticlesSectionStoryblok,
-  CaseStudiesSectionStoryblok,
-  ChecklistSectionStoryblok,
-  ColouredContainerSectionStoryblok,
-  ContactSectionStoryblok,
-  FaqsSectionStoryblok,
-  FeatureSectionStoryblok,
-  FullWidthImageSectionStoryblok,
-  ImageSectionStoryblok,
-  IntroSectionStoryblok,
-  KeyFeaturesSectionStoryblok,
-  LogoCarouselSectionStoryblok,
-  StatsSectionStoryblok,
-  TestimonialsSectionStoryblok,
-  TextAndImageSectionStoryblok,
-  TextOverImageSectionStoryblok,
-  TextSectionStoryblok,
-  TiktokSectionStoryblok,
-} from '@/component-types-sb';
+	AnimatedWordsSectionStoryblok,
+	ArticlesSectionStoryblok,
+	CaseStudiesSectionStoryblok,
+	ChecklistSectionStoryblok,
+	ColouredContainerSectionStoryblok,
+	ContactSectionStoryblok,
+	FaqsSectionStoryblok,
+	FeatureSectionStoryblok,
+	FullWidthImageSectionStoryblok,
+	ImageSectionStoryblok,
+	IntroSectionStoryblok,
+	LogosSectionStoryblok,
+	KeyFeaturesSectionStoryblok,
+	LogoCarouselSectionStoryblok,
+	StatsSectionStoryblok,
+	TestimonialsSectionStoryblok,
+	TextAndImageSectionStoryblok,
+	TextOverImageSectionStoryblok,
+	TextSectionStoryblok,
+	TiktokSectionStoryblok,
+} from "@/component-types-sb";
 
 export default function SectionBuilder({
-  body = [],
+	body = [],
 }: {
-  body?: (
-    | AnimatedWordsSectionStoryblok
-    | ArticlesSectionStoryblok
-    | CaseStudiesSectionStoryblok
-    | ChecklistSectionStoryblok
-    | ColouredContainerSectionStoryblok
-    | ContactSectionStoryblok
-    | FaqsSectionStoryblok
-    | FeatureSectionStoryblok
-    | FullWidthImageSectionStoryblok
-    | ImageSectionStoryblok
-    | IntroSectionStoryblok
-    | KeyFeaturesSectionStoryblok
-    | LogoCarouselSectionStoryblok
-    | StatsSectionStoryblok
-    | TestimonialsSectionStoryblok
-    | TextAndImageSectionStoryblok
-    | TextOverImageSectionStoryblok
-    | TextSectionStoryblok
-    | TiktokSectionStoryblok
-  )[];
-  className?: string;
+	body?: (
+		| AnimatedWordsSectionStoryblok
+		| ArticlesSectionStoryblok
+		| CaseStudiesSectionStoryblok
+		| ChecklistSectionStoryblok
+		| ColouredContainerSectionStoryblok
+		| ContactSectionStoryblok
+		| FaqsSectionStoryblok
+		| FeatureSectionStoryblok
+		| FullWidthImageSectionStoryblok
+		| ImageSectionStoryblok
+		| IntroSectionStoryblok
+		| LogosSectionStoryblok
+		| KeyFeaturesSectionStoryblok
+		| LogoCarouselSectionStoryblok
+		| StatsSectionStoryblok
+		| TestimonialsSectionStoryblok
+		| TextAndImageSectionStoryblok
+		| TextOverImageSectionStoryblok
+		| TextSectionStoryblok
+		| TiktokSectionStoryblok
+	)[];
+	className?: string;
 }) {
-  if (!body.length) return;
+	if (!body.length) return;
 
-  return (
-    <>
-      {body?.map((nestedBlok) => (
-        <StoryblokServerComponent blok={nestedBlok} key={nestedBlok._uid} />
-      ))}
-    </>
-  );
+	return (
+		<>
+			{body?.map((nestedBlok) => (
+				<StoryblokServerComponent blok={nestedBlok} key={nestedBlok._uid} />
+			))}
+		</>
+	);
 }

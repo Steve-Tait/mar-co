@@ -47,7 +47,7 @@ export default async function Layout({ children }: { children: ReactNode }) {
               <ContactForm>
                 <DrawerHeader>
                   <DrawerTitle asChild>
-                    <Heading heading='Get in touch with us' level={3} />
+                    <Heading heading='Ready to start your next marketing project?' level={3} />
                   </DrawerTitle>
                   <DrawerDescription>
                     Fill in the form below and we will contact you within 24

@@ -3,7 +3,6 @@ import {
   AssetStoryblok,
   ButtonStoryblok,
 } from '@/component-types-sb';
-import React from 'react';
 import Heading from './Heading';
 import Container from './Container';
 import { cn } from '@/lib/utils';
@@ -66,17 +65,8 @@ const HeroHome = ({
             {subheading}
           </p>
         )}
-        <ButtonGroup buttons={buttons} className='mt-4'>
-          <Trigger asChild>
-            <button
-              className={cn('btn btn--secondary', className)}
-              type='button'
-            >
-              Book a free consultation
-            </button>
-          </Trigger>
-        </ButtonGroup>
-      </Container>
+        <ButtonGroup buttons={buttons} className='mt-4' />
+               </Container>
     </section>
   );
 };

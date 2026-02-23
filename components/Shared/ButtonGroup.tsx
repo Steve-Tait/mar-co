@@ -1,37 +1,27 @@
-import { ButtonStoryblok } from '@/component-types-sb';
-import React from 'react';
-import Button from '../Block/Button';
-import { cn } from '@/lib/utils';
-import { Trigger } from '@radix-ui/react-dialog';
+import { ButtonStoryblok } from "@/component-types-sb";
+import React from "react";
+import Button from "../Block/Button";
+import { cn } from "@/lib/utils";
 
 type TButtonGroup = {
-  buttons?: ButtonStoryblok[];
-  size?: 'sm' | 'default';
-  className?: string;
-  children?: React.ReactNode;
+	buttons?: ButtonStoryblok[];
+	size?: "sm" | "default";
+	className?: string;
+	children?: React.ReactNode;
 };
 
-const ButtonGroup = ({
-  buttons,
-  size = 'default',
-  className,
-  children,
-  ...props
-}: TButtonGroup) => {
-  if (!(buttons && buttons.length)) return;
-  return (
-    <div
-      className={cn(
-        'flex flex-col flex-wrap items-start gap-2 sm:flex-row [.text-center_&]:items-center sm:[.text-center_&]:justify-center',
-        className
-      )}
-      {...props}
-    >
-      {buttons?.map((button) => (
-        <Button key={button._uid} blok={button} size={size} />
-      ))}
-      {children}
-    </div>
-  );
+const ButtonGroup = ({ buttons, size = "default", className, children, ...props }: TButtonGroup) => {
+	if (!(buttons && buttons.length) && !children) return;
+	return (
+		<div
+			className={cn("flex flex-col flex-wrap items-start gap-2 sm:flex-row [.text-center_&]:items-center sm:[.text-center_&]:justify-center", className)}
+			{...props}
+		>
+			{buttons?.map((button) => (
+				<Button key={button._uid} blok={button} size={size} />
+			))}
+			{children}
+		</div>
+	);
 };
 export default ButtonGroup;

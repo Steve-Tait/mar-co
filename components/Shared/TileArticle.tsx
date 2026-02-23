@@ -6,6 +6,7 @@ import Badge from './Badge';
 import { AssetStoryblok, CategoryStoryblok } from '@/component-types-sb';
 import { ChevronRight } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
+import React from 'react';
 
 const variants: Variants = {
   offscreen: {
@@ -64,14 +65,16 @@ export default function TileArticle({ article, index = 0 }: TTileArticle) {
       <div className='relative flex grow flex-col items-start gap-y-2 bg-card p-4 text-card-foreground sm:gap-y-4 sm:p-8 xl:p-12'>
         {categories?.length ? (
           <div className='pointer-events-none mb-6 flex flex-wrap gap-2'>
-            {categories.map((category) => (
-              <Badge
+            {categories.map((category, index) => <React.Fragment key={index}>
+              {category?.name && category?.slug && <Badge
                 className='relative z-1'
                 href={`/${category.full_slug}`}
                 label={category.name}
                 key={category.uuid}
-              />
-            ))}
+              />}
+            </React.Fragment>
+             
+            )}
           </div>
         ) : null}
 

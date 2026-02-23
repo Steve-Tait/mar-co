@@ -1,0 +1,22 @@
+{
+	"semi": true,
+	"printWidth": 160,
+	"tabWidth": 4,
+	"useTabs": true,
+	"bracketSpacing": true,
+	"arrowParens": "always",
+	"quoteProps": "as-needed",
+	"htmlWhitespaceSensitivity": "ignore",
+	"endOfLine": "lf",
+	"proseWrap": "preserve",
+	"plugins": ["prettier-plugin-tailwindcss"],
+	"tailwindConfig": "./tailwind.config.ts",
+	"overrides": [
+		{
+			"files": "*.css",
+			"options": {
+				"parser": "css"
+			}
+		}
+	]
+}

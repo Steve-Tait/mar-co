@@ -13,6 +13,7 @@ const ICON_CLASS =
 
 const Button = ({ blok, size, className, ...props }: { blok: ButtonStoryblok; size: string; className?: string }) => {
 	const { link, label, variant = "primary", form_trigger } = blok || {};
+	const MotionLink = motion(Link);
 	if (form_trigger) {
 		return (
 			<DrawerTrigger className={cn("btn group/btn", variant && `btn--${variant}`, size && `btn--${size}`, className)}>
@@ -24,16 +25,16 @@ const Button = ({ blok, size, className, ...props }: { blok: ButtonStoryblok; si
 	switch (link?.linktype) {
 		case "story":
 			return (
-				<Link href={link.cached_url ?? link.url} target={link.target} passHref legacyBehavior>
-					<motion.a
-						className={cn("btn group/btn", variant && `btn--${variant}`, size && `btn--${size}`, className)}
-						whileTap={{ scale: 0.9 }}
-						{...props}
-					>
-						<span className={LABEL_CLASS}>{label}</span>
-						<CircleChevronRight className={ICON_CLASS} size={20} />
-					</motion.a>
-				</Link>
+				<MotionLink
+					href={link.cached_url ?? link.url}
+					target={link.target}
+					className={cn("btn group/btn", variant && `btn--${variant}`, size && `btn--${size}`, className)}
+					whileTap={{ scale: 0.9 }}
+					{...props}
+				>
+					<span className={LABEL_CLASS}>{label}</span>
+					<CircleChevronRight className={ICON_CLASS} size={20} />
+				</MotionLink>
 			);
 		case "email":
 			return (

@@ -55,9 +55,10 @@
 			h6 {
 				@apply mt-4 first:mt-0 last:mb-0;
 			}
+
 			ol,
 			ul {
-				@apply flex flex-col gap-y-2 ps-5;
+				@apply flex flex-col items-start gap-y-2 ps-5;
 			}
 			li {
 				@apply ps-1;
@@ -100,6 +101,12 @@
 			}
 			a {
 				@apply underline decoration-inherit underline-offset-4 duration-200 hover:underline-offset-2;
+			}
+		}
+		.text-center .prose {
+			ol,
+			ul {
+				@apply items-center;
 			}
 		}
 	}

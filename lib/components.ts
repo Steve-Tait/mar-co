@@ -27,6 +27,7 @@ import IntroSection from "@/components/Sections/IntroSection";
 import KeyFeaturesSection from "@/components/Sections/KeyFeaturesSection";
 import LogoCarouselSection from "@/components/Sections/LogoCarouselSection";
 import StatsSection from "@/components/Sections/StatsSection";
+import SubscribeSection from "@/components/Sections/SubscribeSection";
 import TestimonialsSection from "@/components/Sections/TestimonialsSection";
 import TextAndImageSection from "@/components/Sections/TextAndImageSection";
 import TextOverImageSection from "@/components/Sections/TextOverImageSection";
@@ -64,6 +65,7 @@ export const COMPONENTS = {
 	"text-over-image-section": TextOverImageSection,
 	"animated-words-section": AnimatedWordsSection,
 	"case-studies-section": CaseStudiesSection,
+	"subscribe-section": SubscribeSection,
 	"testimonials-section": TestimonialsSection,
 	"articles-section": ArticlesSection,
 	"faqs-section": FaqsSection,

@@ -18,14 +18,14 @@ export default function ImageAutoScrollCarousel({ images }: { images: Multiasset
 
 	return (
 		<Carousel
-			className="relative overflow-hidden"
+			className="mask-edges relative overflow-hidden"
 			opts={{
 				loop: true,
 				slidesToScroll: "auto",
 			}}
 			hasAutoScroll
 		>
-			<CarouselContent className="gap-x-4">
+			<CarouselContent className="gap-x-12">
 				{imagesWithSize.map((image, index) => (
 					<CarouselItem className="min-w-0 max-w-full shrink-0 grow-0 basis-auto" key={index}>
 						<Image

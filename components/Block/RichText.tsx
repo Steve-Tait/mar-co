@@ -13,8 +13,7 @@ interface RichTextProps extends Omit<ComponentPropsWithoutRef<"div">, "content">
 const CustomLink = Mark.create({
 	name: "link",
 	renderHTML({ HTMLAttributes }) {
-		console.log("Rendering link with attributes:", HTMLAttributes);
-		if (HTMLAttributes.linktype === "story") {
+		if (HTMLAttributes.target === "_self") {
 			return [asTag(Link), { href: HTMLAttributes.href }, 0];
 		}
 		return ["a", { href: HTMLAttributes.href, target: HTMLAttributes.target }, 0];
@@ -32,7 +31,6 @@ const RichText = ({ content, className, large, ...props }: RichTextProps) => {
 	}
 
 	const html = richTextResolver({
-		tiptapExtensions: { link: CustomLink },
 		keyedResolvers: true,
 	}).render(content) as TrustedHTML;
 	return <div className={cn("prose max-w-prose", large && "prose--lg", className)} {...props} dangerouslySetInnerHTML={{ __html: html }} />;

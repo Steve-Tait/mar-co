@@ -92,26 +92,11 @@ const ContactForm = ({ children }: { children: React.ReactNode }) => {
 										/>
 									</>
 								)}
-								{state?.error?.[name]?._errors.map(
-									(
-										e:
-											| string
-											| number
-											| bigint
-											| boolean
-											| React.ReactElement<any, string | React.JSXElementConstructor<any>>
-											| Iterable<React.ReactNode>
-											| React.ReactPortal
-											| Promise<React.AwaitedReactNode>
-											| null
-											| undefined,
-										i: React.Key | null | undefined,
-									) => (
-										<p className="mt-1 text-xs/none text-destructive-foreground" key={i}>
-											{e}
-										</p>
-									),
-								)}
+								{state?.error?.[name]?._errors.map((e: string, i: number) => (
+									<p className="mt-1 text-xs/none text-destructive-foreground" key={i}>
+										{e}
+									</p>
+								))}
 							</>
 						</div>
 					))}

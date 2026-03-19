@@ -1,11 +1,14 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "mar-co",
-  "compatibility_date": "2026-03-17",
-  "observability": {
-    "enabled": true
-  },
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "mar-co",
+	"main": ".opennext/worker.js",
+	"assets": {
+		"directory": ".opennext/assets",
+		"binding": "ASSETS",
+	},
+	"compatibility_date": "2026-03-17",
+	"compatibility_flags": ["nodejs_compat"],
+	"observability": {
+		"enabled": true,
+	},
 }

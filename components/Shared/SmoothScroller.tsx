@@ -1,7 +1,7 @@
 "use client";
 
 import React, { forwardRef, useEffect, useRef, useImperativeHandle } from "react";
-import Lenis from "@studio-freight/lenis";
+import Lenis from "lenis";
 
 // Custom hook for Lenis
 export const useLenis = (callback?: (lenis: Lenis) => void, deps: React.DependencyList = []) => {

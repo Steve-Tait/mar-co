@@ -43,7 +43,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 					<link rel="apple-touch-icon" href="/apple-icon?<generated>" type="image/<generated>" sizes="<generated>" />
 					<link rel="icon" href="/favicon.ico" sizes="any" />
 					<meta name="apple-mobile-web-app-title" content="Mar-co" />
-					{process.env.NODE_ENV !== "production" && <meta name="google-site-verification" content="uDKbndwkUah4Kl_vA4wk2PcdTnLWDWxJQbs1lW7hZCY" />}
+					{process.env.APP_ENV !== "production" && <meta name="google-site-verification" content="uDKbndwkUah4Kl_vA4wk2PcdTnLWDWxJQbs1lW7hZCY" />}
 				</head>
 				<GoogleTagManager gtmId={process.env.GTM_ID || ""} />
 
@@ -58,7 +58,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 						<Layout>{children}</Layout>
 						<Calendar />
 					</DialogRoot>
-					{process.env.NODE_ENV === "production" && (
+					{process.env.APP_ENV === "production" && (
 						<Script id="clarity-script" strategy="afterInteractive">
 							{`
             (function(c,l,a,r,i,t,y){

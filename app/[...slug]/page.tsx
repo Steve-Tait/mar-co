@@ -9,7 +9,7 @@ import { resolveRelations } from "@/lib/consts";
 
 export async function generateStaticParams() {
 	// Only generate static params in production
-	if (process.env.NODE_ENV !== "production") {
+	if (process.env.APP_ENV !== "production") {
 		return [{ slug: [] }]; // Just generate home page for development
 	}
 

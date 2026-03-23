@@ -57,7 +57,7 @@ export async function createMetaData(params: Paths) {
 	const { title, excerpt, meta_title, meta_desc, image } = content || {};
 	const theTitle = meta_title || title?.replace(/\**/g, "") || name;
 	const theDescription = meta_desc || excerpt;
-	const baseUrl = new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `http://localhost:${process.env.PORT || 3000}`);
+	const baseUrl = new URL("https://mar-co.digital");
 	return {
 		title: theTitle,
 		description: theDescription,

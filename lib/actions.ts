@@ -73,10 +73,13 @@ export async function subscribe(prevState: any, formData: FormData): Promise<TSu
 	let response = {} as TSubscribeResponse;
 
 	try {
+		const honeypot = formData.get("company"); //honeypot field to prevent bots
+		if (honeypot) {
+			throw "Bot detected";
+		}
 		const validatedFields = subscribeSchema.safeParse({
 			email: formData.get("email"),
 		});
-
 		//issue with Zod typescript
 		if (validatedFields.success === false) {
 			throw validatedFields.error.format();

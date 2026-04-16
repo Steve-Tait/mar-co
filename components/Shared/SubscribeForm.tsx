@@ -19,6 +19,11 @@ const formFields: FormField[] = [
 		type: "email",
 		placeholder: "someone@email.com",
 	},
+	{
+		name: "company",
+		type: "honeypot",
+		placeholder: "company",
+	},
 ];
 
 const SubscribeForm = ({ children }: { children?: React.ReactNode }) => {
@@ -42,14 +47,18 @@ const SubscribeForm = ({ children }: { children?: React.ReactNode }) => {
 			<div className="grow">
 				{formFields.map(({ type, name, placeholder }, index) => (
 					<React.Fragment key={index}>
-						<input
-							id={"subscribe-" + name}
-							type={type}
-							name={name}
-							placeholder={placeholder}
-							autoComplete="email"
-							className="outline-solid outline-3 w-full min-w-0 rounded-xl border-2 border-accent bg-background px-4 py-3 outline outline-transparent transition-all duration-300 hover:outline-accent focus:outline-accent"
-						/>
+						{type === "honeypot" ? (
+							<input className="field-company" type="text" name={name} placeholder={placeholder} />
+						) : (
+							<input
+								id={"subscribe-" + name}
+								type={type}
+								name={name}
+								placeholder={placeholder}
+								autoComplete="email"
+								className="outline-solid outline-3 w-full min-w-0 rounded-xl border-2 border-accent bg-background px-4 py-3 outline outline-transparent transition-all duration-300 hover:outline-accent focus:outline-accent"
+							/>
+						)}
 						{state?.error?.[name]?._errors.map((e: string, i: number) => (
 							<p className="mt-1 text-xs/none text-destructive-foreground" key={i}>
 								{e}

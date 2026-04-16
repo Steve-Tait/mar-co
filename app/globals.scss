@@ -358,6 +358,9 @@
 }
 
 @layer components {
+	.field-company {
+		@apply hidden;
+	}
 	.eyebrow {
 		@apply text-sm font-bold uppercase tracking-wide text-secondary;
 	}

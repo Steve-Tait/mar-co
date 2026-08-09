@@ -10,8 +10,8 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "eslint .",
-		"format": "prettier --check --ignore-path .gitignore .",
-		"format:fix": "prettier --write --ignore-path .gitignore .",
+		"format": "prettier --check --ignore-path .gitignore --ignore-path .prettierignore .",
+		"format:fix": "prettier --write --ignore-path .gitignore --ignore-path .prettierignore .",
 		"pull-components": "storyblok components pull --space 271647",
 		"generate-sb-types": "storyblok types generate --space 271647"
 	},

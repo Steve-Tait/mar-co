@@ -71,4 +71,9 @@ export type TiktokStoryblok = Loose<SB.Tiktok>;
 export type TiktokSectionStoryblok = Loose<SB.TiktokSection>;
 export type VideoWysiwygStoryblok = Loose<SB.VideoWysiwyg>;
 
-export type { StoryblokAsset as AssetStoryblok, StoryblokMultiasset as MultiassetStoryblok, StoryblokMultilink as MultilinkStoryblok, StoryblokRichtext as RichtextStoryblok } from "./.storyblok/types/storyblok";
+export type {
+	StoryblokAsset as AssetStoryblok,
+	StoryblokMultiasset as MultiassetStoryblok,
+	StoryblokMultilink as MultilinkStoryblok,
+	StoryblokRichtext as RichtextStoryblok,
+} from "./.storyblok/types/storyblok";

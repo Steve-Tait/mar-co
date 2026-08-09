@@ -11,6 +11,8 @@ export default function Badge({
   return (
     <button
       type='button'
+      aria-label={isOpen ? 'Close menu' : 'Open menu'}
+      aria-expanded={isOpen}
       className={cn(
         'flex size-6 flex-col items-center justify-center',
         className

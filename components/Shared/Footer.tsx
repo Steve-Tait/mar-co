@@ -21,12 +21,12 @@ export default function Footer({ blok, contact }: { blok: FooterStoryblok; conta
 						<div>
 							{address && <address className="whitespace-pre-line text-sm">{address}</address>}
 							<nav className="inline-flex gap-x-4">
-								{linkedin?.url && <SocialLink link={linkedin.url} target="_blank" />}
-								{tiktok?.url && <SocialLink link={tiktok.url} target="_blank" />}
-								{youtube?.url && <SocialLink link={youtube.url} target="_blank" />}
-								{instagram?.url && <SocialLink link={instagram.url} target="_blank" />}
-								{phone && <SocialLink icon="phone" link={`tel:${phone.replace(/\s/g, "")}`} />}
-								{email?.linktype === "email" && <SocialLink icon="mail" link={`mailto:${email.email}`} />}
+								{linkedin?.url && <SocialLink icon="linkedin" label="LinkedIn" link={linkedin.url} target="_blank" />}
+								{tiktok?.url && <SocialLink icon="music-2" label="TikTok" link={tiktok.url} target="_blank" />}
+								{youtube?.url && <SocialLink icon="youtube" label="YouTube" link={youtube.url} target="_blank" />}
+								{instagram?.url && <SocialLink icon="instagram" label="Instagram" link={instagram.url} target="_blank" />}
+								{phone && <SocialLink icon="phone" label={`Call ${phone}`} link={`tel:${phone.replace(/\s/g, "")}`} />}
+								{email?.linktype === "email" && <SocialLink icon="mail" label={`Email ${email.email}`} link={`mailto:${email.email}`} />}
 							</nav>
 						</div>
 					</div>

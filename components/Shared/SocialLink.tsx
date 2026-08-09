@@ -2,6 +2,7 @@ import { DynamicIcon, IconName } from 'lucide-react/dynamic';
 
 type TBadge = {
   link: string;
+  label: string;
   target?: string;
   icon?: IconName;
   className?: string;
@@ -9,6 +10,7 @@ type TBadge = {
 
 const SocialLink = ({
   link,
+  label,
   target,
   icon = 'linkedin',
   className,
@@ -20,9 +22,10 @@ const SocialLink = ({
       href={link}
       target={target}
       rel='noopener noreferrer'
+      aria-label={label}
       {...props}
     >
-      <DynamicIcon name={icon} className='size-full' />
+      <DynamicIcon name={icon} className='size-full' aria-hidden='true' />
     </a>
   );
 };

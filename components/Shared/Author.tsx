@@ -31,7 +31,7 @@ export default function Author({ author, className = '', ...props }: TWysiwyg) {
             {name && <Heading className='mb-2' level={5} heading={name} />}
             {description && <p>{description}</p>}
             {linkedin?.url && (
-              <SocialLink link={linkedin.url} target='_blank' />
+              <SocialLink icon='linkedin' label={`${name}'s LinkedIn`} link={linkedin.url} target='_blank' />
             )}
           </div>
         </div>

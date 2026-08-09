@@ -143,6 +143,11 @@ async function fetchWithRetry(url: string, init: RequestInit, opts: { retries?: 
 	throw lastError;
 }
 
+const HTML_ESCAPES: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+function escapeHtml(value: string): string {
+	return value.replace(/[&<>"']/g, (char) => HTML_ESCAPES[char]);
+}
+
 const notifyAdmin = async (fields: { email: string; firstName?: string; lastName?: string; agree?: boolean; phone?: E164Number | undefined }) => {
 	if (!process.env.BREVO_API_KEY) return;
 	return await fetchWithRetry("https://api.brevo.com/v3/smtp/email", {
@@ -159,10 +164,10 @@ const notifyAdmin = async (fields: { email: string; firstName?: string; lastName
 			htmlContent: `
         <p>A new contact has been added to your Brevo list:</p>
         <ul>
-          ${fields.firstName ? `<li><b>First Name:</b> ${fields.firstName}</li>` : ""}
-          ${fields.lastName ? `<li><b>Last Name:</b> ${fields.lastName}</li>` : ""}
-          <li><b>Email:</b> ${fields.email}</li>
-          ${fields.phone ? `<li><b>Phone:</b> ${fields.phone}</li>` : ""}
+          ${fields.firstName ? `<li><b>First Name:</b> ${escapeHtml(fields.firstName)}</li>` : ""}
+          ${fields.lastName ? `<li><b>Last Name:</b> ${escapeHtml(fields.lastName)}</li>` : ""}
+          <li><b>Email:</b> ${escapeHtml(fields.email)}</li>
+          ${fields.phone ? `<li><b>Phone:</b> ${escapeHtml(fields.phone)}</li>` : ""}
         </ul>
       `,
 		}),
@@ -185,7 +190,7 @@ const notifySubscriber = async (
 			to: [{ email: fields.email, name: fields.firstName ? `${fields.firstName} ${fields.lastName || ""}` : undefined }],
 			subject: "Thank you for subscribing",
 			htmlContent: `
-        <h4>${fields.firstName ? `Ciao ${fields.firstName},` : "Ciao!"}</h4>
+        <h4>${fields.firstName ? `Ciao ${escapeHtml(fields.firstName)},` : "Ciao!"}</h4>
         <br />
         ${message}
       `,

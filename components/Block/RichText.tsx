@@ -1,24 +1,12 @@
-import Link from "next/link";
 import { RichtextStoryblok } from "@/component-types-sb";
 import { cn } from "@/lib/utils";
-import { Mark } from "@tiptap/core";
-import { asTag, richTextResolver } from "@storyblok/react";
+import { richTextResolver } from "@storyblok/react";
 import { ComponentPropsWithoutRef } from "react";
 
 interface RichTextProps extends Omit<ComponentPropsWithoutRef<"div">, "content"> {
 	content: RichtextStoryblok | string;
 	large?: boolean;
 }
-
-const CustomLink = Mark.create({
-	name: "link",
-	renderHTML({ HTMLAttributes }) {
-		if (HTMLAttributes.target === "_self") {
-			return [asTag(Link), { href: HTMLAttributes.href }, 0];
-		}
-		return ["a", { href: HTMLAttributes.href, target: HTMLAttributes.target }, 0];
-	},
-});
 
 const RichText = ({ content, className, large, ...props }: RichTextProps) => {
 	if (!content) return;

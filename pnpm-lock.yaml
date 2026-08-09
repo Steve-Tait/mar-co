@@ -26,18 +26,6 @@ importers:
       '@storyblok/react':
         specifier: ^6.1.0
         version: 6.1.10(next@16.2.6(@babel/core@7.29.7)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.100.0))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      '@storyblok/richtext':
-        specifier: ^4.1.0
-        version: 4.3.4
-      '@tiptap/core':
-        specifier: ^3.20.4
-        version: 3.24.0(@tiptap/pm@3.24.0)
-      '@tiptap/pm':
-        specifier: ^3.20.4
-        version: 3.24.0
-      '@tiptap/suggestion':
-        specifier: ^3.20.4
-        version: 3.24.0(@tiptap/core@3.24.0(@tiptap/pm@3.24.0))(@tiptap/pm@3.24.0)
       '@types/js-cookie':
         specifier: ^3.0.6
         version: 3.0.6
@@ -92,9 +80,6 @@ importers:
       sass:
         specifier: ^1.85.1
         version: 1.100.0
-      storyblok-rich-text-react-renderer:
-        specifier: ^2.9.2
-        version: 2.9.2(react@19.2.6)
       tailwind-merge:
         specifier: ^3.0.2
         version: 3.6.0
@@ -3690,11 +3675,6 @@ packages:
 
   storyblok-js-client@7.6.0:
     resolution: {integrity: sha512-crf8erfOQOwkmjBISYTwWPfQafmOj4qM1NO387sK+yf/NejwHM9z7gLLKqY/sOQXFnH/R39p8HLOX0qO/0BtnA==}
-
-  storyblok-rich-text-react-renderer@2.9.2:
-    resolution: {integrity: sha512-ELOuDVoPDpThM0/yYRgZlh1yP2ELSN6N1mh9/i4Z0qwwzQ7mK+mrhGeOJACx1FB7kuaLzFhtDEjVttu0OPYI2A==}
-    peerDependencies:
-      react: '>=16.0.0'
 
   storyblok@4.17.9:
     resolution: {integrity: sha512-ThzDuOOGIz39D0clBZ0Mo8STBhZwT+OnK8A+2ptEjZWAvmRYEEYOwJC5xo+ifGPY0eupIouCoF7RnMPUnerxhQ==}
@@ -7687,10 +7667,6 @@ snapshots:
       - typescript
 
   storyblok-js-client@7.6.0: {}
-
-  storyblok-rich-text-react-renderer@2.9.2(react@19.2.6):
-    dependencies:
-      react: 19.2.6
 
   storyblok@4.17.9(@types/node@22.19.19):
     dependencies:

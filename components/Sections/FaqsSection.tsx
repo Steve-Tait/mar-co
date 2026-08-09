@@ -2,7 +2,6 @@
 import Container from "@/components/Shared/Container";
 import Section from "../Shared/Section";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
-import { render } from "storyblok-rich-text-react-renderer";
 import { FaqStoryblok, FaqsSectionStoryblok } from "@/component-types-sb";
 import SectionWrap from "../Shared/SectionWrap";
 import { StoryblokStory } from "storyblok-generate-ts";

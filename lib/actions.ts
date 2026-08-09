@@ -1,31 +1,32 @@
 "use server";
 
+import { z } from "zod";
 import { E164Number } from "libphonenumber-js";
 import { contactSchema, subscribeSchema } from "./schema";
-import { TSubscribeResponse } from "./types";
+import { TFieldErrors, TSubscribeResponse } from "./types";
 
-export async function contactUs(prevState: any, formData: FormData): Promise<TSubscribeResponse> {
-	let response = {} as TSubscribeResponse;
+type ContactFields = z.infer<typeof contactSchema>;
+type SubscribeFields = z.infer<typeof subscribeSchema>;
+
+const GENERIC_ERROR = "Something went wrong. Please try again.";
+const THANK_YOU_MESSAGE =
+	"<p>Thank you for getting in touch with MAR-CO Digital.</p><p>We will contact you within 24 hours to discuss your enquiry.</p><p>In the meantime, check out our latest updates on <a href='https://www.linkedin.com/company/mar-co.digital/'>LinkedIn</a>.</p>";
+
+async function submitToBrevo<TFields extends { email: string }>(
+	fields: TFields,
+	listId: number,
+	attributes?: Record<string, unknown>,
+): Promise<TSubscribeResponse<TFields>> {
+	if (!process.env.BREVO_API_KEY) {
+		console.error("Brevo API key is not configured");
+		return { wasSuccessful: false, error: GENERIC_ERROR };
+	}
+	if (!listId || Number.isNaN(listId)) {
+		console.error("Brevo list ID is invalid");
+		return { wasSuccessful: false, error: GENERIC_ERROR };
+	}
 
 	try {
-		const validatedFields = contactSchema.safeParse({
-			email: formData.get("email"),
-			firstName: formData.get("firstName"),
-			lastName: formData.get("lastName"),
-			phone: formData.get("phone"),
-			agree: formData.get("agree"),
-		});
-
-		//issue with Zod typescript
-		if (validatedFields.success === false) {
-			throw validatedFields.error.format();
-		}
-
-		if (!process.env.BREVO_API_KEY || !process.env.BREVO_LIST_ID) throw "Brevo API Key or List ID not configured properly";
-		const listId = Number(process.env.BREVO_LIST_ID);
-		if (!listId || Number.isNaN(listId)) throw "Brevo List ID environment variable is invalid";
-
-		const fields = validatedFields.data;
 		const res = await fetchWithRetry("https://api.brevo.com/v3/contacts", {
 			method: "POST",
 			headers: {
@@ -38,102 +39,85 @@ export async function contactUs(prevState: any, formData: FormData): Promise<TSu
 				updateEnabled: true,
 				email: fields.email,
 				listIds: [listId],
-				attributes: {
-					FIRSTNAME: fields.firstName,
-					LASTNAME: fields.lastName,
-					SMS: fields.phone || "",
-				},
+				...(attributes ? { attributes } : {}),
 			}),
 		});
 
 		if (!res.ok) {
-			const errorData = await res.json();
-			throw errorData;
+			const errorData = await res.json().catch(() => null);
+			console.error("Brevo request failed", errorData);
+			return { wasSuccessful: false, error: GENERIC_ERROR };
 		}
 
 		notifyAdmin(fields);
-		notifySubscriber(
-			fields,
-			"<p>Thank you for getting in touch with MAR-CO Digital.</p><p>We will contact you within 24 hours to discuss your enquiry.</p><p>In the meantime, check out our latest updates on <a href='https://www.linkedin.com/company/mar-co.digital/'>LinkedIn</a>.</p>",
-		);
-		response = {
+		notifySubscriber(fields, THANK_YOU_MESSAGE);
+
+		return {
 			wasSuccessful: true,
-			data: res?.status === 204 ? "No Content" : await res.json(),
-			fields: fields,
+			data: res.status === 204 ? "No Content" : await res.json(),
+			fields,
 		};
-	} catch (e) {
-		response = {
-			wasSuccessful: false,
-			error: e,
-		};
+	} catch (err) {
+		console.error("Brevo submission failed", err);
+		return { wasSuccessful: false, error: GENERIC_ERROR };
 	}
-	return response;
 }
-export async function subscribe(prevState: any, formData: FormData): Promise<TSubscribeResponse> {
-	let response = {} as TSubscribeResponse;
 
-	try {
-		const honeypot = formData.get("company"); //honeypot field to prevent bots
-		if (honeypot) {
-			throw "Bot detected";
-		}
-		const validatedFields = subscribeSchema.safeParse({
-			email: formData.get("email"),
-		});
-		//issue with Zod typescript
-		if (validatedFields.success === false) {
-			throw validatedFields.error.format();
-		}
+export async function contactUs(prevState: unknown, formData: FormData): Promise<TSubscribeResponse<ContactFields>> {
+	const validatedFields = contactSchema.safeParse({
+		email: formData.get("email"),
+		firstName: formData.get("firstName"),
+		lastName: formData.get("lastName"),
+		phone: formData.get("phone"),
+		agree: formData.get("agree"),
+	});
 
-		if (!process.env.BREVO_API_KEY) throw "Brevo API Key  not configured properly";
-		const listId = 12;
-		if (!listId || Number.isNaN(listId)) throw "Brevo List ID environment variable is invalid";
-
-		const fields = validatedFields.data;
-		const res = await fetchWithRetry("https://api.brevo.com/v3/contacts", {
-			method: "POST",
-			headers: {
-				accept: "application/json",
-				"content-type": "application/json",
-				"api-key": process.env.BREVO_API_KEY,
-				"user-agent": "mar-co/subscribe (vercel)",
-			},
-			body: JSON.stringify({
-				updateEnabled: true,
-				email: fields.email,
-				listIds: [listId],
-			}),
-		});
-
-		if (!res.ok) {
-			const errorData = await res.json();
-			throw errorData;
-		}
-
-		notifyAdmin(fields);
-		notifySubscriber(
-			fields,
-			"<p>Thank you for getting in touch with MAR-CO Digital.</p><p>We will contact you within 24 hours to discuss your enquiry.</p><p>In the meantime, check out our latest updates on <a href='https://www.linkedin.com/company/mar-co.digital/'>LinkedIn</a>.</p>",
-		);
-		response = {
-			wasSuccessful: true,
-			data: res?.status === 204 ? "No Content" : await res.json(),
-			fields: fields,
-		};
-	} catch (e) {
-		response = {
-			wasSuccessful: false,
-			error: e,
-		};
+	if (!validatedFields.success) {
+		return { wasSuccessful: false, error: "Please correct the errors below.", fieldErrors: validatedFields.error.format() as unknown as TFieldErrors };
 	}
-	return response;
+
+	if (!process.env.BREVO_LIST_ID) {
+		console.error("Brevo list ID is not configured");
+		return { wasSuccessful: false, error: GENERIC_ERROR };
+	}
+
+	const { firstName, lastName, phone } = validatedFields.data;
+	return submitToBrevo(validatedFields.data, Number(process.env.BREVO_LIST_ID), {
+		FIRSTNAME: firstName,
+		LASTNAME: lastName,
+		SMS: phone || "",
+	});
+}
+
+export async function subscribe(prevState: unknown, formData: FormData): Promise<TSubscribeResponse<SubscribeFields>> {
+	const honeypot = formData.get("company"); // honeypot field to prevent bots
+	if (honeypot) {
+		return { wasSuccessful: false, error: GENERIC_ERROR };
+	}
+
+	const validatedFields = subscribeSchema.safeParse({
+		email: formData.get("email"),
+	});
+
+	if (!validatedFields.success) {
+		return { wasSuccessful: false, error: "Please correct the errors below.", fieldErrors: validatedFields.error.format() as unknown as TFieldErrors };
+	}
+
+	return submitToBrevo(validatedFields.data, 12);
 }
 const RETRYABLE_CODES = new Set(["UND_ERR_SOCKET", "ECONNRESET", "ETIMEDOUT", "ENETUNREACH", "EAI_AGAIN"]);
+
+function isRetryableError(err: unknown): boolean {
+	const cause = err instanceof Error ? (err.cause as { code?: string } | undefined) : undefined;
+	const code = cause?.code || (err instanceof Error && "code" in err ? (err as { code?: string }).code : undefined);
+	const isAbort = err instanceof Error && err.name === "AbortError";
+	return (!!code && RETRYABLE_CODES.has(code)) || isAbort;
+}
 
 async function fetchWithRetry(url: string, init: RequestInit, opts: { retries?: number; timeoutMs?: number } = {}) {
 	const retries = opts.retries ?? 3;
 	const timeoutMs = opts.timeoutMs ?? 10000;
-	let lastError: any = null;
+	let lastError: unknown = null;
 	for (let attempt = 1; attempt <= retries; attempt++) {
 		const controller = new AbortController();
 		const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -145,13 +129,10 @@ async function fetchWithRetry(url: string, init: RequestInit, opts: { retries?: 
 			});
 			clearTimeout(timer);
 			return res;
-		} catch (err: any) {
+		} catch (err) {
 			clearTimeout(timer);
 			lastError = err;
-			const code = err?.cause?.code || err?.code;
-			const isAbort = err?.name === "AbortError";
-			const retryable = RETRYABLE_CODES.has(code) || isAbort;
-			if (attempt < retries && retryable) {
+			if (attempt < retries && isRetryableError(err)) {
 				// simple backoff
 				await new Promise((r) => setTimeout(r, 400 * attempt));
 				continue;

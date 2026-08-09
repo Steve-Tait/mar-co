@@ -65,14 +65,13 @@ const ContactForm = ({ children }: { children: React.ReactNode }) => {
 				<p className="text-lg">We&#34;ll be in touch within 24 hours.</p>
 			</div>
 		);
-	} else if (state?.error) {
-		console.error("error", state.error);
 	}
 
 	return (
 		<>
 			{children}
 			<form ref={ref} action={formAction}>
+				{state?.error && <p className="mb-4 text-sm text-destructive-foreground">{state.error}</p>}
 				<div className="grid grid-cols-2 gap-4 py-4 md:py-8">
 					{formFields.map(({ type, name, placeholder, isWide, label }, i) => (
 						<div className={cn(isWide && "col-span-2")} key={name}>
@@ -98,7 +97,7 @@ const ContactForm = ({ children }: { children: React.ReactNode }) => {
 										/>
 									</>
 								)}
-								{state?.error?.[name]?._errors.map((e: string, i: number) => (
+								{state?.fieldErrors?.[name]?._errors.map((e: string, i: number) => (
 									<p className="mt-1 text-xs/none text-destructive-foreground" key={i}>
 										{e}
 									</p>

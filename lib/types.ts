@@ -21,12 +21,11 @@ export type MetaProps = {
   params: Promise<Paths>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
-export type TSubscribeResponse = {
-  wasSuccessful: boolean;
-  data?: any;
-  error?: any;
-  fields?: any;
-};
+export type TFieldErrors = Record<string, { _errors: string[] } | undefined>;
+
+export type TSubscribeResponse<TFields = Record<string, unknown>> =
+  | { wasSuccessful: true; data: unknown; fields: TFields }
+  | { wasSuccessful: false; error: string; fieldErrors?: TFieldErrors };
 export interface TSVGProps {
   className?: string;
 }

@@ -44,36 +44,37 @@ const SubscribeForm = ({ children }: { children?: React.ReactNode }) => {
 				<p className="text-lg">Check your inbox for our first email.</p>
 			</div>
 		);
-	} else if (state?.error) {
-		console.error("error", state.error);
 	}
 
 	return (
-		<form className="flex w-full gap-x-4" ref={ref} action={formAction}>
-			<div className="grow">
-				{formFields.map(({ type, name, placeholder }, index) => (
-					<React.Fragment key={index}>
-						{type === "honeypot" ? (
-							<input className="field-company" type="text" name={name} placeholder={placeholder} />
-						) : (
-							<input
-								id={"subscribe-" + name}
-								type={type}
-								name={name}
-								placeholder={placeholder}
-								autoComplete="email"
-								className="outline-solid outline-3 w-full min-w-0 rounded-xl border-2 border-accent bg-background px-4 py-3 outline outline-transparent transition-all duration-300 hover:outline-accent focus:outline-accent"
-							/>
-						)}
-						{state?.error?.[name]?._errors.map((e: string, i: number) => (
-							<p className="mt-1 text-xs/none text-destructive-foreground" key={i}>
-								{e}
-							</p>
-						))}
-					</React.Fragment>
-				))}
+		<form className="flex w-full flex-col gap-y-2" ref={ref} action={formAction}>
+			{state?.error && <p className="text-sm text-destructive-foreground">{state.error}</p>}
+			<div className="flex w-full gap-x-4">
+				<div className="grow">
+					{formFields.map(({ type, name, placeholder }, index) => (
+						<React.Fragment key={index}>
+							{type === "honeypot" ? (
+								<input className="field-company" type="text" name={name} placeholder={placeholder} />
+							) : (
+								<input
+									id={"subscribe-" + name}
+									type={type}
+									name={name}
+									placeholder={placeholder}
+									autoComplete="email"
+									className="outline-solid outline-3 w-full min-w-0 rounded-xl border-2 border-accent bg-background px-4 py-3 outline outline-transparent transition-all duration-300 hover:outline-accent focus:outline-accent"
+								/>
+							)}
+							{state?.fieldErrors?.[name]?._errors.map((e: string, i: number) => (
+								<p className="mt-1 text-xs/none text-destructive-foreground" key={i}>
+									{e}
+								</p>
+							))}
+						</React.Fragment>
+					))}
+				</div>
+				<SubmitButton>Submit</SubmitButton>
 			</div>
-			<SubmitButton>Submit</SubmitButton>
 		</form>
 	);
 };

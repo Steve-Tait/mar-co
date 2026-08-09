@@ -35,10 +35,11 @@ type TTileCaseStudy = {
 	};
 };
 
+const MotionLink = motion(Link);
+
 export default function TileCaseStudy({ caseStudy, index = 0 }: TTileCaseStudy) {
 	const { title, slug, excerpt, image, industry } = caseStudy || {};
 
-	const MotionLink = motion(Link);
 	return (
 		<motion.article
 			className="group/tile relative flex snap-start snap-always overflow-hidden rounded-2xl bg-card text-card-foreground transition-colors hover:bg-accent hover:text-accent-foreground"

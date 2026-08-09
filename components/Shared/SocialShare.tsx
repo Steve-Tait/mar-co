@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import { Copy, Facebook, Linkedin, X } from 'lucide-react';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 interface IProps {
   className?: string;
@@ -11,9 +11,6 @@ const SocialShare: React.FC<IProps> = ({
   className,
   format = 'contextualNav',
 }) => {
-  const [currentUrl, setCurrentUrl] = useState<string | null>(null);
-  const [encodedUrl, setEncodedUrl] = useState<string | null>(null);
-
   const iconClass = cn('w-6 h-6', format === 'post' && 'text-gold-700');
   const buttonClass = cn(
     'transition-color duration-300 bg-theme-surface-secondary hover:bg-theme-border-secondary',
@@ -25,23 +22,22 @@ const SocialShare: React.FC<IProps> = ({
     'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=300, height=300';
 
   function openSocialShareTwitter(): void {
-    const url = `http://twitter.com/share?url=${encodedUrl}`;
+    const url = `http://twitter.com/share?url=${encodeURIComponent(window.location.href)}`;
     window.open(url, 'targetWindow', WINDOW);
   }
 
   function openSocialShareLinkedin(): void {
-    const url = `https://www.linkedin.com/share?url=${encodedUrl}`;
+    const url = `https://www.linkedin.com/share?url=${encodeURIComponent(window.location.href)}`;
     window.open(url, 'targetWindow', WINDOW);
   }
 
   function openSocialShareFacebook(): void {
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}/`;
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}/`;
     window.open(url, 'targetWindow', WINDOW);
   }
 
   function copyCurrentUrlToClipboard(): void {
-    if (!currentUrl) return;
-    window.navigator.clipboard.writeText(currentUrl);
+    window.navigator.clipboard.writeText(window.location.href);
   }
 
   const socials = [
@@ -74,11 +70,6 @@ const SocialShare: React.FC<IProps> = ({
       onClick: copyCurrentUrlToClipboard,
     },
   ];
-
-  useEffect(() => {
-    setCurrentUrl(window.location.href);
-    setEncodedUrl(encodeURIComponent(window.location.href));
-  }, []);
 
   return (
     <div className={className}>

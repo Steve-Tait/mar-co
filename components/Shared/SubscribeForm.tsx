@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useActionState } from "react";
+import React, { useActionState, useEffect } from "react";
 import { SubmitButton } from "./SubmitButton";
 import { subscribe } from "@/lib/actions";
 import Heading from "./Heading";
@@ -29,8 +29,14 @@ const formFields: FormField[] = [
 const SubscribeForm = ({ children }: { children?: React.ReactNode }) => {
 	const ref = React.useRef<HTMLFormElement>(null);
 	const [state, formAction] = useActionState(subscribe, null);
+
+	useEffect(() => {
+		if (state?.wasSuccessful) {
+			ref.current?.reset();
+		}
+	}, [state?.wasSuccessful]);
+
 	if (state?.wasSuccessful) {
-		ref?.current?.reset();
 		const email = state?.fields?.email;
 		return (
 			<div className="flex flex-col gap-y-4 text-center">

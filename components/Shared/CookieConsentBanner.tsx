@@ -27,6 +27,7 @@ export default function CookieConsentBanner({
     const consentCookie = cookie.get('cookieConsent');
 
     if (!consentCookie) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- document.cookie is only readable client-side, so this must run post-mount to avoid a hydration mismatch
       setShowBanner(true);
     }
   }, []);

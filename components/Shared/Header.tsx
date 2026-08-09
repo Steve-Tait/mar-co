@@ -23,23 +23,21 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
 
 	const lenis = useLenis();
 	useEffect(() => {
-		if (!lenis) return;
-		isOpen ? lenis.stop() : lenis.start();
+		if (!lenis.current) return;
+		isOpen ? lenis.current.stop() : lenis.current.start();
 	}, [isOpen, lenis]);
 
-	const updateScroll = () => setHasScrolled(window.scrollY > 100);
-
 	useEffect(() => {
-		if (typeof window !== "undefined") {
-			updateScroll();
-			window.addEventListener("scroll", updateScroll);
-			return () => window.removeEventListener("scroll", updateScroll);
-		}
+		const updateScroll = () => setHasScrolled(window.scrollY > 100);
+		updateScroll();
+		window.addEventListener("scroll", updateScroll);
+		return () => window.removeEventListener("scroll", updateScroll);
 	}, []);
 
 	const pathname = usePathname();
 	const searchParams = useSearchParams();
 	useEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect -- close the mobile menu when the user navigates
 		setIsOpen(false);
 	}, [pathname, searchParams]);
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useActionState } from "react";
+import React, { useActionState, useEffect } from "react";
 import { SubmitButton } from "./SubmitButton";
 import { contactUs } from "@/lib/actions";
 import { cn } from "@/lib/utils";
@@ -50,8 +50,14 @@ const formFields: FormField[] = [
 const ContactForm = ({ children }: { children: React.ReactNode }) => {
 	const ref = React.useRef<HTMLFormElement>(null);
 	const [state, formAction] = useActionState(contactUs, null);
+
+	useEffect(() => {
+		if (state?.wasSuccessful) {
+			ref.current?.reset();
+		}
+	}, [state?.wasSuccessful]);
+
 	if (state?.wasSuccessful) {
-		ref?.current?.reset();
 		const name = state?.fields?.firstName;
 		return (
 			<div className="flex flex-col items-center justify-center gap-y-4 sm:justify-start">

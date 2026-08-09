@@ -18,7 +18,7 @@ export const useKeyPress = (
     return () => {
       document.removeEventListener('keydown', onKeyDown);
     };
-  }, []);
+  }, [callback, keys]);
 };
 
 // enums/KeyboardKey.ts

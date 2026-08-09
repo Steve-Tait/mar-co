@@ -11,9 +11,10 @@ const LABEL_CLASS = "transition-transform translate-x-3 group-focus/btn:translat
 const ICON_CLASS =
 	"-translate-x-2 opacity-0 transition-[opacity,transform] group-focus/btn:translate-x-0 group-focus/btn:opacity-100 group-hover/btn:translate-x-0 group-hover/btn:opacity-100";
 
+const MotionLink = motion(Link);
+
 const Button = ({ blok, size, className, ...props }: { blok: ButtonStoryblok; size: string; className?: string }) => {
 	const { link, label, variant = "primary", form_trigger } = blok || {};
-	const MotionLink = motion(Link);
 	if (form_trigger) {
 		return (
 			<DrawerTrigger className={cn("btn group/btn", variant && `btn--${variant}`, size && `btn--${size}`, className)}>

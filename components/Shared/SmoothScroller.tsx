@@ -11,9 +11,10 @@ export const useLenis = (callback?: (lenis: Lenis) => void, deps: React.Dependen
 		if (lenisRef.current && callback) {
 			callback(lenisRef.current);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps -- `deps` is caller-supplied, not statically analyzable
 	}, deps);
 
-	return lenisRef.current;
+	return lenisRef;
 };
 
 import useWindowDimensions from "@/lib/hooks/useWindowDimension";

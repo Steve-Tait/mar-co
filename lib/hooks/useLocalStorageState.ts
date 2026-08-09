@@ -8,6 +8,7 @@ export default function useLocalStorageState<T>(key: string, defaultValue: T) {
 		const localstorageValue = localStorage.getItem(key);
 
 		if (localstorageValue !== null) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect -- localStorage is only readable client-side, so this must run post-mount to avoid a hydration mismatch
 			setValue(JSON.parse(localstorageValue) as T);
 		}
 		setIsInitialized(true);

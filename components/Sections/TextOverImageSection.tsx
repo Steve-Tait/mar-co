@@ -23,7 +23,7 @@ const TextOverImageSection = ({
       className='relative'
       removePadding
     >
-      {image && (
+      {image?.filename && (
         <>
           <Parallax className='absolute inset-0 size-full'>
             <Image

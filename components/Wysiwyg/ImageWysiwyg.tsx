@@ -6,8 +6,8 @@ import { getImageDimensionsFromUrl } from "@/lib/utils";
 
 const ImageWysiwyg = ({ blok }: { blok: ImageWysiwygStoryblok }) => {
 	const { image, caption } = blok;
+	if (!image?.filename) return;
 	const dimensions = getImageDimensionsFromUrl(image.filename);
-	if (!image) return;
 	return (
 		<div className="theme--light bg-background py-8 text-foreground md:py-12 xl:py-16">
 			<Container className="theme--light text-center">

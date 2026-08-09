@@ -1,0 +1,30 @@
+[
+  {
+    "name": "components",
+    "id": 267476,
+    "uuid": "112cba58-bae8-4802-b6f7-1cf1e9e1e95f",
+    "parent_id": null,
+    "parent_uuid": "112cba58-bae8-4802-b6f7-1cf1e9e1e95f"
+  },
+  {
+    "name": "pages",
+    "id": 267787,
+    "uuid": "54853a5b-3ce1-4d1a-8b61-e6929cfc6b86",
+    "parent_id": null,
+    "parent_uuid": "54853a5b-3ce1-4d1a-8b61-e6929cfc6b86"
+  },
+  {
+    "name": "sections",
+    "id": 267155,
+    "uuid": "b1d05dd6-af9a-4109-91fe-59ef047439ef",
+    "parent_id": null,
+    "parent_uuid": "b1d05dd6-af9a-4109-91fe-59ef047439ef"
+  },
+  {
+    "name": "wysiwyg",
+    "id": 272655,
+    "uuid": "8b6f7710-a564-4e65-92c4-999066389e1a",
+    "parent_id": null,
+    "parent_uuid": "8b6f7710-a564-4e65-92c4-999066389e1a"
+  }
+]

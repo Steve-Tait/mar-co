@@ -19,7 +19,7 @@ const ContactSection = ({ blok }: { blok: ContactSectionStoryblok }) => {
 								<span className="flex flex-col gap-y-1">{phone}</span>
 							</a>
 						)}
-						{email?.email && (
+						{email?.linktype === "email" && email.email && (
 							<a className="group/contact col-span-1 flex flex-col items-center gap-y-4" href={`mailto:${email.email}`}>
 								<span className="size-8 shrink-0 rounded-full border border-secondary p-1.5 text-secondary transition-colors group-hover/contact:bg-secondary group-hover/contact:text-white lg:size-12 lg:p-2.5">
 									<Mail className="size-full" />

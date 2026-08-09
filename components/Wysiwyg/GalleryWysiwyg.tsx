@@ -7,16 +7,18 @@ import { GalleryWysiwygStoryblok } from '@/component-types-sb';
 const GalleryWysiwyg = ({ blok }: { blok: GalleryWysiwygStoryblok }) => {
   const { gallery } = blok;
 
-  const images = gallery.map((image) => {
-    const dimensions = getImageDimensionsFromUrl(image.filename);
-    const scaleFactor = dimensions[0] / dimensions[1];
-    return {
-      width: dimensions[0] * scaleFactor,
-      height: 320,
-      filename: image.filename,
-      alt: image.alt || image.title || '',
-    };
-  });
+  const images = gallery
+    .filter((image) => image.filename)
+    .map((image) => {
+      const dimensions = getImageDimensionsFromUrl(image.filename!);
+      const scaleFactor = dimensions[0] / dimensions[1];
+      return {
+        width: dimensions[0] * scaleFactor,
+        height: 320,
+        filename: image.filename!,
+        alt: image.alt || image.title || '',
+      };
+    });
   return (
     <Carousel
       className='relative overflow-hidden'

@@ -18,7 +18,7 @@ const TextAndImageSection = ({
   return (
     <Section blok={blok}>
       <Container className='grid grid-cols-1 items-center gap-x-10 gap-y-6 sm:grid-cols-2 xl:gap-x-16'>
-        {image?.id && (
+        {image?.filename && (
           <div
             className={cn(
               'relative aspect-square size-full overflow-hidden rounded-3xl object-cover',

@@ -9,17 +9,19 @@ import { Camera } from 'lucide-react';
 const ImageSection = ({ blok }: { blok: ImageSectionStoryblok }) => {
   const { images } = blok || {};
   const theImages = images
-    ? images.map((image) => {
-        const dimensions = getImageDimensionsFromUrl(image.filename);
-        const scaleFactor = dimensions[0] / dimensions[1];
-        return {
-          width: dimensions[0] * scaleFactor,
-          height: 160,
-          filename: image.filename,
-          alt: image.alt || image.title || '',
-          name: image.name,
-        };
-      })
+    ? images
+        .filter((image) => image.filename)
+        .map((image) => {
+          const dimensions = getImageDimensionsFromUrl(image.filename!);
+          const scaleFactor = dimensions[0] / dimensions[1];
+          return {
+            width: dimensions[0] * scaleFactor,
+            height: 160,
+            filename: image.filename!,
+            alt: image.alt || image.title || '',
+            name: image.name,
+          };
+        })
     : [];
   return (
     <Section blok={blok}>

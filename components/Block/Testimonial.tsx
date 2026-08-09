@@ -43,7 +43,7 @@ const Testimonial = ({ blok, className }: TTestimonial) => {
             {role && <p className='font-bold'>{role}</p>}
           </figcaption>
         </div>
-        {company?.id && (
+        {company?.filename && (
           <Image
             src={company.filename}
             alt={company.alt || company.title || ''}

@@ -5,16 +5,18 @@ import { getImageDimensionsFromUrl } from "@/lib/utils";
 import Image from "next/image";
 
 export default function ImageAutoScrollCarousel({ images }: { images: MultiassetStoryblok }) {
-	const imagesWithSize = images.map((image) => {
-		const dimensions = getImageDimensionsFromUrl(image.filename);
-		const scaleFactor = dimensions[0] / dimensions[1];
-		return {
-			width: dimensions[0] * scaleFactor,
-			height: 48,
-			filename: image.filename,
-			alt: image.alt || image.title || "",
-		};
-	});
+	const imagesWithSize = images
+		.filter((image) => image.filename)
+		.map((image) => {
+			const dimensions = getImageDimensionsFromUrl(image.filename!);
+			const scaleFactor = dimensions[0] / dimensions[1];
+			return {
+				width: dimensions[0] * scaleFactor,
+				height: 48,
+				filename: image.filename!,
+				alt: image.alt || image.title || "",
+			};
+		});
 
 	return (
 		<Carousel

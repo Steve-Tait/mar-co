@@ -95,26 +95,30 @@ export default function Header({ blok }: { blok: HeaderStoryblok }) {
 							<div className="flex h-full flex-col justify-between gap-y-4">
 								<SheetTitle className="sr-only">Menu</SheetTitle>
 								<nav className="flex flex-col gap-y-6 text-left text-primary-foreground">
-									{menu.map((nestedBlok) => (
-										<React.Fragment key={nestedBlok._uid}>
-											{nestedBlok?.items ? (
-												<div className="flex flex-col gap-y-2">
-													<p className="text-xl font-bold underline decoration-secondary decoration-2 underline-offset-4">
-														{nestedBlok.heading}
-													</p>
-													{nestedBlok?.items.map((item: MenuLinkStoryblok) => (
-														<Link key={item._uid} title={item.label} href={`/${item.link.cached_url}`}>
-															{item?.label}
-														</Link>
-													))}
-												</div>
-											) : (
-												<Link title={nestedBlok.label} href={`/${nestedBlok.link.cached_url}`}>
-													{nestedBlok.label}
-												</Link>
-											)}
-										</React.Fragment>
-									))}
+									{menu.map((rawBlok) => {
+										const sectionBlok = rawBlok as MenuSectionStoryblok;
+										const linkBlok = rawBlok as MenuLinkStoryblok;
+										return (
+											<React.Fragment key={rawBlok._uid}>
+												{sectionBlok?.items ? (
+													<div className="flex flex-col gap-y-2">
+														<p className="text-xl font-bold underline decoration-secondary decoration-2 underline-offset-4">
+															{sectionBlok.heading}
+														</p>
+														{sectionBlok?.items.map((item: MenuLinkStoryblok) => (
+															<Link key={item._uid} title={item.label} href={`/${item.link.cached_url}`}>
+																{item?.label}
+															</Link>
+														))}
+													</div>
+												) : (
+													<Link title={linkBlok.label} href={`/${linkBlok.link.cached_url}`}>
+														{linkBlok.label}
+													</Link>
+												)}
+											</React.Fragment>
+										);
+									})}
 								</nav>
 								<ButtonGroup className="flex w-full" buttons={buttons} />
 							</div>

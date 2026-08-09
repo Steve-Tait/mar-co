@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function Footer({ blok, contact }: { blok: FooterStoryblok; contact?: ContactStoryblok }) {
 	const { menu, body, mandatories } = blok;
-	const { email, phone, linkedin, address } = contact || {};
+	const { email, phone, linkedin, tiktok, youtube, instagram, address } = contact ?? ({} as ContactStoryblok);
 	return (
 		<footer className="text-center sm:text-left" {...storyblokEditable(blok)}>
 			<Container className="flex flex-col gap-8 py-10">
@@ -22,8 +22,11 @@ export default function Footer({ blok, contact }: { blok: FooterStoryblok; conta
 							{address && <address className="whitespace-pre-line text-sm">{address}</address>}
 							<nav className="inline-flex gap-x-4">
 								{linkedin?.url && <SocialLink link={linkedin.url} target="_blank" />}
+								{tiktok?.url && <SocialLink link={tiktok.url} target="_blank" />}
+								{youtube?.url && <SocialLink link={youtube.url} target="_blank" />}
+								{instagram?.url && <SocialLink link={instagram.url} target="_blank" />}
 								{phone && <SocialLink icon="phone" link={`tel:${phone.replace(/\s/g, "")}`} />}
-								{email && <SocialLink icon="mail" link={`mailto:${email.email}`} />}
+								{email?.linktype === "email" && <SocialLink icon="mail" link={`mailto:${email.email}`} />}
 							</nav>
 						</div>
 					</div>

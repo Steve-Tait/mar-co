@@ -12,18 +12,32 @@ const GENERIC_ERROR = "Something went wrong. Please try again.";
 const THANK_YOU_MESSAGE =
 	"<p>Thank you for getting in touch with MAR-CO Digital.</p><p>We will contact you within 24 hours to discuss your enquiry.</p><p>In the meantime, check out our latest updates on <a href='https://www.linkedin.com/company/mar-co.digital/'>LinkedIn</a>.</p>";
 
+// React resets uncontrolled form fields after every action submission, success or
+// failure, since it has no notion of app-level success. Echoing back what was
+// submitted as `defaultValue`/`defaultChecked` is what keeps the fields populated
+// when validation (or the Brevo request) fails.
+function formDataToStrings(formData: FormData, keys: string[]): Record<string, string> {
+	const result: Record<string, string> = {};
+	for (const key of keys) {
+		const value = formData.get(key);
+		if (typeof value === "string") result[key] = value;
+	}
+	return result;
+}
+
 async function submitToBrevo<TFields extends { email: string }>(
 	fields: TFields,
 	listId: number,
+	submittedValues: Record<string, string>,
 	attributes?: Record<string, unknown>,
 ): Promise<TSubscribeResponse<TFields>> {
 	if (!process.env.BREVO_API_KEY) {
 		console.error("Brevo API key is not configured");
-		return { wasSuccessful: false, error: GENERIC_ERROR };
+		return { wasSuccessful: false, error: GENERIC_ERROR, submittedValues };
 	}
 	if (!listId || Number.isNaN(listId)) {
 		console.error("Brevo list ID is invalid");
-		return { wasSuccessful: false, error: GENERIC_ERROR };
+		return { wasSuccessful: false, error: GENERIC_ERROR, submittedValues };
 	}
 
 	try {
@@ -46,7 +60,7 @@ async function submitToBrevo<TFields extends { email: string }>(
 		if (!res.ok) {
 			const errorData = await res.json().catch(() => null);
 			console.error("Brevo request failed", errorData);
-			return { wasSuccessful: false, error: GENERIC_ERROR };
+			return { wasSuccessful: false, error: GENERIC_ERROR, submittedValues };
 		}
 
 		notifyAdmin(fields);
@@ -59,11 +73,13 @@ async function submitToBrevo<TFields extends { email: string }>(
 		};
 	} catch (err) {
 		console.error("Brevo submission failed", err);
-		return { wasSuccessful: false, error: GENERIC_ERROR };
+		return { wasSuccessful: false, error: GENERIC_ERROR, submittedValues };
 	}
 }
 
 export async function contactUs(prevState: unknown, formData: FormData): Promise<TSubscribeResponse<ContactFields>> {
+	const submittedValues = formDataToStrings(formData, ["firstName", "lastName", "email", "phone", "agree"]);
+
 	const validatedFields = contactSchema.safeParse({
 		email: formData.get("email"),
 		firstName: formData.get("firstName"),
@@ -73,16 +89,21 @@ export async function contactUs(prevState: unknown, formData: FormData): Promise
 	});
 
 	if (!validatedFields.success) {
-		return { wasSuccessful: false, error: "Please correct the errors below.", fieldErrors: validatedFields.error.format() as unknown as TFieldErrors };
+		return {
+			wasSuccessful: false,
+			error: "Please correct the errors below.",
+			fieldErrors: validatedFields.error.format() as unknown as TFieldErrors,
+			submittedValues,
+		};
 	}
 
 	if (!process.env.BREVO_LIST_ID) {
 		console.error("Brevo list ID is not configured");
-		return { wasSuccessful: false, error: GENERIC_ERROR };
+		return { wasSuccessful: false, error: GENERIC_ERROR, submittedValues };
 	}
 
 	const { firstName, lastName, phone } = validatedFields.data;
-	return submitToBrevo(validatedFields.data, Number(process.env.BREVO_LIST_ID), {
+	return submitToBrevo(validatedFields.data, Number(process.env.BREVO_LIST_ID), submittedValues, {
 		FIRSTNAME: firstName,
 		LASTNAME: lastName,
 		SMS: phone || "",
@@ -90,9 +111,11 @@ export async function contactUs(prevState: unknown, formData: FormData): Promise
 }
 
 export async function subscribe(prevState: unknown, formData: FormData): Promise<TSubscribeResponse<SubscribeFields>> {
+	const submittedValues = formDataToStrings(formData, ["email"]);
+
 	const honeypot = formData.get("company"); // honeypot field to prevent bots
 	if (honeypot) {
-		return { wasSuccessful: false, error: GENERIC_ERROR };
+		return { wasSuccessful: false, error: GENERIC_ERROR, submittedValues };
 	}
 
 	const validatedFields = subscribeSchema.safeParse({
@@ -100,10 +123,15 @@ export async function subscribe(prevState: unknown, formData: FormData): Promise
 	});
 
 	if (!validatedFields.success) {
-		return { wasSuccessful: false, error: "Please correct the errors below.", fieldErrors: validatedFields.error.format() as unknown as TFieldErrors };
+		return {
+			wasSuccessful: false,
+			error: "Please correct the errors below.",
+			fieldErrors: validatedFields.error.format() as unknown as TFieldErrors,
+			submittedValues,
+		};
 	}
 
-	return submitToBrevo(validatedFields.data, 12);
+	return submitToBrevo(validatedFields.data, 12, submittedValues);
 }
 const RETRYABLE_CODES = new Set(["UND_ERR_SOCKET", "ECONNRESET", "ETIMEDOUT", "ENETUNREACH", "EAI_AGAIN"]);
 

@@ -21,7 +21,7 @@ export type TFieldErrors = Record<string, { _errors: string[] } | undefined>;
 
 export type TSubscribeResponse<TFields = Record<string, unknown>> =
 	| { wasSuccessful: true; data: unknown; fields: TFields }
-	| { wasSuccessful: false; error: string; fieldErrors?: TFieldErrors };
+	| { wasSuccessful: false; error: string; fieldErrors?: TFieldErrors; submittedValues?: Record<string, string> };
 export interface TSVGProps {
 	className?: string;
 }

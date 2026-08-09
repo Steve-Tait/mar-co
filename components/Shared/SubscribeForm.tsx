@@ -62,6 +62,7 @@ const SubscribeForm = ({ children }: { children?: React.ReactNode }) => {
 									name={name}
 									placeholder={placeholder}
 									autoComplete="email"
+									defaultValue={state?.wasSuccessful === false ? state.submittedValues?.[name] : undefined}
 									className="outline-solid outline-3 w-full min-w-0 rounded-xl border-2 border-accent bg-background px-4 py-3 outline outline-transparent transition-all duration-300 hover:outline-accent focus:outline-accent"
 								/>
 							)}

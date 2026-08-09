@@ -81,7 +81,14 @@ const ContactForm = ({ children }: { children: React.ReactNode }) => {
 										<label className="shink-0 order-1 text-sm" htmlFor={name}>
 											{label}
 										</label>
-										<input id={name} type={type || "text"} name={name} placeholder={placeholder} className="h-5 accent-pink" />
+										<input
+											id={name}
+											type={type || "text"}
+											name={name}
+											placeholder={placeholder}
+											defaultChecked={state?.wasSuccessful === false && state.submittedValues?.[name] === "on"}
+											className="h-5 accent-pink"
+										/>
 									</div>
 								) : (
 									<>
@@ -93,6 +100,7 @@ const ContactForm = ({ children }: { children: React.ReactNode }) => {
 											type={type || "text"}
 											name={name}
 											placeholder={placeholder}
+											defaultValue={state?.wasSuccessful === false ? state.submittedValues?.[name] : undefined}
 											className="w-full min-w-0 rounded-xl bg-white px-4 py-3 text-black outline-transparent duration-300 focus:outline-pink"
 										/>
 									</>
